@@ -1,3 +1,0 @@
-[submodule "web/mu-plugins/acf-dynamic-clones"]
-	path = web/mu-plugins/acf-dynamic-clones
-	url = git@github.com:vigetlabs/acf-dynamic-clones.git

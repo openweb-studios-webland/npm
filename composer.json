@@ -1,7 +1,7 @@
 {
-  "name": "vigetlabs/vigetpress",
+  "name": "vigetlabs/npm",
   "type": "project",
-  "description": "WordPress starter theme using Timber.",
+  "description": "WordPress theme for National Public Media.",
   "repositories": [
     {
       "type": "composer",

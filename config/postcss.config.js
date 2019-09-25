@@ -2,8 +2,9 @@ const dotenv = require('dotenv').config()
 const glob = require('glob')
 const path = require('path')
 const postcss = require('postcss')
-const tailwindcss = require('tailwindcss')
+const postcssEasyImport = require('postcss-easy-import')
 const postcssPresetEnv = require('postcss-preset-env')
+const tailwindcss = require('tailwindcss')
 const purgecss = require('@fullhuman/postcss-purgecss')
 const cssnano = require('cssnano')
 
@@ -43,7 +44,7 @@ const templateDependency = postcss.plugin('templateDependency', directory => {
 
 module.exports = {
   plugins: [
-    require('postcss-easy-import'),
+    postcssEasyImport,
     tailwindcss('./config/tailwindcss/tailwindcss.config.js'),
     postcssPresetEnv({
       features: {

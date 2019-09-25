@@ -1,4 +1,4 @@
-![VigetPress](https://user-images.githubusercontent.com/8126358/50785980-6f54a980-126f-11e9-924a-fc073c93dc77.png)
+# National Public Media
 
 - [Setup](#setup)
 - [Development](#development)

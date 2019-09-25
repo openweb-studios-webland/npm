@@ -10,16 +10,23 @@
               <img src="{{ post.thumbnail.src|resize(400, 300) }}" alt="{{ post.title }}">
             </a>
             <h3>
-              <a href="{{ post.link }}">{{ post.title }}</a>
+              <a href="{{ post.link }}">
+                {{ post.title }}
+              </a>
             </h3>
-            <p>{{ post.get_preview(10, false, false) }}</p>
+            <p>
+              {{ post.get_preview(10, false, false) }}
+            </p>
 
-            {% set categories = post.terms('category')|slice(0, 2) %}
+            {% set categories = post.terms('category') | slice(0, 2) %}
+
             {% if categories %}
               <ul>
                 {% for category in categories %}
                   <li>
-                    <a href="{{ category.link }}">{{ category.title }}</a>
+                    <a href="{{ category.link }}">
+                      {{ category.title }}
+                    </a>
                   </li>
                 {% endfor %}
               </ul>
@@ -28,7 +35,7 @@
         {% endfor %}
       </ul>
 
-      {% include "parts/pagination.twig" with {
+      {% include "_partials/pagination.twig" with {
         posts: posts,
       } %}
 

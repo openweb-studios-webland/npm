@@ -6,7 +6,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Must-Use Autoloader
- * Plugin URI:        https://github.com/vigetlabs/VigetPress
+ * Plugin URI:        https://github.com/vigetlabs/npm
  * Description:       Autoload must-use plugins.
  * Version:           1.0.0
  * Author:            Justin Vandenberg

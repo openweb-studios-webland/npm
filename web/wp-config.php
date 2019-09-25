@@ -8,6 +8,8 @@
 // https://pantheon.io/docs
 //
 
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
 if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
 
   // Pantheon config
@@ -59,9 +61,6 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
 } else {
 
   // Local .env config
-
-  // Include any autoloaded Composer classes
-  require_once dirname(__DIR__) . '/vendor/autoload.php';
 
   Env::init();
 

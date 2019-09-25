@@ -17,13 +17,12 @@ Thumbs.db
 
 # Dependencies
 node_modules
-vendor
 package-lock.json
 yarn-error.log
 
 # WordPress
 license.txt
-web/wp
+!web/wp
 web/uploads
 web/blogs.dir
 web/upgrade/*
@@ -32,11 +31,10 @@ web/advanced-cache.php
 web/wp-cache-config.php
 web/cache/*
 web/cache/supercache/*
-web/mu-plugins/*
+!web/mu-plugins
 !web/mu-plugins/mu-autoloader.php
 !web/mu-plugins/acf-dynamic-clones
-web/plugins/*
-!web/plugins/.gitkeep
+!web/plugins
 web/themes/**/build
 
 # WP Engine

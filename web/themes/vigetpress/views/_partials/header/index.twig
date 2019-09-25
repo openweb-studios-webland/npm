@@ -1,0 +1,30 @@
+<nav data-label="header">
+  <div class="container">
+    <a class="inline-block" href="{{ site.url }}">
+      {% set logo = TimberImage(options.header_logo) %}
+
+      <img
+        src="{{ logo.src | resize(300) }}"
+        srcset="{{ logo.srcset }}"
+        alt="{{ logo.alt }}"
+        width="200"
+        height="auto"
+      >
+    </a>
+
+    {% if menu.header.items | length %}
+      <nav role="navigation">
+        {% include '_partials/menu.twig' with {
+          'items': menu.header.items
+        } %}
+      </nav>
+    {% endif %}
+
+    <button class="lg:hidden">
+      <span class="sr-only">
+        Menu
+      </span>
+      <span></span>
+    </button>
+  </div>
+</nav>

@@ -1,0 +1,51 @@
+# System
+*~
+*.bak
+*.swp
+.DS_Store
+.svn
+.cvs
+.htaccess
+.htaccess.*
+!.htaccess.example
+Thumbs.db
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules
+vendor
+package-lock.json
+yarn-error.log
+
+# WordPress
+license.txt
+web/wp
+web/uploads
+web/blogs.dir
+web/upgrade/*
+web/backup-db/*
+web/advanced-cache.php
+web/wp-cache-config.php
+web/cache/*
+web/cache/supercache/*
+web/mu-plugins/*
+!web/mu-plugins/mu-autoloader.php
+!web/mu-plugins/acf-dynamic-clones
+web/plugins
+web/themes/**/build
+
+# WP Engine
+.smushit-status
+.gitattributes
+_wpeprivate*
+web/object-cache.php
+web/mu-plugins/mu-plugin.php
+web/mu-plugins/slt-force-strong-passwords.php
+web/mu-plugins/stop-long-comments.php
+web/mu-plugins/force-strong-passwords*
+web/mu-plugins/wpengine-common*
+web/mysql.sql

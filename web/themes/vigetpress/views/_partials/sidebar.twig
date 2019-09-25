@@ -1,0 +1,31 @@
+<aside data-label="sidebar">
+  {% if sidebar.posts | length %}
+    <h3>
+      Recent Posts
+    </h3>
+    <ul>
+      {% for post in sidebar.posts %}
+        <li>
+          <a href="{{ post.link }}" alt="">
+            {{ post.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if sidebar.categories | length %}
+    <h3>
+      Categories
+    </h3>
+    <ul>
+      {% for category in sidebar.categories %}
+        <li>
+          <a href="{{ category.link }}" alt="">
+            {{ category.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</aside>

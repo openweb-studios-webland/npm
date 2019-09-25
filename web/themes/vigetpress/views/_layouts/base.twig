@@ -1,0 +1,28 @@
+<!doctype html>
+<html dir="ltr" lang="en" class="no-js">
+  <head>
+      <meta charset="{{ site.charset }}">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <title>{{ site.name }}</title>
+
+      {{ wp_head }}
+  </head>
+  <body class="{{ body_class }}">
+    <a class="sr-only focus:sr-undo" href="#main">
+      Skip to Content
+    </a>
+
+    {% include '_partials/header/index.twig' %}
+
+    <main id="#main" role="main" tabindex="-1">
+      {% block content %}
+        Sorry, we couldn't find the associated content.
+      {% endblock %}
+    </main>
+
+    {% include '_partials/footer/index.twig' %}
+
+    {{ wp_footer }}
+  </body>
+</html>

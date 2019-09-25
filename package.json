@@ -1,7 +1,7 @@
 {
   "name": "NPM",
-  "version": "1.0.6",
-  "author": "<justinjvandenberg@gmail.com>",
+  "version": "1.0.0",
+  "author": "<justin.vandenberg@viget.com>",
   "repository": "git@github.com:vigetlabs/npm.git",
   "license": "ISC",
   "main": "index.js",

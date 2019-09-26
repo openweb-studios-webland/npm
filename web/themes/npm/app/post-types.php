@@ -2,14 +2,15 @@
 
 function register_post_types()
 {
-    register_post_type('examples',
+    register_post_type('programs',
         array(
             'labels' => array(
-                'name' => __('Examples'),
-                'singular_name' => __('Example'),
+                'name' => __('Programs'),
+                'singular_name' => __('Program'),
             ),
             'public' => true,
             'has_archive' => false,
+            'menu_icon' => 'dashicons-screenoptions',
         )
     );
 }

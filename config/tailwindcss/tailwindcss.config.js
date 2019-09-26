@@ -78,7 +78,7 @@ module.exports = {
       lg: '0px 30px 40px rgba(0, 0, 0, 0.25)',
       default: '0px 30px 30px rgba(0, 0, 0, 0.15)',
     },
-    container: false,
+    container: {},
     cursor: {
       auto: 'auto',
       default: 'default',
@@ -290,7 +290,9 @@ module.exports = {
     wordBreak: false,
     zIndex: ['responsive'],
   },
-  corePlugins: {},
+  corePlugins: {
+    container: false,
+  },
   plugins: [
     require('./plugins/aspect-ratio')({
       aspectRatios: {

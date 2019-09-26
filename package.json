@@ -41,6 +41,6 @@
     "what-input": "^5.1.2"
   },
   "dependencies": {
-    "tailwindcss": "^1.0.4"
+    "tailwindcss": "^1.1.2"
   }
 }

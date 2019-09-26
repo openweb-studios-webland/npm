@@ -39,7 +39,7 @@ module.exports = merge(common, {
       ignore: ['*.css', '*.scss', '*.sass', '*.js'],
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
+      filename: 'app.[contenthash].css',
     }),
     new ManifestPlugin({
       publicPath: '',

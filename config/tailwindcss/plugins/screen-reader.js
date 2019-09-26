@@ -1,7 +1,7 @@
-module.exports = ({ variants }) => {
+module.exports = ({ variants = [] }) => {
   return ({ addUtilities }) => {
-    const utilities = {
-      '.sr-only': {
+    const newUtilities = {
+      '.screen-reader-only': {
         border: '0',
         clip: 'rect(0 0 0 0)',
         height: '1px',
@@ -11,7 +11,7 @@ module.exports = ({ variants }) => {
         position: 'absolute',
         width: '1px',
       },
-      '.sr-undo': {
+      '.screen-reader-undo': {
         clip: 'auto',
         height: 'auto',
         margin: '0',
@@ -21,6 +21,6 @@ module.exports = ({ variants }) => {
       },
     }
 
-    addUtilities(utilities, variants)
+    addUtilities(newUtilities, variants)
   }
 }

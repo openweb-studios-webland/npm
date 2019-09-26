@@ -1,7 +1,14 @@
 @charset "UTF-8";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind base and components */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
 
+/* Elements */
+@import "./elements/*.css";
+
+/* Tailwind utilities */
+@import "tailwindcss/utilities";
+
+/* _blocks, _layouts, _partials, and templates */
 @import "../../views/**/*.css";

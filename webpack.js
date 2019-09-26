@@ -31,5 +31,4 @@ module.exports = {
     ],
   },
   plugins: [new CleanWebpackPlugin()],
-  stats: 'errors-only',
 }

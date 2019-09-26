@@ -10,7 +10,7 @@ const cssnano = require('cssnano')
 
 const TEMPLATE_EXT = 'twig'
 
-//å Custom Tailwind extractor for Purgecss
+// Custom Tailwind extractor for Purgecss
 class TailwindExtractor {
   static extract(content) {
     return content.match(/[A-Za-z0-9-_:\/]+/g) || []

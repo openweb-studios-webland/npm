@@ -1,0 +1,11 @@
+.section {
+  @apply py-50;
+
+  @screen md {
+    @apply py-75;
+  }
+
+  @screen lg {
+    @apply py-100;
+  }
+}

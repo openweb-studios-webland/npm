@@ -19,9 +19,9 @@ module.exports = {
         light: '#65bdff',
         link: '#0a6eb9',
         default: '#242c70',
-      }
+      },
       gray: {
-        'a11y': '#707070',
+        a11y: '#707070',
         border: '#c4c4c4',
         default: '#f4f4f4',
       },
@@ -32,11 +32,15 @@ module.exports = {
       '10': '0.625rem',
       '15': '0.9375rem',
       '20': '1.25rem',
+      '25': '1.5625rem',
       '30': '1.875rem',
       '40': '2.5rem',
       '50': '3.125rem',
       '60': '3.75rem',
+      '75': '4.6875rem',
       '100': '6.25rem',
+      '150': '9.375rem',
+      '200': '12.5rem',
     },
     backgroundColor: theme => theme('colors'),
     backgroundPosition: {
@@ -66,14 +70,15 @@ module.exports = {
     borderWidth: {
       default: '1px',
       '0': '0',
+      '2': '2px',
     },
     boxShadow: {
       none: 'none',
       sm: '0px 20px 30px rgba(0, 0, 0, 0.15)',
       lg: '0px 30px 40px rgba(0, 0, 0, 0.25)',
-      default: '0px 30px 30px rgba(0, 0, 0, 0.15)';
+      default: '0px 30px 30px rgba(0, 0, 0, 0.15)',
     },
-    container: {},
+    container: false,
     cursor: {
       auto: 'auto',
       default: 'default',
@@ -100,11 +105,7 @@ module.exports = {
       default: '1',
     },
     fontFamily: {
-      sans: [
-        'Gotam',
-        'Arial',
-        'sans-serif',
-      ],
+      sans: ['Gotham', 'Arial', 'sans-serif'],
       serif: ['Georgia', 'Times', '"Times New Roman"', 'serif'],
     },
     fontSize: {
@@ -113,10 +114,13 @@ module.exports = {
       '14': '0.875rem',
       '16': '1rem',
       '18': '1.125rem',
+      '20': '1.25rem',
       '22': '1.375rem',
       '24': '1.5rem',
       '36': '2.25rem',
+      '42': '2.625rem',
       '48': '3rem',
+      '64': '4rem',
       '88': '5.5rem',
     },
     fontWeight: {
@@ -201,11 +205,12 @@ module.exports = {
     width: theme => ({
       auto: 'auto',
       '1/3': '33.33333%',
-      '5/12': '41.66667%'
+      '5/12': '41.66667%',
       '1/2': '50%',
-      '7/12': '58.33333%'
+      '7/12': '58.33333%',
       '2/3': '66.66667%',
       '3/4': '75%',
+      '13/10': '133.33333%',
       full: '100%',
       screen: '100vw',
     }),
@@ -250,19 +255,19 @@ module.exports = {
     fontStyle: ['responsive'],
     fontWeight: ['responsive'],
     height: ['responsive'],
-    inset: [],
+    inset: ['responsive'],
     justifyContent: ['responsive'],
     letterSpacing: ['responsive'],
     lineHeight: ['responsive'],
-    listStylePosition: [],
-    listStyleType: [],
+    listStylePosition: false,
+    listStyleType: false,
     margin: ['responsive'],
     maxHeight: ['responsive'],
     maxWidth: ['responsive'],
     minHeight: ['responsive'],
     minWidth: ['responsive'],
-    objectFit: [],
-    objectPosition: [],
+    objectFit: false,
+    objectPosition: false,
     opacity: ['responsive'],
     order: ['responsive'],
     outline: false,
@@ -287,7 +292,14 @@ module.exports = {
   },
   corePlugins: {},
   plugins: [
-    require('./plugins/sr')({
+    require('./plugins/aspect-ratio')({
+      aspectRatios: {
+        square: [1, 1],
+        '16/9': [16, 9],
+      },
+      variants: ['responsive'],
+    }),
+    require('./plugins/screen-reader')({
       variants: ['focus'],
     }),
   ],

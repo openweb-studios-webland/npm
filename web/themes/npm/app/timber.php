@@ -12,8 +12,8 @@ if (!class_exists('Timber')) {
 // Set the location of the Twig files
 Timber::$dirname = array('templates', 'views');
 
-// By default, Timber does NOT autoescape values (why?)
-Timber::$autoescape = true;
+// By default, Timber does NOT autoescape values
+Timber::$autoescape = false;
 
 class Site extends Timber\Site
 {

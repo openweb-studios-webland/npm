@@ -1,0 +1,57 @@
+.button,
+[class*="button-"] {
+  @apply bg-pink
+    border-2
+    border-pink
+    font-bold
+    inline-block
+    leading-none
+    no-underline
+    p-20
+    rounded-full
+    text-center
+    text-white
+    w-full;
+
+    @screen lg {
+      @apply px-30
+        py-25
+        w-auto;
+    }
+}
+
+@variants responsive, hover, focus {
+  .button-pink {
+    @apply bg-pink
+      border-pink
+      text-white;
+  }
+
+  .button-white {
+    @apply bg-white
+      border-white
+      text-pink;
+  }
+
+  .button-outline-blue,
+  .button-outline-pink {
+    @apply bg-transparent;
+  }
+
+  .button-outline-blue {
+    @apply border-blue-link;
+  }
+
+  .button-outline-pink {
+    @apply border-pink
+      text-pink;
+  }
+
+  .button-small {
+    @apply px-20
+      py-15
+      text-12
+      tracking-wide
+      uppercase;
+  }
+}

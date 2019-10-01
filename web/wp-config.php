@@ -32,7 +32,7 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
     // A couple extra tweaks to help things run well on Pantheon
     if (isset($_SERVER['HTTP_HOST'])) {
         // HTTP is still the default scheme for now
-        $scheme = 'http';
+        $scheme = 'https';
 
         /**
          * If we have detected that the end use is HTTPS, make sure we pass that

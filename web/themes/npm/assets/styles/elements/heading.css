@@ -13,7 +13,15 @@
 .text h6,
 .head-8 {
   @apply font-bold
-    mb-30;
+    mb-20;
+
+  @screen md {
+    @apply mb-25;
+  }
+
+  @screen lg {
+    @apply mb-30;
+  }
 }
 
 .head-1 {
@@ -50,7 +58,15 @@
 
 .head-3,
 .text h2 {
-  @apply text-36;
+  @apply text-24;
+
+  @screen md {
+    @apply text-30;
+  }
+
+  @screen lg {
+    @apply text-36;
+  }
 }
 
 .head-4,

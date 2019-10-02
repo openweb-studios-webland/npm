@@ -1,0 +1,52 @@
+{% set block = block ?? null %}
+
+{% if block %}
+  <section class="section" data-label="cards">
+    <div class="container">
+      {% if block.heading %}
+        <h2 class="head-3 text-center">
+          {{ block.heading }}
+        </h2>
+      {% endif %}
+
+      {% if block.cards | length %}
+        <div class="lg:flex lg:shadow">
+          {% for card in block.cards %}
+            <div class="{{ not loop.last ? 'mb-30 ' }}shadow-sm lg:flex-1 lg:shadow-none">
+              {% set image = TimberImage(card.image) %}
+
+              {% if image %}
+                <img
+                  src="{{ image.src | resize(1440, 900) }}"
+                  srcset="{{ image.srcset }}"
+                  alt="{{ image.alt }}"
+                />
+              {% endif %}
+
+              <div class="p-30 lg:py-50">
+                {% if card.heading %}
+                  <h3 class="head-4">
+                    {{ card.heading }}
+                  </h3>
+                {% endif %}
+
+                {% if card.text %}
+                  <div class="text">
+                    {{ card.text }}
+                  </div>
+                {% endif %}
+
+                {% if card.button_link and card.button_text %}
+                  <a class="link mt-20 md:mt-25 lg:mt-30" href="{{ card.button_link }}">
+                    {{ card.button_text }}
+                    {{ svg('link', {attr: {class: 'fill-current'}}) }}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

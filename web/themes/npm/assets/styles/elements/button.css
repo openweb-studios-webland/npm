@@ -15,7 +15,7 @@
 
     @screen md {
       @apply px-30
-        py-25
+        py-20
         w-auto;
     }
 }

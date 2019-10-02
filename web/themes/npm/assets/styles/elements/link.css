@@ -1,5 +1,11 @@
-@variants responsive, hover, focus {
- .link {
-   @apply text-blue-link;
- }
+/*! purgecss start ignore */
+.link {
+  @apply flex
+    items-center
+    text-blue-link;
+
+  & svg {
+    @apply ml-10;
+  }
 }
+/*! purgecss end ignore */

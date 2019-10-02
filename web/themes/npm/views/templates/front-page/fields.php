@@ -20,8 +20,10 @@ if (function_exists('acf_add_local_field_group')):
                     'id' => '',
                 ),
                 'layouts' => array(
+                    acf_dynamic_clones_get_local_field_group('cards'),
                     acf_dynamic_clones_get_local_field_group('hero'),
                     acf_dynamic_clones_get_local_field_group('programs'),
+                    acf_dynamic_clones_get_local_field_group('stats'),
                 ),
                 'button_label' => 'Add a Block',
                 'min' => '',

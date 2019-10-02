@@ -18,8 +18,8 @@
             </div>
           {% endif %}
 
-          <a href="#">
-            Podcast Sponsorships
+          <a class="link" href="#">
+            Podcast sponsorship
           </a>
         </div>
       </div>
@@ -49,7 +49,9 @@
 
                       {% if program.short_text %}
                         <div class="text text-14">
-                          {{ program.short_text }}
+                          <p>
+                            {{ program.short_text }}
+                          </p>
                         </div>
                       {% endif %}
 
@@ -90,7 +92,9 @@
 
                       {% if program.text %}
                         <div class="mb-20 text text-14">
-                          {{ program.text }}
+                          <p>
+                            {{ program.text }}
+                          </p>
                         </div>
                       {% endif %}
 

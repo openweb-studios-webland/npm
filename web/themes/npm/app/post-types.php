@@ -2,7 +2,19 @@
 
 function register_post_types()
 {
-    register_post_type('programs',
+    register_post_type('platform',
+        array(
+            'labels' => array(
+                'name' => __('Platforms'),
+                'singular_name' => __('Platform'),
+            ),
+            'public' => true,
+            'has_archive' => false,
+            'menu_icon' => '',
+        )
+    );
+
+    register_post_type('program',
         array(
             'labels' => array(
                 'name' => __('Programs'),
@@ -10,7 +22,8 @@ function register_post_types()
             ),
             'public' => true,
             'has_archive' => false,
-            'menu_icon' => 'dashicons-screenoptions',
+            'menu_icon' => '',
+            'taxonomies' => array('topics'),
         )
     );
 }

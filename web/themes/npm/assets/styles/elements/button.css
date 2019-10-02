@@ -13,7 +13,7 @@
     text-white
     w-full;
 
-    @screen lg {
+    @screen md {
       @apply px-30
         py-25
         w-auto;

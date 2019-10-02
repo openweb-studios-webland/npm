@@ -9,13 +9,18 @@
       {{ wp_head }}
   </head>
   <body class="{{ body_class }}">
-    <a class="sr-only focus:sr-undo" href="#main">
+    <a class="screen-reader-only focus:screen-reader-undo" href="#main">
       Skip to Content
     </a>
 
     {% include '_partials/header/index.twig' %}
 
-    <main id="#main" role="main" tabindex="-1">
+    <main
+      id="#main"
+      class="overflow-x-hidden"
+      role="main"
+      tabindex="-1"
+    >
       {% block content %}
         Sorry, we couldn't find the associated content.
       {% endblock %}

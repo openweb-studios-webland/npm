@@ -1,0 +1,9 @@
+@variants responsive {
+  .bg-none {
+    background-image: none;
+  }
+
+  .bg-gradient {
+    background: linear-gradient(165deg, theme(colors.pink) 0%, theme(colors.purple) 100%);
+  }
+}

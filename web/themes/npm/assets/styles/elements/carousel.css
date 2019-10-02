@@ -1,0 +1,9 @@
+[data-carousel-item][aria-hidden] {
+  @apply opacity-50
+    pointer-events-auto
+    visible;
+
+  @screen md {
+    @apply opacity-100;
+  }
+}

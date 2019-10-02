@@ -1,5 +1,7 @@
 <?php
 
+use manuelodelain\Twig\Extension\SvgExtension;
+
 // Ensure that Timber is loaded and available as a PHP class
 if (!class_exists('Timber')) {
     add_action('admin_notices', function () {
@@ -42,6 +44,7 @@ class Site extends Timber\Site
     public function add_to_twig($twig)
     {
         // Add custom functions to Twig
+        $twig->addExtension(new SvgExtension('themes/npm/assets/images'));
 
         return $twig;
     }

@@ -14,6 +14,7 @@ module.exports = {
       black: '#161616',
       white: '#fff',
       pink: '#db3053',
+      purple: '#161c58',
       teal: '#0c8483',
       blue: {
         light: '#65bdff',
@@ -29,6 +30,7 @@ module.exports = {
     spacing: {
       px: '1px',
       '0': '0',
+      '5': '0.3125rem',
       '10': '0.625rem',
       '15': '0.9375rem',
       '20': '1.25rem',
@@ -130,11 +132,13 @@ module.exports = {
     height: theme => ({
       auto: 'auto',
       '0': '0',
+      '44': '2.75rem',
       full: '100%',
       screen: '100vh',
     }),
     inset: {
       '0': '0',
+      '1/2': '50%',
       auto: 'auto',
     },
     letterSpacing: {
@@ -204,12 +208,14 @@ module.exports = {
     textColor: theme => theme('colors'),
     width: theme => ({
       auto: 'auto',
+      '1/4': '25%',
       '1/3': '33.33333%',
       '5/12': '41.66667%',
       '1/2': '50%',
       '7/12': '58.33333%',
       '2/3': '66.66667%',
       '3/4': '75%',
+      '44': '2.75rem',
       full: '100%',
       screen: '100vw',
     }),
@@ -272,7 +278,7 @@ module.exports = {
     outline: false,
     overflow: ['responsive'],
     padding: ['responsive'],
-    pointerEvents: false,
+    pointerEvents: [],
     position: ['responsive'],
     resize: false,
     stroke: false,
@@ -294,7 +300,7 @@ module.exports = {
   },
   plugins: [
     require('./plugins/aspect-ratio')({
-      aspectRatios: {
+      dimensions: {
         square: [1, 1],
         '16/9': [16, 9],
       },
@@ -302,6 +308,16 @@ module.exports = {
     }),
     require('./plugins/screen-reader')({
       variants: ['focus'],
+    }),
+    require('./plugins/transition')({
+      transitions: {
+        slow: 'all 0.4s ease',
+        fast: 'all 0.2s ease',
+        default: 'all 0.3s ease',
+      },
+    }),
+    require('./plugins/translate')({
+      variants: ['responsive'],
     }),
   ],
 }

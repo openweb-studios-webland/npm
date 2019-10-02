@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8da218d0201be857a77659eae7255076",
+    "content-hash": "8df2a131c9078c2e5cf9c4622d4b43f2",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -325,6 +325,33 @@
                 "wordpress"
             ],
             "time": "2018-11-09T20:10:38+00:00"
+        },
+        {
+            "name": "manuelodelain/svg-twig-extension",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/manuelodelain/svg-twig-extension.git",
+                "reference": "7850120e4c93165828cc6c8d8da9ba7f0991b7dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/manuelodelain/svg-twig-extension/zipball/7850120e4c93165828cc6c8d8da9ba7f0991b7dd",
+                "reference": "7850120e4c93165828cc6c8d8da9ba7f0991b7dd",
+                "shasum": ""
+            },
+            "require-dev": {
+                "twig/twig": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "manuelodelain\\Twig\\Extension\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Add inline svg with Twig",
+            "time": "2017-11-13T13:15:05+00:00"
         },
         {
             "name": "oscarotero/env",

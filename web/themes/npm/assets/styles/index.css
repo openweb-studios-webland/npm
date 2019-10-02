@@ -7,6 +7,9 @@
 /* Elements */
 @import "./elements/*.css";
 
+/* Utilities */
+@import "./utilities/*.css";
+
 /* Tailwind utilities */
 @import "tailwindcss/utilities";
 

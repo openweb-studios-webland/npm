@@ -1,6 +1,7 @@
 /*! purgecss start ignore */
 .link {
   @apply flex
+    font-bold
     items-center
     text-blue-link;
 

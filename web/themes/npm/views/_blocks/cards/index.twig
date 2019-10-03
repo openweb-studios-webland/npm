@@ -1,18 +1,18 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section" data-label="cards">
+  <section class="section" data-label="{{ block.acf_fc_layout }}">
     <div class="container">
       {% if block.heading %}
-        <h2 class="head-3 text-center">
+        <h2 class="heading-3 text-center">
           {{ block.heading }}
         </h2>
       {% endif %}
 
       {% if block.cards | length %}
-        <div class="lg:flex lg:shadow">
+        <div class="-mb-30 lg:flex lg:shadow">
           {% for card in block.cards %}
-            <div class="{{ not loop.last ? 'mb-30 ' }}shadow-sm lg:flex-1 lg:shadow-none">
+            <div class="mb-30 shadow-sm lg:flex-1 lg:shadow-none">
               {% set image = TimberImage(card.image) %}
 
               {% if image %}
@@ -25,7 +25,7 @@
 
               <div class="p-30 lg:py-50">
                 {% if card.heading %}
-                  <h3 class="head-4">
+                  <h3 class="heading-4">
                     {{ card.heading }}
                   </h3>
                 {% endif %}

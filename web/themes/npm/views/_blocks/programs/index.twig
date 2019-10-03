@@ -1,13 +1,13 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="bg-gradient section lg:bg-none lg:bg-transparent lg:-mt-50 lg:pt-150 lg:relative" data-label="programs">
+  <section class="bg-gradient section lg:bg-none lg:bg-transparent lg:-mt-50 lg:pt-150 lg:relative" data-label="{{ block.type }}">
     <div class="absolute h-full hidden left-0 top-0 w-1/3 lg:bg-gradient lg:block"></div>
     <div class="relative lg:flex lg:items-center lg:-mx-30">
       <div class="mb-50 px-20 md:md-75 lg:mb-0 lg:px-30 lg:w-1/4">
         <div class="text-white lg:pl-60">
           {% if block.heading %}
-            <h2 class="head-4">
+            <h2 class="heading-4">
               {{ block.heading }}
             </h2>
           {% endif %}
@@ -18,8 +18,9 @@
             </div>
           {% endif %}
 
-          <a class="link" href="#">
+          <a class="link mt-20 text-white md:mt-25 lg:mt-30" href="#">
             Podcast sponsorship
+            {{ svg('link', {attr: {class: 'fill-current'}}) }}
           </a>
         </div>
       </div>
@@ -42,7 +43,7 @@
 
                     <div class="p-20">
                       {% if program.heading %}
-                        <h3 class="head-4 mb-10">
+                        <h3 class="heading-4 mb-10">
                           {{ program.heading }}
                         </h3>
                       {% endif %}
@@ -75,7 +76,7 @@
                           Close
                         </span>
                       </button>
-                      <h3 class="head-4 mb-20">
+                      <h3 class="heading-4 mb-20">
                         {{ program.title }}
                       </h3>
 
@@ -84,7 +85,7 @@
                           <span class="block font-normal mb-5 text-11 text-gray-a11y">
                             Hosted by
                           </span>
-                          <span class="head-5">
+                          <span class="heading-5">
                             {{ program.host }}
                           </span>
                         </div>
@@ -130,7 +131,7 @@
                 </div>
               {% endfor %}
             </div>
-            <div class="flex justify-center mt-30 my-5 -mx-10 lg:justify-end lg:-mx-5">
+            <div class="flex justify-center mt-30 -mx-10 lg:justify-end lg:-mx-5">
               <div class="px-10 lg:px-5">
                 <button class="h-44 text-white w-44 lg:text-purple" data-carousel-prev>
                   {{ svg('arrow-left', {attr: {class: 'fill-current'}}) }}

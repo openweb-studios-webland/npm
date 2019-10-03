@@ -1,0 +1,75 @@
+{% set block = block ?? null %}
+
+{% if block %}
+  <section class="bg-teal" data-label="{{ block.acf_fc_layout }}">
+    {% if block.quotes | length %}
+      <div class="overflow-x-hidden relative" data-module="carousel">
+        <div class="flex relative" data-carousel-track>
+          {% for quote in block.quotes %}
+            <div class="flex-0 relative w-full" data-carousel-item>
+              <div class="container">
+                <div class="lg:flex lg:flex-row-reverse lg:items-center">
+                  <div class="-mx-20 lg:mx-0 lg:w-1/2">
+                    {% set image = TimberImage(quote.image) %}
+
+                    {% if image %}
+                      <img
+                        class="lg:max-w-none lg:w-1/2-screen"
+                        src="{{ image.src | resize(1440, 1440) }}"
+                        srcset="{{ image.srcset }}"
+                        alt="{{ image.alt }}"
+                      />
+                    {% endif %}
+                  </div>
+                  <div class="pt-50 text-white md:pt-75 lg:pr-60 lg:py-100 lg:w-1/2">
+                    {% if quote.heading %}
+                      <h2 class="heading-3">
+                        {{ quote.heading }}
+                      </h2>
+                    {% endif %}
+
+                    {% if quote.text %}
+                      <div class="font-serif italic text text-24">
+                        {{ quote.text }}
+                      </div>
+                    {% endif %}
+
+                    {% if quote.attribution %}
+                      <div class="text mt-20 md:mt-25 lg:mt-30">
+                        <p>
+                          {{ quote.attribution }}
+                        </p>
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="pb-50 md:pb-75 lg:absolute lg:bottom-0 lg:left-0 lg:mb-30 lg:py-0 lg:w-full">
+          <div class="container">
+            <div class="flex justify-center mt-30 -mx-10 lg:justify-start lg:mt-0 lg:-mx-5">
+              <div class="px-10 lg:px-5">
+                <button class="h-44 text-white w-44" data-carousel-prev>
+                  {{ svg('arrow-left', {attr: {class: 'fill-current'}}) }}
+                  <span class="screen-reader-only">
+                    Previous
+                  </span>
+                </button>
+              </div>
+              <div class="px-10 lg:px-5">
+                <button class="h-44 text-white w-44" data-carousel-next>
+                  {{ svg('arrow-right', {attr: {class: 'fill-current'}}) }}
+                  <span class="screen-reader-only">
+                    Next
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </section>
+{% endif %}

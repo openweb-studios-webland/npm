@@ -12,12 +12,13 @@
     text-center
     text-white
     w-full;
+  min-width: 250px;
 
-    @screen md {
-      @apply px-30
-        py-20
-        w-auto;
-    }
+  @screen md {
+    @apply px-30
+      py-20
+      w-auto;
+  }
 }
 
 @variants responsive, hover, focus {

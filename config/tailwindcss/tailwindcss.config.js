@@ -168,6 +168,7 @@ module.exports = {
     },
     maxWidth: {
       '0': '0',
+      none: 'none',
       full: '100%',
     },
     minHeight: {
@@ -218,6 +219,7 @@ module.exports = {
       '3/4': '75%',
       '44': '2.75rem',
       full: '100%',
+      '1/2-screen': '50vw',
       screen: '100vw',
     }),
     zIndex: {

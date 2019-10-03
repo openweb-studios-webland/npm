@@ -126,7 +126,7 @@ export default class Carousel {
 
     if (this.config.loop && (this.config.current <= 0 || this.config.current > itemsCount)) {
       this.config.current =
-        this.config.current <= 0 ? itemsCount - this.config.itemsOffset - 1 : this.config.itemsOffset
+        this.config.current <= 0 ? itemsCount - this.config.itemsOffset + 1 : this.config.itemsOffset
 
       onTransitionEnd = () => {
         this.track.removeEventListener('transitionend', onTransitionEnd, false)

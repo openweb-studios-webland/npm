@@ -1,17 +1,17 @@
-.head-1,
-.head-2,
+.heading-1,
+.heading-2,
 .text h1,
-.head-3,
+.heading-3,
 .text h2,
-.head-4,
+.heading-4,
 .text h3,
-.head-5,
+.heading-5,
 .text h4,
-.head-6,
+.heading-6,
 .text h5,
-.head-7,
+.heading-7,
 .text h6,
-.head-8 {
+.heading-8 {
   @apply font-bold
     mb-20;
 
@@ -24,7 +24,7 @@
   }
 }
 
-.head-1 {
+.heading-1 {
   @apply leading-none
     text-42;
 
@@ -37,26 +37,34 @@
   }
 }
 
-.head-2,
+.heading-2,
 .text h1,
-.head-3,
+.heading-3,
 .text h2,
-.head-4,
+.heading-4,
 .text h3,
-.head-5,
+.heading-5,
 .text h4,
-.head-6,
+.heading-6,
 .text h5
-.head-8 {
+.heading-8 {
   @apply leading-tighter;
 }
 
-.head-2,
+.heading-2,
 .text h1 {
-  @apply text-48;
+  @apply text-24;
+
+  @screen md {
+    @apply text-36;
+  }
+
+  @screen lg {
+    @apply text-48;
+  }
 }
 
-.head-3,
+.heading-3,
 .text h2 {
   @apply text-24;
 
@@ -69,27 +77,27 @@
   }
 }
 
-.head-4,
+.heading-4,
 .text h3 {
   @apply text-24;
 }
 
-.head-5,
+.heading-5,
 .text h4 {
   @apply text-22;
 }
 
-.head-6,
+.heading-6,
 .text h5 {
   @apply text-12;
 }
 
-.head-7,
+.heading-7,
 .text h6 {
   @apply leading-tight
     text-18;
 }
 
-.head-8 {
+.heading-8 {
   @apply text-16;
 }

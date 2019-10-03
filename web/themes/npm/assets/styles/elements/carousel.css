@@ -1,7 +1,11 @@
 [data-carousel-item][aria-hidden] {
-  @apply opacity-50
+  @apply opacity-100
     pointer-events-auto
     visible;
+}
+
+[data-label="programs"][data-carousel-item][aria-hidden] {
+  @apply opacity-50;
 
   @screen md {
     @apply opacity-100;

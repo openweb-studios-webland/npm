@@ -87,7 +87,7 @@ class Acf_Dynamic_Clones_Admin
     public static function acf_dynamic_clones_add_local_field_group($field_group)
     {
         $field_group['active'] = false;
-        $field_group_name = strtolower(str_replace(' ', '_', $field_group['title']));
+        $field_group_name = strtolower(str_replace(' ', '-', $field_group['title']));
         $field_group_key = $field_group['key'];
 
         self::$field_groups[$field_group_name] = $field_group_key;

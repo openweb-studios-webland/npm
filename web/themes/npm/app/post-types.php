@@ -2,11 +2,11 @@
 
 function register_post_types()
 {
-    register_post_type('platform',
+    register_post_type('format',
         array(
             'labels' => array(
-                'name' => __('Platforms'),
-                'singular_name' => __('Platform'),
+                'name' => __('Formats'),
+                'singular_name' => __('Format'),
             ),
             'public' => true,
             'has_archive' => false,
@@ -23,7 +23,7 @@ function register_post_types()
             'public' => true,
             'has_archive' => false,
             'menu_icon' => '',
-            'taxonomies' => array('topics'),
+            'taxonomies' => array('topic'),
         )
     );
 }

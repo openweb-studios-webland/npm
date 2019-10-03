@@ -34,7 +34,7 @@ class Site extends Timber\Site
 
     public function add_to_context($context)
     {
-        $context['menu']['header'] = new Timber\Menu('header', ['depth' => 2]);
+        $context['menu']['header'] = new Timber\Menu('header', ['depth' => 3]);
         $context['menu']['footer'] = new Timber\Menu('footer', ['depth' => 1]);
         $context['site'] = $this;
 

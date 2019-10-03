@@ -3,18 +3,26 @@
 function register_taxonomies()
 {
     register_taxonomy(
-        'topics',
-        array('program'),
+        'platform',
+        'format',
         array(
-            'hierarchical' => true,
+            'labels' => array(
+                'name' => __('Platforms'),
+                'singular_name' => __('Platform'),
+            ),
+            'show_admin_column' => true,
+        )
+    );
+
+    register_taxonomy(
+        'topic',
+        'program',
+        array(
             'labels' => array(
                 'name' => __('Topics'),
                 'singular_name' => __('Topic'),
             ),
-            'show_ui' => true,
             'show_admin_column' => true,
-            'query_var' => true,
-            'rewrite' => array('slug' => 'topic'),
         )
     );
 }

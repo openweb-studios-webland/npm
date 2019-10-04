@@ -1,30 +1,35 @@
 <nav data-label="header">
-  <div class="container">
-    <a class="inline-block" href="{{ site.url }}">
-      {% set logo = TimberImage(options.header_logo) %}
+  <div class="flex -mx-20">
+    <div class="px-20">
+      <a class="inline-block" href="{{ site.url }}">
+        {% set logo = TimberImage(options.header_logo) %}
 
-      <img
-        src="{{ logo.src | resize(300) }}"
-        srcset="{{ logo.srcset }}"
-        alt="{{ logo.alt }}"
-        width="200"
-        height="auto"
-      >
-    </a>
+        <img
+          src="{{ logo.src | resize(300) }}"
+          srcset="{{ logo.srcset }}"
+          alt="{{ logo.alt }}"
+          width="200"
+          height="auto"
+        >
+      </a>
+    </div>
 
     {% if menu.header.items | length %}
-      <nav role="navigation">
-        {% include '_partials/menu.twig' with {
-          'items': menu.header.items
+      <nav class="px-20" role="navigation">
+        {% include '_partials/header/menu.twig' with {
+          items: menu.header.items,
+          level: 1,
         } %}
       </nav>
     {% endif %}
 
-    <button class="lg:hidden">
-      <span class="screen-reader-only">
-        Menu
-      </span>
-      <span></span>
-    </button>
+    <div class="px-20 lg:hidden">
+      <button>
+        <span class="screen-reader-only">
+          Menu
+        </span>
+        <span></span>
+      </button>
+    </div>
   </div>
 </nav>

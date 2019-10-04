@@ -4,7 +4,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
         'key' => 'group_5d94f9293ffef',
-        'title' => 'Stats',
+        'title' => 'Statistics',
         'fields' => array(
             array(
                 'key' => 'field_5d94f185cd205',
@@ -67,8 +67,8 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
             ),
             array(
                 'key' => 'field_5d94d3bd7ee3b',
-                'label' => 'Stats',
-                'name' => 'stats',
+                'label' => 'Statistics',
+                'name' => 'statistics',
                 'type' => 'repeater',
                 'instructions' => '',
                 'required' => 0,
@@ -82,7 +82,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'min' => 0,
                 'max' => 0,
                 'layout' => 'block',
-                'button_label' => 'Add a Stat',
+                'button_label' => 'Add a Statistic',
                 'sub_fields' => array(
                     array(
                         'key' => 'field_5d94f128cd2z1',

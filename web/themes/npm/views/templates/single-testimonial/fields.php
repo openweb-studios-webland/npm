@@ -3,11 +3,11 @@
 if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
-        'key' => 'group_5d8d0f69d0162',
-        'title' => 'Programs',
+        'key' => 'group_5d9658e2d0ca2',
+        'title' => 'Testimonial',
         'fields' => array(
             array(
-                'key' => 'field_5d8d0f6e084eb',
+                'key' => 'field_5d9658f01ec1d',
                 'label' => 'Image',
                 'name' => 'image',
                 'type' => 'image',
@@ -31,7 +31,7 @@ if (function_exists('acf_add_local_field_group')):
                 'mime_types' => '',
             ),
             array(
-                'key' => 'field_5d8d2b13d1fc6',
+                'key' => 'field_5d9659061ec1e',
                 'label' => 'Heading',
                 'name' => 'heading',
                 'type' => 'text',
@@ -50,26 +50,7 @@ if (function_exists('acf_add_local_field_group')):
                 'maxlength' => '',
             ),
             array(
-                'key' => 'field_5d8d2b1ed1fc7',
-                'label' => 'Short Text',
-                'name' => 'short_text',
-                'type' => 'wysiwyg',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'tabs' => 'all',
-                'toolbar' => 'basic',
-                'media_upload' => 0,
-                'delay' => 0,
-            ),
-            array(
-                'key' => 'field_5d8d2b53d1fc8',
+                'key' => 'field_5d96591a1ec1f',
                 'label' => 'Text',
                 'name' => 'text',
                 'type' => 'wysiwyg',
@@ -88,9 +69,9 @@ if (function_exists('acf_add_local_field_group')):
                 'delay' => 0,
             ),
             array(
-                'key' => 'field_5d94d3bd7ze35',
-                'label' => 'Host',
-                'name' => 'host',
+                'key' => 'field_5d9659361ec20',
+                'label' => 'Attribution',
+                'name' => 'attribution',
                 'type' => 'text',
                 'instructions' => '',
                 'required' => 0,
@@ -106,56 +87,13 @@ if (function_exists('acf_add_local_field_group')):
                 'append' => '',
                 'maxlength' => '',
             ),
-            array(
-                'key' => 'field_5d8d2b86d1fc9',
-                'label' => 'Platforms',
-                'name' => 'platforms',
-                'type' => 'post_object',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'post_type' => array(
-                    0 => 'platforms',
-                ),
-                'taxonomy' => '',
-                'allow_null' => 0,
-                'multiple' => 1,
-                'return_format' => 'object',
-                'ui' => 1,
-            ),
-            array(
-                'key' => 'field_5d8d2bc2d1fca',
-                'label' => 'Button',
-                'name' => 'button',
-                'type' => 'clone',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'clone' => array(
-                    0 => 'group_5d8b9a14327c5',
-                ),
-                'display' => 'seamless',
-                'layout' => 'block',
-                'prefix_label' => 1,
-                'prefix_name' => 1,
-            ),
         ),
         'location' => array(
             array(
                 array(
                     'param' => 'post_type',
                     'operator' => '==',
-                    'value' => 'program',
+                    'value' => 'testimonial',
                 ),
             ),
         ),

@@ -1,0 +1,40 @@
+{% set testimonial = {
+  image: testimonial.image ? TimberImage(testimonial.image) : null,
+  heading: testimonial.heading ?? null,
+  text: testimonial.text ?? null,
+  attribution: testimonial.attribution ?? null,
+} %}
+
+<div class="flex flex-wrap items-center -mx-30 lg:flex-no-wrap lg:flex-row-reverse">
+  <div class="px-30 w-full lg:w-1/2">
+    {% if testimonial.image %}
+      <img
+        class="anchor-right max-w-none -mx-20 lg:float-right lg:mx-0 lg:w-screen-1/2"
+        src="{{ testimonial.image.src | resize(1440, 810) }}"
+        srcset="{{ testimonial.image.srcset }}"
+        alt="{{ testimonial.image.alt }}"
+      />
+    {% endif %}
+  </div>
+  <div class="px-30 w-full lg:pr-60 lg:w-1/2">
+    <div class="pt-50 text-center text-white md:pt-75 lg:py-150 lg:text-left">
+      {% if testimonial.heading %}
+        <h2 class="heading-3">
+          {{ testimonial.heading }}
+        </h2>
+      {% endif %}
+
+      {% if testimonial.text %}
+        <div class="text font-serif italic text-24">
+          {{ testimonial.text }}
+        </div>
+      {% endif %}
+
+      {% if testimonial.attribution %}
+        <p class="text text-14 mt-20 md:mt-25 lg:mt-30">
+          {{ testimonial.attribution }}
+        </p>
+      {% endif %}
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@ export default class Toggle {
   constructor(el) {
     // DOM elements
     this.el = el
-    this.match = this.el.dataset.toggleMatch ? document.getElementById(this.el.dataset.toggleMatch) : null
+    this.watchee = this.el.dataset.toggleWatch ? document.getElementById(this.el.dataset.toggleWatch) : null
     this.target = document.getElementById(this.el.getAttribute('aria-controls'))
 
     this.attachEventListeners()
@@ -11,8 +11,8 @@ export default class Toggle {
   attachEventListeners() {
     this.el.addEventListener('click', this.toggleAttributes)
 
-    if (this.match) {
-      this.match.addEventListener('click', this.toggleAttributes)
+    if (this.watchee) {
+      this.watchee.addEventListener('click', this.toggleAttributes)
     }
   }
 

@@ -1,0 +1,17 @@
+/*! purgecss start ignore */
+[data-label="header"] {
+  & .level-1 {
+    @apply flex
+      -mx-15;
+
+    & > * {
+      @apply px-15;
+    }
+
+  }
+
+  & .level-2 {
+    @apply hidden;
+  }
+}
+/*! purgecss end ignore */

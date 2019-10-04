@@ -1,7 +1,7 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section" data-label="{{ block.acf_fc_layout }}">
+  <section class="section bg-gray" data-label="{{ block.acf_fc_layout }}">
     <div class="container">
       {% if block.heading %}
         <h2 class="heading-3 text-center">
@@ -10,39 +10,12 @@
       {% endif %}
 
       {% if block.cards | length %}
-        <div class="-mb-30 lg:flex lg:shadow">
+        <div class="flex flex-wrap -mb-30 lg:flex-no-wrap">
           {% for card in block.cards %}
-            <div class="mb-30 shadow-sm lg:flex-1 lg:shadow-none">
-              {% set image = TimberImage(card.image) %}
-
-              {% if image %}
-                <img
-                  src="{{ image.src | resize(1440, 900) }}"
-                  srcset="{{ image.srcset }}"
-                  alt="{{ image.alt }}"
-                />
-              {% endif %}
-
-              <div class="p-30 lg:py-50">
-                {% if card.heading %}
-                  <h3 class="heading-4">
-                    {{ card.heading }}
-                  </h3>
-                {% endif %}
-
-                {% if card.text %}
-                  <div class="text">
-                    {{ card.text }}
-                  </div>
-                {% endif %}
-
-                {% if card.button_link and card.button_text %}
-                  <a class="link mt-20 md:mt-25 lg:mt-30" href="{{ card.button_link }}">
-                    {{ card.button_text }}
-                    {{ svg('link', {attr: {class: 'fill-current'}}) }}
-                  </a>
-                {% endif %}
-              </div>
+            <div class="mb-30 flex-1 w-full lg:w-auto">
+              {% include '_blocks/cards/card.twig' ignore missing with {
+                card: card,
+              } only %}
             </div>
           {% endfor %}
         </div>

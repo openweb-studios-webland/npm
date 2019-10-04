@@ -1,0 +1,104 @@
+{% set program = {
+  id: program.id ?? null,
+  image: program.image ? TimberImage(program.image) : null,
+  heading: program.heading ?? null,
+  host: program.host ?? null,
+  short_text: program.short_text ?? null,
+  text: program.text ?? null,
+  title: program.title ?? null,
+  platforms: program.platforms ?? [],
+  topics: program.terms('topic') ?? [],
+  button_link: program.button_link ?? null,
+  button_text: program.button_text ?? null,
+} %}
+
+<div class="bg-white relative shadow-sm">
+  {% if program.image %}
+    <img
+      src="{{ program.image.src | resize(640, 640) }}"
+      srcset="{{ program.image.srcset }}"
+      alt="{{ program.image.alt }}"
+    />
+  {% endif %}
+
+  <div class="p-20">
+    {% if program.heading %}
+      <h3 class="heading-4 mb-15">
+        {{ program.heading }}
+      </h3>
+    {% endif %}
+
+    {% if program.short_text %}
+      <div class="text text-14">
+        {{ program.short_text }}
+      </div>
+    {% endif %}
+
+    <button
+      class="font-bold inline-block mt-20 text-14 text-blue-link"
+      data-module="toggle"
+      data-toggle-watch="toggle-watch-{{ program.id }}"
+      aria-controls="toggle-{{ program.id }}"
+    >
+      See details
+    </button>
+  </div>
+
+  <div
+    id="toggle-{{ program.id }}"
+    class="absolute bg-white inset-0 px-30 py-40 shadow-sm transition"
+    aria-hidden="true"
+  >
+    <h3 class="heading-4 mb-20">
+      {{ program.title }}
+    </h3>
+
+    {% if program.host %}
+      <h4 class="mb-5 text-11 text-gray-a11y">
+        Hosted by
+      </h4>
+      <p class="heading-7 mb-20">
+        {{ program.host }}
+      </p>
+    {% endif %}
+
+    {% if program.text %}
+      <div class="mb-20 text text-14">
+        {{ program.text }}
+      </div>
+    {% endif %}
+
+    {% if program.platforms | length %}
+      <h4 class="mb-5 text-11 text-gray-a11y">
+        Runs on
+      </h4>
+      <p class="font-bold mb-20">
+        {% for platform in Post(program.platforms) %}
+          {{ loop.last ? platform.title : platform.title ~ ', ' }}
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    {% if program.topics | length %}
+      <h4 class="mb-5 text-11 text-gray-a11y">
+        Topics
+      </h4>
+      <p class="mb-20">
+        {{ program.topics | join(', ') }}
+      </p>
+    {% endif %}
+
+    {% if program.button_link and program.button_text %}
+      <a class="button w-full" href="{{ program.button_link }}">
+        {{ program.button_text }}
+      </a>
+    {% endif %}
+
+     <button id="toggle-watch-{{ program.id }}" class="absolute h-44 mr-5 mt-5 right-0 top-0 w-44">
+      {{ svg('close', { attr: { class: 'absolute inset-1/2 translate-1/2' } }) }}
+      <span class="screen-reader-only">
+        Close
+      </span>
+    </button>
+  </div>
+</div>

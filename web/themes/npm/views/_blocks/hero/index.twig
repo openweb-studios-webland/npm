@@ -2,43 +2,41 @@
 
 {% if block %}
   <section class="section bg-blue pb-0 lg:pb-150" data-label="{{ block.acf_fc_layout }}">
-    <div class="lg:flex lg:justify-end lg:relative">
-      <div class="lg:absolute lg:h-full lg:left-0 lg:top-0 lg:w-full lg:z-10">
-        <div class="container lg:h-full">
-          <div class="lg:flex lg:h-full lg:items-center lg:-mx-30">
-            <div class="pb-50 text-white md:pb-75 lg:pb-0 lg:px-30 lg:w-1/2">
-              {% if block.heading %}
-                <h1 class="heading-1">
-                  {{ block.heading }}
-                </h1>
-              {% endif %}
+    <div class="container">
+      <div class="flex flex-wrap items-center">
+        <div class="w-full lg:w-1/2">
+          <div class="pb-50 text-white md:pb-75 lg:pb-0 lg:relative lg:z-10">
+            {% if block.heading %}
+              <h1 class="heading-1">
+                {{ block.heading }}
+              </h1>
+            {% endif %}
 
-              {% if block.text %}
-                <div class="text text-16 md:text-20 lg:text-24">
-                  {{ block.text }}
-                </div>
-              {% endif %}
+            {% if block.text %}
+              <div class="text text-16 md:text-20 lg:text-24">
+                {{ block.text }}
+              </div>
+            {% endif %}
 
-              {% if block.button_link and block.button_text %}
-                <a class="button-white mt-30 lg:button-pink" href="{{ block.button_link }}">
-                  {{ block.button_text }}
-                </a>
-              {% endif %}
-            </div>
+            {% if block.button_link and block.button_text %}
+              <a class="button mt-25 lg:mt-30" href="{{ block.button_link }}">
+                {{ block.button_text }}
+              </a>
+            {% endif %}
           </div>
         </div>
-      </div>
-      <div class="lg:shadow lg:w-2/3">
-        {% set image = TimberImage(block.image) %}
+        <div class="w-full lg:clearfix lg:w-1/2">
+          {% set image = TimberImage(block.image) %}
 
-        {% if image %}
-          <img
-            src="{{ image.src | resize(1440, 810) }}"
-            srcset="{{ image.srcset }}"
-            alt="{{ image.alt }}"
-          />
-        {% endif %}
+          {% if image %}
+            <img
+              class="anchor-right max-w-none -mx-20 lg:float-right lg:mx-0 lg:w-screen-2/3"
+              src="{{ image.src | resize(1440, 810) }}"
+              srcset="{{ image.srcset }}"
+              alt="{{ image.alt }}"
+            />
+          {% endif %}
+        </div>
       </div>
-    </div>
   </section>
 {% endif %}

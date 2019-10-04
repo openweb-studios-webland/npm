@@ -56,7 +56,8 @@ module.exports = {
     purgecss({
       content: [
         `${process.env.THEME_PATH}/views/**/*.${TEMPLATE_EXT}`,
-        `${process.env.THEME_PATH}/src/scripts/**/*.js`,
+        `${process.env.THEME_PATH}/assets/**/*.js`,
+        `${process.env.THEME_PATH}/assets/**/*.svg`,
       ],
       extractors: [
         {

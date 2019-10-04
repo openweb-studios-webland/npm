@@ -34,9 +34,14 @@
       text-pink;
   }
 
+  .button-outline-white,
   .button-outline-blue,
   .button-outline-pink {
     @apply bg-transparent;
+  }
+
+  .button-outline-white {
+    @apply border-white;
   }
 
   .button-outline-blue {

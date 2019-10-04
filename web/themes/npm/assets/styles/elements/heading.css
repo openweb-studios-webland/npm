@@ -19,7 +19,7 @@
     @apply mb-25;
   }
 
-  @screen lg {
+  @screen md {
     @apply mb-30;
   }
 }

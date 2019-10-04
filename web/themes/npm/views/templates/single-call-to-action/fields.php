@@ -1,13 +1,13 @@
 <?php
 
-if (function_exists('acf_dynamic_clones_add_local_field_group')):
+if (function_exists('acf_add_local_field_group')):
 
-    acf_dynamic_clones_add_local_field_group(array(
-        'key' => 'group_5d951d5a68d7c',
+    acf_add_local_field_group(array(
+        'key' => 'group_5d966f07cc239',
         'title' => 'Call to Action',
         'fields' => array(
             array(
-                'key' => 'field_5d951d717eb02',
+                'key' => 'field_5d966f0ede480',
                 'label' => 'Image',
                 'name' => 'image',
                 'type' => 'image',
@@ -31,7 +31,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'mime_types' => '',
             ),
             array(
-                'key' => 'field_5d951d657eb01',
+                'key' => 'field_5d966f22de481',
                 'label' => 'Heading',
                 'name' => 'heading',
                 'type' => 'text',
@@ -50,7 +50,26 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'maxlength' => '',
             ),
             array(
-                'key' => 'field_5d951d817eb03',
+                'key' => 'field_5d966f2dde482',
+                'label' => 'Text',
+                'name' => 'text',
+                'type' => 'wysiwyg',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'tabs' => 'all',
+                'toolbar' => 'full',
+                'media_upload' => 1,
+                'delay' => 0,
+            ),
+            array(
+                'key' => 'field_5d966f39de483',
                 'label' => 'Button',
                 'name' => 'button',
                 'type' => 'clone',
@@ -71,6 +90,31 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'prefix_name' => 1,
             ),
         ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'call-to-action',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'acf_after_title',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => array(
+            0 => 'the_content',
+            1 => 'excerpt',
+            2 => 'discussion',
+            3 => 'comments',
+            4 => 'featured_image',
+            5 => 'slug',
+            6 => 'author',
+        ),
+        'active' => true,
+        'description' => '',
     ));
 
 endif;

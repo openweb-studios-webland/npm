@@ -4,7 +4,7 @@
     visible;
 }
 
-[data-label="programs"][data-carousel-item][aria-hidden] {
+[data-label="programs"] [data-carousel-item][aria-hidden] {
   @apply opacity-50;
 
   @screen md {

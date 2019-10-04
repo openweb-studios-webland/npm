@@ -12,22 +12,28 @@
     <a class="screen-reader-only focus:screen-reader-undo" href="#main">
       Skip to Content
     </a>
+    <div class="overflow-x-hidden">
+      {% include '_partials/header/index.twig' ignore missing %}
 
-    {% include '_partials/header/index.twig' %}
+      <main
+        id="#main"
+        role="main"
+        tabindex="-1"
+      >
+        {% block content %}
+          Sorry, we couldn't find the associated content.
+        {% endblock %}
 
-    <main
-      id="#main"
-      class="overflow-x-hidden"
-      role="main"
-      tabindex="-1"
-    >
-      {% block content %}
-        Sorry, we couldn't find the associated content.
-      {% endblock %}
-    </main>
+        {% if fields is defined and fields.call_to_action | length %}
+          {% include '_partials/call-to-action/index.twig' ignore missing with {
+            call_to_action: fields.call_to_action,
+          } only %}
+        {% endif %}
+      </main>
 
-    {% include '_partials/footer/index.twig' %}
+      {% include '_partials/footer/index.twig' ignore missing %}
 
-    {{ wp_footer }}
+      {{ wp_footer }}
+    </div>
   </body>
 </html>

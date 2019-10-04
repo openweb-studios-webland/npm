@@ -1,0 +1,33 @@
+{% set block = block ?? null %}
+
+{% if block %}
+  <section class="bg-teal pb-50 md:pb-75 lg:pb-0" data-label="{{ block.acf_fc_layout }}">
+    {% if block.testimonials | length %}
+      <div class="relative overflow-x-hidden" data-module="carousel">
+        <div class="flex relative" data-carousel-track>
+          {% for testimonial in Post(block.testimonials) %}
+            <div class="flex-0 w-full" data-carousel-item>
+              <div class="container">
+                {% include '_blocks/testimonials/testimonial.twig' ignore missing with {
+                  testimonial: testimonial,
+                } only %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="lg:absolute lg:bottom-0 lg:left-0 lg:mb-50 lg:w-full">
+          <div class="container">
+            <div class="flex justify-center opacity-50 mt-30 -mx-5 text-white lg:justify-start lg:mt-0">
+              <div class="px-5">
+                {% include '_partials/carousel/button-prev.twig' ignore missing only %}
+              </div>
+              <div class="px-5">
+                {% include '_partials/carousel/button-next.twig' ignore missing only %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </section>
+{% endif %}

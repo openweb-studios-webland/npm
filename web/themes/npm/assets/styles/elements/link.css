@@ -3,7 +3,16 @@
   @apply flex
     font-bold
     items-center
+    mt-20
     text-blue-link;
+
+  @screen md {
+    @apply mt-25;
+  }
+
+  @screen lg {
+    @apply mt-30;
+  }
 
   & svg {
     @apply ml-10;

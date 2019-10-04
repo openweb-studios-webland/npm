@@ -1,0 +1,38 @@
+{% set card = {
+  image: card.image ? TimberImage(card.image) : null ,
+  heading: card.heading ?? null,
+  text: card.text ?? null,
+  button_link: card.button_link ?? null,
+  button_text: card.button_text ?? null,
+} %}
+
+<div class="bg-white shadow-sm">
+  {% if card.image %}
+    <img
+      src="{{ card.image.src | resize(1440, 900) }}"
+      srcset="{{ card.image.srcset }}"
+      alt="{{ card.image.alt }}"
+    />
+  {% endif %}
+
+  <div class="p-30 lg:py-50">
+    {% if card.heading %}
+      <h3 class="heading-4">
+        {{ card.heading }}
+      </h3>
+    {% endif %}
+
+    {% if card.text %}
+      <div class="text">
+        {{ card.text }}
+      </div>
+    {% endif %}
+
+    {% if card.button_link and card.button_text %}
+      <a class="link" href="{{ card.button_link }}">
+        {{ card.button_text }}
+        {{ svg('link') }}
+      </a>
+    {% endif %}
+  </div>
+</div>

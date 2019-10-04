@@ -39,7 +39,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                     'id' => '',
                 ),
                 'collapsed' => '',
-                'min' => 0,
+                'min' => 2,
                 'max' => 3,
                 'layout' => 'block',
                 'button_label' => 'Add a Card',

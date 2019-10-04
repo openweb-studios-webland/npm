@@ -76,6 +76,9 @@ class Site extends Timber\Site
             wp_enqueue_style('styles', get_template_directory_uri() . get_asset_path('app.css'));
         }
 
+        // External fonts
+        wp_enqueue_style('fonts', 'https://s.npr.org/templates/css/fonts/GothamSSm.css');
+
         return;
     }
 

@@ -83,9 +83,9 @@ function acf_dynamic_clones_add_local_field_group($field_group)
  * @since     1.0.0
  * @return    method    The method acf_dynamic_clones_get_local_field_group.
  */
-function acf_dynamic_clones_get_local_field_group($field_group)
+function acf_dynamic_clones_get_local_field_group($field_group_label, $field_group_name)
 {
-    return Acf_Dynamic_Clones_Admin::acf_dynamic_clones_get_local_field_group($field_group);
+    return Acf_Dynamic_Clones_Admin::acf_dynamic_clones_get_local_field_group($field_group_label, $field_group_name);
 }
 
 /**

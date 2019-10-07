@@ -127,11 +127,10 @@ class Acf_Dynamic_Clones_Admin
      * @since     1.0.0
      * @return    object    The newly created field group.
      */
-    public static function acf_dynamic_clones_get_local_field_group($field_group_name)
+    public static function acf_dynamic_clones_get_local_field_group($field_group_label, $field_group_name)
     {
         $field_group_hash = substr(md5($field_group_name), 0, 13);
         $field_group_key = "field_{$field_group_hash}";
-        $field_group_label = ucwords(str_replace(['-', '_'], ' ', $field_group_name));
 
         $field_group = [
             'key' => $field_group_key,

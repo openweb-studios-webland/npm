@@ -28,8 +28,8 @@ module.exports = {
       },
     },
     spacing: {
-      px: '1px',
       '0': '0',
+      '1': '0.0625rem',
       '5': '0.3125rem',
       '10': '0.625rem',
       '15': '0.9375rem',
@@ -76,6 +76,7 @@ module.exports = {
     },
     boxShadow: {
       none: 'none',
+      xs: '0px 5px 10px rgba(0, 0, 0, 0.15)',
       sm: '0px 20px 30px rgba(0, 0, 0, 0.15)',
       lg: '0px 30px 40px rgba(0, 0, 0, 0.25)',
       default: '0px 30px 30px rgba(0, 0, 0, 0.15)',
@@ -107,7 +108,7 @@ module.exports = {
       default: '1',
     },
     fontFamily: {
-      sans: ['Gotham', 'Arial', 'sans-serif'],
+      sans: ['Gotham SSm', 'Gotham', 'Arial', 'sans-serif'],
       serif: ['Georgia', 'Times', '"Times New Roman"', 'serif'],
     },
     fontSize: {
@@ -163,6 +164,8 @@ module.exports = {
       ...negative(theme('spacing')),
     }),
     maxHeight: {
+      '0': '0',
+      none: 'none',
       full: '100%',
       screen: '100vh',
     },
@@ -244,10 +247,10 @@ module.exports = {
     backgroundRepeat: [],
     backgroundSize: [],
     borderCollapse: false,
-    borderColor: [],
+    borderColor: ['hover', 'focus'],
     borderRadius: [],
     borderStyle: ['responsive'],
-    borderWidth: [],
+    borderWidth: ['responsive'],
     boxShadow: ['responsive', 'hover', 'focus'],
     cursor: false,
     display: ['responsive'],
@@ -310,18 +313,12 @@ module.exports = {
       },
       variants: ['responsive'],
     }),
-    require('./plugins/screen-reader')({
-      variants: ['focus'],
-    }),
     require('./plugins/transition')({
       transitions: {
         slow: 'all 0.4s ease',
         fast: 'all 0.2s ease',
         default: 'all 0.3s ease',
       },
-    }),
-    require('./plugins/translate')({
-      variants: ['responsive'],
     }),
   ],
 }

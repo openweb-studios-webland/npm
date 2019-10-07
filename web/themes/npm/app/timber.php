@@ -34,8 +34,10 @@ class Site extends Timber\Site
 
     public function add_to_context($context)
     {
-        $context['menu']['header'] = new Timber\Menu('header', ['depth' => 3]);
-        $context['menu']['footer'] = new Timber\Menu('footer', ['depth' => 1]);
+        $context['menu']['primary'] = new Timber\Menu('primary', ['depth' => 3]);
+        $context['menu']['secondary'] = new Timber\Menu('secondary', ['depth' => 1]);
+        $context['menu']['resources'] = new Timber\Menu('resources', ['depth' => 1]);
+        $context['menu']['utilities'] = new Timber\Menu('utilities', ['depth' => 1]);
         $context['site'] = $this;
 
         return $context;
@@ -43,7 +45,7 @@ class Site extends Timber\Site
 
     public function add_to_twig($twig)
     {
-        // Add custom functions to Twig
+        // Add custom extenstions, filters, and functions to Twig
         $twig->addExtension(new SvgExtension('themes/npm/assets/images'));
 
         return $twig;
@@ -76,7 +78,7 @@ class Site extends Timber\Site
             wp_enqueue_style('styles', get_template_directory_uri() . get_asset_path('app.css'));
         }
 
-        // External fonts
+        // Fonts hosted by NPR (Gotham SSm)
         wp_enqueue_style('fonts', 'https://s.npr.org/templates/css/fonts/GothamSSm.css');
 
         return;

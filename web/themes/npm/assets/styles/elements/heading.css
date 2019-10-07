@@ -89,7 +89,9 @@
 
 .heading-6,
 .text h5 {
-  @apply text-12;
+  @apply text-12
+    tracking-wide
+    uppercase;
 }
 
 .heading-7,

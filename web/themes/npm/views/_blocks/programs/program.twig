@@ -1,5 +1,5 @@
 {% set program = {
-  id: program.id ?? null,
+  uid: random(),
   image: program.image ? TimberImage(program.image) : null,
   heading: program.heading ?? null,
   host: program.host ?? null,
@@ -37,15 +37,15 @@
     <button
       class="font-bold inline-block mt-20 text-14 text-blue-link"
       data-module="toggle"
-      data-toggle-watch="toggle-watch-{{ program.id }}"
-      aria-controls="toggle-{{ program.id }}"
+      data-toggle-watch="toggle-watch-{{ program.uid }}"
+      aria-controls="toggle-{{ program.uid }}"
     >
       See details
     </button>
   </div>
 
   <div
-    id="toggle-{{ program.id }}"
+    id="toggle-{{ program.uid }}"
     class="absolute bg-white inset-0 px-30 py-40 shadow-sm transition"
     aria-hidden="true"
   >
@@ -94,8 +94,8 @@
       </a>
     {% endif %}
 
-     <button id="toggle-watch-{{ program.id }}" class="absolute h-44 mr-5 mt-5 right-0 top-0 w-44">
-      {{ svg('close', { attr: { class: 'absolute inset-1/2 translate-1/2' } }) }}
+     <button id="toggle-watch-{{ program.uid }}" class="absolute h-44 mr-5 mt-5 right-0 top-0 w-44">
+      {{ svg('close', { classes: 'absolute inset-1/2 translate-1/2' }) }}
       <span class="screen-reader-only">
         Close
       </span>

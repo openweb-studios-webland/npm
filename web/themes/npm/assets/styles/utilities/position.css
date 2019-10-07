@@ -1,0 +1,5 @@
+@variants responsive {
+  .top-full {
+    top: 100%;
+  }
+}

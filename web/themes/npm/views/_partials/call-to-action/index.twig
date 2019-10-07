@@ -8,7 +8,7 @@
 
 <section class="bg-blue lg:pt-50" data-label="call_to_action">
   <div class="container">
-    <div class="flex flex-wrap items-end{{ not call_to_action.image ? ' justify-center' }} -mx-30">
+    <div class="{{ not call_to_action.image ? 'justify-center ' }} flex flex-wrap items-end -mx-30">
       {% if call_to_action.image %}
         <div class="px-30 hidden w-full lg:block lg:w-5/12">
           <img
@@ -19,7 +19,7 @@
         </div>
       {% endif %}
 
-      <div class="px-30 py-50 text-center text-white w-full md:py-75 lg:py-100{{ call_to_action.image ? ' lg:text-left lg:w-1/2' : ' lg:w-2/3' }}">
+      <div class="{{ call_to_action.image ? 'lg:text-left lg:w-1/2 ' : 'lg:w-2/3 ' }}px-30 py-50 text-center text-white w-full md:py-75 lg:py-100">
         {% if call_to_action.heading %}
           <h2 class="heading-2">
             {{ call_to_action.heading }}
@@ -33,7 +33,7 @@
         {% endif %}
 
         {% if call_to_action.button_link and call_to_action.button_text %}
-          <a class="{{ call_to_action.image ? 'button-white ' : 'button-outline-white ' }}mt-25 lg:mt-30" href="{{ call_to_action.button_link }}">
+          <a class="{{ call_to_action.image ? 'button-white ' : 'button-outline ' }}mt-25 lg:mt-30" href="{{ call_to_action.button_link }}">
             {{ call_to_action.button_text }}
           </a>
         {% endif %}

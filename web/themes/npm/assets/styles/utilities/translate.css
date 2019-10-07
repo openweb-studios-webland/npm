@@ -1,0 +1,13 @@
+@variants responsive {
+  .translate-1\/2 {
+    transform: translate(-50%, -50%);
+  }
+
+  .translate-x-1\/2 {
+    transform: translateX(-50%);
+  }
+
+  .translate-y-1\/2 {
+    transform: translateY(-50%);
+  }
+}

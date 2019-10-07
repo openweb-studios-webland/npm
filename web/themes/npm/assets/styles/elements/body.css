@@ -1,4 +1,6 @@
 body {
   @apply font-sans
     leading-normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }

@@ -1,0 +1,22 @@
+/*! purgecss start ignore */
+.menu[aria-hidden] {
+  @screen lg {
+    @apply opacity-100
+    pointer-events-auto
+    visible;
+  }
+}
+
+.submenu {
+  @apply max-h-none;
+
+  &[aria-hidden] {
+    @apply overflow-hidden
+      max-h-0;
+
+    @screen lg {
+      @apply max-h-none;
+    }
+  }
+}
+/*! purgecss end ignore */

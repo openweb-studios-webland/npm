@@ -6,6 +6,7 @@
     font-bold
     inline-block
     leading-none
+    max-w-full
     no-underline
     p-20
     rounded-full
@@ -21,6 +22,12 @@
   }
 }
 
+.button-outline,
+[class*="button-outline-"] {
+  @apply bg-transparent
+    border-white;
+}
+
 @variants responsive, hover, focus {
   .button-pink {
     @apply bg-pink
@@ -34,16 +41,6 @@
       text-pink;
   }
 
-  .button-outline-white,
-  .button-outline-blue,
-  .button-outline-pink {
-    @apply bg-transparent;
-  }
-
-  .button-outline-white {
-    @apply border-white;
-  }
-
   .button-outline-blue {
     @apply border-blue-link;
   }
@@ -54,7 +51,8 @@
   }
 
   .button-small {
-    @apply px-20
+    @apply min-w-0
+      px-20
       py-15
       text-12
       tracking-wide

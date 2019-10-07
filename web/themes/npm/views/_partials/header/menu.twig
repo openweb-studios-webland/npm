@@ -1,19 +1,88 @@
+{% set uid = uid ?? random() %}
+{% set items = items ?? [] %}
+{% set level = items[0].level %}
+
 {% if menu and items | length %}
-	<ul class="level-{{ level }}">
-    {% for item in items %}
-      <li class="{{ item.classes | join(' ') }}">
-        <a href="{{ item.link }}">
-          {{ item.title }}
-        </a>
+  {% if level == 1 %}
+    <div
+      id="toggle-{{ uid }}"
+      class="submenu {{ front_page ? 'bg-blue border-blue-link ' : 'bg-white border-gray ' }}border-b border-t left-0 -mx-20 px-20 shadow-xs transition w-screen lg:absolute lg:border-b-0 lg:mx-0 lg:px-0 lg:top-full"
+      aria-hidden="true"
+    >
+      <div class="container">
+        <ul class="flex flex-wrap -mb-30 -mx-15 py-30 lg:flex-no-wrap lg:py-40 ">
+          {% for item in items %}
+            <li class="{{ item.classes | join(' ') | trim }} flex-1 leading-normal mb-30 pl-30 px-15 relative w-full lg:w-auto">
+              {% set image = TimberImage(item.image) %}
 
-        {% if item.children | length %}
-          {% include '_partials/header/menu.twig' with {
-            items: item.children,
-            level: level + 1
-          } %}
-        {% endif %}
+              {% if image %}
+                <img
+                  class="absolute left-0 mt-5 top-0"
+                  src="{{ image.src }}"
+                  alt="{{ image.alt }}"
+                >
+              {% endif %}
 
-      </li>
-    {% endfor %}
-	</ul>
+              <a class="block font-bold whitespace-no-wrap" href="{{ item.link }}">
+                {{ item.title }}
+              </a>
+
+              {% if item.description %}
+                <p class="mt-5 text-14">
+                  {{ item.description }}
+                </p>
+              {% endif %}
+
+              {% if item.children | length %}
+                {% include '_partials/header/menu.twig' ignore missing with {
+                  uid: random(),
+                  items: item.children,
+                } %}
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% elseif level == 2 %}
+    <ul class="flex mt-15 -mx-15">
+      {% for item in items %}
+        <li class="{{ item.classes | join(' ') | trim }} {{ not loop.last ? 'border-r-2 ' }}border-blue-light leading-none px-15">
+          <a class="{{ not front_page ? 'text-blue-link ' }}font-bold text-14 whitespace-no-wrap" href="{{ item.link }}">
+            {{ item.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="{{ front_page ? 'bg-blue border-blue-link ' : 'bg-white border-gray ' }}border-t -mx-20 px-20 lg:border-t-0 lg:mx-0 lg:px-0">
+      <ul class="flex flex-wrap -mx-15">
+        {% for item in items %}
+          <li class="{{ item.classes | join(' ') | trim }} leading-none px-15 py-10 w-full lg:w-auto">
+            {% if item.children | length %}
+              {% set uid = random() %}
+
+              <button
+                class="border-b-2 border-transparent flex font-bold inline-block items-center py-10 transition-fast w-full whitespace-no-wrap lg:hover:border-blue-link"
+                data-module="toggle"
+                aria-controls="toggle-{{ uid }}"
+              >
+                {{ item.title }}
+                {{ svg('menu', { classes: 'ml-10 text-blue-link w-10' }) }}
+              </button>
+
+              {% include '_partials/header/menu.twig' ignore missing with {
+                uid: uid,
+                items: item.children,
+              } %}
+            {% else %}
+              <a class="block border-b-2 border-transparent font-bold inline-block py-10 transition-fast w-full whitespace-no-wrap hover:border-blue-link" href="{{ item.link }}">
+                {{ item.title }}
+              </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
 {% endif %}

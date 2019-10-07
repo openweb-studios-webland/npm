@@ -1,35 +1,43 @@
-<nav data-label="header">
-  <div class="flex -mx-20">
-    <div class="px-20">
-      <a class="inline-block" href="{{ site.url }}">
-        {% set logo = TimberImage(options.header_logo) %}
+{% set uid = random() %}
 
-        <img
-          src="{{ logo.src | resize(300) }}"
-          srcset="{{ logo.srcset }}"
-          alt="{{ logo.alt }}"
-          width="200"
-          height="auto"
-        >
+<header class="{{ front_page ? 'bg-blue text-white ' }}relative -mb-1 py-10 top-0 z-40 lg:py-30 lg:shadow-xs lg:sticky" data-label="header">
+  <div class="flex justify-between items-center">
+    <div class="flex-0 px-20">
+      <a href="/">
+        {{ svg('logo', { classes: 'logo' }) }}
       </a>
     </div>
 
-    {% if menu.header.items | length %}
-      <nav class="px-20" role="navigation">
-        {% include '_partials/header/menu.twig' with {
-          items: menu.header.items,
-          level: 1,
+    {% if menu.primary.items | length %}
+      <nav
+        id="toggle-{{ uid }}"
+        class="menu absolute flex-1 left-0 px-20 top-full w-screen z-50 lg:static"
+        role="navigation"
+        aria-hidden="true"
+      >
+        {% include '_partials/header/menu.twig' ignore missing with {
+          uid: uid,
+          items: menu.primary.items,
         } %}
       </nav>
     {% endif %}
 
+    <div class="hidden flex-0 px-20 lg:block">
+      <a class="{{ front_page ? ' button-outline-blue ' }}button-small" href="/contact">
+        Contact us
+      </a>
+    </div>
     <div class="px-20 lg:hidden">
-      <button>
+      <button
+        class="h-44 relative -mr-10 w-44"
+        data-module="toggle"
+        aria-controls="toggle-{{ uid }}"
+      >
         <span class="screen-reader-only">
           Menu
         </span>
-        <span></span>
+        {{ svg('hamburger', { classes: 'absolute inset-1/2 translate-1/2' }) }}
       </button>
     </div>
   </div>
-</nav>
+</header>

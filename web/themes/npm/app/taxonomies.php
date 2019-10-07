@@ -35,7 +35,7 @@ function register_taxonomies()
         'topic',
         'program',
         array(
-            'labels' => create_taxonomy_labels('Platforms', 'Platform'),
+            'labels' => create_taxonomy_labels('Topics', 'Topic'),
             'hierarchical' => true,
             'show_admin_column' => true,
         )

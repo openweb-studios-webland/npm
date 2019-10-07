@@ -1,8 +1,8 @@
 .button,
 [class*="button-"] {
-  @apply bg-pink
+  @apply bg-crimson
     border-2
-    border-pink
+    border-crimson
     font-bold
     inline-block
     leading-none
@@ -29,25 +29,25 @@
 }
 
 @variants responsive, hover, focus {
-  .button-pink {
-    @apply bg-pink
-      border-pink
+  .button-crimson {
+    @apply bg-crimson
+      border-crimson
       text-white;
   }
 
   .button-white {
     @apply bg-white
       border-white
-      text-pink;
+      text-crimson;
   }
 
   .button-outline-blue {
     @apply border-blue-link;
   }
 
-  .button-outline-pink {
-    @apply border-pink
-      text-pink;
+  .button-outline-crimson {
+    @apply border-crimson
+      text-crimson;
   }
 
   .button-small {

@@ -1,0 +1,16 @@
+{% set statistic = {
+  heading: statistic.heading ?? null,
+  text: statistic.text ?? null,
+} %}
+
+{% if statistic.heading %}
+  <h3 class="heading-2 mb-0">
+    {{ statistic.heading }}
+  </h3>
+{% endif %}
+
+{% if statistic.text %}
+  <div class="text mt-10">
+    {{ statistic.text }}
+  </div>
+{% endif %}

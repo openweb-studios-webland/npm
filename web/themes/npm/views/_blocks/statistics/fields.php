@@ -7,6 +7,27 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
         'title' => 'Statistics',
         'fields' => array(
             array(
+                'key' => 'field_5d9ba2ac38f89',
+                'label' => 'Color',
+                'name' => 'color',
+                'type' => 'clone',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'clone' => array(
+                    0 => 'group_5d9ba11e476d6',
+                ),
+                'display' => 'seamless',
+                'layout' => 'block',
+                'prefix_label' => 0,
+                'prefix_name' => 0,
+            ),
+            array(
                 'key' => 'field_5d94f185cd205',
                 'label' => 'Heading',
                 'name' => 'heading',

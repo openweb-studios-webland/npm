@@ -11,7 +11,7 @@ export default class Carousel {
     this.config = {
       autoplay: this.carousel.dataset.carouselAutoplay === 'true' ? true : false, // data-carousel-autoplay
       autoplaySpeed: this.carousel.dataset.carouselAutoplaySpeed || 5000, // data-carousel-autoplay-speed
-      current: 0,
+      index: 0,
       itemsCount: this.items.length - 1,
       itemsOffset: 1,
       itemsToMove: this.carousel.dataset.carouselMove || 1, // data-carousel-move
@@ -42,7 +42,7 @@ export default class Carousel {
 
     Object.assign(this.track.style, {
       width: `${this.config.itemsWidth * this.config.itemsCount}px`,
-      left: `-${this.config.itemsWidth * this.config.current}px`,
+      left: `-${this.config.itemsWidth * this.config.index}px`,
     })
 
     this.items.forEach(item => {
@@ -79,13 +79,13 @@ export default class Carousel {
 
     // Added cloned items to items
     this.items = [...this.track.children]
-    this.config.current = this.config.itemsOffset
+    this.config.index = this.config.itemsOffset
     this.config.itemsCount = this.items.length - 1
 
     // Set track position and width
     Object.assign(this.track.style, {
       width: `${this.config.itemsWidth * this.config.itemsCount}px`,
-      left: `-${this.config.itemsWidth * this.config.current}px`,
+      left: `-${this.config.itemsWidth * this.config.index}px`,
     })
 
     this.toggleAttributes()
@@ -94,29 +94,29 @@ export default class Carousel {
   autoplay = (toStart = false) => {
     if (toStart) {
       this.config.autoplayInterval = setInterval(() => {
-        this.move(1)
+        this.moveTrack(1)
       }, this.config.autoplaySpeed)
     } else {
       clearInterval(this.config.autoplayInterval)
     }
   }
 
-  move = (direction = 0, toItem = null, setTransition = true) => {
+  moveTrack = (direction = 0, toItem = null, setTransition = true) => {
     this.config.inTransition = this.config.transition
-    this.config.current = toItem ? toItem : this.config.current + direction * this.config.itemsToMove
+    this.config.index = toItem ? toItem : this.config.index + direction * this.config.itemsToMove
 
     // Set track position and transition
     Object.assign(this.track.style, {
       transition: this.config.transition && setTransition ? `all ${this.config.transitionSpeed}ms linear` : '',
-      left: `-${this.config.itemsWidth * this.config.current}px`,
+      left: `-${this.config.itemsWidth * this.config.index}px`,
     })
 
-    // Check if current item is first/last item
-    this.check()
+    // Check if current item is the first or last item
+    this.checkIndex()
     this.toggleAttributes()
   }
 
-  check = () => {
+  checkIndex = () => {
     let onTransitionEnd = () => {
       this.track.removeEventListener('transitionend', onTransitionEnd, false)
       this.track.style.transition = ''
@@ -124,16 +124,15 @@ export default class Carousel {
     }
     const itemsCount = this.config.itemsCount - this.config.itemsOffset
 
-    if (this.config.loop && (this.config.current <= 0 || this.config.current > itemsCount)) {
-      this.config.current =
-        this.config.current <= 0 ? itemsCount - this.config.itemsOffset + 1 : this.config.itemsOffset
+    if (this.config.loop && (this.config.index <= 0 || this.config.index > itemsCount)) {
+      this.config.index = this.config.index <= 0 ? itemsCount - this.config.itemsOffset + 1 : this.config.itemsOffset
 
       onTransitionEnd = () => {
         this.track.removeEventListener('transitionend', onTransitionEnd, false)
         this.track.style.transition = ''
 
         // Go to first/last item without a transition
-        this.move(null, this.config.current, false)
+        this.moveTrack(null, this.config.index, false)
 
         this.config.inTransition = false
       }
@@ -149,7 +148,7 @@ export default class Carousel {
     for (let i = 0; i < this.items.length; i++) {
       const item = this.items[i]
 
-      i >= this.config.current && i <= this.config.current + (this.config.itemsOffset - 1)
+      i >= this.config.index && i <= this.config.index + (this.config.itemsOffset - 1)
         ? item.removeAttribute('aria-hidden')
         : item.setAttribute('aria-hidden', true)
     }
@@ -185,22 +184,22 @@ export default class Carousel {
     if (!this.config.inTransition) {
       if (e.currentTarget.hasAttribute('data-carousel-prev')) {
         if (!this.config.loop) {
-          if (this.config.current > 0) {
-            this.move(-1)
+          if (this.config.index > 0) {
+            this.moveTrack(-1)
           }
         } else {
-          this.move(-1)
+          this.moveTrack(-1)
         }
       } else if (e.currentTarget.hasAttribute('data-carousel-next')) {
         if (!this.config.loop) {
-          if (this.config.current < this.config.itemsCount - this.config.itemsOffset + 1) {
-            this.move(1)
+          if (this.config.index < this.config.itemsCount - this.config.itemsOffset + 1) {
+            this.moveTrack(1)
           }
         } else {
-          this.move(1)
+          this.moveTrack(1)
         }
       } else {
-        this.move(null, this.triggers.indexOf(e.target) + this.config.itemsOffset)
+        this.moveTrack(null, this.triggers.indexOf(e.target) + this.config.itemsOffset)
       }
 
       // Stop autoplay on click event
@@ -215,9 +214,9 @@ export default class Carousel {
   onKeyup = e => {
     if (!this.config.inTransition) {
       if (e.key === 'ArrowLeft' || e.which === 37) {
-        this.move(-1)
+        this.moveTrack(-1)
       } else if (e.key === 'ArrowRight' || e.which === 39) {
-        this.move(1)
+        this.moveTrack(1)
       }
 
       // Stop autoplay on keyup event

@@ -1,15 +1,15 @@
 export default class Toggle {
   constructor(el) {
     // DOM elements
-    this.el = el
-    this.watchee = this.el.dataset.toggleWatch ? document.getElementById(this.el.dataset.toggleWatch) : null
-    this.target = document.getElementById(this.el.getAttribute('aria-controls'))
+    this.toggle = el
+    this.watchee = this.toggle.dataset.toggleWatch ? document.getElementById(this.toggle.dataset.toggleWatch) : null
+    this.target = document.getElementById(this.toggle.getAttribute('aria-controls'))
 
     this.attachEventListeners()
   }
 
   attachEventListeners() {
-    this.el.addEventListener('click', this.toggleAttributes)
+    this.toggle.addEventListener('click', this.toggleAttributes)
 
     if (this.watchee) {
       this.watchee.addEventListener('click', this.toggleAttributes)
@@ -18,7 +18,7 @@ export default class Toggle {
 
   toggleAttributes = e => {
     let isExpanded = this.target.hasAttribute('aria-hidden') ? false : true
-    this.el.setAttribute('aria-expanded', !isExpanded)
+    this.toggle.setAttribute('aria-expanded', !isExpanded)
 
     if (isExpanded) {
       this.target.setAttribute('aria-hidden', true)

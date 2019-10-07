@@ -1,6 +1,9 @@
 {% set uid = random() %}
 
-<header class="{{ front_page ? 'bg-blue text-white ' }}relative -mb-1 py-10 top-0 z-40 lg:py-30 lg:shadow-xs lg:sticky" data-label="header">
+<header
+  class="header {{ front_page ? 'bg-blue text-white ' }}relative -mb-1 py-10 top-0 z-40 lg:py-30 lg:sticky" data-module="header"
+  data-label="header"
+>
   <div class="flex justify-between items-center">
     <div class="flex-0 px-20">
       <a href="/">

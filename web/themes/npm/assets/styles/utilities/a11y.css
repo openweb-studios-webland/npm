@@ -24,7 +24,7 @@
 [data-whatinput="mouse"],
 [data-whatinput="touch"] {
   & *:focus {
-    outline: none !important;
+    outline: none;
   }
 }
 /*! purgecss end ignore */

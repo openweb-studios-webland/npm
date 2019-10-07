@@ -1,4 +1,12 @@
 /*! purgecss start ignore */
+.header {
+  @apply transition;
+
+  &.stuck {
+    @apply shadow-xs;
+  }
+}
+
 .menu[aria-hidden] {
   @screen lg {
     @apply opacity-100

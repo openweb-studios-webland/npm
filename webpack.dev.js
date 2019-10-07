@@ -53,6 +53,6 @@ module.exports = merge(common, {
     filename: 'app.js',
     chunkFilename: '[name].js',
     path: path.resolve(__dirname, `${process.env.THEME_PATH}/build`),
-    publicPath: `./${path.relative('./web', `./${process.env.THEME_PATH}/build`)}/`,
+    publicPath: `/${path.relative('./web', `./${process.env.THEME_PATH}/build`)}/`,
   },
 })

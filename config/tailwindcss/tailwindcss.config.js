@@ -222,6 +222,7 @@ module.exports = {
       '3/4': '75%',
       '44': '2.75rem',
       full: '100%',
+      'screen-5/12': '41.66667vw',
       'screen-1/2': '50vw',
       'screen-2/3': '66.66667vw',
       screen: '100vw',

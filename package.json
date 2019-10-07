@@ -38,7 +38,7 @@
     "webpack-dev-server": "^3.3.1",
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-merge": "^4.2.1",
-    "what-input": "^5.1.2"
+    "what-input": "^5.2.6"
   },
   "dependencies": {
     "tailwindcss": "^1.1.2"

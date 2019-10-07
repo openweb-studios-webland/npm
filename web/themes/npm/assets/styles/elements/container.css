@@ -4,13 +4,13 @@
   max-width: 1200px;
 }
 
-.anchor-left {
+.container-left {
   @media (min-width: 1200px) {
     margin-left: calc((1160px - 100vw) / 2) !important; /* Override inline Tailwind utilities */
   }
 }
 
-.anchor-right {
+.container-right {
   @media (min-width: 1200px) {
     margin-right: calc((1160px - 100vw) / 2) !important; /* Override inline Tailwind utilities */
   }

@@ -19,3 +19,12 @@
     clip: auto;
   }
 }
+
+/*! purgecss start ignore */
+[data-whatinput="mouse"],
+[data-whatinput="touch"] {
+  & *:focus {
+    outline: none !important;
+  }
+}
+/*! purgecss end ignore */

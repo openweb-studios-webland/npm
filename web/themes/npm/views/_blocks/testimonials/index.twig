@@ -3,7 +3,11 @@
 {% if block %}
   <section class="bg-teal pb-50 md:pb-75 lg:pb-0" data-label="{{ block.acf_fc_layout }}">
     {% if block.testimonials | length %}
-      <div class="relative overflow-x-hidden" data-module="carousel">
+      <div
+        class="relative overflow-x-hidden"
+        data-module="carousel"
+        data-carousel-transition-speed="700"
+      >
         <div class="flex relative" data-carousel-track>
           {% for testimonial in Post(block.testimonials) %}
             <div class="flex-0 w-full" data-carousel-item>

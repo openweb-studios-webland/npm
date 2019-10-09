@@ -1,4 +1,6 @@
-import * as WaveSurfer from 'wavesurfer.js'
+const WaveSurfer = require('wavesurfer.js/dist/wavesurfer')
+// @TODO Update WaveSurfer once import issue is resoloved 3.1.1+
+// import WaveSurfer from 'wavesurfer.js'
 
 export default class Audio {
   constructor(el) {

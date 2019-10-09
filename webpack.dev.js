@@ -50,7 +50,7 @@ module.exports = merge(common, {
     }),
   ],
   output: {
-    filename: 'app.js',
+    filename: '[name].js',
     chunkFilename: '[name].js',
     path: path.resolve(__dirname, `${process.env.THEME_PATH}/build`),
     publicPath: `/${path.relative('./web', `./${process.env.THEME_PATH}/build`)}/`,

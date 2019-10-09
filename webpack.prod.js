@@ -39,16 +39,16 @@ module.exports = merge(common, {
       ignore: ['*.css', '*.scss', '*.sass', '*.js'],
     }),
     new MiniCssExtractPlugin({
-      filename: 'app.[contenthash].css',
+      filename: '[name].[contenthash].css',
     }),
     new ManifestPlugin({
       publicPath: '',
     }),
   ],
   output: {
-    filename: 'app.[contenthash].js',
+    filename: '[name].[contenthash].js',
     chunkFilename: '[name].[chunkhash].js',
     path: path.resolve(__dirname, `${process.env.THEME_PATH}/build`),
-    publicPath: `/${process.env.THEME_PATH}/build/`,
+    publicPath: `/${path.relative('./web', `./${process.env.THEME_PATH}/build`)}/`,
   },
 })

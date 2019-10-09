@@ -59,6 +59,7 @@ class Site extends Timber\Site
             $manifest_content = null;
 
             if (null === $manifest_content) {
+
                 $manifest_path = get_stylesheet_directory() . '/build/manifest.json';
                 $manifest_content = file_exists($manifest_path) ? json_decode(file_get_contents($manifest_path), true) : [];
             }
@@ -72,10 +73,10 @@ class Site extends Timber\Site
             return "/build/{$file_name}";
         }
 
-        wp_enqueue_script('scripts', get_template_directory_uri() . get_asset_path('app.js'), array(), false, true);
+        wp_enqueue_script('scripts', get_template_directory_uri() . get_asset_path('main.js'), array(), false, true);
 
         if (env('WP_ENV') !== 'dev' && env('WP_ENV') !== 'development') {
-            wp_enqueue_style('styles', get_template_directory_uri() . get_asset_path('app.css'));
+            wp_enqueue_style('styles', get_template_directory_uri() . get_asset_path('main.css'));
         }
 
         // Fonts hosted by NPR (Gotham SSm)

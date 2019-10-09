@@ -35,7 +35,8 @@ web/cache/supercache/*
 web/mu-plugins/*
 !web/mu-plugins/mu-autoloader.php
 !web/mu-plugins/acf-dynamic-clones
-web/plugins
+web/plugins/*
+!web/plugins/.gitkeep
 web/themes/**/build
 
 # WP Engine

@@ -1,11 +1,11 @@
 .pin-left {
   @media (min-width: 1200px) {
-    margin-left: calc((1160px - 100vw) / 2) !important; /* Override inline Tailwind utilities */
+    margin-left: calc((1180px - 100vw) / 2) !important; /* Override inline Tailwind utilities */
   }
 }
 
 .pin-right {
   @media (min-width: 1200px) {
-    margin-right: calc((1160px - 100vw) / 2) !important; /* Override inline Tailwind utilities */
+    margin-right: calc((1180px - 100vw) / 2) !important; /* Override inline Tailwind utilities */
   }
 }

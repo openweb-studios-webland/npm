@@ -1,7 +1,7 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="bg-teal pb-50 md:pb-75 lg:pb-0" data-label="{{ block.acf_fc_layout }}">
+  <section class="bg-teal pb-50 md:pb-75 lg:pb-0" data-label="testimonials">
     {% if block.testimonials | length %}
       <div
         class="relative overflow-x-hidden"
@@ -10,7 +10,7 @@
       >
         <div class="flex relative" data-carousel-track>
           {% for testimonial in Post(block.testimonials) %}
-            <div class="flex-0 w-full" data-carousel-item>
+            <div class="carousel-item flex-0 w-full" data-carousel-item>
               <div class="container">
                 {% include '_blocks/testimonials/testimonial.twig' ignore missing with {
                   testimonial: testimonial,

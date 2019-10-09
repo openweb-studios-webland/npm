@@ -1,0 +1,21 @@
+/*! purgecss start ignore */
+.audio-play-pause svg:last-of-type {
+  @apply hidden;
+}
+
+.playing .audio-play-pause svg {
+  &:first-of-type {
+    @apply hidden;
+  }
+
+  &:last-of-type {
+    @apply block;
+  }
+}
+
+.active .audio-overlay {
+  @apply invisible
+    opacity-0
+    pointer-events-none;
+}
+/*! purgecss end ignore */

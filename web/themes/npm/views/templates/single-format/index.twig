@@ -6,7 +6,7 @@
 
       {% include '_blocks/' ~ block.acf_fc_layout ~ '/index.twig' ignore missing with {
         block: block
-      } only %}
+      } %}
 
     {% endfor %}
   {% endif %}

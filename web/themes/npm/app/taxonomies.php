@@ -1,19 +1,20 @@
 <?php
 
-function create_taxonomy_labels($taxonomy_name, $taxonomy_singular_name)
+function create_taxonomy_labels($taxonomy_name = 'Taxonomies', $taxonomy_singular_name = 'Taxonomy')
 {
+    $text_domain = get_stylesheet();
     $taxonomy_labels = array(
-        'name' => _x($taxonomy_name, 'taxonomy general name', 'textdomain'),
-        'singular_name' => _x($taxonomy_singular_name, 'taxonomy singular name', 'textdomain'),
-        'search_items' => __("Search {$taxonomy_name}", 'textdomain'),
-        'all_items' => __("All {$taxonomy_name}", 'textdomain'),
-        'parent_item' => __("Parent {$taxonomy_singular_name}", 'textdomain'),
-        'parent_item_colon' => __("Parent {$taxonomy_singular_name}:", 'textdomain'),
-        'edit_item' => __("Edit {$taxonomy_singular_name}", 'textdomain'),
-        'update_item' => __("Update {$taxonomy_singular_name}", 'textdomain'),
-        'add_new_item' => __("Add New {$taxonomy_singular_name}", 'textdomain'),
-        'new_item_name' => __("New {$taxonomy_singular_name} Name", 'textdomain'),
-        'menu_name' => __($taxonomy_name, 'textdomain'),
+        'name' => _x($taxonomy_name, 'Taxonomy General Name', $text_domain),
+        'singular_name' => _x($taxonomy_singular_name, 'Taxonomy Singular Name', $text_domain),
+        'search_items' => __("Search {$taxonomy_name}", $text_domain),
+        'all_items' => __("All {$taxonomy_name}", $text_domain),
+        'parent_item' => __("Parent {$taxonomy_singular_name}", $text_domain),
+        'parent_item_colon' => __("Parent {$taxonomy_singular_name}:", $text_domain),
+        'edit_item' => __("Edit {$taxonomy_singular_name}", $text_domain),
+        'update_item' => __("Update {$taxonomy_singular_name}", $text_domain),
+        'add_new_item' => __("Add New {$taxonomy_singular_name}", $text_domain),
+        'new_item_name' => __("New {$taxonomy_singular_name} Name", $text_domain),
+        'menu_name' => __($taxonomy_name, $text_domain),
     );
 
     return $taxonomy_labels;

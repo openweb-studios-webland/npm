@@ -1,0 +1,27 @@
+{% set block = block ?? null %}
+{% set insights = block.insights | length ? block.insights : insights %}
+
+{% if block %}
+  <section class="section" data-label="insights">
+    <div class="container-sm">
+      {% if block.heading %}
+        <h2 class="heading-3 text-center">
+          {{ block.heading }}
+        </h2>
+      {% endif %}
+    </div>
+    <div class="container">
+      {% if insights | length %}
+        <div class="flex flex-wrap -mb-40 -mx-30">
+          {% for insight in insights %}
+            <div class="mb-40 px-30 w-full md:w-1/2 lg:w-1/3">
+              {% include '_blocks/insights/insight.twig' ignore missing with {
+                insight: insight,
+              } only %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

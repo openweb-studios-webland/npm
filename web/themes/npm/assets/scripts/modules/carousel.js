@@ -94,14 +94,14 @@ export default class Carousel {
   autoplay = (toStart = false) => {
     if (toStart) {
       this.config.autoplayInterval = setInterval(() => {
-        this.moveTrack(1)
+        this.move(1)
       }, this.config.autoplaySpeed)
     } else {
       clearInterval(this.config.autoplayInterval)
     }
   }
 
-  moveTrack = (direction = 0, toItem = null, setTransition = true) => {
+  move = (direction = 0, toItem = null, setTransition = true) => {
     this.config.inTransition = this.config.transition
     this.config.index = toItem ? toItem : this.config.index + direction * this.config.itemsToMove
 
@@ -132,7 +132,7 @@ export default class Carousel {
         this.track.style.transition = ''
 
         // Go to first/last item without a transition
-        this.moveTrack(null, this.config.index, false)
+        this.move(null, this.config.index, false)
 
         this.config.inTransition = false
       }
@@ -157,8 +157,8 @@ export default class Carousel {
   attachEventListeners = () => {
     this.triggers = [
       ...this.carousel.querySelectorAll([
-        '[data-carousel-nav] a',
-        '[data-carousel-nav] button',
+        '[data-carousel-controls] a',
+        '[data-carousel-controls] button',
         '[data-carousel-prev]',
         '[data-carousel-next]',
       ]),
@@ -185,21 +185,21 @@ export default class Carousel {
       if (e.currentTarget.hasAttribute('data-carousel-prev')) {
         if (!this.config.loop) {
           if (this.config.index > 0) {
-            this.moveTrack(-1)
+            this.move(-1)
           }
         } else {
-          this.moveTrack(-1)
+          this.move(-1)
         }
       } else if (e.currentTarget.hasAttribute('data-carousel-next')) {
         if (!this.config.loop) {
           if (this.config.index < this.config.itemsCount - this.config.itemsOffset + 1) {
-            this.moveTrack(1)
+            this.move(1)
           }
         } else {
-          this.moveTrack(1)
+          this.move(1)
         }
       } else {
-        this.moveTrack(null, this.triggers.indexOf(e.target) + this.config.itemsOffset)
+        this.move(null, this.triggers.indexOf(e.target) + this.config.itemsOffset)
       }
 
       // Stop autoplay on click event
@@ -214,9 +214,9 @@ export default class Carousel {
   onKeyup = e => {
     if (!this.config.inTransition) {
       if (e.key === 'ArrowLeft' || e.which === 37) {
-        this.moveTrack(-1)
+        this.move(-1)
       } else if (e.key === 'ArrowRight' || e.which === 39) {
-        this.moveTrack(1)
+        this.move(1)
       }
 
       // Stop autoplay on keyup event

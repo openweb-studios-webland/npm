@@ -32,13 +32,13 @@
             <div data-module="carousel" data-carousel-loop="false">
               <div class="flex relative -mx-10" data-carousel-track>
                 {% for program in Post(block.programs) %}
-                  <div class="flex-0 px-10 w-full md:w-1/2 lg:w-1/3" data-carousel-item>
+                  <div class="carousel-item flex-0 px-10 w-full md:w-1/2 lg:w-1/3" data-carousel-item>
                     {% include '_blocks/programs/program.twig' ignore missing with {
                       program: program,
                     } only %}
                   </div>
                 {% endfor %}
-                <div class="flex-0 px-10 w-full md:w-1/2 lg:w-1/3" data-carousel-item>
+                <div class="carousel-item flex-0 px-10 w-full md:w-1/2 lg:w-1/3" data-carousel-item>
                   <div class="bg-white flex flex-col h-full justify-center p-20 shadow-sm">
                     <a class="button" href="/programs">
                       View all programs

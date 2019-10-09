@@ -1,10 +1,10 @@
-[data-carousel-item][aria-hidden] {
+.carousel-item[aria-hidden] {
   @apply opacity-100
     pointer-events-auto
     visible;
 }
 
-.programs [data-carousel-item][aria-hidden] {
+.programs .carousel-item[aria-hidden] {
   @apply opacity-50;
 
   @screen md {

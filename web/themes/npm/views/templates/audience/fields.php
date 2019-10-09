@@ -3,11 +3,11 @@
 if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
-        'key' => 'group_5be47c5fce2cf',
-        'title' => 'Home',
+        'key' => 'group_5be47c5fwopcf',
+        'title' => 'Audience',
         'fields' => array(
             array(
-                'key' => 'field_5c06ef0486b77',
+                'key' => 'field_5c06efqt86b7z',
                 'label' => 'Blocks',
                 'name' => 'blocks',
                 'type' => 'flexible_content',
@@ -20,12 +20,9 @@ if (function_exists('acf_add_local_field_group')):
                     'id' => '',
                 ),
                 'layouts' => array(
-                    acf_dynamic_clones_get_local_field_group('Cards', 'cards'),
-                    acf_dynamic_clones_get_local_field_group('Hero', 'hero-front-page'),
-                    acf_dynamic_clones_get_local_field_group('Programs', 'programs'),
+                    acf_dynamic_clones_get_local_field_group('Audiences', 'audiences'),
+                    acf_dynamic_clones_get_local_field_group('Hero', 'hero'),
                     acf_dynamic_clones_get_local_field_group('Statistics', 'statistics'),
-                    acf_dynamic_clones_get_local_field_group('Testimonials', 'testimonials'),
-                    acf_dynamic_clones_get_local_field_group('Work', 'work'),
                 ),
                 'button_label' => 'Add a Block',
                 'min' => '',
@@ -35,9 +32,9 @@ if (function_exists('acf_add_local_field_group')):
         'location' => array(
             array(
                 array(
-                    'param' => 'page_type',
+                    'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'front_page',
+                    'value' => 'audience.php',
                 ),
             ),
         ),

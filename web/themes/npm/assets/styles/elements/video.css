@@ -1,0 +1,23 @@
+/*! purgecss start ignore */
+.video {
+  @apply h-0
+    overflow-hidden
+    relative;
+  padding-bottom:56.25%;
+}
+
+.video iframe {
+  @apply absolute
+    h-full
+    left-0
+    top-0
+    w-full;
+  left:0;
+}
+
+.active .video-overlay {
+  @apply invisible
+    opacity-0
+    pointer-events-none;
+}
+/*! purgecss end ignore */

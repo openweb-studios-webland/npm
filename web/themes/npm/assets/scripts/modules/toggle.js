@@ -8,7 +8,7 @@ export default class Toggle {
     this.attachEventListeners()
   }
 
-  attachEventListeners() {
+  attachEventListeners = () => {
     this.toggle.addEventListener('click', this.toggleAttributes)
 
     if (this.watchee) {

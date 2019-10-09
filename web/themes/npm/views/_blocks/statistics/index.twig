@@ -1,7 +1,7 @@
 {% set block = block ?? null %}
 
 {% if block %}
-<section class="{{ block.color != 'white' ? 'bg-' ~ block.color ~ ' text-white' : 'bg-' ~ block.color }} section" data-label="{{ block.acf_fc_layout }}">
+<section class="{{ block.color != 'white' ? 'bg-' ~ block.color ~ ' text-white' : 'bg-' ~ block.color }} section" data-label="statistics">
     <div class="container">
       <div class="flex flex-wrap -mx-30">
         {% if block.text %}
@@ -28,9 +28,9 @@
 
           {% if block.statistics | length %}
             <div class="px-30 w-full lg:w-2/3">
-              <div class="flex flex-wrap -mb-30 -mx-30 lg:-mb-40">
+              <div class="flex flex-wrap -mb-40 -mx-30">
                 {% for statistic in block.statistics %}
-                  <div class="mb-30 px-30 lg:mb-40 md:w-1/2">
+                  <div class="mb-40 px-30 md:w-1/2">
                     {% include '_blocks/statistics/statistic.twig' ignore missing with {
                       statistic: statistic,
                     } only %}

@@ -1,0 +1,17 @@
+{% set block = block ?? null %}
+
+{% if block %}
+  <section class="section" data-label="audiences">
+    <div class="container">
+      {% if block.audiences | length %}
+          {% for audience in block.audiences %}
+
+              {% include '_blocks/audiences/audience.twig' ignore missing with {
+                audience: audience,
+              } only %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

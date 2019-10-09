@@ -8,7 +8,7 @@ export default class Header {
     this.attachEventListeners()
   }
 
-  attachEventListeners() {
+  attachEventListeners = () => {
     window.addEventListener(
       'scroll',
       debounce(() => {

@@ -1,7 +1,7 @@
 {% set block = block ?? null %}
 
 {% if block %}
-<section class="{{ block.color != 'white' ? 'bg-' ~ block.color ~ ' text-white' : 'bg-' ~ block.color }} section" data-label="statistics">
+<section class="{{ block.color_select != 'white' ? 'bg-' ~ block.color_select ~ ' text-white' : 'bg-' ~ block.color_select }} section" data-label="statistics">
     <div class="container">
       <div class="flex flex-wrap -mx-30">
         {% if block.text %}
@@ -18,9 +18,9 @@
               </div>
             {% endif %}
 
-            {% if block.button_clone_link and block.button_clone_text %}
-              <a class="link" href="{{ block.button_clone_link }}">
-                {{ block.button_clone_text }}
+            {% if block.button_link and block.button_text %}
+              <a class="link" href="{{ block.button_link }}">
+                {{ block.button_text }}
                 {{ svg('link') }}
               </a>
             {% endif %}

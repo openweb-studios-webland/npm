@@ -147,7 +147,7 @@ if (function_exists('acf_add_local_field_group')):
                 'display' => 'seamless',
                 'layout' => 'block',
                 'prefix_label' => 1,
-                'prefix_name' => 0,
+                'prefix_name' => 1,
             ),
         ),
         'location' => array(

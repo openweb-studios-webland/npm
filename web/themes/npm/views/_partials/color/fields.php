@@ -8,8 +8,8 @@ if (function_exists('acf_add_local_field_group')):
         'fields' => array(
             array(
                 'key' => 'field_5da5f612302b7',
-                'label' => 'Color',
-                'name' => 'color',
+                'label' => 'Select',
+                'name' => 'select',
                 'type' => 'select',
                 'instructions' => '',
                 'required' => 0,

@@ -63,7 +63,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'display' => 'seamless',
                 'layout' => 'block',
                 'prefix_label' => 1,
-                'prefix_name' => 0,
+                'prefix_name' => 1,
             ),
             array(
                 'key' => 'field_5d8d2z35fb62f',

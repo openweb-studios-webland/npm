@@ -137,7 +137,7 @@ define('WPLANG', '');
  *
  */
 if (!defined('WP_DEBUG')) {
-    define('WP_DEBUG', isset($_ENV['PANTHEON_ENVIRONMENT']) ? false : true);
+    define('WP_DEBUG', isset($_ENV['PANTHEON_ENVIRONMENT']) || env('WP_ENV') === 'staging' ? false : true);
 }
 
 // Absolute path to the WordPress directory

@@ -4,8 +4,8 @@
   post_date: insight.post_date ? insight.post_date | date('F Y') : null,
   heading: insight.title ?? null,
   text: insight.text ?? null,
-  button_clone_text: insight.button_clone_text ?? null,
-  button_clone_link: insight.link,
+  button_text: insight.button_text ?? null,
+  button_link: insight.link,
 } %}
 
 {% if insight.image %}
@@ -45,9 +45,9 @@
   </p>
 {% endif %}
 
-{% if insight.button_clone_text and insight.button_clone_link %}
-  <a class="link text-14" href="{{ insight.button_clone_link }}">
-    {{ insight.button_clone_text }}
+{% if insight.button_text and insight.button_link %}
+  <a class="link text-14" href="{{ insight.button_link }}">
+    {{ insight.button_text }}
     {{ svg('link') }}
   </a>
 {% endif %}

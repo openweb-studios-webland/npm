@@ -2,8 +2,8 @@
   image: secondary_card.image ? TimberImage(secondary_card.image) : null,
   heading: secondary_card.heading ?? null,
   text: secondary_card.text ?? null,
-  button_clone_link: secondary_card.button_clone_link ?? null,
-  button_clone_text: secondary_card.button_clone_text ?? null,
+  button_link: secondary_card.button_link ?? null,
+  button_text: secondary_card.button_text ?? null,
 } %}
 
 <div class="lg:bg-white lg:p-20 lg:shadow-sm">
@@ -31,9 +31,9 @@
         </div>
       {% endif %}
 
-      {% if secondary_card.button_clone_link and secondary_card.button_clone_text %}
-        <a class="link mt-20 text-white lg:text-blue-link" href="{{ secondary_card.button_clone_link }}">
-          {{ secondary_card.button_clone_text }}
+      {% if secondary_card.button_link and secondary_card.button_text %}
+        <a class="link mt-20 text-white lg:text-blue-link" href="{{ secondary_card.button_link }}">
+          {{ secondary_card.button_text }}
           {{ svg('link') }}
         </a>
       {% endif %}

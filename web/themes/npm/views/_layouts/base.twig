@@ -27,10 +27,8 @@
 
         {% if fields is defined and fields.call_to_action | length %}
           {% include '_partials/call-to-action/index.twig' ignore missing with {
-            call_to_action: Post(fields.call_to_action),
+            call_to_action: fields.call_to_action,
           } only %}
-
-          {{ dump(Post(fields.call_to_action))}}
         {% endif %}
       </main>
 

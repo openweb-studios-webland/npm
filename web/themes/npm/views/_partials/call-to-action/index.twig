@@ -1,32 +1,35 @@
 {% set call_to_action = {
-  color: call_to_action.call_to_action_color ?? 'blue',
+  color_select: call_to_action.color_select ?? 'blue',
   image: call_to_action.image ? TimberImage(call_to_action.image) : null,
   heading: call_to_action.heading ?? null,
   text: call_to_action.text ?? null,
-  button_clone_link: call_to_action.button_clone_link ?? null,
-  button_clone_text: call_to_action.button_clone_text ?? null,
+  button_link: call_to_action.button_link ?? null,
+  button_text: call_to_action.button_text ?? null,
 } %}
 
-{{ dump(call_to_action) }}
-
-<section class="{{ call_to_action.color == 'white' ? 'text-white ' }}bg-{{ call_to_action.color }} lg:pt-50" data-label="call-to-action">
+<section class="{{ call_to_action.color_select != 'white' ? 'text-white ' }}bg-{{ call_to_action.color_select }} text-center" data-label="call-to-action">
   {% if call_to_action.image %}
-    <div class="container">
-      <div class="flex flex-wrap items-end -mx-30">
-        <div class="px-30 hidden w-full lg:block lg:w-5/12">
-          <img
-            src="{{ call_to_action.image.src | resize(1440, 1440) }}"
-            srcset="{{ call_to_action.image.srcset }}"
-            alt="{{ call_to_action.image.alt }}"
-          />
+    <div class="lg:pt-50 lg:text-left">
+      <div class="container">
+        <div class="flex flex-wrap items-end -mx-30">
+          <div class="px-30 hidden w-full lg:block lg:w-5/12">
+            <img
+              src="{{ call_to_action.image.src | resize(1440, 1440) }}"
+              srcset="{{ call_to_action.image.srcset }}"
+              alt="{{ call_to_action.image.alt }}"
+            />
+          </div>
+          <div class="px-30 py-50 w-full md:py-75 lg:py-100 lg:w-7/12">
+            {% include '_partials/call-to-action/call-to-action.twig' ignore missing %}
+          </div>
         </div>
-
-        {% include '_partials/call-to-action/call-to-action.twig' ignore missing %}
       </div>
     </div>
   {% else %}
-    <div class="container-sm">
-      {% include '_partials/call-to-action/call-to-action.twig' ignore missing %}
+    <div class="section">
+      <div class="container-sm">
+        {% include '_partials/call-to-action/call-to-action.twig' ignore missing %}
+      </div>
     </div>
   {% endif %}
 </section>

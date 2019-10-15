@@ -4,7 +4,7 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_5be47c5fce274',
-        'title' => 'Home',
+        'title' => 'Platform',
         'fields' => array(
             array(
                 'key' => 'field_5c06ef04zpb77',
@@ -20,12 +20,13 @@ if (function_exists('acf_add_local_field_group')):
                     'id' => '',
                 ),
                 'layouts' => array(
+                    acf_dynamic_clones_get_local_field_group('Cards', 'cards-platform'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero'),
                     acf_dynamic_clones_get_local_field_group('Insights', 'insights'),
                     acf_dynamic_clones_get_local_field_group('Statistics', 'statistics'),
                     acf_dynamic_clones_get_local_field_group('Work', 'work'),
                 ),
-                'button_label' => 'Add a Block',
+                'button_label' => 'Add Block',
                 'min' => '',
                 'max' => '',
             ),
@@ -35,7 +36,7 @@ if (function_exists('acf_add_local_field_group')):
                 array(
                     'param' => 'post_type',
                     'operator' => '==',
-                    'value' => 'format',
+                    'value' => 'platform',
                 ),
             ),
         ),

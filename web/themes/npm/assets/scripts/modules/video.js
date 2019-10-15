@@ -1,22 +1,24 @@
 export default class Video {
   constructor(el) {
     // DOM elements
-    this.container = el
-    this.iframe = this.container.querySelector('iframe')
-    this.playTrigger = this.container.querySelector('[data-video-play]')
+    this.el = el
+    this.iframe = this.el.querySelector('iframe')
+    this.trigger = this.el.querySelector('[data-video-play]')
 
     this.attachEventListeners()
   }
 
-  play = () => {
-    this.iframe.src += this.iframe.src.includes('?') ? '&autoplay=1' : '?autoplay=1'
-
-    if (!this.container.classList.contains('active')) {
-      this.container.classList.add('active')
-    }
+  attachEventListeners = () => {
+    this.trigger.addEventListener('click', this.playPause)
   }
 
-  attachEventListeners = () => {
-    this.playTrigger.addEventListener('click', this.play)
+  playPause = e => {
+    this.iframe.src += this.iframe.src.includes('?') ? '&autoplay=1' : '?autoplay=1'
+
+    if (!this.el.classList.contains('active')) {
+      this.el.classList.add('active')
+    }
+
+    e.preventDefault()
   }
 }

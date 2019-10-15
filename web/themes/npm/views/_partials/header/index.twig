@@ -14,7 +14,7 @@
 
     {% if menu.primary.items | length %}
       <nav
-        id="toggle-{{ uid }}"
+        id="{{ uid }}"
         class="menu absolute flex-1 left-0 px-20 top-full w-screen z-50 lg:static"
         role="navigation"
         aria-hidden="true"
@@ -35,7 +35,7 @@
       <button
         class="h-44 relative -mr-10 w-44"
         data-module="toggle"
-        aria-controls="toggle-{{ uid }}"
+        aria-controls="{{ uid }}"
       >
         <span class="screen-reader-only">
           Menu

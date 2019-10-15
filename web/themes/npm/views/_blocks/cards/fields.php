@@ -42,14 +42,14 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'min' => 2,
                 'max' => 3,
                 'layout' => 'block',
-                'button_label' => 'Add a Card',
+                'button_label' => 'Add Card',
                 'sub_fields' => array(
                     array(
                         'key' => 'field_5d94f11ccd200',
                         'label' => 'Image',
                         'name' => 'image',
                         'type' => 'image',
-                        'instructions' => '',
+                        'instructions' => 'Recommended dimensions are 1440 x 810',
                         'required' => 0,
                         'conditional_logic' => 0,
                         'wrapper' => array(

@@ -23,8 +23,32 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'min' => 0,
                 'max' => 0,
                 'layout' => 'block',
-                'button_label' => 'Add an Audience',
+                'button_label' => 'Add Audience',
                 'sub_fields' => array(
+                    array(
+                        'key' => 'field_5da4bf4f795e4',
+                        'label' => 'Image',
+                        'name' => 'image',
+                        'type' => 'image',
+                        'instructions' => 'Recommended dimensions are 1620 x 720',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'return_format' => 'array',
+                        'preview_size' => 'thumbnail',
+                        'library' => 'all',
+                        'min_width' => '',
+                        'min_height' => '',
+                        'min_size' => '',
+                        'max_width' => '',
+                        'max_height' => '',
+                        'max_size' => '',
+                        'mime_types' => '',
+                    ),
                     array(
                         'key' => 'field_5d9d514f34a68',
                         'label' => 'Heading',
@@ -80,7 +104,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                         'min' => 0,
                         'max' => 0,
                         'layout' => 'block',
-                        'button_label' => 'Add a Statistic',
+                        'button_label' => 'Add Statistic',
                         'sub_fields' => array(
                             array(
                                 'key' => 'field_5d9d51ae34a6b',

@@ -10,4 +10,12 @@
   .translate-y-1\/2 {
     transform: translateY(-50%);
   }
+
+  .translate-l-full {
+    transform: translateX(100%);
+  }
+
+  .translate-r-full {
+    transform: translateX(-100%);
+  }
 }

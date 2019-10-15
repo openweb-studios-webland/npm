@@ -1,16 +1,18 @@
 # ACF Dynamic Clones Plugin
 
-* [Setup](#setup)
-* [How to Use](#how-to-use)
-* [Other Resources](#other-resources)
+- [Setup](#setup)
+- [How to Use](#how-to-use)
+- [Other Resources](#other-resources)
 
 ---
 
 ## Setup
+
 Install a theme:
 [VigetPress (recommended)](https://github.com/vigetlabs/VigetPress)
 
 Navigate to the `wp-content/plugins` or `wp-content/mu-plugins` directory and clone this repository:
+
 ```bash
 $ git clone git@github.com:vigetlabs/acf-dynamic-clones.git
 ```
@@ -18,7 +20,9 @@ $ git clone git@github.com:vigetlabs/acf-dynamic-clones.git
 ---
 
 ## How to Use
+
 ### Field Group To-Be Cloned
+
 A clone of this field group will be included in the flexible content field below.
 
 ```php
@@ -51,7 +55,9 @@ endif;
 ```
 
 ### Flexible Content Field
+
 Add `acf_dynamic_clones_get_local_field_group('field_title')` to the layouts array.
+
 ```php
 <?php
 
@@ -78,7 +84,7 @@ if (function_exists('acf_add_local_field_group')):
           acf_dynamic_clones_get_local_field_group('field_title'), // Use field group title with dashes or underscores for spaces
           acf_dynamic_clones_get_local_field_group('another_field_title'),
         ),
-        'button_label' => 'Add a Component',
+        'button_label' =>  Component',
         'min' => '',
         'max' => '',
       ),
@@ -116,5 +122,6 @@ endif;
 ---
 
 ## Other Resources
-* [Advanced Custom Fields Docs](https://www.advancedcustomfields.com/resources)
-* [Register Advanded Custom Fields via PHP](https://www.advancedcustomfields.com/resources/register-fields-via-php/)
+
+- [Advanced Custom Fields Docs](https://www.advancedcustomfields.com/resources)
+- [Register Advanded Custom Fields via PHP](https://www.advancedcustomfields.com/resources/register-fields-via-php/)

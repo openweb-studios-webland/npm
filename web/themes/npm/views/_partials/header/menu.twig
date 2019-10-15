@@ -5,7 +5,7 @@
 {% if menu and items | length %}
   {% if level == 1 %}
     <div
-      id="toggle-{{ uid }}"
+      id="{{ uid }}"
       class="submenu {{ front_page ? 'bg-blue border-blue-link' : 'bg-white border-gray' }} border-b border-t left-0 -mx-20 px-20 lg:shadow-xs transition w-screen lg:absolute lg:border-b-0 lg:mx-0 lg:px-0 lg:top-full"
       aria-hidden="true"
     >
@@ -65,7 +65,7 @@
               <button
                 class="border-b-2 border-transparent flex font-bold inline-block items-center py-10 transition-fast w-full whitespace-no-wrap lg:hover:border-blue-link"
                 data-module="toggle"
-                aria-controls="toggle-{{ uid }}"
+                aria-controls="{{ uid }}"
               >
                 {{ item.title }}
                 {{ svg('menu', { classes: 'ml-10 text-blue-link w-10' }) }}

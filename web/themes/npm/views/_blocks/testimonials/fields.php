@@ -3,7 +3,7 @@
 if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
-        'key' => 'group_5d95039ed6b09',
+        'key' => 'group_p4wnd90yhubk5',
         'title' => 'Testimonials',
         'fields' => array(
             array(

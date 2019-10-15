@@ -23,16 +23,6 @@ function create_taxonomy_labels($taxonomy_name = 'Taxonomies', $taxonomy_singula
 function register_taxonomies()
 {
     register_taxonomy(
-        'platform',
-        'format',
-        array(
-            'labels' => create_taxonomy_labels('Platforms', 'Platform'),
-            'hierarchical' => true,
-            'show_admin_column' => true,
-        )
-    );
-
-    register_taxonomy(
         'topic',
         'program',
         array(

@@ -31,18 +31,18 @@ function register_post_types()
         )
     );
 
-    register_post_type('format',
+    register_post_type('insight',
         array(
-            'labels' => create_post_type_labels('Formats', 'Format'),
+            'labels' => create_post_type_labels('Insights', 'Insight'),
             'public' => true,
             'has_archive' => false,
             'menu_icon' => '',
         )
     );
 
-    register_post_type('insight',
+    register_post_type('platform',
         array(
-            'labels' => create_post_type_labels('Insights', 'Insight'),
+            'labels' => create_post_type_labels('Platforms', 'Platform'),
             'public' => true,
             'has_archive' => false,
             'menu_icon' => '',
@@ -56,6 +56,15 @@ function register_post_types()
             'has_archive' => false,
             'menu_icon' => '',
             'taxonomies' => array('topic'),
+        )
+    );
+
+    register_post_type('sponsorship',
+        array(
+            'labels' => create_post_type_labels('Sponsorships', 'Sponsorship'),
+            'public' => true,
+            'has_archive' => false,
+            'menu_icon' => '',
         )
     );
 

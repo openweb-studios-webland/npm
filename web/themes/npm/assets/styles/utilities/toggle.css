@@ -1,5 +1,3 @@
 [aria-hidden] {
-  @apply invisible
-    opacity-0
-    pointer-events-none;
+  @apply hidden;
 }

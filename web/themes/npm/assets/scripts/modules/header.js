@@ -3,7 +3,7 @@ import debounce from '../utilities/debounce'
 export default class Header {
   constructor(el) {
     // DOM elements
-    this.header = el
+    this.el = el
 
     this.attachEventListeners()
   }
@@ -20,6 +20,6 @@ export default class Header {
   checkPosition = () => {
     const position = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0)
 
-    position && position > 100 ? this.header.classList.add('stuck') : this.header.classList.remove('stuck')
+    position && position > 100 ? this.el.classList.add('stuck') : this.el.classList.remove('stuck')
   }
 }

@@ -1,11 +1,23 @@
-.pin-left {
+.pin-l,
+.pin-r {
   @media (min-width: 1200px) {
-    margin-left: calc((1180px - 100vw) / 2) !important; /* Override inline Tailwind utilities */
+    width: calc(100% + ((100vw - 1160px) / 2));
   }
 }
 
-.pin-right {
+
+.pin-l {
   @media (min-width: 1200px) {
-    margin-right: calc((1180px - 100vw) / 2) !important; /* Override inline Tailwind utilities */
+    @apply float-left
+      mr-0;
+    margin-left: calc((1160px - 100vw) / 2) !important; /* Override inline Tailwind utilities */
+  }
+}
+
+.pin-r {
+  @media (min-width: 1200px) {
+    @apply float-right
+      ml-0;
+    margin-right: calc((1160px - 100vw) / 2) !important; /* Override inline Tailwind utilities */
   }
 }

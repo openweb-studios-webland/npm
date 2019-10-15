@@ -11,8 +11,14 @@ module.exports = {
     },
     colors: {
       transparent: 'transparent',
-      black: '#161616',
-      white: '#fff',
+      black: {
+        'semi-opaque': 'rgba(22, 22, 22, 0.25)',
+        default: '#161616',
+      },
+      white: {
+        'semi-opaque': 'rgba(255, 255, 255, 0.25)',
+        default: '#fff',
+      },
       crimson: '#db3053',
       purple: '#161c58',
       teal: '#0c8483',
@@ -78,6 +84,7 @@ module.exports = {
       none: 'none',
       xs: '0px 5px 10px rgba(0, 0, 0, 0.15)',
       sm: '0px 20px 30px rgba(0, 0, 0, 0.15)',
+      md: '0px 10px 20px rgba(0, 0, 0, 0.25)',
       lg: '0px 30px 40px rgba(0, 0, 0, 0.25)',
       default: '0px 30px 30px rgba(0, 0, 0, 0.15)',
     },
@@ -98,6 +105,7 @@ module.exports = {
       none: 'none',
       '0': '0 0 auto',
       '1': '1 1 auto',
+      '1-1-0': '1 1 0',
     },
     flexGrow: {
       '0': '0',

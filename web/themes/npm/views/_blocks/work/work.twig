@@ -1,6 +1,6 @@
 {% set work = {
   heading: work.title ?? null,
-  image: work.featured_image ? TimberImage(work.featured_image) : null,
+  image: work.image ? TimberImage(work.image) : null,
   audio: work.get_field('audio') ?? null,
   video: work.get_field('video') ?? null,
   text: work.text ?? null,
@@ -64,7 +64,7 @@
   {% endif %}
 
   {% if work.text %}
-    <p class="text text-14">
+    <p class="text text-14"  href="{{ work.link }}">
       {{ work.text }}
     </p>
   {% endif %}

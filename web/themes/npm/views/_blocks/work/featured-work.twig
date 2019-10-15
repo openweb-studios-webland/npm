@@ -1,0 +1,41 @@
+{% set featured_work = {
+  heading: featured_work.title ?? null,
+  featured_image: featured_work.featured_image ? TimberImage(featured_work.featured_image) : null,
+  text: featured_work.text ?? null,
+} %}
+
+<div class="flex flex-wrap items-center mb-50 -mx-20">
+  <div class="mb-30 px-20 w-full lg:mb-0 lg:w-2/3">
+    {% set featured_image = TimberImage(featured_work.featured_image) %}
+
+    {% if featured_image %}
+      <img
+        src="{{ featured_image.src | resize(1440, 900) }}"
+        srcset="{{ featured_image.srcset }}"
+        alt="{{ featured_image.alt }}"
+      />
+    {% endif %}
+  </div>
+  <div class="px-20 w-full lg:w-1/3">
+    <h4 class="heading-6 mb-20">
+      Featured Work
+    </h4>
+
+    {% if featured_work.heading %}
+      <h3 class="heading-3">
+        {{ featured_work.heading }}
+      </h3>
+    {% endif %}
+
+    {% if featured_work.text %}
+      <p class="text">
+        {{ featured_work.text }}
+      </p>
+    {% endif %}
+
+    <a class="link text-14" href="{{ featured_work.link }}">
+      View the work
+      {{ svg('link') }}
+    </a>
+  </div>
+</div>

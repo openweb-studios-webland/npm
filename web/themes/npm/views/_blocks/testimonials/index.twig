@@ -1,16 +1,16 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="bg-teal pb-50 md:pb-75 lg:pb-0" data-label="testimonials">
+  <section class="section bg-teal" data-label="testimonials">
     {% if block.testimonials | length %}
       <div
-        class="relative overflow-x-hidden"
+        class="carousel relative overflow-x-hidden"
         data-module="carousel"
-        data-carousel-transition-speed="700"
+        data-carousel-transition-speed="600"
       >
         <div class="flex relative" data-carousel-track>
           {% for testimonial in Post(block.testimonials) %}
-            <div class="carousel-item flex-0 w-full" data-carousel-item>
+            <div class="flex-0 w-full" data-carousel-item>
               <div class="container">
                 {% include '_blocks/testimonials/testimonial.twig' ignore missing with {
                   testimonial: testimonial,
@@ -19,9 +19,9 @@
             </div>
           {% endfor %}
         </div>
-        <div class="lg:absolute lg:bottom-0 lg:left-0 lg:mb-50 lg:w-full">
-          <div class="container">
-            <div class="flex justify-center opacity-50 mt-30 -mx-5 text-white lg:justify-start lg:mt-0">
+        <div class="lg:absolute lg:inset-x-0 lg:top-1/2 lg:translate-y-1/2">
+          <div class="container-lg">
+            <div class="flex justify-center opacity-50 mt-30 -mx-5 text-white lg:justify-between lg:mt-0">
               <div class="px-5">
                 {% include '_partials/carousel/button-prev.twig' ignore missing only %}
               </div>

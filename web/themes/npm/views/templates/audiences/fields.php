@@ -24,7 +24,7 @@ if (function_exists('acf_add_local_field_group')):
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero'),
                     acf_dynamic_clones_get_local_field_group('Statistics', 'statistics'),
                 ),
-                'button_label' => 'Add a Block',
+                'button_label' => 'Add Block',
                 'min' => '',
                 'max' => '',
             ),

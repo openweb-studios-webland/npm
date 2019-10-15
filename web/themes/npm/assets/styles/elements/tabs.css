@@ -1,0 +1,58 @@
+/*! purgecss start ignore */
+.tabs-trigger {
+  &[aria-expanded="true"] {
+    @apply border-b-0;
+
+    @screen lg {
+      @apply shadow-md
+        text-black;
+    }
+
+    &::before {
+      @apply block;
+    }
+
+    &::after {
+      @apply hidden;
+    }
+
+    & svg:last-of-type {
+      @screen lg {
+        @apply block;
+      }
+    }
+  }
+
+  &::before,
+  &::after {
+    @apply absolute
+      bg-white
+      right-0;
+    width: 50vw;
+
+    @screen lg {
+      content: "";
+    }
+  }
+
+  &::before {
+    @apply hidden
+      h-full
+      top-0;
+  }
+
+  &::after {
+    @apply bg-black-semi-opaque
+      bottom-0;
+    height: 1px;
+  }
+}
+
+.tabs-targets {
+  @apply w-full;
+
+  @screen lg {
+    width: 75%;
+  }
+}
+/*! purgecss end ignore */

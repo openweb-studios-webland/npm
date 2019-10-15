@@ -5,11 +5,11 @@ const WaveSurfer = require('wavesurfer.js/dist/wavesurfer')
 export default class Audio {
   constructor(el) {
     // DOM elements
-    this.container = el
-    this.player = this.container.querySelector('[data-audio-player]')
-    this.progress = this.container.querySelector('[data-audio-progress]')
-    this.playPauseTriggers = this.container.querySelectorAll('[data-audio-play-pause]')
-    this.skipBackwardTrigger = this.container.querySelector('[data-audio-skip-backward]')
+    this.el = el
+    this.player = this.el.querySelector('[data-audio-player]')
+    this.progress = this.el.querySelector('[data-audio-progress]')
+    this.playPauseTriggers = this.el.querySelectorAll('[data-audio-play-pause]')
+    this.skipBackwardTrigger = this.el.querySelector('[data-audio-skip-backward]')
 
     // Config
     this.config = {
@@ -34,7 +34,6 @@ export default class Audio {
       container: this.player,
       cursorColor: this.config.cursorColor,
       cursorWidth: this.config.cursorWidth,
-      isLoaded: false,
       progressColor: this.config.progressColor,
       skipLength: this.config.skipLength,
       waveColor: this.config.waveColor,
@@ -44,43 +43,26 @@ export default class Audio {
       this.wavesurfer.load(this.config.audioSource)
 
       this.wavesurfer.on('ready', () => {
-        this.attachEventListeners()
-        this.duration = this.toTimestamp(this.wavesurfer.getDuration())
+        this.duration = this.formatTimestamp(this.wavesurfer.getDuration())
         this.progress.innerHTML = `00:00 / ${this.duration}`
+
+        this.attachEventListeners()
       })
     }
   }
 
-  toTimestamp = seconds => {
+  formatTimestamp = seconds => {
     seconds = Math.floor(seconds)
     let minutes = Math.floor(seconds / 60)
     seconds = seconds - minutes * 60
-    minutes = this.checkTimeUnits(minutes)
-    seconds = this.checkTimeUnits(seconds)
+    minutes = this.formatTimeUnits(minutes)
+    seconds = this.formatTimeUnits(seconds)
 
     return `${minutes}:${seconds}`
   }
 
-  checkTimeUnits = unit => {
+  formatTimeUnits = unit => {
     return unit < 10 ? `0${unit}` : unit
-  }
-
-  audioProcess = seconds => {
-    this.progress.innerHTML = `${this.toTimestamp(seconds)} / ${this.duration}`
-  }
-
-  playPause = () => {
-    this.wavesurfer.playPause()
-
-    if (!this.container.classList.contains('active')) {
-      this.container.classList.add('active')
-    }
-
-    this.container.classList.toggle('playing')
-  }
-
-  skipBackward = () => {
-    this.wavesurfer.skipBackward()
   }
 
   attachEventListeners = () => {
@@ -92,5 +74,27 @@ export default class Audio {
 
     this.skipBackwardTrigger.addEventListener('click', this.skipBackward)
     this.wavesurfer.on('audioprocess', this.audioProcess)
+  }
+
+  audioProcess = seconds => {
+    this.progress.innerHTML = `${this.formatTimestamp(seconds)} / ${this.duration}`
+  }
+
+  playPause = e => {
+    this.wavesurfer.playPause()
+
+    if (!this.el.classList.contains('active')) {
+      this.el.classList.add('active')
+    }
+
+    this.el.classList.toggle('playing')
+
+    e.preventDefault()
+  }
+
+  skipBackward = e => {
+    this.wavesurfer.skipBackward()
+
+    e.preventDefault()
   }
 }

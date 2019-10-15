@@ -4,7 +4,7 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_5d9cb704694ae',
-        'title' => 'Single',
+        'title' => 'Insight',
         'fields' => array(
             array(
                 'key' => 'field_5d9cba89d8e27',

@@ -1,0 +1,42 @@
+{% set secondary_card = {
+  image: secondary_card.image ? TimberImage(secondary_card.image) : null,
+  heading: secondary_card.heading ?? null,
+  text: secondary_card.text ?? null,
+  button_link: secondary_card.button_link ?? null,
+  button_text: secondary_card.button_text ?? null,
+} %}
+
+<div class="lg:bg-white lg:p-20 lg:shadow-sm">
+  <div class="flex flex-wrap items-center lg:flex-no-wrap lg:-mx-20">
+    {% if secondary_card.image %}
+      <div class="mb-30 w-full lg:mb-0 lg:px-20 lg:w-5/12">
+        <img
+          src="{{ secondary_card.image.src | resize(1440, 900) }}"
+          srcset="{{ secondary_card.image.srcset }}"
+          alt="{{ secondary_card.image.alt }}"
+        />
+      </div>
+    {% endif %}
+
+    <div class="text-white w-full lg:px-20 lg:text-black lg:w-7/12">
+      {% if secondary_card.heading %}
+        <h3 class="heading-4 mb-20">
+          {{ secondary_card.heading }}
+        </h3>
+      {% endif %}
+
+      {% if secondary_card.text %}
+        <div class="text">
+          {{ secondary_card.text }}
+        </div>
+      {% endif %}
+
+      {% if secondary_card.button_link and secondary_card.button_text %}
+        <a class="link mt-20 text-white lg:text-blue-link" href="{{ secondary_card.button_link }}">
+          {{ secondary_card.button_text }}
+          {{ svg('link') }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>

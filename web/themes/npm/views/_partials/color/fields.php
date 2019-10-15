@@ -3,11 +3,11 @@
 if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
-        'key' => 'group_5d9ba11e476d6',
+        'key' => 'group_5da5f6122a712',
         'title' => 'Color',
         'fields' => array(
             array(
-                'key' => 'field_5d9ba123d82ec',
+                'key' => 'field_5da5f612302b7',
                 'label' => 'Color',
                 'name' => 'color',
                 'type' => 'select',
@@ -22,8 +22,8 @@ if (function_exists('acf_add_local_field_group')):
                 'choices' => array(
                     'white' => 'White',
                     'crimson' => 'Crimson',
-                    'blue' => 'Dark Blue',
-                    'blue-light' => 'Light Blue',
+                    'dark_blue' => 'Dark Blue',
+                    'light_blue' => 'Light Blue',
                     'teal' => 'Teal',
                     'gradient' => 'Gradient',
                 ),

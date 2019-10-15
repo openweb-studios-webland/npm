@@ -1,11 +1,43 @@
-{# {% set insight = {
-  image: insight.featured_image ? TimberImage(insight.featured_image) : null,
-  post_type: insight.post_type ? insight.post_type | title : null,
-  post_date: insight.post_date ? insight.post_date | date('F Y') : null,
-  heading: insight.title ?? null,
-  text: insight.text ?? null,
-  button_text: insight.button_text ?? null,
-  button_link: insight.link,
-} %} #}
+{% set audience = {
+  image: audience.image ? TimberImage(audience.image) : null,
+  heading: audience.heading ?? null,
+  text: audience.text ?? null,
+  statistics: audience.statistics ?? [],
+} %}
 
-{{ audience.heading }}
+{% if audience.image %}
+  <div class="clearfix">
+    <img
+      class="pin-r max-w-none -mx-20"
+      src="{{ audience.image.src | resize(1620, 720) }}"
+      srcset="{{ audience.image.srcset }}"
+      alt="{{ audience.image.alt }}"
+    />
+  </div>
+{% endif %}
+
+<div class="py-30 md:py-40 lg:pl-60 lg:py-60">
+  {% if audience.heading %}
+    <h2 class="heading-3 hidden lg:block">
+      {{ audience.heading }}
+    </h2>
+  {% endif %}
+
+  {% if audience.text %}
+    <div class="text mb-30 lg:mb-40">
+      {{ audience.text }}
+    </div>
+  {% endif %}
+
+  {% if audience.statistics | length %}
+    <div class="flex flex-wrap -mb-40 -mx-30">
+      {% for statistic in audience.statistics %}
+        <div class="mb-40 px-30 md:w-1/2 lg:w-1/3">
+          {% include '_blocks/statistics/statistic.twig' ignore missing with {
+            statistic: statistic,
+          } only %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

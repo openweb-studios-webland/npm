@@ -7,13 +7,11 @@ $context['insights'] = new Timber\PostQuery(
         'numberposts' => 3,
         'post_type' => 'insight',
         'meta_query' => array(
-            'key' => 'format',
-            // 'value' => get_the_ID(),
+            'key' => 'platform',
             'value' => '"' . get_the_ID() . '"',
-            //'compare' => 'LIKE',
         ),
     )
 );
 $context['fields'] = get_fields();
 
-Timber::render('templates/front-page/index.twig', $context);
+Timber::render('templates/single-platform/index.twig', $context);

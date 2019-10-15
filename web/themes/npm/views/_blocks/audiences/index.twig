@@ -1,15 +1,45 @@
 {% set block = block ?? null %}
+{% set uid = random() %}
 
 {% if block %}
-  <section class="section" data-label="audiences">
-    <div class="container">
+  <section class="bg-gradient lg:bg-none" data-label="audiences">
+    <div class="container-lg">
       {% if block.audiences | length %}
-          {% for audience in block.audiences %}
-
-              {% include '_blocks/audiences/audience.twig' ignore missing with {
-                audience: audience,
-              } only %}
-          {% endfor %}
+        <div class="flex flex-wrap relative">
+          <div class="relative text-white lg:w-1/4" data-module="tabs">
+            <div class="absolute bg-gradient hidden inset-y-0 left-0 pin-l top-0 lg:block"></div>
+            <div class="section flex flex-col h-full justify-center relative">
+              <h2 class="heading-6 text-center lg:text-left">
+                Our audience is:
+              <h2>
+              <ul class="w-full">
+                {% for audience in block.audiences %}
+                  <li>
+                    <button
+                      class="tabs-trigger border-b border-white-semi-opaque flex heading-4 items-center mb-0 py-20 relative text-left w-full lg:block lg:border-b-0 lg:py-30"
+                      data-tabs-trigger
+                      aria-controls="{{ uid }}{{ loop.index }}"
+                    >
+                      <span class="relative z-10">
+                        {{ audience.heading }}
+                      </span>
+                      {{ svg('accordion', { classes: 'ml-10 lg:hidden' }) }}
+                      {{ svg('tabs', { classes: 'absolute hidden inset-y-0 right-0 text-white translate-l-full' }) }}
+                    </button>
+                    <div
+                      id="{{ uid }}{{ loop.index }}"
+                      class="tabs-target border-b border-white-semi-opaque lg:border-b-0"
+                      data-tabs-target
+                    >
+                      {% include '_blocks/audiences/audience.twig' ignore missing with {
+                        audience: audience,
+                      } only %}
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
         </div>
       {% endif %}
     </div>

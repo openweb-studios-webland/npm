@@ -2,14 +2,21 @@
 
 {% if block %}
   <section class="section" data-label="work">
-    <div class="container-sm">
-      {% if block.heading %}
+    {% if block.heading %}
+      <div class="container-sm">
         <h2 class="heading-3 text-center">
           {{ block.heading }}
         </h2>
-      {% endif %}
-    </div>
+      </div>
+    {% endif %}
+
     <div class="container">
+      {% if block.featured_work %}
+        {% include '_blocks/work/featured-work.twig' ignore missing with {
+          featured_work: Post(block.featured_work),
+        } only %}
+      {% endif %}
+
       {% if block.work | length %}
         <div class="flex flex-wrap -mb-40 -mx-30">
           {% for work in Post(block.work) %}

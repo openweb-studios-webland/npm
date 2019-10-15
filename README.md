@@ -124,8 +124,8 @@ if (function_exists('acf_add_local_field_group')):
     'fields' => array(
         array(
         'key' => 'field_c991lat3ewp0o', // Field key must be unique
-        'label' => 'Components',
-        'name' => 'components',
+        'label' => 'Blocks',
+        'name' => 'blocks',
         'type' => 'flexible_content',
         'instructions' => '',
         'required' => 0,
@@ -139,7 +139,7 @@ if (function_exists('acf_add_local_field_group')):
           acf_dynamic_clones_get_local_field_group('field_title'), // Use field group title with dashes or underscores for spaces
           acf_dynamic_clones_get_local_field_group('another_field_title'),
         ),
-        'button_label' => 'Add a Component',
+        'button_label' => 'Add Block',
         'min' => '',
         'max' => '',
       ),

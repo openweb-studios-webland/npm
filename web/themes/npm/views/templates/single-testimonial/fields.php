@@ -3,54 +3,11 @@
 if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
-        'key' => 'group_5d9658e2d0ca2',
+        'key' => 'group_5da5d29e5276b',
         'title' => 'Testimonial',
         'fields' => array(
             array(
-                'key' => 'field_5d9658f01ec1d',
-                'label' => 'Image',
-                'name' => 'image',
-                'type' => 'image',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'return_format' => 'array',
-                'preview_size' => 'thumbnail',
-                'library' => 'all',
-                'min_width' => '',
-                'min_height' => '',
-                'min_size' => '',
-                'max_width' => '',
-                'max_height' => '',
-                'max_size' => '',
-                'mime_types' => '',
-            ),
-            array(
-                'key' => 'field_5d9659061ec1e',
-                'label' => 'Heading',
-                'name' => 'heading',
-                'type' => 'text',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'maxlength' => '',
-            ),
-            array(
-                'key' => 'field_5d96591a1ec1f',
+                'key' => 'field_5da5d2a2b4924',
                 'label' => 'Text',
                 'name' => 'text',
                 'type' => 'wysiwyg',
@@ -69,7 +26,7 @@ if (function_exists('acf_add_local_field_group')):
                 'delay' => 0,
             ),
             array(
-                'key' => 'field_5d9659361ec20',
+                'key' => 'field_5da5d2b4b4925',
                 'label' => 'Attribution',
                 'name' => 'attribution',
                 'type' => 'text',
@@ -111,7 +68,7 @@ if (function_exists('acf_add_local_field_group')):
             5 => 'slug',
             6 => 'author',
         ),
-        'active' => 1,
+        'active' => true,
         'description' => '',
     ));
 

@@ -9,7 +9,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
             array(
                 'key' => 'field_5d9ba2ac38f89',
                 'label' => 'Color',
-                'name' => 'color',
+                'name' => 'color_clone',
                 'type' => 'clone',
                 'instructions' => '',
                 'required' => 0,
@@ -92,7 +92,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
             array(
                 'key' => 'field_5d94f824a959e',
                 'label' => 'Button',
-                'name' => 'button',
+                'name' => 'button_clone',
                 'type' => 'clone',
                 'instructions' => '',
                 'required' => 0,
@@ -108,7 +108,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'display' => 'seamless',
                 'layout' => 'block',
                 'prefix_label' => 1,
-                'prefix_name' => 1,
+                'prefix_name' => 0,
             ),
             array(
                 'key' => 'field_5da5f55831950',

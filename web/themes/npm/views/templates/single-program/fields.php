@@ -131,7 +131,7 @@ if (function_exists('acf_add_local_field_group')):
             array(
                 'key' => 'field_5d8d2bc2d1fca',
                 'label' => 'Button',
-                'name' => 'button',
+                'name' => 'button_clone',
                 'type' => 'clone',
                 'instructions' => '',
                 'required' => 0,
@@ -147,7 +147,7 @@ if (function_exists('acf_add_local_field_group')):
                 'display' => 'seamless',
                 'layout' => 'block',
                 'prefix_label' => 1,
-                'prefix_name' => 1,
+                'prefix_name' => 0,
             ),
         ),
         'location' => array(

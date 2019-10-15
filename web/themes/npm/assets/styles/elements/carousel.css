@@ -1,8 +1,8 @@
-.carousel [aria-hidden] {
+.carousel-track > [aria-hidden] {
   @apply block;
 }
 
-.programs .carousel [aria-hidden] {
+.programs .carousel-track > [aria-hidden] {
   @apply opacity-50;
 
   @screen md {

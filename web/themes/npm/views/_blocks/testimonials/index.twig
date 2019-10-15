@@ -4,17 +4,15 @@
   <section class="section bg-teal" data-label="testimonials">
     {% if block.testimonials | length %}
       <div
-        class="carousel relative overflow-x-hidden"
+        class="relative overflow-x-hidden"
         data-module="carousel"
         data-carousel-transition-speed="600"
       >
-        <div class="flex relative" data-carousel-track>
+        <div class="carousel-track flex relative" data-carousel-track>
           {% for testimonial in Post(block.testimonials) %}
             <div class="flex-0 w-full" data-carousel-item>
               <div class="container">
-                {% include '_blocks/testimonials/testimonial.twig' ignore missing with {
-                  testimonial: testimonial,
-                } only %}
+                {% include '_blocks/testimonials/testimonial.twig' ignore missing %}
               </div>
             </div>
           {% endfor %}
@@ -23,10 +21,10 @@
           <div class="container-lg">
             <div class="flex justify-center opacity-50 mt-30 -mx-5 text-white lg:justify-between lg:mt-0">
               <div class="px-5">
-                {% include '_partials/carousel/button-prev.twig' ignore missing only %}
+                {% include '_partials/carousel/button-prev.twig' ignore missing %}
               </div>
               <div class="px-5">
-                {% include '_partials/carousel/button-next.twig' ignore missing only %}
+                {% include '_partials/carousel/button-next.twig' ignore missing %}
               </div>
             </div>
           </div>

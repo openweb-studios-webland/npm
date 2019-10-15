@@ -1,23 +1,13 @@
-{% set program = {
-  image: program.image ? TimberImage(program.image) : null,
-  heading: program.heading ?? null,
-  host: program.host ?? null,
-  short_text: program.short_text ?? null,
-  text: program.text ?? null,
-  title: program.title ?? null,
-  platforms: program.platforms ?? [],
-  topics: program.terms('topic') ?? [],
-  button_link: program.button_link ?? null,
-  button_text: program.button_text ?? null,
-} %}
 {% set uid = random() %}
 
 <div class="program bg-white relative shadow-sm">
-  {% if program.image %}
+  {% set image = TimberImage(program.image) %}
+
+  {% if image %}
     <img
-      src="{{ program.image.src | resize(640, 640) }}"
-      srcset="{{ program.image.srcset }}"
-      alt="{{ program.image.alt }}"
+      src="{{ image.src | resize(640, 640) }}"
+      srcset="{{ image.srcset }}"
+      alt="{{ image.alt }}"
     />
   {% endif %}
 
@@ -46,7 +36,7 @@
 
   <div
     id="{{ uid }}{{ loop.index }}"
-    class="absolute bg-white inset-0 px-30 py-40 shadow-sm transition"
+    class="absolute bg-white inset-0 px-30 py-40 shadow-sm"
     aria-hidden="true"
   >
     <h3 class="heading-4 mb-20">

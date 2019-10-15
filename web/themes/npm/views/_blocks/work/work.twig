@@ -1,15 +1,15 @@
 {% set work = {
-  heading: work.title ?? null,
-  image: work.image ? TimberImage(work.image) : null,
-  audio: work.get_field('audio') ?? null,
-  video: work.get_field('video') ?? null,
-  text: work.text ?? null,
+  heading: block.title ?? null,
+  image: block.image ? TimberImage(block.image) : null,
+  audio: block.get_field('audio') ?? null,
+  video: block.get_field('video') ?? null,
+  text: block.text ?? null,
 } %}
 
-{% if work.audio %}
+{% if block.audio %}
   <div class="aspect-ratio-16/9 mb-20 overflow-hidden relative" data-module="audio">
     <div class="absolute flex flex-col justify-center inset-0">
-      <div data-audio-player data-audio-source="{{ work.audio.url }}"></div>
+      <div data-audio-player data-audio-source="{{ block.audio.url }}"></div>
       <div class="flex items-center mt-10 -mx-5">
         <div class="px-5">
           <button class="audio-play-pause block bg-blue-link h-24 relative rounded-full text-white w-24" data-audio-play-pause>
@@ -40,11 +40,13 @@
       </div>
     </div>
     <div class="audio-overlay absolute h-full inset-1/2 transition translate-1/2 w-full z-10">
-      {% if work.image %}
+      {% set image = TimberImage(block.image) %}
+
+      {% if image %}
         <img
-          src="{{ work.image.src | resize(720, 405) }}"
-          srcset="{{ work.image.srcset }}"
-          alt="{{ work.image.alt }}"
+          src="{{ image.src | resize(720, 405) }}"
+          srcset="{{ image.srcset }}"
+          alt="{{ image.alt }}"
         />
       {% endif %}
 
@@ -57,15 +59,15 @@
     </div>
   </div>
 
-  {% if work.heading %}
+  {% if block.title %}
     <h3 class="heading-7 mb-10">
-      {{ work.heading }}
+      {{ block.title }}
     </h3>
   {% endif %}
 
-  {% if work.text %}
-    <p class="text text-14"  href="{{ work.link }}">
-      {{ work.text }}
+  {% if block.text %}
+    <p class="text text-14"  href="{{ block.link }}">
+      {{ block.text }}
     </p>
   {% endif %}
 
@@ -75,14 +77,16 @@
   </a>
 {% else %}
   <div class="video mb-20" data-module="video">
-    {{ work.video }}
+    {{ block.video }}
 
     <div class="video-overlay absolute h-full inset-1/2 transition translate-1/2 w-full z-10">
-      {% if work.image %}
+      {% set image = TimberImage(block.image) %}
+
+      {% if image %}
         <img
-          src="{{ work.image.src | resize(720, 405) }}"
-          srcset="{{ work.image.srcset }}"
-          alt="{{ work.image.alt }}"
+          src="{{ image.src | resize(720, 405) }}"
+          srcset="{{ image.srcset }}"
+          alt="{{ image.alt }}"
         />
       {% endif %}
 
@@ -95,15 +99,15 @@
     </div>
   </div>
 
-  {% if work.heading %}
+  {% if block.title %}
     <h3 class="heading-7 mb-10">
-      {{ work.heading }}
+      {{ block.title }}
     </h3>
   {% endif %}
 
-  {% if work.text %}
+  {% if block.text %}
     <p class="text text-14">
-      {{ work.text }}
+      {{ block.text }}
     </p>
   {% endif %}
 

@@ -4,11 +4,11 @@
   <section class="bg-teal pb-50 md:pb-75 lg:pb-0" data-label="testimonials-front-page">
     {% if block.testimonials | length %}
       <div
-        class="carousel relative overflow-x-hidden"
+        class="relative overflow-x-hidden"
         data-module="carousel"
         data-carousel-transition-speed="600"
       >
-        <div class="flex relative" data-carousel-track>
+        <div class="carousel-track flex relative" data-carousel-track>
           {% for testimonial in block.testimonials %}
             <div class="flex-0 w-full" data-carousel-item>
               <div class="container">
@@ -21,7 +21,7 @@
         </div>
         <div class="lg:absolute lg:bottom-0 lg:left-0 lg:mb-50 lg:w-full">
           <div class="container">
-            <div class="flex justify-center opacity-50 mt-30 -mx-5 text-blue lg:justify-start lg:mt-0">
+            <div class="flex justify-center opacity-50 mt-30 -mx-5 text-white lg:justify-start lg:mt-0">
               <div class="px-5">
                 {% include '_partials/carousel/button-prev.twig' ignore missing only %}
               </div>

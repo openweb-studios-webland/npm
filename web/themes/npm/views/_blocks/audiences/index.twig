@@ -31,9 +31,7 @@
                       class="tabs-target border-b border-white-semi-opaque lg:border-b-0"
                       data-tabs-target
                     >
-                      {% include '_blocks/audiences/audience.twig' ignore missing with {
-                        audience: audience,
-                      } only %}
+                      {% include '_blocks/audiences/audience.twig' ignore missing %}
                     </div>
                   </li>
                 {% endfor %}

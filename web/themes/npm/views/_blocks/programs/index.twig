@@ -34,16 +34,14 @@
               data-module="carousel"
               data-carousel-loop="false"
             >
-              <div class="flex relative -mx-10" data-carousel-track>
+              <div class="carousel-track flex relative -mx-10" data-carousel-track>
                 {% for program in Post(block.programs) %}
                   <div class="flex-0 px-10 w-full md:w-1/2 lg:w-1/3" data-carousel-item>
-                    {% include '_blocks/programs/program.twig' ignore missing with {
-                      program: program,
-                    } only %}
+                    {% include '_blocks/programs/program.twig' ignore missing %}
                   </div>
                 {% endfor %}
                 <div class="flex-0 px-10 w-full md:w-1/2 lg:w-1/3" data-carousel-item>
-                  <div class="bg-white flex flex-col h-full justify-center p-20 shadow-sm">
+                  <div class="program bg-white flex flex-col h-full justify-center p-20 shadow-sm">
                     <a class="button" href="/programs">
                       View all programs
                     </a>
@@ -52,10 +50,10 @@
               </div>
               <div class="flex justify-center opacity-50 mt-30 -mx-5 text-white lg:justify-end lg:opacity-100 lg:text-blue">
                 <div class="px-5">
-                  {% include '_partials/carousel/button-prev.twig' ignore missing only %}
+                  {% include '_partials/carousel/button-prev.twig' ignore missing %}
                 </div>
                 <div class="px-5">
-                  {% include '_partials/carousel/button-next.twig' ignore missing only %}
+                  {% include '_partials/carousel/button-next.twig' ignore missing %}
                 </div>
               </div>
             </div>

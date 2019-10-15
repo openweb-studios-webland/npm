@@ -1,17 +1,11 @@
-{% set card = {
-  image: card.image ? TimberImage(card.image) : null,
-  heading: card.heading ?? null,
-  text: card.text ?? null,
-  button_link: card.button_link ?? null,
-  button_text: card.button_text ?? null,
-} %}
-
 <div class="bg-white h-full shadow-sm">
-  {% if card.image %}
+  {% set image = TimberImage(card.image) %}
+
+  {% if image %}
     <img
-      src="{{ card.image.src | resize(1440, 900) }}"
-      srcset="{{ card.image.srcset }}"
-      alt="{{ card.image.alt }}"
+      src="{{ image.src | resize(1440, 900) }}"
+      srcset="{{ image.srcset }}"
+      alt="{{ image.alt }}"
     />
   {% endif %}
 

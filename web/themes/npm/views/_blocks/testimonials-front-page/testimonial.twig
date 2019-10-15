@@ -1,18 +1,13 @@
-{% set testimonial = {
-  image: testimonial.image ? TimberImage(testimonial.image) : null,
-  heading: testimonial.heading ?? null,
-  text: testimonial.text ?? null,
-  attribution: testimonial.attribution ?? null,
-} %}
-
 <div class="flex flex-wrap items-center -mx-30 lg:flex-no-wrap lg:flex-row-reverse">
   <div class="px-30 w-full lg:w-1/2">
-    {% if testimonial.image %}
+    {% set image = TimberImage(testimonial.image) %}
+
+    {% if image %}
       <img
         class="pin-r max-w-none -mx-20"
-        src="{{ testimonial.image.src | resize(1440, 810) }}"
-        srcset="{{ testimonial.image.srcset }}"
-        alt="{{ testimonial.image.alt }}"
+        src="{{ image.src | resize(1440, 810) }}"
+        srcset="{{ image.srcset }}"
+        alt="{{ image.alt }}"
       />
     {% endif %}
   </div>

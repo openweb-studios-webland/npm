@@ -1,7 +1,7 @@
 {% set block = block ?? null %}
 
 {% if block %}
-<section class="{{ block.color_select != 'white' ? 'bg-' ~ block.color_select ~ ' text-white' : 'bg-' ~ block.color_select }} section" data-label="statistics">
+  <section class="{{ block.color_select != 'white' ? 'text-white ' }}bg-{{ block.color_select }} section" data-label="statistics">
     <div class="container">
       <div class="flex flex-wrap -mx-30">
         {% if block.text %}
@@ -25,20 +25,23 @@
               </a>
             {% endif %}
           </div>
-
-          {% if block.statistics | length %}
-            <div class="px-30 w-full lg:w-2/3">
+          <div class="px-30 w-full lg:w-2/3">
+            {% if block.statistics | length %}
               <div class="flex flex-wrap -mb-40 -mx-30">
                 {% for statistic in block.statistics %}
                   <div class="mb-40 px-30 md:w-1/2">
-                    {% include '_blocks/statistics/statistic.twig' ignore missing with {
-                      statistic: statistic,
-                    } only %}
+                    {% include '_blocks/statistics/statistic.twig' ignore missing %}
                   </div>
                 {% endfor %}
               </div>
-            </div>
-          {% endif %}
+            {% endif %}
+
+            {% if block.attribution %}
+              <div class="">
+                {{ block.attribution }}
+              </div>
+            {% endif %}
+          </div>
         {% else %}
           <div class="px-30 w-full">
             {% if block.heading %}

@@ -20,11 +20,9 @@
       {% if block.secondary_cards | length %}
         <div class="container-sm mt-50 md:mt-75 lg:mt-100">
           <div class="-mb-30">
-            {% for secondary_card in block.secondary_cards %}
+            {% for card in block.secondary_cards %}
               <div class="mb-30">
-                {% include '_blocks/cards/secondary-card.twig' ignore missing with {
-                  secondary_card: secondary_card,
-                } only %}
+                {% include '_blocks/cards-format/card.twig' ignore missing %}
               </div>
             {% endfor %}
           </div>

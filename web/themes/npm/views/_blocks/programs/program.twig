@@ -7,8 +7,8 @@
   title: program.title ?? null,
   platforms: program.platforms ?? [],
   topics: program.terms('topic') ?? [],
-  button_link: program.button_link ?? null,
-  button_text: program.button_text ?? null,
+  button_clone_link: program.button_clone_link ?? null,
+  button_clone_text: program.button_clone_text ?? null,
 } %}
 {% set uid = random() %}
 
@@ -88,9 +88,9 @@
       </p>
     {% endif %}
 
-    {% if program.button_link and program.button_text %}
-      <a class="button w-full" href="{{ program.button_link }}">
-        {{ program.button_text }}
+    {% if program.button_clone_link and program.button_clone_text %}
+      <a class="button w-full" href="{{ program.button_clone_link }}">
+        {{ program.button_clone_text }}
       </a>
     {% endif %}
 

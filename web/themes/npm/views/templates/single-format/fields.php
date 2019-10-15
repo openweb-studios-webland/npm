@@ -20,7 +20,7 @@ if (function_exists('acf_add_local_field_group')):
                     'id' => '',
                 ),
                 'layouts' => array(
-                    acf_dynamic_clones_get_local_field_group('Cards', 'cards-platform'),
+                    acf_dynamic_clones_get_local_field_group('Cards', 'cards-format'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero'),
                     acf_dynamic_clones_get_local_field_group('Insights', 'insights'),
                     acf_dynamic_clones_get_local_field_group('Statistics', 'statistics'),
@@ -36,7 +36,7 @@ if (function_exists('acf_add_local_field_group')):
                 array(
                     'param' => 'post_type',
                     'operator' => '==',
-                    'value' => 'platform',
+                    'value' => 'format',
                 ),
             ),
         ),

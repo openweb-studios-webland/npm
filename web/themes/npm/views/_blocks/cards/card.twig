@@ -2,8 +2,8 @@
   image: card.image ? TimberImage(card.image) : null,
   heading: card.heading ?? null,
   text: card.text ?? null,
-  button_link: card.button_link ?? null,
-  button_text: card.button_text ?? null,
+  button_clone_link: card.button_clone_link ?? null,
+  button_clone_text: card.button_clone_text ?? null,
 } %}
 
 <div class="bg-white h-full shadow-sm">
@@ -28,9 +28,9 @@
       </div>
     {% endif %}
 
-    {% if card.button_link and card.button_text %}
-      <a class="link" href="{{ card.button_link }}">
-        {{ card.button_text }}
+    {% if card.button_clone_link and card.button_clone_text %}
+      <a class="link" href="{{ card.button_clone_link }}">
+        {{ card.button_clone_text }}
         {{ svg('link') }}
       </a>
     {% endif %}

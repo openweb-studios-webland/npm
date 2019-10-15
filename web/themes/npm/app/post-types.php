@@ -31,18 +31,19 @@ function register_post_types()
         )
     );
 
-    register_post_type('insight',
+    register_post_type('format',
         array(
-            'labels' => create_post_type_labels('Insights', 'Insight'),
+            'labels' => create_post_type_labels('Formats', 'Format'),
             'public' => true,
             'has_archive' => false,
             'menu_icon' => '',
+            'taxonomies' => array('platform'),
         )
     );
 
-    register_post_type('platform',
+    register_post_type('insight',
         array(
-            'labels' => create_post_type_labels('Platforms', 'Platform'),
+            'labels' => create_post_type_labels('Insights', 'Insight'),
             'public' => true,
             'has_archive' => false,
             'menu_icon' => '',

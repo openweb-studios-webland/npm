@@ -1,4 +1,4 @@
-{% set image = TimberImage(block.image) %}
+{% set image = TimberImage(audience.image) %}
 
 {% if image %}
   <div class="clearfix">
@@ -12,21 +12,21 @@
 {% endif %}
 
 <div class="py-30 md:py-40 lg:pl-60 lg:py-60">
-  {% if block.heading %}
+  {% if audience.heading %}
     <h2 class="heading-3 hidden lg:block">
-      {{ block.heading }}
+      {{ audience.heading }}
     </h2>
   {% endif %}
 
-  {% if block.text %}
+  {% if audience.text %}
     <div class="text mb-30 lg:mb-40">
-      {{ block.text }}
+      {{ audience.text }}
     </div>
   {% endif %}
 
-  {% if block.statistics | length %}
+  {% if audience.statistics | length %}
     <div class="flex flex-wrap -mb-40 -mx-30">
-      {% for statistic in block.statistics %}
+      {% for statistic in audience.statistics %}
         <div class="mb-40 px-30 md:w-1/2 lg:w-1/3">
           {% include '_blocks/statistics/statistic.twig' ignore missing with {
             statistic: statistic,
@@ -34,5 +34,11 @@
         </div>
       {% endfor %}
     </div>
+  {% endif %}
+
+  {% if audience.attribution %}
+    <p class="text mt-20 text-gray-a11y text-11 md:mt-25 lg:mt-30">
+      {{ audience.attribution }}
+    </p>
   {% endif %}
 </div>

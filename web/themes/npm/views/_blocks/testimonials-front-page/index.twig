@@ -12,9 +12,7 @@
           {% for testimonial in block.testimonials %}
             <div class="flex-0 w-full" data-carousel-item>
               <div class="container">
-                {% include '_blocks/testimonials-front-page/testimonial.twig' ignore missing with {
-                  testimonial: testimonial,
-                } only %}
+                {% include '_blocks/testimonials-front-page/testimonial.twig' ignore missing %}
               </div>
             </div>
           {% endfor %}

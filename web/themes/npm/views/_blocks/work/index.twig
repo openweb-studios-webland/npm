@@ -12,18 +12,16 @@
 
     <div class="container">
       {% if block.featured_work %}
-        {% include '_blocks/work/featured-work.twig' ignore missing with {
-          featured_work: Post(block.featured_work),
-        } only %}
+        {% set work = block.featured_work %}
+
+        {% include '_blocks/work/featured-work.twig' ignore missing %}
       {% endif %}
 
       {% if block.work | length %}
         <div class="flex flex-wrap -mb-40 -mx-30">
           {% for work in Post(block.work) %}
             <div class="mb-40 px-30 w-full md:w-1/2 lg:w-1/3">
-              {% include '_blocks/work/work.twig' ignore missing with {
-                work: work,
-              } only %}
+              {% include '_blocks/work/work.twig' ignore missing %}
             </div>
           {% endfor %}
         </div>

@@ -14,4 +14,4 @@ $context['insights'] = new Timber\PostQuery(
 );
 $context['fields'] = get_fields();
 
-Timber::render('templates/single-platform/index.twig', $context);
+Timber::render('templates/single-format/index.twig', $context);

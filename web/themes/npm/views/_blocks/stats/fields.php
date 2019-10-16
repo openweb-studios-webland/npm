@@ -4,7 +4,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
         'key' => 'group_5d94f9293ffef',
-        'title' => 'Statistics',
+        'title' => 'Stats',
         'fields' => array(
             array(
                 'key' => 'field_5d9ba2ac38f89',
@@ -92,7 +92,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
             array(
                 'key' => 'field_5d94f824a959e',
                 'label' => 'Button',
-                'name' => 'button_clone',
+                'name' => 'button',
                 'type' => 'clone',
                 'instructions' => '',
                 'required' => 0,
@@ -112,8 +112,8 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
             ),
             array(
                 'key' => 'field_5d94d3bd7ee3b',
-                'label' => 'Statistics',
-                'name' => 'statistics',
+                'label' => 'Stats',
+                'name' => 'stats',
                 'type' => 'repeater',
                 'instructions' => '',
                 'required' => 0,
@@ -127,7 +127,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'min' => 0,
                 'max' => 0,
                 'layout' => 'block',
-                'button_label' => 'Add Statistic',
+                'button_label' => 'Add Stats',
                 'sub_fields' => array(
                     array(
                         'key' => 'field_5d94f128cd2z1',

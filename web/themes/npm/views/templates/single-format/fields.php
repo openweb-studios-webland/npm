@@ -23,7 +23,7 @@ if (function_exists('acf_add_local_field_group')):
                     acf_dynamic_clones_get_local_field_group('Cards', 'cards-format'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero'),
                     acf_dynamic_clones_get_local_field_group('Insights', 'insights'),
-                    acf_dynamic_clones_get_local_field_group('Statistics', 'statistics'),
+                    acf_dynamic_clones_get_local_field_group('Stats', 'stats'),
                     acf_dynamic_clones_get_local_field_group('Work', 'work'),
                 ),
                 'button_label' => 'Add Block',

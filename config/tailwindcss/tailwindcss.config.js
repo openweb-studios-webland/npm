@@ -29,7 +29,7 @@ module.exports = {
       },
       gray: {
         a11y: '#707070',
-        border: '#c4c4c4',
+        border: '#e1e1e1',
         default: '#f4f4f4',
       },
     },
@@ -74,11 +74,12 @@ module.exports = {
     borderRadius: {
       none: '0',
       full: '9999px',
+      default: '10px',
     },
     borderWidth: {
-      default: '1px',
       '0': '0',
       '2': '2px',
+      default: '1px',
     },
     boxShadow: {
       none: 'none',

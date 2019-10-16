@@ -4,7 +4,7 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_m4he7v9xlug52',
-        'title' => 'Format',
+        'title' => 'Single Product',
         'fields' => array(
             array(
                 'key' => 'field_gw7yn9xfkdtf2',
@@ -22,6 +22,7 @@ if (function_exists('acf_add_local_field_group')):
                 'layouts' => array(
                     acf_dynamic_clones_get_local_field_group('Cards', 'cards'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero-single-product'),
+                    acf_dynamic_clones_get_local_field_group('Specs', 'specs'),
                     acf_dynamic_clones_get_local_field_group('Testimonials', 'testimonials'),
                 ),
                 'button_label' => 'Add Block',

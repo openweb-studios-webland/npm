@@ -1,17 +1,20 @@
 {% set block = block ?? null %}
-{% set uid = random() %}
 
 {% if block %}
   <section class="bg-gradient lg:bg-none" data-label="audiences">
     <div class="container-lg">
       {% if block.audiences | length %}
+        {% set uid = random() %}
+
         <div class="flex flex-wrap relative">
-          <div class="relative text-white lg:w-1/4" data-module="tabs">
+          <div class="relative text-white lg:w-1/4" data-module="tabs" data-tabs-to-accordion="true">
             <div class="absolute bg-gradient hidden inset-y-0 left-0 pin-l top-0 lg:block"></div>
+
             <div class="section flex flex-col h-full justify-center relative">
               <h2 class="heading-6 text-center lg:text-left">
                 Our audience is:
               <h2>
+
               <ul class="w-full">
                 {% for audience in block.audiences %}
                   <li>

@@ -28,46 +28,19 @@
             </div>
           {% endif %}
 
-          {% if block.button_clone_link and block.button_clone_text %}
-            <a class="button mt-25 lg:mt-30" href="{{ block.button_clone_link }}">
-              {{ block.button_clone_text }}
+          {% if block.button_link and block.button_text %}
+            <a class="button mt-25 lg:mt-30" href="{{ block.button_link }}">
+              {{ block.button_text }}
             </a>
           {% endif %}
         </div>
+
         <div class="px-30 w-full lg:w-5/12">
           {% if block.video %}
-            <div class="video mb-20" data-module="video">
-              {{ block.video }}
-
-              <div class="video-overlay absolute h-full inset-1/2 translate-1/2 w-full z-10">
-                {% set image = TimberImage(block.image) %}
-
-                {% if image %}
-                  <img
-                    src="{{ image.src | resize(720, 405) }}"
-                    srcset="{{ image.srcset }}"
-                    alt="{{ image.alt }}"
-                  />
-                {% endif %}
-
-                <button class="absolute inset-1/2 h-80 translate-1/2 w-80" data-video-play>
-                  {{ svg('play') }}
-                  <span class="screen-reader-only">
-                    Play
-                  </span>
-                </button>
-              </div>
-            </div>
-          {% else %}
-            {% set image = TimberImage(work.image) %}
-
-            {% if image %}
-              <img
-                src="{{ image.src | resize(720, 405) }}"
-                srcset="{{ image.srcset }}"
-                alt="{{ image.alt }}"
-              />
-            {% endif %}
+            {% include '_partials/audio.twig' ignore missing with {
+              video: block.video,
+              image: block.image,
+            } only %}
           {% endif %}
         </div>
       </div>

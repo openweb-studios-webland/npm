@@ -3,8 +3,8 @@
   image: call_to_action.image ? TimberImage(call_to_action.image) : null,
   heading: call_to_action.heading ?? null,
   text: call_to_action.text ?? null,
-  button_clone_link: call_to_action.button_clone_link ?? null,
-  button_clone_text: call_to_action.button_clone_text ?? null,
+  button_link: call_to_action.button_link ?? null,
+  button_text: call_to_action.button_text ?? null,
 } %}
 
 <section class="{{ call_to_action.color_select != 'white' ? 'text-white ' }}bg-{{ call_to_action.color_select }} text-center" data-label="call-to-action">
@@ -19,8 +19,11 @@
               alt="{{ call_to_action.image.alt }}"
             />
           </div>
+
           <div class="px-30 py-50 w-full md:py-75 lg:py-100 lg:w-7/12">
+
             {% include '_partials/call-to-action/call-to-action.twig' ignore missing %}
+
           </div>
         </div>
       </div>
@@ -28,7 +31,9 @@
   {% else %}
     <div class="section">
       <div class="container-sm">
+
         {% include '_partials/call-to-action/call-to-action.twig' ignore missing %}
+
       </div>
     </div>
   {% endif %}

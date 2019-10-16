@@ -12,6 +12,11 @@ export default class Tabs {
     this.mediaQuery = window.matchMedia(`(min-width: ${this.tailwindConfig.theme.screens.lg})`)
     this.index = 0
 
+    // Config
+    this.config = {
+      tabsToAccordion: this.el.dataset.tabsToAccordion === 'true' ? true : false,
+    }
+
     this.init()
   }
 
@@ -54,8 +59,10 @@ export default class Tabs {
       })
     }
 
-    this.mediaQuery.addListener(this.matchMedia)
-    this.matchMedia(this.mediaQuery)
+    if (this.config.tabsToAccordion) {
+      this.mediaQuery.addListener(this.matchMedia)
+      this.matchMedia(this.mediaQuery)
+    }
   }
 
   onClick = e => {

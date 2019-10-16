@@ -89,8 +89,8 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                     ),
                     array(
                         'key' => 'field_5d9d518134a6a',
-                        'label' => 'Statistics',
-                        'name' => 'statistics',
+                        'label' => 'Stats',
+                        'name' => 'Stat',
                         'type' => 'repeater',
                         'instructions' => '',
                         'required' => 0,
@@ -104,7 +104,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                         'min' => 0,
                         'max' => 0,
                         'layout' => 'block',
-                        'button_label' => 'Add Statistic',
+                        'button_label' => 'Add Stat',
                         'sub_fields' => array(
                             array(
                                 'key' => 'field_5d9d51ae34a6b',

@@ -1,0 +1,46 @@
+<div class="aspect-ratio-16/9 overflow-hidden relative" data-module="audio">
+  <div class="absolute flex flex-col justify-center inset-0">
+    <div data-audio-player data-audio-source="{{ audio.url }}"></div>
+    <div class="flex items-center mt-10 -mx-5">
+      <div class="px-5">
+        <button class="audio-play-pause block bg-blue-link h-24 relative rounded-full text-white w-24" data-audio-play-pause>
+          <span class="screen-reader-only">Play</span>
+          {{ svg('audio-play', { classes: 'absolute inset-1/2 ml-1 translate-1/2' }) }}{{ svg('audio-pause', { classes: 'absolute inset-1/2 translate-1/2' }) }}
+        </button>
+      </div>
+
+      <div class="px-5">
+        <button class="audio-backward block bg-gray-border h-24 relative rounded-full text-white w-24" data-audio-skip-backward>
+          <span class="screen-reader-only">Skip Backward</span>
+          {{ svg('audio-backward', { classes: 'absolute inset-1/2 translate-1/2' }) }}
+        </button>
+      </div>
+
+      <div class="px-5">
+        <time class="text-gray-a11y text-12" data-audio-progress></time>
+      </div>
+      <div class="flex-1 px-5 text-right">
+        <button class="text-blue-link text-12">
+          Read Transcript
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="audio-overlay absolute h-full inset-1/2 transition translate-1/2 w-full z-10">
+    {% set image = TimberImage(image) %}
+
+    {% if image %}
+      <img
+        src="{{ image.src | resize(720, 405) }}"
+        srcset="{{ image.srcset }}"
+        alt="{{ image.alt }}"
+      />
+    {% endif %}
+
+    <button class="absolute inset-1/2 h-80 translate-1/2 w-80" data-audio-play-pause>
+      <span class="screen-reader-only">Play</span>
+      {{ svg('play') }}
+    </button>
+  </div>
+</div>

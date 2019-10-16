@@ -37,9 +37,9 @@
   </p>
 {% endif %}
 
-{% if insight.button_clone_text and insight.button_clone_link %}
-  <a class="link text-14" href="{{ insight.button_clone_link }}">
-    {{ insight.button_clone_text }}
+{% if insight.button_text and insight.button_link %}
+  <a class="link text-14" href="{{ insight.button_link }}">
+    {{ insight.button_text }}
     {{ svg('link') }}
   </a>
 {% endif %}

@@ -1,0 +1,136 @@
+{% set block = block ?? null %}
+
+{% if block %}
+  <section class="specs section" data-label="specs">
+    <div class="container">
+      <h2 class="heading-4">
+        Specs
+      </h2>
+
+      {% if block.spec_groups | length %}
+        <div data-module="tabs">
+          <div class="border-b border-gray-border mb-30 overflow-hidden">
+            <ul class="flex -mx-15 overflow-x-auto -mb-20 pb-20">
+              {% for spec_group in block.spec_groups %}
+                {% set uid = random() %}
+
+                <li class="px-15">
+                  <button
+                    class="tabs-triggers font-bold -mb-1 pb-15 relative text-blue-link whitespace-no-wrap"
+                    data-tabs-trigger
+                    aria-controls="{{ uid }}"
+                  >
+                    {{ spec_group.heading }}
+                  </button>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          {% for spec_group in block.spec_groups %}
+            <div
+              id="{{ uid }}"
+              class="tabs-target"
+              data-tabs-target
+            >
+              <div class="flex flex-wrap -mx-30">
+                <div class="px-30 w-full lg:w-7/12">
+                  {% if spec_group.specs | length %}
+
+                    {% for spec in spec_group.specs %}
+                      <div class="border-b border-gray-border">
+                        <div class="flex flex-wrap -mx-15 py-15 text-14">
+                          <div class="mb-5 px-15 text-gray-a11y w-full lg:mb-0 lg:w-1/3">
+                            {% if spec.tooltip %}
+                              <div class="flex items-center">
+                                <span>
+                                  {{ spec.heading }}
+                                </span>
+                                {% set uid = random() %}
+
+                                <button
+                                  class="relative ml-5"
+                                  data-module="toggle"
+                                  aria-controls="{{ uid }}"
+                                >
+                                  {{ svg('info') }}
+                                  <div
+                                    id="{{ uid }}"
+                                    class="tooltip absolute bg-white bottom-full left-1/2 p-20 rounded shadow-sm text-black text-left text-14 translate-x-1/2"
+                                    aria-hidden="true"
+                                  >
+                                    {{ spec.tooltip }}
+                                  </div>
+                                </button>
+                              </div>
+                            {% else %}
+                              {{ spec.heading }}
+                            {% endif %}
+                          </div>
+                          <div class="px-15 w-full lg:w-2/3">
+                            {{ spec.text }}
+                          </div>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+
+                <div class="hidden px-30 w-full lg:block lg:w-5/12">
+                  {% if spec_group.samples | length %}
+                    <div class="flex flex-wrap -mb-20 -mx-10 pt-20">
+                      {% for sample in spec_group.samples %}
+                        <div class="mb-20 px-10 w-1/2">
+                          <div class="border border-gray-border">
+                            {% if sample.video %}
+                              {% include '_partials/video.twig' ignore missing with {
+                                video: sample.video,
+                                image: sample.image,
+                              } only %}
+                            {% elseif sample.audio %}
+                              {% include '_partials/audio.twig' ignore missing with {
+                                audio: sample.audio,
+                                image: sample.image,
+                              } only %}
+                            {% else %}
+                              {% set image = TimberImage(sample.image) %}
+
+                              {% if image %}
+                                <img
+                                  class="mb-20"
+                                  src="{{ image.src | resize(720, 540) }}"
+                                  srcset="{{ image.srcset }}"
+                                  alt="{{ image.alt }}"
+                                />
+                              {% endif %}
+                            {% endif %}
+                          </div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if block.specs_download %}
+        <div class="mt-30">
+          <a class="button" href="{{ block.specs_download.url }}" download>
+            Download Specs
+          </a>
+        </div>
+      {% endif %}
+
+      {% if block.guidelines_download %}
+        <div class="mt-20">
+          <a class="button-outline-crimson" href="{{ block.guidelines_download.url }}" download>
+            Digital Creative Content Guidelines
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

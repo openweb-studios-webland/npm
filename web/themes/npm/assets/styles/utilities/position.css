@@ -2,4 +2,16 @@
   .top-full {
     top: 100%;
   }
+
+  .bottom-full {
+    bottom: 100%;
+  }
+
+  .left-1\/2 {
+    left: 50%;
+  }
+
+  .right-1\/2 {
+    right: 50%;
+  }
 }

@@ -11,6 +11,7 @@
         />
       {% endif %}
     </div>
+
     <div class="text-white w-full lg:px-20 lg:text-black lg:w-7/12">
       {% if card.heading %}
         <h3 class="heading-4 mb-20">
@@ -24,9 +25,9 @@
         </div>
       {% endif %}
 
-      {% if card.button_clone_link and card.button_clone_text %}
-        <a class="link mt-20 text-white lg:text-blue-link" href="{{ card.button_clone_link }}">
-          {{ card.button_clone_text }}
+      {% if card.button_link and card.button_text %}
+        <a class="link mt-20 text-white lg:text-blue-link" href="{{ card.button_link }}">
+          {{ card.button_text }}
           {{ svg('link') }}
         </a>
       {% endif %}

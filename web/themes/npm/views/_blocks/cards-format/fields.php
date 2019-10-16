@@ -90,7 +90,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 					array(
 						'key' => 'field_5da4da4a130c9',
 						'label' => 'Button',
-						'name' => 'button_clone',
+						'name' => 'button',
 						'type' => 'clone',
 						'instructions' => '',
 						'required' => 0,
@@ -194,7 +194,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 					array(
 						'key' => 'field_5da4da70130ce',
 						'label' => 'Button',
-						'name' => 'button_clone',
+						'name' => 'button',
 						'type' => 'clone',
 						'instructions' => '',
 						'required' => 0,

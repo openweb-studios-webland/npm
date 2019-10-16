@@ -1,139 +1,69 @@
-{% set audio = work.get_field('audio') ?? null %}
 {% set video = work.get_field('video') ?? null %}
+{% set audio = work.get_field('audio') ?? null %}
 
-{% if video %}
-  <div class="video mb-20" data-module="video">
-    {{ video }}
+<div class="mt-20">
+  {% if video %}
+    {% include '_partials/video.twig' ignore missing with {
+      video: video,
+      image: work.image,
+    } only %}
 
-    <div class="video-overlay absolute h-full inset-1/2 translate-1/2 w-full z-10">
-      {% set image = TimberImage(work.image) %}
-
-      {% if image %}
-        <img
-          src="{{ image.src | resize(720, 405) }}"
-          srcset="{{ image.srcset }}"
-          alt="{{ image.alt }}"
-        />
-      {% endif %}
-
-      <button class="absolute inset-1/2 h-80 translate-1/2 w-80" data-video-play>
-        {{ svg('play') }}
-        <span class="screen-reader-only">
-          Play
-        </span>
-      </button>
-    </div>
-  </div>
-  {% if work.title %}
     <h3 class="heading-7 mb-10">
       {{ work.title }}
     </h3>
-  {% endif %}
 
-  {% if work.text %}
-    <p class="text text-14">
-      {{ work.text }}
-    </p>
-  {% endif %}
+    {% if work.text %}
+      <p class="text text-14">
+        {{ work.text }}
+      </p>
+    {% endif %}
 
-  <a class="link text-14">
-    View the work
-    {{ svg('link') }}
-  </a>
-{% elseif audio %}
-  <div class="aspect-ratio-16/9 mb-20 overflow-hidden relative" data-module="audio">
-    <div class="absolute flex flex-col justify-center inset-0">
-      <div data-audio-player data-audio-source="{{ audio.url }}"></div>
-      <div class="flex items-center mt-10 -mx-5">
-        <div class="px-5">
-          <button class="audio-play-pause block bg-blue-link h-24 relative rounded-full text-white w-24" data-audio-play-pause>
-            {{ svg('audio-play', { classes: 'absolute inset-1/2 ml-1 translate-1/2' }) }}
-            {{ svg('audio-pause', { classes: 'absolute inset-1/2 translate-1/2' }) }}
-            <span class="screen-reader-only">
-              Play
-            </span>
-          </button>
-        </div>
-        <div class="px-5">
-          <button class="audio-backward block bg-gray-border h-24 relative rounded-full text-white w-24" data-audio-skip-backward>
-            {{ svg('audio-backward', { classes: 'absolute inset-1/2 translate-1/2' }) }}
-            <span class="screen-reader-only">
-              Skip Backward
-            </span>
-          </button>
-        </div>
-        <div class="px-5">
-          <time class="text-gray-a11y text-12" data-audio-progress>
-          </time>
-        </div>
-        <div class="flex-1 px-5 text-right">
-          <button class="text-blue-link text-12">
-            Read Transcript
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="audio-overlay absolute h-full inset-1/2 transition translate-1/2 w-full z-10">
-      {% set image = TimberImage(work.image) %}
+    <a class="link text-14">
+      View the work {{ svg('link') }}
+    </a>
+  {% elseif audio %}
+    {% include '_partials/audio.twig' ignore missing with {
+      audio: audio,
+      image: work.image,
+    } only %}
 
-      {% if image %}
-        <img
-          src="{{ image.src | resize(720, 405) }}"
-          srcset="{{ image.srcset }}"
-          alt="{{ image.alt }}"
-        />
-      {% endif %}
-
-      <button class="absolute inset-1/2 h-80 translate-1/2 w-80" data-audio-play-pause>
-        {{ svg('play') }}
-        <span class="screen-reader-only">
-          Play
-        </span>
-      </button>
-    </div>
-  </div>
-  {% if work.title %}
     <h3 class="heading-7 mb-10">
       {{ work.title }}
     </h3>
-  {% endif %}
 
-  {% if work.text %}
-    <p class="text text-14">
-      {{ work.text }}
-    </p>
-  {% endif %}
+    {% if work.text %}
+      <p class="text text-14">
+        {{ work.text }}
+      </p>
+    {% endif %}
 
-  <a class="link text-14">
-    View the work
-    {{ svg('link') }}
-  </a>
-{% else %}
-  {% set image = TimberImage(work.image) %}
+    <a class="link text-14">
+      View the work {{ svg('link') }}
+    </a>
+  {% else %}
+    {% set image = TimberImage(work.image) %}
 
-  {% if image %}
-    <img
-      class="mb-20"
-      src="{{ image.src | resize(720, 405) }}"
-      srcset="{{ image.srcset }}"
-      alt="{{ image.alt }}"
-    />
-  {% endif %}
+    {% if image %}
+      <img
+        class="mb-20"
+        src="{{ image.src | resize(720, 405) }}"
+        srcset="{{ image.srcset }}"
+        alt="{{ image.alt }}"
+      />
+    {% endif %}
 
-  {% if work.title %}
     <h3 class="heading-7 mb-10">
       {{ work.title }}
     </h3>
-  {% endif %}
 
-  {% if work.text %}
-    <p class="text text-14">
-      {{ work.text }}
-    </p>
-  {% endif %}
+    {% if work.text %}
+      <p class="text text-14">
+        {{ work.text }}
+      </p>
+    {% endif %}
 
-  <a class="link text-14">
-    View the work
-    {{ svg('link') }}
-  </a>
-{% endif %}
+    <a class="link text-14">
+      View the work {{ svg('link') }}
+    </a>
+  {% endif %}
+</div>

@@ -30,7 +30,7 @@
       data-toggle-partner="{{ uid }}{{ loop.index }}0"
       aria-controls="{{ uid }}{{ loop.index }}"
     >
-      See details
+      See Details
     </button>
   </div>
 
@@ -78,17 +78,15 @@
       </p>
     {% endif %}
 
-    {% if program.button_clone_link and program.button_clone_text %}
-      <a class="button w-full" href="{{ program.button_clone_link }}">
-        {{ program.button_clone_text }}
+    {% if program.button_link and program.button_text %}
+      <a class="button w-full" href="{{ program.button_link }}">
+        {{ program.button_text }}
       </a>
     {% endif %}
 
      <button id="{{ uid }}{{ loop.index }}0" class="absolute h-44 mr-5 mt-5 right-0 top-0 w-44">
+      <span class="screen-reader-only">Close</span>
       {{ svg('close', { classes: 'absolute inset-1/2 translate-1/2' }) }}
-      <span class="screen-reader-only">
-        Close
-      </span>
     </button>
   </div>
 </div>

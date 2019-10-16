@@ -1,0 +1,16 @@
+.tooltip {
+  width: 280px;
+
+  &::before {
+    @apply absolute
+      top-full;
+    border-color: #fff transparent transparent transparent;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    content: "";
+    height: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+  }
+}

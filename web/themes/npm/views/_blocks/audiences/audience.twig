@@ -24,13 +24,11 @@
     </div>
   {% endif %}
 
-  {% if audience.statistics | length %}
+  {% if audience.stats | length %}
     <div class="flex flex-wrap -mb-40 -mx-30">
-      {% for statistic in audience.statistics %}
+      {% for stat in audience.stats %}
         <div class="mb-40 px-30 md:w-1/2 lg:w-1/3">
-          {% include '_blocks/statistics/statistic.twig' ignore missing with {
-            statistic: statistic,
-          } only %}
+          {% include '_blocks/stats/stat.twig' ignore missing %}
         </div>
       {% endfor %}
     </div>

@@ -28,18 +28,17 @@
 
     <div class="hidden flex-0 px-20 lg:block">
       <a class="{{ front_page ? ' button-outline-blue ' }}button-small" href="/contact">
-        Contact us
+        Contact Us
       </a>
     </div>
+
     <div class="px-20 lg:hidden">
       <button
         class="h-44 relative -mr-10 w-44"
         data-module="toggle"
         aria-controls="{{ uid }}"
       >
-        <span class="screen-reader-only">
-          Menu
-        </span>
+        <span class="screen-reader-only">Menu</span>
         {{ svg('hamburger', { classes: 'absolute inset-1/2 translate-1/2' }) }}
       </button>
     </div>

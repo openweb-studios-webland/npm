@@ -92,7 +92,7 @@ if (function_exists('acf_add_local_field_group')):
             array(
                 'key' => 'field_5d966f39de483',
                 'label' => 'Button',
-                'name' => 'button_clone',
+                'name' => 'button',
                 'type' => 'clone',
                 'instructions' => '',
                 'required' => 0,

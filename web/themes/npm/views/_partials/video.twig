@@ -1,0 +1,20 @@
+<div class="video" data-module="video">
+  {{ video }}
+
+  <div class="video-overlay absolute h-full inset-1/2 translate-1/2 w-full z-10">
+    {% set image = TimberImage(image) %}
+
+    {% if image %}
+      <img
+        src="{{ image.src | resize(720, 405) }}"
+        srcset="{{ image.srcset }}"
+        alt="{{ image.alt }}"
+      />
+    {% endif %}
+
+    <button class="absolute inset-1/2 h-80 translate-1/2 w-80" data-video-play>
+      <span class="screen-reader-only">Play</span>
+      {{ svg('play') }}
+    </button>
+  </div>
+</div>

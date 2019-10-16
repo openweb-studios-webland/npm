@@ -48,7 +48,23 @@
   }
 }
 
-.tabs-targets {
+.specs .tabs-triggers {
+  &[aria-expanded="true"]::before {
+    @apply block;
+  }
+
+  &::before {
+    @apply absolute
+      bg-blue-link
+      bottom-0
+      hidden
+      inset-x-0;
+    content: "";
+    height: 5px;
+  }
+}
+
+.audience .tabs-targets {
   @apply w-full;
 
   @screen lg {

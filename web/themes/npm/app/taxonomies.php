@@ -24,7 +24,7 @@ function register_taxonomies()
 {
     register_taxonomy(
         'platform',
-        'format',
+        'product',
         array(
             'labels' => create_taxonomy_labels('Platforms', 'Platform'),
             'hierarchical' => true,

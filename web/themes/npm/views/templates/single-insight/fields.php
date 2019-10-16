@@ -149,7 +149,7 @@ if (function_exists('acf_add_local_field_group')):
             array(
                 'key' => 'field_5d9cb77d4b8fg',
                 'label' => 'Button Text',
-                'name' => 'button_text',
+                'name' => 'button_clone_text',
                 'type' => 'text',
                 'instructions' => 'Button link will be dynamically generated',
                 'required' => 0,

@@ -37,7 +37,6 @@ function register_post_types()
             'public' => true,
             'has_archive' => false,
             'menu_icon' => '',
-            'taxonomies' => array('platform'),
         )
     );
 
@@ -47,6 +46,16 @@ function register_post_types()
             'public' => true,
             'has_archive' => false,
             'menu_icon' => '',
+        )
+    );
+
+    register_post_type('product',
+        array(
+            'labels' => create_post_type_labels('Products', 'Product'),
+            'public' => true,
+            'has_archive' => false,
+            'menu_icon' => '',
+            'taxonomies' => array('platform'),
         )
     );
 

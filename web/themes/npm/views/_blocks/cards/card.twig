@@ -22,9 +22,9 @@
       </div>
     {% endif %}
 
-    {% if card.button_link and card.button_text %}
-      <a class="link" href="{{ card.button_link }}">
-        {{ card.button_text }}
+    {% if card.button_clone_link and card.button_clone_text %}
+      <a class="link" href="{{ card.button_clone_link }}">
+        {{ card.button_clone_text }}
         {{ svg('link') }}
       </a>
     {% endif %}

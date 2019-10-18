@@ -90,7 +90,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                     array(
                         'key' => 'field_5d9d518134a6a',
                         'label' => 'Stats',
-                        'name' => 'Stat',
+                        'name' => 'stats',
                         'type' => 'repeater',
                         'instructions' => '',
                         'required' => 0,

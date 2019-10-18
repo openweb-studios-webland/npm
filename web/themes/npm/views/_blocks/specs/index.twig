@@ -82,7 +82,17 @@
                       {% for sample in spec_group.samples %}
                         <div class="mb-20 px-10 w-1/2">
                           <div class="border border-gray-border">
-                            {% if sample.video %}
+                            {% set image = TimberImage(sample.image) %}
+
+                            {% if image %}
+                              <img
+                                class="mb-20"
+                                src="{{ image.src | resize(720, 540) }}"
+                                srcset="{{ image.srcset }}"
+                                alt="{{ image.alt }}"
+                              />
+                            {% endif %}
+                            {# {% if sample.video %}
                               {% include '_partials/video.twig' ignore missing with {
                                 video: sample.video,
                                 image: sample.image,
@@ -103,7 +113,7 @@
                                   alt="{{ image.alt }}"
                                 />
                               {% endif %}
-                            {% endif %}
+                            {% endif %} #}
                           </div>
                         </div>
                       {% endfor %}

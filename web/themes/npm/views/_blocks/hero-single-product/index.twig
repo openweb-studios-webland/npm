@@ -37,8 +37,13 @@
 
         <div class="px-30 w-full lg:w-5/12">
           {% if block.video %}
-            {% include '_partials/audio.twig' ignore missing with {
+            {% include '_partials/video.twig' ignore missing with {
               video: block.video,
+              image: block.image,
+            } only %}
+          {% elseif block.audio %}
+            {% include '_partials/audio.twig' ignore missing with {
+              audio: block.audio,
               image: block.image,
             } only %}
           {% endif %}

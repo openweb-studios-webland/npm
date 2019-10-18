@@ -4,7 +4,7 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_5be47c5fce274',
-        'title' => 'Platform',
+        'title' => 'Format',
         'fields' => array(
             array(
                 'key' => 'field_5c06ef04zpb77',
@@ -21,6 +21,7 @@ if (function_exists('acf_add_local_field_group')):
                 ),
                 'layouts' => array(
                     acf_dynamic_clones_get_local_field_group('Cards', 'cards-format'),
+                    acf_dynamic_clones_get_local_field_group('Featured Work', 'featured-work'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero'),
                     acf_dynamic_clones_get_local_field_group('Insights', 'insights'),
                     acf_dynamic_clones_get_local_field_group('Stats', 'stats'),

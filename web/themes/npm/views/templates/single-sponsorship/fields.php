@@ -22,6 +22,7 @@ if (function_exists('acf_add_local_field_group')):
                 'layouts' => array(
                     acf_dynamic_clones_get_local_field_group('Call to Action', 'call-to-action'),
                     acf_dynamic_clones_get_local_field_group('Cards', 'cards'),
+                    acf_dynamic_clones_get_local_field_group('Featured Work', 'featured-work'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero'),
                     acf_dynamic_clones_get_local_field_group('Programs', 'programs'),
                     acf_dynamic_clones_get_local_field_group('Stats', 'stats'),

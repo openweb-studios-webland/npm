@@ -22,8 +22,8 @@ if (function_exists('acf_add_local_field_group')):
                 'choices' => array(
                     'white' => 'White',
                     'crimson' => 'Crimson',
-                    'dark_blue' => 'Dark Blue',
-                    'light_blue' => 'Light Blue',
+                    'blue' => 'Dark Blue',
+                    'blue-light' => 'Light Blue',
                     'teal' => 'Teal',
                     'gradient' => 'Gradient',
                 ),

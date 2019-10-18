@@ -27,16 +27,38 @@
         </div>
 
         <div class="w-full lg:clearfix lg:w-1/2">
+          <div class="pin-r max-w-none -mx-20 w-screen-7/12">
           {% set image = TimberImage(block.image) %}
 
-          {% if image %}
-            <img
-              class="pin-r max-w-none -mx-20"
-              src="{{ image.src | resize(1440, 810) }}"
-              srcset="{{ image.srcset }}"
-              alt="{{ image.alt }}"
-            />
-          {% endif %}
+          <div
+            class="relative overflow-x-hidden"
+            data-module="carousel"
+            data-carousel-autoplay="true"
+          >
+           <div class="carousel-track flex relative" data-carousel-track>
+            <div class="flex-0 w-full" data-carousel-item>
+
+              {% if image %}
+                <img
+                  src="{{ image.src | resize(1440, 810) }}"
+                  srcset="{{ image.srcset }}"
+                  alt="{{ image.alt }}"
+                />
+              {% endif %}
+            </div>
+            <div class="flex-0 w-full" data-carousel-item>
+
+              {% if image %}
+                <img
+
+                  src="{{ image.src | resize(1440, 810) }}"
+                  srcset="{{ image.srcset }}"
+                  alt="{{ image.alt }}"
+                />
+              {% endif %}
+            </div>
+          </div>
+          </div>
         </div>
       </div>
   </section>

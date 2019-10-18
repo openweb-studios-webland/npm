@@ -1,0 +1,56 @@
+{% set block = block ?? null %}
+
+{% if block %}
+  <section class="section" data-label="work">
+    <div class="container">
+      {% if block.featured_work %}
+        {% set featured_work = block.featured_work %}
+
+        <div class="flex flex-wrap items-center -mx-20">
+          <div class="mb-30 px-20 w-full lg:mb-0 lg:w-2/3">
+            {% set image = TimberImage(featured_work.featured_image) %}
+
+            {% if image %}
+              <img
+                src="{{ image.src | resize(1440, 900) }}"
+                srcset="{{ image.srcset }}"
+                alt="{{ image.alt }}"
+              />
+            {% endif %}
+          </div>
+
+          <div class="px-20 w-full lg:w-1/3">
+            <h4 class="heading-6 mb-20">
+              Featured Work
+            </h4>
+
+            <h3 class="heading-7 mb-10">
+              {{ featured_work.title }}
+            </h3>
+
+            {% if featured_work.text %}
+              <p class="text text-14">
+                {{ featured_work.text }}
+              </p>
+            {% endif %}
+
+            <a class="link text-14">
+              View the work {{ svg('link') }}
+            </a>
+          </div>
+        </div>
+
+      {% endif %}
+
+      {% if block.work | length %}
+        <div class="flex flex-wrap -mb-40 -mx-30">
+          {% for work in Post(block.work) %}
+            <div class="mb-40 px-30 w-full md:w-1/2 lg:w-1/3">
+              {% include '_blocks/work/work.twig' ignore missing %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

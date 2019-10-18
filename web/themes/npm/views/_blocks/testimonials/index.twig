@@ -3,11 +3,7 @@
 {% if block %}
   <section class="section bg-teal" data-label="testimonials">
     {% if block.testimonials | length %}
-      <div
-        class="relative overflow-x-hidden"
-        data-module="carousel"
-        data-carousel-transition-speed="600"
-      >
+      <div class="relative overflow-x-hidden" data-module="carousel">
         <div class="carousel-track flex relative" data-carousel-track>
           {% for testimonial in Post(block.testimonials) %}
             <div class="flex-0 w-full" data-carousel-item>

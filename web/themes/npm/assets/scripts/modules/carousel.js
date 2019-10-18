@@ -13,15 +13,15 @@ export default class Carousel {
     // Config
     this.config = {
       autoplay: this.el.dataset.carouselAutoplay === 'true' ? true : false, // data-carousel-autoplay
-      autoplaySpeed: this.el.dataset.carouselAutoplaySpeed || 5000, // data-carousel-autoplay-speed
+      autoplaySpeed: this.el.dataset.carouselAutoplaySpeed || 6000, // data-carousel-autoplay-speed
       itemsToMove: this.el.dataset.carouselMove || 1, // data-carousel-move
       loop: this.el.dataset.carouselLoop === 'false' ? false : true, // data-carousel-loop
       transition: this.el.dataset.carouselTransition === 'false' ? false : true, // data-carousel-transition
-      transitionSpeed: this.el.dataset.carouselTransitionSpeed || 500, // data-carousel-transition-speed
+      transitionSpeed: this.el.dataset.carouselTransitionSpeed || 600, // data-carousel-transition-speed
     }
 
     // Initialize if carousel contians more than 1 item
-    if (this.itemsCount > 1) {
+    if (this.itemsCount > 0) {
       this.init()
 
       // Clone starting/ending items if loop is set to true (true by default)

@@ -8,4 +8,8 @@
   @screen lg {
     @apply py-100;
   }
+
+  &:not([class*="bg-"]) + .section:not([class*="bg-"]) {
+    @apply pt-0;
+  }
 }

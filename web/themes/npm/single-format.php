@@ -7,7 +7,7 @@ $context['insights'] = new Timber\PostQuery(
         'numberposts' => 3,
         'post_type' => 'insight',
         'meta_query' => array(
-            'key' => 'platform',
+            'key' => 'format',
             'value' => '"' . get_the_ID() . '"',
         ),
     )

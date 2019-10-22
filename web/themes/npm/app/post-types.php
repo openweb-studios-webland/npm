@@ -35,6 +35,7 @@ function register_post_types()
         array(
             'labels' => create_post_type_labels('Formats', 'Format'),
             'public' => true,
+            'publicly_queryable' => false,
             'has_archive' => false,
             'menu_icon' => '',
         )
@@ -53,7 +54,7 @@ function register_post_types()
         array(
             'labels' => create_post_type_labels('Products', 'Product'),
             'public' => true,
-            'has_archive' => false,
+            'has_archive' => true,
             'menu_icon' => '',
             'taxonomies' => array('platform'),
         )
@@ -98,3 +99,11 @@ function register_post_types()
 }
 
 add_action('init', 'register_post_types');
+
+function themeslug_query_vars($qvars)
+{
+    $qvars[] .= 'format';
+    $qvars[] .= 'platform';
+    return $qvars;
+}
+add_filter('query_vars', 'themeslug_query_vars');

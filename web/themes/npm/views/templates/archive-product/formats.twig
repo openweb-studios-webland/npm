@@ -1,0 +1,24 @@
+{% if formats | length %}
+  <div class="mb-20 overflow-hidden">
+    <div class="-mb-20 overflow-x-auto pb-20">
+      <div class="border-b border-gray-border">
+        <ul class="flex items-center -mx-20">
+          <li class="leading-tight px-20">
+            <a class="{{ active_formats | length ? 'text-gray-a11y ' : 'text-blue-link ' }}block font-bold pb-15 relative text-center whitespace-no-wrap" href="/product">
+              All Formats
+            </a>
+          </li>
+
+          {% for format in formats %}
+            <li class="leading-tight px-20">
+              <a class="{{ format.active ? 'text-blue-link ' : 'text-gray-a11y ' }}flex flex-wrap font-bold justify-center inline-block items-center pb-15 relative text-center whitespace-no-wrap" href="/product?format={{ format.id }}">
+                {{ svg(format.slug, { classes: 'mr-10' }) }}
+                {{ format.name }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endif %}

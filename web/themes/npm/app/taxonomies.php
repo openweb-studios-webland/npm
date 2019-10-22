@@ -28,6 +28,7 @@ function register_taxonomies()
         array(
             'labels' => create_taxonomy_labels('Platforms', 'Platform'),
             'hierarchical' => true,
+            'publicly_queryable' => false,
             'show_admin_column' => true,
         )
     );

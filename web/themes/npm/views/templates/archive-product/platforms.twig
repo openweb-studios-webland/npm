@@ -1,0 +1,28 @@
+{% if platforms | length %}
+  <div class="overflow-hidden">
+    <div class="-mb-20 overflow-x-auto pb-20">
+      <ul class="flex items-center -mx-15 text-12">
+        {% for platform in platforms %}
+          <li class="px-15">
+            {% if platform.active and platform.active_parent %}
+              <a
+                class="bg-blue-link flex font-bold inline-block items-center px-10 py-5 rounded-full text-white whitespace-no-wrap"
+                href="/product?format={{ platform.parent }}{{ active_siblings | length ? '&platform=' ~ active_siblings | join(',') }}"
+              >
+                {{ platform.name }} -- {{ platform.id }}
+                {{ svg('clear', { classes: 'ml-5' }) }}
+              </a>
+            {% else %}
+              <a
+                class="font-bold inline-block text-gray-a11y whitespace-no-wrap"
+                href="/product?format={{ platform.parent }}&platform={{ active_platforms | merge([platform.id]) | join(',') }}"
+              >
+                {{ platform.name }} -- {{ platform.id }} - 2
+              </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endif %}

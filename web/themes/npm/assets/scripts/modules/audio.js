@@ -1,6 +1,6 @@
-const WaveSurfer = require('wavesurfer.js/dist/wavesurfer')
+// const WaveSurfer = require('wavesurfer.js/dist/wavesurfer')
 // @TODO Update WaveSurfer once import issue is resoloved 3.1.1+
-// import WaveSurfer from 'wavesurfer.js'
+import WaveSurfer from 'wavesurfer.js'
 
 export default class Audio {
   constructor(el) {
@@ -16,6 +16,7 @@ export default class Audio {
       audioSource: this.player.dataset.audioSource || null,
       barGap: 1, // Pixels
       barWidth: 2, // Pixels
+      barHeight: 0.75, // Relational (default is 1)
       cursorColor: '#161616',
       cursorWidth: 2, // Pixels
       progressColor: '#dadada',
@@ -31,6 +32,7 @@ export default class Audio {
     this.wavesurfer = WaveSurfer.create({
       barGap: this.config.barGap,
       barWidth: this.config.barWidth,
+      barHeight: this.config.barHeight,
       container: this.player,
       cursorColor: this.config.cursorColor,
       cursorWidth: this.config.cursorWidth,

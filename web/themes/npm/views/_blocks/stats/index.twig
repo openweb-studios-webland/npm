@@ -1,7 +1,7 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="{{ block.color_select != 'white' ? 'text-white ' }}bg-{{ block.color_select }} section" data-label="stats">
+  <section class="{{ block.color_select != 'white' and block.color_select !=' gray' ? 'text-white ' }}bg-{{ block.color_select }} section" data-label="stats">
     <div class="container">
       {% if block.image %}
         <div class="flex flex-wrap -mx-30">
@@ -28,11 +28,7 @@
             {% set image = TimberImage(block.image) %}
 
             {% if image %}
-              <img
-                src="{{ image.src | resize(1440, 900) }}"
-                srcset="{{ image.srcset }}"
-                alt="{{ image.alt }}"
-              />
+              <img src="{{ image.src | resize(1440, 900) }}" alt="{{ image.alt }}" />
             {% endif %}
           </div>
         </div>
@@ -91,7 +87,9 @@
         {% endif %}
 
         {% if block.attribution %}
-          <p class="text mt-20 text-gray-a11y text-11 md:mt-25 lg:mt-30">{{ block.attribution }}</p>
+          <p class="text mt-20 text-gray-a11y text-11 md:mt-25 lg:mt-30">
+            {{ block.attribution }}
+          </p>
         {% endif %}
       {% endif %}
     </div>

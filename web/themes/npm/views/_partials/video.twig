@@ -5,11 +5,7 @@
     {% set image = TimberImage(image) %}
 
     {% if image %}
-      <img
-        src="{{ image.src | resize(720, 405) }}"
-        srcset="{{ image.srcset }}"
-        alt="{{ image.alt }}"
-      />
+      <img src="{{ image.src | resize(720, 405) }}" alt="{{ image.alt }}" />
     {% endif %}
 
     <button class="absolute inset-1/2 h-80 translate-1/2 w-80" data-video-play>

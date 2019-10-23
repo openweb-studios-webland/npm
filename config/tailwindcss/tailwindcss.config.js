@@ -325,6 +325,7 @@ module.exports = {
       dimensions: {
         square: [1, 1],
         '16/9': [16, 9],
+        '9/4': [9, 4],
       },
       variants: ['responsive'],
     }),

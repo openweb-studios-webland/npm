@@ -47,11 +47,7 @@
   {% set image = TimberImage(work.image) %}
 
   {% if image %}
-    <img
-      src="{{ image.src | resize(720, 405) }}"
-      srcset="{{ image.srcset }}"
-      alt="{{ image.alt }}"
-    />
+    <img src="{{ image.src | resize(720, 405) }}" alt="{{ image.alt }}" />
   {% endif %}
 
   <div class="mt-20">

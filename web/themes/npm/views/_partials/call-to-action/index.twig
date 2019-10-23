@@ -7,17 +7,13 @@
   button_text: call_to_action.button_text ?? null,
 } %}
 
-<section class="{{ call_to_action.color_select != 'white' ? 'text-white ' }}bg-{{ call_to_action.color_select }} text-center" data-label="call-to-action">
+<section class="{{ call_to_action.color_select != 'white' and all_to_action.color_select != 'gray' ? 'text-white ' }}bg-{{ call_to_action.color_select }} text-center" data-label="call-to-action">
   {% if call_to_action.image %}
     <div class="lg:pt-50 lg:text-left">
       <div class="container">
         <div class="flex flex-wrap items-end -mx-30">
           <div class="px-30 hidden w-full lg:block lg:w-5/12">
-            <img
-              src="{{ call_to_action.image.src | resize(960, 960) }}"
-              srcset="{{ call_to_action.image.srcset }}"
-              alt="{{ call_to_action.image.alt }}"
-            />
+            <img src="{{ call_to_action.image.src | resize(960, 960) }}" alt="{{ call_to_action.image.alt }}" />
           </div>
 
           <div class="px-30 py-50 w-full md:py-75 lg:py-100 lg:w-7/12">

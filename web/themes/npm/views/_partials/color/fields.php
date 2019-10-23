@@ -21,6 +21,7 @@ if (function_exists('acf_add_local_field_group')):
                 ),
                 'choices' => array(
                     'white' => 'White',
+                    'gray' => 'Gray',
                     'crimson' => 'Crimson',
                     'blue' => 'Dark Blue',
                     'blue-light' => 'Light Blue',

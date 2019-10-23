@@ -1,0 +1,41 @@
+{% set block = block ?? null %}
+
+{% if block %}
+  {% set image = TimberImage(block.image) %}
+
+  <section
+    class="section bg-cover relative lg:-mb-50"
+    style="background-image: url('{{ image.src | resize(1920, 700) }}');"
+    data-label="hero-services"
+  >
+    <div class="absolute bg-black inset-0 opacity-75"></div>
+
+    <div class="container">
+      <div class="relative text-white w-full lg:w-2/3">
+        {% if block.subheading %}
+          <div class="heading-6 mb-20">
+            {{ block.subheading }}
+          </div>
+        {% endif %}
+
+        {% if block.heading %}
+          <h1 class="heading-3">
+            {{ block.heading }}
+          </h1>
+        {% endif %}
+
+        {% if block.text %}
+          <div class="text text-16 lg:text-18">
+            {{ block.text }}
+          </div>
+        {% endif %}
+
+        {% if block.button_link and block.button_text %}
+          <a class="button mt-25 lg:mt-30" href="{{ block.button_link }}">
+            {{ block.button_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}

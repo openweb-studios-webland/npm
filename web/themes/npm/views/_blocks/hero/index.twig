@@ -1,7 +1,7 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="pt-50 md:pt-75 lg:-mb-50 lg:pt-0" data-label="hero">
+  <section class="pt-50 relative z-10 md:pt-75 lg:-mb-50 lg:pt-0" data-label="hero">
     <div class="container">
       <div class="flex flex-wrap items-center">
         <div class="w-full lg:w-7/12">
@@ -39,11 +39,11 @@
             <img
               class="pin-r max-w-none -mx-20"
               src="{{ image.src | resize(1440, 1440) }}"
-              srcset="{{ image.srcset }}"
               alt="{{ image.alt }}"
             />
           {% endif %}
         </div>
       </div>
+    </div>
   </section>
 {% endif %}

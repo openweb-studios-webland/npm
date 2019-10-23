@@ -13,7 +13,11 @@ const declaredModules = {}
 
 modules.forEach(module => {
   module.dataset.module.split(' ').forEach(moduleName => {
-    import(/* webpackChunkName: "[request]" */ `./modules/${moduleName}`).then(Module => {
+    import(
+      /* webpackChunkName: "[request]" */
+      /* webpackMode: "eager" */
+      `./modules/${moduleName}`
+    ).then(Module => {
       declaredModules[moduleName] = new Module.default(module)
     })
   })

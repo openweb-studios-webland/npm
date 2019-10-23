@@ -1,0 +1,17 @@
+{% set block = block ?? null %}
+
+{% if block %}
+  <section class="section pt-0 relative" data-label="cards-services">
+    {% if block.cards | length %}
+      <div class="container">
+        <div class="flex flex-wrap -mb-30 lg:flex-no-wrap">
+          {% for card in block.cards %}
+            <div class="mb-30 w-full lg:flex-1-1-0 lg:w-auto">
+              {% include '_blocks/cards/card.twig' ignore missing %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </section>
+{% endif %}

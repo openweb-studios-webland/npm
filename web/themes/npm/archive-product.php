@@ -4,6 +4,7 @@ $context = Timber::get_context();
 $platforms = Timber::get_terms(array(
     'taxonomy' => 'platform',
 ));
+$context['post'] = new Timber\Post();
 $context['formats'] = [];
 $context['platforms'] = [];
 $context['active_formats'] = get_query_var('format') ? explode(',', get_query_var('format')) : [];

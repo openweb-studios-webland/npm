@@ -2,12 +2,15 @@
 
 {% block content %}
   <div class="archive-product">
+    {% include '_partials/hero.twig' ignore missing %}
+
     <div class="bg-gray py-50">
       <div class="container-lg">
         {% include 'templates/archive-product/formats.twig' ignore missing %}
+
         {% include 'templates/archive-product/platforms.twig' ignore missing %}
 
-        <div class="flex flex-wrap -mb-20 -mx-10 py-50">
+        <div class="flex flex-wrap -mb-20 -mx-10 pt-50">
           {% for product in products %}
             <div class="mb-20 px-10 w-full md:w-1/2 lg:w-1/4">
               <a class="bg-white block h-full p-30 shadow-sm text-14" href="{{ product.link }}">

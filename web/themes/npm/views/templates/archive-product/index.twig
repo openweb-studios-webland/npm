@@ -17,6 +17,7 @@
                 <ul class="flex mb-30 -mx-5">
                   {% for platform in product.get_terms('platform') if platform.parent == 0 %}
                     <li class="px-5">
+                      <span class="screen-reader-only">{{ platform.name }}</span>
                       {{ svg(platform.slug, { classes: 'text-blue-light' }) }}
                     </li>
                   {% endfor %}
@@ -27,9 +28,9 @@
                 </h2>
 
                 {% if product.subheading %}
-                  <h3 class="font-bold mb-15">
+                  <div class="font-bold mb-15">
                     {{ product.subheading }}
-                  </h3>
+                  </div>
                 {% endif %}
 
                 {% if product.text %}

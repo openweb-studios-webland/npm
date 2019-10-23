@@ -99,11 +99,3 @@ function register_post_types()
 }
 
 add_action('init', 'register_post_types');
-
-function themeslug_query_vars($qvars)
-{
-    $qvars[] .= 'format';
-    $qvars[] .= 'platform';
-    return $qvars;
-}
-add_filter('query_vars', 'themeslug_query_vars');

@@ -25,28 +25,20 @@ function register_post_types()
     register_post_type('call-to-action',
         array(
             'labels' => create_post_type_labels('Calls to Action', 'Call to Action'),
-            'public' => true,
             'has_archive' => false,
             'menu_icon' => '',
-        )
-    );
-
-    register_post_type('format',
-        array(
-            'labels' => create_post_type_labels('Formats', 'Format'),
             'public' => true,
             'publicly_queryable' => false,
-            'has_archive' => false,
-            'menu_icon' => '',
         )
     );
 
     register_post_type('insight',
         array(
             'labels' => create_post_type_labels('Insights', 'Insight'),
-            'public' => true,
-            'has_archive' => false,
+            'has_archive' => true,
             'menu_icon' => '',
+            'public' => true,
+            'rewrite' => array('slug' => 'insights'),
             'taxonomies' => array('platform'),
         )
     );
@@ -54,9 +46,10 @@ function register_post_types()
     register_post_type('product',
         array(
             'labels' => create_post_type_labels('Products', 'Product'),
-            'public' => true,
             'has_archive' => true,
             'menu_icon' => '',
+            'public' => true,
+            'rewrite' => array('slug' => 'products'),
             'taxonomies' => array('platform'),
         )
     );
@@ -64,9 +57,10 @@ function register_post_types()
     register_post_type('program',
         array(
             'labels' => create_post_type_labels('Programs', 'Program'),
-            'public' => true,
             'has_archive' => false,
             'menu_icon' => '',
+            'public' => true,
+            'publicly_queryable' => false,
             'taxonomies' => array('topic'),
         )
     );
@@ -74,27 +68,29 @@ function register_post_types()
     register_post_type('sponsorship',
         array(
             'labels' => create_post_type_labels('Sponsorships', 'Sponsorship'),
-            'public' => true,
             'has_archive' => false,
             'menu_icon' => '',
+            'public' => true,
+            'publicly_queryable' => false,
         )
     );
 
     register_post_type('testimonial',
         array(
             'labels' => create_post_type_labels('Testimonials', 'Testimonial'),
-            'public' => true,
             'has_archive' => false,
             'menu_icon' => '',
+            'public' => true,
+            'publicly_queryable' => false,
         )
     );
 
     register_post_type('work',
         array(
             'labels' => create_post_type_labels('Work', 'Work'),
-            'public' => true,
             'has_archive' => false,
             'menu_icon' => '',
+            'public' => true,
         )
     );
 }

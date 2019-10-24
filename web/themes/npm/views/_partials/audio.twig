@@ -1,3 +1,6 @@
+{% set audio = audio ?? null %}
+{% set image = image ? TimberImage(image) : null %}
+
 <div class="aspect-ratio-16/9 overflow-hidden relative" data-module="audio">
   <div class="absolute flex flex-col justify-center inset-0">
     <div data-audio-player data-audio-source="{{ audio.url }}"></div>
@@ -28,8 +31,6 @@
   </div>
 
   <div class="audio-overlay absolute h-full inset-1/2 transition translate-1/2 w-full z-10">
-    {% set image = TimberImage(image) %}
-
     {% if image %}
       <img src="{{ image.src | resize(720, 405) }}" alt="{{ image.alt }}" />
     {% endif %}

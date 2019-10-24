@@ -1,27 +1,27 @@
-{% if call_to_action.heading %}
+{% if heading %}
   <h2 class="heading-2">
-    {{ call_to_action.heading }}
+    {{ heading }}
   </h2>
 {% endif %}
 
-{% if call_to_action.text %}
+{% if text %}
   <div class="text">
-    {{ call_to_action.text }}
+    {{ text }}
   </div>
 {% endif %}
 
-{% if call_to_action.button_link and call_to_action.button_text %}
-  {% if call_to_action.color_select == 'white' or call_to_action.color_select == 'gray' %}
-    <a class="button mt-25 lg:mt-30" href="{{ call_to_action.button_link }}">
-      {{ call_to_action.button_text }}
+{% if button_link and button_text %}
+  {% if color_select == 'white' or color_select == 'gray' %}
+    <a class="button mt-25 lg:mt-30" href="{{ button_link }}">
+      {{ button_text }}
     </a>
-  {% elseif call_to_action.image %}
-    <a class="button-white mt-25 lg:mt-30" href="{{ call_to_action.button_link }}">
-      {{ call_to_action.button_text }}
+  {% elseif image %}
+    <a class="button-white mt-25 lg:mt-30" href="{{ button_link }}">
+      {{ button_text }}
     </a>
   {% else %}
-    <a class="button-outline mt-25 lg:mt-30" href="{{ call_to_action.button_link }}">
-      {{ call_to_action.button_text }}
+    <a class="button-outline mt-25 lg:mt-30" href="{{ button_link }}">
+      {{ button_text }}
     </a>
   {% endif %}
 {% endif %}

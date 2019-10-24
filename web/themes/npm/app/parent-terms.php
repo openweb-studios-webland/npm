@@ -3,7 +3,7 @@
 // Auto-check parent terms when a child term is checked
 function auto_check_parent_terms($post_id = null, $post = null)
 {
-    if ($post->post_type != 'product') {
+    if (!$post || $post->post_type != 'product') {
         return;
     }
 

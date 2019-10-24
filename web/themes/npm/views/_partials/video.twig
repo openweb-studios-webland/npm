@@ -1,3 +1,6 @@
+{% set video = video ?? null %}
+{% set image = image ? TimberImage(image) : null %}
+
 <div class="video" data-module="video">
   {{ video }}
 

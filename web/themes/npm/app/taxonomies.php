@@ -29,12 +29,11 @@ function register_taxonomies()
             'product',
         ),
         array(
-            'labels' => create_taxonomy_labels('Platforms', 'Platform'),
             'hierarchical' => true,
+            'labels' => create_taxonomy_labels('Platforms', 'Platform'),
             'public' => true,
-            // 'publicly_queryable' => false,
+            'rewrite' => array('slug' => 'formats'),
             'show_admin_column' => true,
-            'rewrite' => array('slug' => 'platforms'),
         )
     );
 
@@ -42,8 +41,9 @@ function register_taxonomies()
         'topic',
         'program',
         array(
-            'labels' => create_taxonomy_labels('Topics', 'Topic'),
             'hierarchical' => true,
+            'labels' => create_taxonomy_labels('Topics', 'Topic'),
+            'rewrite' => array('slug' => 'topics'),
             'show_admin_column' => true,
         )
     );

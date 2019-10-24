@@ -47,6 +47,7 @@ function register_post_types()
             'public' => true,
             'has_archive' => false,
             'menu_icon' => '',
+            'taxonomies' => array('platform'),
         )
     );
 

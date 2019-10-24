@@ -6,9 +6,9 @@
 
     <div class="bg-gray py-50">
       <div class="container-lg">
-        {% include 'templates/archive-product/formats.twig' ignore missing %}
+        {% include 'templates/archive-product/platform-parents.twig' ignore missing %}
 
-        {% include 'templates/archive-product/platforms.twig' ignore missing %}
+        {% include 'templates/archive-product/platform-children.twig' ignore missing %}
 
         <div class="flex flex-wrap -mb-20 -mx-10 pt-50">
           {% for product in products %}

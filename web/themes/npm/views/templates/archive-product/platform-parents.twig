@@ -1,0 +1,24 @@
+{% if platforms.parents | length %}
+  <div class="mb-20 overflow-hidden">
+    <div class="-mb-20 overflow-x-auto pb-20">
+      <div class="border-b border-gray-border">
+        <ul class="flex items-center -mx-10 lg:-mx-20">
+          <li class="flex-no-shrink px-10 lg:px-20">
+            <a class="{{ current_platforms.parents | length ? 'text-gray-a11y ' : 'text-blue-link ' }}font-bold inline-block pb-15 relative text-center whitespace-no-wrap" href="/product/">
+              All Formats
+            </a>
+          </li>
+
+          {% for platform in platforms.parents  %}
+            <li class="flex-no-shrink px-10 lg:px-20">
+              <a class="{{ platform.current ? 'text-blue-link ' : 'text-gray-a11y ' }}flex font-bold items-center pb-15 relative text-center whitespace-no-wrap" href="/product/?platform={{ platform.slug }}">
+                {{ svg(platform.slug, { classes: 'mr-10' }) }}
+                {{ platform.name }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endif %}

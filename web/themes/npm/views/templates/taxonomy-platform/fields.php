@@ -3,11 +3,11 @@
 if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
-        'key' => 'group_5be47c5fce2z4',
+        'key' => 'group_5bb47c5fce2a4',
         'title' => 'Platform',
         'fields' => array(
             array(
-                'key' => 'field_5c06ef04zpb77',
+                'key' => 'field_5t06ef04zpb77',
                 'label' => 'Blocks',
                 'name' => 'blocks',
                 'type' => 'flexible_content',

@@ -1,89 +1,101 @@
 <?php
 
 $context = Timber::get_context();
+$taxonomy = 'platform';
 $platforms = Timber::get_terms(array(
-    'taxonomy' => 'platform',
+    'taxonomy' => $taxonomy,
 ));
-$context['post'] = new Timber\Post();
-$context['formats'] = [];
-$context['platforms'] = [];
-$context['active_formats'] = get_query_var('format') ? explode(',', get_query_var('format')) : [];
-$context['active_platforms'] = get_query_var('platform') ? explode(',', get_query_var('platform')) : [];
+$context['platforms'] = [
+    'parents' => [],
+    'children' => [],
+];
+
+// Get current platforms from query vars
+$current_platforms = get_query_var('platform') ? explode(',', get_query_var('platform')) : [];
+$context['current_platforms'] = [
+    'parents' => [],
+    'children' => [],
+];
 
 foreach ($platforms as $platform) {
-    if ($platform->parent === 0 && count($context['active_formats']) > 0) {
-        // Formats/top-level
-        $platform->active = compareInts(
-            $platform->id,
-            $context['active_formats'][0]
+    $key = ($platform->parent === 0) ? 'parents' : 'children';
+
+    // Add all platforms to context
+    array_push(
+        $context['platforms'][$key],
+        addToPlatform($platform, $current_platforms, $taxonomy),
+    );
+
+    // Add active platforms to context
+    if (in_array($platform->slug, $current_platforms)) {
+        array_push(
+            $context['current_platforms'][$key],
+            $platform->slug,
         );
-
-        array_push($context['formats'], $platform);
-    } elseif (count($context['active_platforms']) > 0) {
-        // Active platforms
-        if (($i = array_search($platform->id, $context['active_platforms'])) !== false) {
-            // Active platforms with an active format/parent
-            if (compareInts($platform->parent, $context['active_formats'][0])) {
-                $platform->active = compareInts(
-                    $platform->id,
-                    $context['active_platforms'][$i]
-                );
-                $platform->active_parent = compareInts(
-                    $platform->parent,
-                    $context['active_formats'][0]
-                );
-
-                // Remove current platform from active siblings
-                $id = $platform->id;
-                $platform->active_siblings = array_filter(
-                    $context['active_platforms'],
-                    function ($val) use ($id) {
-                        return ($val != $id);
-                    }
-                );
-            } else {
-                unset($context['active_platforms'][$i]);
-            }
-        }
-
-        array_push($context['platforms'], $platform);
     }
 }
 
-// Compare two integers
-function compareInts($num_one, $num_two)
+function addToPlatform($platform, $current_platforms, $taxonomy)
 {
-    return ((int) $num_one == (int) $num_two ? 1 : 0);
+    global $current_platforms;
+    $platform->current = null;
+    $platform->current_item_parent = null;
+
+    // Set bool for current platforms
+    if (in_array($platform->slug, $current_platforms)) {
+        $platform->current = true;
+
+        // Remove current platform from other current platforms
+        $platform_slug = $platform->slug;
+        $platform->current_item_others = array_filter(
+            $current_platforms,
+            function ($value) use ($platform_slug) {
+                return ($value != $platform_slug);
+            },
+        );
+    }
+
+    // Add entire post object for platforms with a parent (only includes ID by default)
+    $platform_parent = get_term($platform->parent, $taxonomy);
+
+    if ($platform->parent !== 0) {
+        $platform->item_parent = $platform_parent;
+
+        // Set bool for platforms with a current parent
+        if (in_array($platform_parent->slug, $current_platforms)) {
+            $platform->current_item_parent = true;
+        }
+    }
+
+    return $platform;
 }
 
-// Build query args
+// Custom WP query
 $args = array(
     'posts_per_page' => -1,
     'post_type' => 'product',
 );
 
-// Append active formats to query
-if (count($context['active_formats']) > 0) {
+if (count($context['current_platforms']['parents']) > 0) {
     $args['tax_query'] = array(
         'relation' => 'AND',
         array(
             'taxonomy' => 'platform',
-            'field' => 'id',
-            'terms' => $context['active_formats'],
+            'field' => 'slug',
+            'terms' => $context['current_platforms']['parents'],
         ),
     );
-}
 
-// Append active platforms to query
-if (count($context['active_platforms']) > 0) {
-    array_push($args['tax_query'], array(
-        'relation' => 'OR',
-        array(
-            'taxonomy' => 'platform',
-            'field' => 'id',
-            'terms' => $context['active_platforms'],
-        ),
-    ));
+    if (count($context['current_platforms']['children']) > 0) {
+        array_push($args['tax_query'], array(
+            'relation' => 'OR',
+            array(
+                'taxonomy' => 'platform',
+                'field' => 'slug',
+                'terms' => $context['current_platforms']['children'],
+            ),
+        ));
+    }
 }
 
 $context['products'] = new Timber\PostQuery($args);

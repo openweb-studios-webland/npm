@@ -24,12 +24,17 @@ function register_taxonomies()
 {
     register_taxonomy(
         'platform',
-        'product',
+        array(
+            'insight',
+            'product',
+        ),
         array(
             'labels' => create_taxonomy_labels('Platforms', 'Platform'),
             'hierarchical' => true,
-            'publicly_queryable' => false,
+            'public' => true,
+            // 'publicly_queryable' => false,
             'show_admin_column' => true,
+            'rewrite' => array('slug' => 'platforms'),
         )
     );
 

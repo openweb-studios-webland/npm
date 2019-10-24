@@ -1,0 +1,28 @@
+{% if platforms.children | length %}
+  <div class="overflow-hidden">
+    <div class="-mb-20 overflow-x-auto pb-20">
+      <ul class="flex items-center -mx-10 text-12 lg:-mx-15">
+        {% for platform in platforms.children %}
+          <li class="px-10 lg:px-15">
+            {% if platform.current and platform.current_item_parent %}
+              <a class="bg-blue-link flex font-bold inline-block items-center px-10 py-5 rounded-full text-white whitespace-no-wrap" href="/product/?platform={{ platform.current_item_others | join(',') }}">
+                {{ platform.name }}
+                {{ svg('clear', { classes: 'ml-5' }) }}
+              </a>
+            {% else %}
+              {% if platform.current_item_parent %}
+                <a class="font-bold inline-block text-gray-a11y whitespace-no-wrap" href="/product/?platform={{ current_platforms.children | merge([platform.slug]) | merge([platform.item_parent.slug]) | join(',') }}">
+                  {{ platform.name }}
+                </a>
+              {% else %}
+                <span class="cursor-not-allowed font-bold inline-block opacity-50 text-gray-a11y whitespace-no-wrap">
+                  {{ platform.name }}
+                </span>
+              {% endif %}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endif %}

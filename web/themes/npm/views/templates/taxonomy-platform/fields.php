@@ -3,11 +3,11 @@
 if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
-        'key' => 'group_rmlgkiuo93h4w',
-        'title' => 'Sponsoship',
+        'key' => 'group_5be47c5fce2z4',
+        'title' => 'Platform',
         'fields' => array(
             array(
-                'key' => 'field_4s62gwu9qdg30',
+                'key' => 'field_5c06ef04zpb77',
                 'label' => 'Blocks',
                 'name' => 'blocks',
                 'type' => 'flexible_content',
@@ -20,13 +20,11 @@ if (function_exists('acf_add_local_field_group')):
                     'id' => '',
                 ),
                 'layouts' => array(
-                    acf_dynamic_clones_get_local_field_group('Call to Action', 'call-to-action'),
-                    acf_dynamic_clones_get_local_field_group('Featured Content', 'cards'),
+                    acf_dynamic_clones_get_local_field_group('Featured Content', 'cards-format'),
                     acf_dynamic_clones_get_local_field_group('Featured Work', 'featured-work'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero'),
-                    acf_dynamic_clones_get_local_field_group('Programs', 'programs'),
+                    acf_dynamic_clones_get_local_field_group('Insights', 'insights'),
                     acf_dynamic_clones_get_local_field_group('Stats', 'stats'),
-                    acf_dynamic_clones_get_local_field_group('Testimonials', 'testimonials'),
                     acf_dynamic_clones_get_local_field_group('Work', 'work'),
                 ),
                 'button_label' => 'Add Block',
@@ -37,9 +35,9 @@ if (function_exists('acf_add_local_field_group')):
         'location' => array(
             array(
                 array(
-                    'param' => 'post_type',
+                    'param' => 'taxonomy',
                     'operator' => '==',
-                    'value' => 'sponsorship',
+                    'value' => 'platform',
                 ),
             ),
         ),

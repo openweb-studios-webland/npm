@@ -11,23 +11,36 @@ $context['active_formats'] = get_query_var('format') ? explode(',', get_query_va
 $context['active_platforms'] = get_query_var('platform') ? explode(',', get_query_var('platform')) : [];
 
 foreach ($platforms as $platform) {
-    if ($platform->parent === 0) {
+    if ($platform->parent === 0 && count($context['active_formats']) > 0) {
         // Formats/top-level
-        $platform->active = compareInts($platform->id, $context['active_formats'][0]);
+        $platform->active = compareInts(
+            $platform->id,
+            $context['active_formats'][0]
+        );
+
         array_push($context['formats'], $platform);
-    } else {
+    } elseif (count($context['active_platforms']) > 0) {
         // Active platforms
         if (($i = array_search($platform->id, $context['active_platforms'])) !== false) {
-            // Active platform with an active format/parent
+            // Active platforms with an active format/parent
             if (compareInts($platform->parent, $context['active_formats'][0])) {
-                $platform->active = compareInts($platform->id, $context['active_platforms'][$i]);
-                $platform->active_parent = compareInts($platform->parent, $context['active_formats'][0]);
+                $platform->active = compareInts(
+                    $platform->id,
+                    $context['active_platforms'][$i]
+                );
+                $platform->active_parent = compareInts(
+                    $platform->parent,
+                    $context['active_formats'][0]
+                );
 
                 // Remove current platform from active siblings
                 $id = $platform->id;
-                $platform->active_siblings = array_filter($context['active_platforms'], function ($val) use ($id) {
-                    return ($val != $id);
-                });
+                $platform->active_siblings = array_filter(
+                    $context['active_platforms'],
+                    function ($val) use ($id) {
+                        return ($val != $id);
+                    }
+                );
             } else {
                 unset($context['active_platforms'][$i]);
             }
@@ -38,9 +51,9 @@ foreach ($platforms as $platform) {
 }
 
 // Compare two integers
-function compareInts(int $num_one, int $num_two)
+function compareInts($num_one, $num_two)
 {
-    return ($num_one == $num_two ? 1 : 0);
+    return ((int) $num_one == (int) $num_two ? 1 : 0);
 }
 
 // Build query args

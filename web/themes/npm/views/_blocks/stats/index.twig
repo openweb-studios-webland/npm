@@ -1,7 +1,7 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="{{ block.color_select != 'white' and block.color_select != ' gray' ? 'text-white ' }}bg-{{ block.color_select }} section" data-label="stats">
+  <section class="{{ block.color_select != 'white' and block.color_select != 'gray' ? 'text-white ' }}bg-{{ block.color_select }} section" data-label="stats">
     <div class="container">
       {% if block.image %}
         <div class="flex flex-wrap -mx-30">

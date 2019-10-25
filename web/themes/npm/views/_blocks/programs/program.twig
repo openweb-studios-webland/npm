@@ -3,7 +3,7 @@
 <div class="program bg-white relative shadow-sm">
   {% set image = TimberImage(program.image) %}
 
-  {% if image %}
+  {% if image.src %}
     <img src="{{ image.src | resize(600, 600) }}" alt="{{ image.alt }}" />
   {% endif %}
 

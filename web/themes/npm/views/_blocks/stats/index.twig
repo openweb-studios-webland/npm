@@ -27,7 +27,7 @@
           <div class="hidden px-30 w-full lg:block lg:w-1/3">
             {% set image = TimberImage(block.image) %}
 
-            {% if image %}
+            {% if image.src %}
               <img src="{{ image.src | resize(1440, 900) }}" alt="{{ image.alt }}" />
             {% endif %}
           </div>

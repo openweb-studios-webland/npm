@@ -84,7 +84,7 @@
                           <div class="border border-gray-border">
                             {% set image = TimberImage(sample.image) %}
 
-                            {% if image %}
+                            {% if image.src %}
                               <img src="{{ image.src | resize(720, 540) }}" alt="{{ image.alt }}" />
                             {% endif %}
                             {# {% if sample.video %}
@@ -100,7 +100,7 @@
                             {% else %}
                               {% set image = TimberImage(sample.image) %}
 
-                              {% if image %}
+                              {% if image.src %}
                                 <img
                                   class="mb-20"
                                   src="{{ image.src | resize(720, 540) }}"

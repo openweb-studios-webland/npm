@@ -36,7 +36,14 @@ if (function_exists('acf_add_local_field_group')):
                 array(
                     'param' => 'nav_menu_item',
                     'operator' => '==',
-                    'value' => '11',
+                    'value' => '2', // Staging
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'nav_menu_item',
+                    'operator' => '==',
+                    'value' => '11', // Local
                 ),
             ),
         ),

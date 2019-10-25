@@ -35,7 +35,7 @@
         <div class="w-full lg:clearfix lg:w-5/12">
           {% set image = TimberImage(block.image) %}
 
-          {% if image %}
+          {% if image.src %}
             <img
               class="pin-r max-w-none -mx-20"
               src="{{ image.src | resize(1440, 1440) }}"

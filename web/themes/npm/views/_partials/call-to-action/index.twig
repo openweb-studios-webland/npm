@@ -6,7 +6,7 @@
 {% set button_text = button_text ?? null %}
 
 <section class="{{ color_select != 'white' and all_to_action.color_select != 'gray' ? 'text-white ' }}bg-{{ color_select }} text-center" data-label="call-to-action">
-  {% if image %}
+  {% if image.src %}
     <div class="lg:pt-50 lg:text-left">
       <div class="container">
         <div class="flex flex-wrap items-end -mx-30">

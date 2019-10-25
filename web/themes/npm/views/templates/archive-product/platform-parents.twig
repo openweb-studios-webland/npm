@@ -1,24 +1,41 @@
 {% if platforms.parents | length %}
-  <div class="mb-20 overflow-hidden">
+  <div class="overflow-hidden">
     <div class="-mb-20 overflow-x-auto pb-20">
-      <div class="border-b border-gray-border">
-        <ul class="flex items-center -mx-10 lg:-mx-20">
-          <li class="flex-no-shrink px-10 lg:px-20">
-            <a class="{{ current_platforms.parents | length ? 'text-gray-a11y ' : 'text-blue-link ' }}font-bold inline-block pb-15 relative text-center whitespace-no-wrap" href="{{ fn('get_post_type_archive_link', 'product') }}">
-              All Formats
-            </a>
-          </li>
+      <ul class="flex items-center -mx-10 lg:-mx-20">
+        <li class="flex-no-shrink px-10 lg:px-20">
+          <a class="{{ current_platforms.parents | length ? 'text-gray-a11y ' : 'text-blue-link ' }}font-bold inline-block pb-15 relative text-center whitespace-no-wrap" href="{{ fn('get_post_type_archive_link', 'product') }}">
+            All Formats
+          </a>
+        </li>
 
-          {% for platform in platforms.parents  %}
-            <li class="flex-no-shrink px-10 lg:px-20">
-              <a class="{{ platform.current ? 'text-blue-link ' : 'text-gray-a11y ' }}flex font-bold items-center pb-15 relative text-center whitespace-no-wrap" href="{{ fn('add_query_arg', 'platform', platform.slug) }}">
-                {{ svg(platform.slug, { classes: 'mr-10' }) }}
+        {% for platform in platforms.parents %}
+          {% set image = TimberImage(platform.image) %}
+
+          <li class="flex-no-shrink px-10 lg:px-20">
+            {% if platform.current %}
+              <a class="flex font-bold items-center pb-15 relative text-blue-link text-center whitespace-no-wrap" href="{{ fn('get_post_type_archive_link', 'product') }}">
+                {% if image.file_loc %}
+                  <span class="mr-5">
+                    {{ fn('file_get_contents', image.file_loc)}}
+                  </span>
+                {% endif %}
+
                 {{ platform.name }}
               </a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
+            {% else %}
+              <a class="flex font-bold items-center pb-15 relative text-gray-a11y text-center whitespace-no-wrap" href="{{ fn('add_query_arg', 'platform', platform.slug) }}">
+                {% if image.file_loc %}
+                  <span class="mr-5">
+                    {{ fn('file_get_contents', image.file_loc)}}
+                  </span>
+                {% endif %}
+
+                {{ platform.name }}
+              </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
     </div>
   </div>
 {% endif %}

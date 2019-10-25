@@ -2,7 +2,7 @@
   <div class="px-30 w-full lg:w-1/2">
     {% set image = TimberImage(testimonial.image) %}
 
-    {% if image %}
+    {% if image.src %}
       <img
         class="pin-r max-w-none -mx-20"
         src="{{ image.src | resize(1440, 810) }}"

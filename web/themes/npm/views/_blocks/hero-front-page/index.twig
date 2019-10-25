@@ -39,7 +39,7 @@
                     <div class="flex-0 w-full" data-carousel-item>
                       {% set image = TimberImage(image) %}
 
-                      {% if image %}
+                      {% if image.src %}
                         <img src="{{ image.src | resize(1440, 810) }}" alt="{{ image.alt }}" />
                       {% endif %}
                     </div>

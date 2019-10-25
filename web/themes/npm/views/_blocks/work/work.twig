@@ -46,7 +46,7 @@
 {% else %}
   {% set image = TimberImage(work.image) %}
 
-  {% if image %}
+  {% if image.src %}
     <img src="{{ image.src | resize(720, 405) }}" alt="{{ image.alt }}" />
   {% endif %}
 

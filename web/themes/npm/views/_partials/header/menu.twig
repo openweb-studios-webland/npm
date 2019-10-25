@@ -15,12 +15,10 @@
             <li class="{{ item.classes | join(' ') | trim }} flex-1 leading-normal mb-30 pl-30 px-15 relative w-full lg:w-auto">
               {% set image = TimberImage(item.image) %}
 
-              {% if image %}
-                <img
-                  class="absolute left-0 mt-5 top-0"
-                  src="{{ image.src }}"
-                  alt="{{ image.alt }}"
-                >
+              {% if image.file_loc %}
+                <span class="absolute left-0 mt-5 text-blue-light top-0">
+                  {{ fn('file_get_contents', image.file_loc)}}
+                </span>
               {% endif %}
 
               <a class="block font-bold whitespace-no-wrap" href="{{ item.link }}">

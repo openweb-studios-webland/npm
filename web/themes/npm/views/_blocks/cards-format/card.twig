@@ -3,7 +3,7 @@
     <div class="mb-30 w-full lg:mb-0 lg:px-20 lg:w-5/12">
       {% set image = TimberImage(card.image) %}
 
-      {% if image %}
+      {% if image.src %}
         <img src="{{ image.src | resize(1440, 900) }}" alt="{{ image.alt }}" />
       {% endif %}
     </div>

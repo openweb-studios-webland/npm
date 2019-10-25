@@ -7,7 +7,7 @@
   <div class="video-overlay absolute h-full inset-1/2 translate-1/2 w-full z-10">
     {% set image = TimberImage(image) %}
 
-    {% if image %}
+    {% if image.src %}
       <img src="{{ image.src | resize(720, 405) }}" alt="{{ image.alt }}" />
     {% endif %}
 

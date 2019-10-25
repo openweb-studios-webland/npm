@@ -1,7 +1,7 @@
 <div class="bg-white h-full shadow-sm">
   {% set image = TimberImage(card.image) %}
 
-  {% if image %}
+  {% if image.src %}
     <img src="{{ image.src | resize(1440, 900) }}" alt="{{ image.alt }}" />
   {% endif %}
 

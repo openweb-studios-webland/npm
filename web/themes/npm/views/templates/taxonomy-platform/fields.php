@@ -11,7 +11,7 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Image',
                 'name' => 'image',
                 'type' => 'image',
-                'instructions' => '',
+                'instructions' => 'Allowed file type is SVG (remove all fill attributes from SVG)',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -28,7 +28,7 @@ if (function_exists('acf_add_local_field_group')):
                 'max_width' => '',
                 'max_height' => '',
                 'max_size' => '',
-                'mime_types' => '',
+                'mime_types' => 'svg',
             ),
         ),
         'location' => array(

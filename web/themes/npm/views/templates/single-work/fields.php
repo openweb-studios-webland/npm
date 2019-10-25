@@ -11,7 +11,7 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Featured Image',
                 'name' => 'featured_image',
                 'type' => 'image',
-                'instructions' => 'Recommended dimensions are 1440 x 900',
+                'instructions' => 'Recommended dimensions are 1440 x 810',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -23,7 +23,7 @@ if (function_exists('acf_add_local_field_group')):
                 'preview_size' => 'thumbnail',
                 'library' => 'all',
                 'min_width' => 1440,
-                'min_height' => 900,
+                'min_height' => 810,
                 'min_size' => '',
                 'max_width' => '',
                 'max_height' => '',

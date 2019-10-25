@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd2b25d1fc953983c3fc0e02bcf34db4",
+    "content-hash": "5a6cdaa55886c5ef7bc2d1db8a762a9e",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -582,16 +582,16 @@
             "homepage": "https://wordpress.org/plugins/duracelltomi-google-tag-manager/"
         },
         {
-            "name": "wpackagist-plugin/post-types-order",
-            "version": "1.9.4.1",
+            "name": "wpackagist-plugin/intuitive-custom-post-order",
+            "version": "3.1.2",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/post-types-order/",
-                "reference": "tags/1.9.4.1"
+                "url": "https://plugins.svn.wordpress.org/intuitive-custom-post-order/",
+                "reference": "tags/3.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/post-types-order.1.9.4.1.zip",
+                "url": "https://downloads.wordpress.org/plugin/intuitive-custom-post-order.3.1.2.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -599,7 +599,7 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/post-types-order/"
+            "homepage": "https://wordpress.org/plugins/intuitive-custom-post-order/"
         },
         {
             "name": "wpackagist-plugin/safe-svg",

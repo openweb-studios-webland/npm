@@ -3,11 +3,11 @@
 if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
-        'key' => 'group_oebnbo65bgdau',
-        'title' => 'Services',
+        'key' => 'group_eky8w5zk45384',
+        'title' => 'Single Service',
         'fields' => array(
             array(
-                'key' => 'field_pd24iusm3bbaf',
+                'key' => 'field_xkr6l8m1ay374',
                 'label' => 'Blocks',
                 'name' => 'blocks',
                 'type' => 'flexible_content',
@@ -20,9 +20,12 @@ if (function_exists('acf_add_local_field_group')):
                     'id' => '',
                 ),
                 'layouts' => array(
-                    acf_dynamic_clones_get_local_field_group('Featured Content', 'cards-services'),
-                    acf_dynamic_clones_get_local_field_group('Hero', 'hero-services'),
-                    acf_dynamic_clones_get_local_field_group('Work', 'work-services'),
+                    acf_dynamic_clones_get_local_field_group('Featured Work', 'featured-work'),
+                    acf_dynamic_clones_get_local_field_group('Hero', 'hero-single-service'),
+                    acf_dynamic_clones_get_local_field_group('Insights', 'insights'),
+                    acf_dynamic_clones_get_local_field_group('Programs', 'programs'),
+                    acf_dynamic_clones_get_local_field_group('Stats', 'stats'),
+                    acf_dynamic_clones_get_local_field_group('Work', 'work'),
                 ),
                 'button_label' => 'Add Block',
                 'min' => '',
@@ -34,7 +37,7 @@ if (function_exists('acf_add_local_field_group')):
                 array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'services.php',
+                    'value' => 'single-service.php',
                 ),
             ),
         ),

@@ -1,0 +1,57 @@
+{% set block = block ?? null %}
+
+{% if block %}
+  {% set background_image = TimberImage(block.image) %}
+
+  <section
+    class="bg-cover pt-50 relative z-10 text-white md:pt-75 lg:-mb-50 lg:pt-0"
+    style="background-image: url('{{ background_image.src | resize(1920, 700) }}');"
+    data-label="hero-single-services"
+  >
+    <div class="absolute bg-black inset-0 opacity-90"></div>
+
+    <div class="container">
+      <div class="flex flex-wrap items-center">
+        <div class="w-full lg:w-7/12">
+          <div class="pb-50 md:pb-75 lg:pb-0 lg:pr-60 lg:relative lg:z-10">
+            {% if block.subheading %}
+              <div class="heading-6 mb-20">
+                {{ block.subheading }}
+              </div>
+            {% endif %}
+
+            {% if block.heading %}
+              <h1 class="heading-3">
+                {{ block.heading }}
+              </h1>
+            {% endif %}
+
+            {% if block.text %}
+              <div class="text text-16 lg:text-18">
+                {{ block.text }}
+              </div>
+            {% endif %}
+
+            {% if block.button_link and block.button_text %}
+              <a class="button mt-25 lg:mt-30" href="{{ block.button_link }}">
+                {{ block.button_text }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="-mb-50 relative w-full lg:clearfix lg:w-5/12">
+          {% set image = TimberImage(block.image) %}
+
+          {% if image %}
+            <img
+              class="pin-r max-w-none -mx-20"
+              src="{{ image.src | resize(1440, 1440) }}"
+              alt="{{ image.alt }}"
+            />
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}

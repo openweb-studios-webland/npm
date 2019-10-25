@@ -8,10 +8,10 @@
 
         <div class="flex flex-wrap items-center -mx-20">
           <div class="mb-30 px-20 w-full lg:mb-0 lg:w-2/3">
-            {% set image = TimberImage(featured_work.featured_image) %}
+            {% set featured_image = TimberImage(featured_work.featured_image) %}
 
-            {% if image %}
-              <img src="{{ image.src | resize(1440, 900) }}" alt="{{ image.alt }}" />
+            {% if featured_image %}
+              <img src="{{ featured_image.src | resize(1440, 900) }}" alt="{{ featured_image.alt }}" />
             {% endif %}
           </div>
 

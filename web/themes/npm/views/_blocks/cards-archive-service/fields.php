@@ -4,7 +4,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
         'key' => 'group_km3pluw01kgj4',
-        'title' => 'Cards Services',
+        'title' => 'Cards Archive Service',
         'fields' => array(
             array(
                 'key' => 'field_4bvvct4n7i669',

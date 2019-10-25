@@ -82,28 +82,6 @@ if (function_exists('acf_add_local_field_group')):
         'title' => 'Index',
         'fields' => array(
             array(
-                'key' => 'field_5d9cc702d0c4d',
-                'label' => 'Format',
-                'name' => 'format',
-                'type' => 'post_object',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'post_type' => array(
-                    0 => 'format',
-                ),
-                'taxonomy' => '',
-                'allow_null' => 0,
-                'multiple' => 1,
-                'return_format' => 'object',
-                'ui' => 1,
-            ),
-            array(
                 'key' => 'field_5d9cbq0a4b89z',
                 'label' => 'Featured Image',
                 'name' => 'featured_image',

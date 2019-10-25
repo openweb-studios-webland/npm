@@ -3,13 +3,13 @@
 if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
-        'key' => 'group_5db0779532540',
-        'title' => 'Hero Services',
+        'key' => 'group_pna49orpdgikh',
+        'title' => 'Hero Single Service',
         'fields' => array(
             array(
-                'key' => 'field_5db07798c415d',
-                'label' => 'Image',
-                'name' => 'image',
+                'key' => 'field_ooggk0ifsp6w1',
+                'label' => 'Background Image',
+                'name' => 'background_image',
                 'type' => 'image',
                 'instructions' => 'Recommended dimensions are 1920 x 700',
                 'required' => 0,
@@ -31,7 +31,31 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'mime_types' => '',
             ),
             array(
-                'key' => 'field_5db077eac415f',
+                'key' => 'field_892b9mhvx4s4b',
+                'label' => 'Image',
+                'name' => 'image',
+                'type' => 'image',
+                'instructions' => 'Recommended dimensions are 1440 x 1440',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'return_format' => 'array',
+                'preview_size' => 'thumbnail',
+                'library' => 'all',
+                'min_width' => '1440',
+                'min_height' => '1440',
+                'min_size' => '',
+                'max_width' => '',
+                'max_height' => '',
+                'max_size' => '',
+                'mime_types' => '',
+            ),
+            array(
+                'key' => 'field_swixko304zq1c',
                 'label' => 'Subheading',
                 'name' => 'subheading',
                 'type' => 'text',
@@ -50,7 +74,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'maxlength' => '',
             ),
             array(
-                'key' => 'field_5db077a4c415e',
+                'key' => 'field_4tz0r8fxq435h',
                 'label' => 'Heading',
                 'name' => 'heading',
                 'type' => 'text',
@@ -69,7 +93,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'maxlength' => '',
             ),
             array(
-                'key' => 'field_5db077f4c4160',
+                'key' => 'field_i8zv5yhk61xfd',
                 'label' => 'Text',
                 'name' => 'text',
                 'type' => 'wysiwyg',
@@ -88,7 +112,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'delay' => 0,
             ),
             array(
-                'key' => 'field_5db07802c4161',
+                'key' => 'field_xa7dxzuwqki0d',
                 'label' => 'Button',
                 'name' => 'button',
                 'type' => 'clone',

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Services
+ * Template Name: Services (Index)
  */
 
 global $paged;

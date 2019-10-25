@@ -3,11 +3,11 @@
 if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
-        'key' => 'group_5bb47c5fce2a4',
-        'title' => 'Platform',
+        'key' => 'group_oebnbo65bgdau',
+        'title' => 'Archive Service',
         'fields' => array(
             array(
-                'key' => 'field_5t06ef04zpb77',
+                'key' => 'field_pd24iusm3bbaf',
                 'label' => 'Blocks',
                 'name' => 'blocks',
                 'type' => 'flexible_content',
@@ -20,12 +20,9 @@ if (function_exists('acf_add_local_field_group')):
                     'id' => '',
                 ),
                 'layouts' => array(
-                    acf_dynamic_clones_get_local_field_group('Featured Content', 'cards-format'),
-                    acf_dynamic_clones_get_local_field_group('Featured Work', 'featured-work'),
-                    acf_dynamic_clones_get_local_field_group('Hero', 'hero'),
-                    acf_dynamic_clones_get_local_field_group('Insights', 'insights'),
-                    acf_dynamic_clones_get_local_field_group('Stats', 'stats'),
-                    acf_dynamic_clones_get_local_field_group('Work', 'work'),
+                    acf_dynamic_clones_get_local_field_group('Featured Content', 'cards-archive-service'),
+                    acf_dynamic_clones_get_local_field_group('Hero', 'hero-archive-service'),
+                    acf_dynamic_clones_get_local_field_group('Work', 'work-archive-service'),
                 ),
                 'button_label' => 'Add Block',
                 'min' => '',
@@ -35,13 +32,13 @@ if (function_exists('acf_add_local_field_group')):
         'location' => array(
             array(
                 array(
-                    'param' => 'taxonomy',
+                    'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'platform',
+                    'value' => 'archive-service.php',
                 ),
             ),
         ),
-        'menu_order' => 1,
+        'menu_order' => 0,
         'position' => 'acf_after_title',
         'style' => 'seamless',
         'label_placement' => 'top',

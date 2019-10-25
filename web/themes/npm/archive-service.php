@@ -22,7 +22,7 @@ $context['work_posts'] = new Timber\PostQuery(
 $context['fields'] = get_fields();
 
 if ($paged > 1) {
-    Timber::render('templates/services/ajax.twig', $context);
+    Timber::render('templates/archive-service/ajax.twig', $context);
 } else {
-    Timber::render('templates/services/index.twig', $context);
+    Timber::render('templates/archive-service/index.twig', $context);
 }

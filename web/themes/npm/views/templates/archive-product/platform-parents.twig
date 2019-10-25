@@ -11,7 +11,7 @@
 
           {% for platform in platforms.parents  %}
             <li class="flex-no-shrink px-10 lg:px-20">
-              <a class="{{ platform.current ? 'text-blue-link ' : 'text-gray-a11y ' }}flex font-bold items-center pb-15 relative text-center whitespace-no-wrap" href="{{ fn('add_query_arg', platform, platform.slug) }}">
+              <a class="{{ platform.current ? 'text-blue-link ' : 'text-gray-a11y ' }}flex font-bold items-center pb-15 relative text-center whitespace-no-wrap" href="{{ fn('add_query_arg', 'platform', platform.slug) }}">
                 {{ svg(platform.slug, { classes: 'mr-10' }) }}
                 {{ platform.name }}
               </a>

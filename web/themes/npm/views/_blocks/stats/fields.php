@@ -127,7 +127,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'min' => 0,
                 'max' => 0,
                 'layout' => 'block',
-                'button_label' => 'Add Stats',
+                'button_label' => 'Add Stat',
                 'sub_fields' => array(
                     array(
                         'key' => 'field_5d94f128cd2z1',

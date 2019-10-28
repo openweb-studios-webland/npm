@@ -20,7 +20,9 @@
                   {% for platform in product.get_terms('platform') %}
                     {% if platform.parent == 0 %}
                       <li class="px-5">
-                        <span class="screen-reader-only">{{ platform.name }}</span>
+                        <span class="screen-reader-only">
+                          {{ platform.name }}
+                        </span>
                         {{ svg(platform.slug, { classes: 'text-blue-light' }) }}
                       </li>
                     {% endif %}

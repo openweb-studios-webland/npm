@@ -1,0 +1,42 @@
+{% set image = image ? TimberImage(image) : null %}
+{% set subheading = subheading ?? null %}
+{% set heading = heading ?? null %}
+{% set text = text ?? null %}
+
+<div class="bg-blue">
+  <div class="container">
+    <div class="flex flex-wrap items-center -mx-30">
+      <div class="px-30 w-full lg:w-7/12">
+        <div class="py-50 text-white md:py-75 lg:py-0">
+          {% if subheading %}
+            <div class="heading-6 mb-20">
+              {{ subheading }}
+            </div>
+          {% endif %}
+
+          {% if heading %}
+            <h1 class="heading-3">
+              {{ heading }}
+            </h1>
+          {% endif %}
+
+          {% if text %}
+            <div class="text">
+              {{ text }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="px-30 w-full lg:w-5/12">
+        {% if image.src %}
+          <img
+            class="pin-r max-w-screen -mx-20 relative"
+            src="{{ image.src | resize(1440, 1440) }}"
+            alt="{{ image.alt }}"
+          />
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

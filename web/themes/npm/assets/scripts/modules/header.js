@@ -2,7 +2,6 @@ import debounce from '../utilities/debounce'
 
 export default class Header {
   constructor(el) {
-    // DOM elements
     this.el = el
 
     this.attachEventListeners()

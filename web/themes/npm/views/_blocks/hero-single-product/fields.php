@@ -7,6 +7,34 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
         'title' => 'Hero Single Product',
         'fields' => array(
             array(
+                'key' => 'field_5123610e19c03',
+                'label' => 'Type',
+                'name' => 'type',
+                'type' => 'select',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'image' => 'Image',
+                    'audio' => 'Audio',
+                    'video' => 'Video',
+                ),
+                'default_value' => array(
+                    0 => 'image',
+                ),
+                'allow_null' => 0,
+                'multiple' => 0,
+                'ui' => 0,
+                'return_format' => 'value',
+                'ajax' => 0,
+                'placeholder' => '',
+            ),
+            array(
                 'key' => 'field_5da71b7dac642',
                 'label' => 'Image',
                 'name' => 'image',
@@ -31,13 +59,48 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'mime_types' => '',
             ),
             array(
+                'key' => 'field_5d7661b819c06',
+                'label' => 'Audio',
+                'name' => 'audio',
+                'type' => 'file',
+                'instructions' => 'Allowed file types are MP3 and WAV',
+                'required' => 0,
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_5123610e19c03',
+                            'operator' => '==',
+                            'value' => 'audio',
+                        ),
+                    ),
+                ),
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'return_format' => 'array',
+                'library' => 'all',
+                'min_size' => '',
+                'max_size' => '',
+                'mime_types' => 'mp3, wav',
+            ),
+            array(
                 'key' => 'field_5da71b92ac643',
                 'label' => 'Video',
                 'name' => 'video',
                 'type' => 'oembed',
                 'instructions' => '',
                 'required' => 0,
-                'conditional_logic' => 0,
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_5123610e19c03',
+                            'operator' => '==',
+                            'value' => 'video',
+                        ),
+                    ),
+                ),
                 'wrapper' => array(
                     'width' => '',
                     'class' => '',

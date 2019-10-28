@@ -1,0 +1,15 @@
+{% extends '_layouts/base.twig' %}
+
+{% block content %}
+  <div class="single-work">
+    {% include 'templates/single-work/hero.twig' ignore missing with {
+      image: fields.single_image,
+      subheading: fields.subheading,
+      heading: fields.heading,
+      text: fields.single_text,
+    } only %}
+
+    {% include 'templates/single-work/work-groups.twig' ignore missing with {
+      work_groups: fields.work_groups,
+    } only %}
+{% endblock %}

@@ -4,14 +4,12 @@ const WaveSurfer = require('wavesurfer.js/dist/wavesurfer')
 
 export default class Audio {
   constructor(el) {
-    // DOM elements
     this.el = el
     this.player = this.el.querySelector('[data-audio-player]')
     this.progress = this.el.querySelector('[data-audio-progress]')
     this.playPauseTriggers = this.el.querySelectorAll('[data-audio-play-pause]')
     this.skipBackwardTrigger = this.el.querySelector('[data-audio-skip-backward]')
 
-    // Config
     this.config = {
       audioSource: this.player.dataset.audioSource || null,
       barGap: 1, // Pixels

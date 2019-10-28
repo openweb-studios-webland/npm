@@ -81,8 +81,10 @@
     {% endif %}
 
      <button id="{{ uid }}{{ loop.index }}0" class="absolute h-44 mr-5 mt-5 right-0 top-0 w-44">
-      <span class="screen-reader-only">Close</span>
-      {{ svg('close', { classes: 'absolute inset-1/2 translate-1/2' }) }}
+      <span class="screen-reader-only">
+        Close
+      </span>
+      {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
     </button>
   </div>
 </div>

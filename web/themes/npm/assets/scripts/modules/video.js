@@ -1,6 +1,5 @@
 export default class Video {
   constructor(el) {
-    // DOM elements
     this.el = el
     this.iframe = this.el.querySelector('iframe')
     this.trigger = this.el.querySelector('[data-video-play]')

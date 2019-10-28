@@ -2,7 +2,6 @@ import debounce from '../utilities/debounce'
 
 export default class Carousel {
   constructor(el) {
-    // DOM elements
     this.el = el
     this.track = this.el.querySelector('[data-carousel-track]')
     this.items = [...this.track.children]
@@ -10,7 +9,6 @@ export default class Carousel {
     this.itemsOffset = 1
     this.index = 0
 
-    // Config
     this.config = {
       autoplay: this.el.dataset.carouselAutoplay === 'true' ? true : false, // data-carousel-autoplay
       autoplaySpeed: this.el.dataset.carouselAutoplaySpeed || 6000, // data-carousel-autoplay-speed

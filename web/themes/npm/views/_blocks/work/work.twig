@@ -1,31 +1,9 @@
-{% set video = work.get_field('video') ?? null %}
-{% set audio = work.get_field('audio') ?? null %}
+{% if work.type == 'audio' %}
+  {% set audio = work.get_field('audio') ?? null %}
 
-{% if video %}
-  {% include '_partials/video.twig' ignore missing with {
-    video: video,
-    image: work.image,
-  } only %}
-
-  <div class="mt-20">
-    <h3 class="heading-7 mb-10">
-      {{ work.title }}
-    </h3>
-
-    {% if work.text %}
-      <p class="text text-14">
-        {{ work.text }}
-      </p>
-    {% endif %}
-
-    <a class="link text-14">
-      View the work {{ svg('link') }}
-    </a>
-  </div>
-{% elseif audio %}
   {% include '_partials/audio.twig' ignore missing with {
     audio: audio,
-    image: work.image,
+    image: block.image,
   } only %}
 
   <div class="mt-20">
@@ -40,15 +18,38 @@
     {% endif %}
 
     <a class="link text-14">
-      View the work {{ svg('link') }}
+      View the work
+      {{ svg('link') }}
+    </a>
+  </div>
+{% elseif work.type == 'video' %}
+  {% set video = work.get_field('video') ?? null %}
+
+  {% include '_partials/video.twig' ignore missing with {
+    video: video,
+    image: block.image,
+  } only %}
+
+  <div class="mt-20">
+    <h3 class="heading-7 mb-10">
+      {{ work.title }}
+    </h3>
+
+    {% if work.text %}
+      <p class="text text-14">
+        {{ work.text }}
+      </p>
+    {% endif %}
+
+    <a class="link text-14">
+      View the work
+      {{ svg('link') }}
     </a>
   </div>
 {% else %}
-  {% set image = TimberImage(work.image) %}
-
-  {% if image.src %}
-    <img src="{{ image.src | resize(720, 405) }}" alt="{{ image.alt }}" />
-  {% endif %}
+  {% include '_partials/image.twig' ignore missing with {
+    image: block.image,
+  } only %}
 
   <div class="mt-20">
     <h3 class="heading-7 mb-10">
@@ -62,7 +63,8 @@
     {% endif %}
 
     <a class="link text-14">
-      View the work {{ svg('link') }}
+      View the work
+      {{ svg('link') }}
     </a>
   </div>
 {% endif %}

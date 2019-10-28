@@ -1,0 +1,12 @@
+.modal {
+  @apply block opacity-100
+    pointer-events-auto
+    visible;
+
+  &[aria-hidden] {
+    @apply block
+      invisible
+      opacity-0
+      pointer-events-none;
+  }
+}

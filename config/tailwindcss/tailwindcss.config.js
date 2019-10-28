@@ -184,6 +184,7 @@ module.exports = {
       '0': '0',
       none: 'none',
       full: '100%',
+      screen: '100vw',
     },
     minHeight: {
       '0': '0',

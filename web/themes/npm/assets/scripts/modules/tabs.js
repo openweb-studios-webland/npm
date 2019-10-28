@@ -4,7 +4,6 @@ import tailwindConfig from '../../../../../../config/tailwindcss/tailwindcss.con
 
 export default class Tabs {
   constructor(el) {
-    // DOM elements
     this.el = el
     this.triggers = [...this.el.querySelectorAll('[data-tabs-trigger]')]
     this.targets = [...this.el.querySelectorAll('[data-tabs-target]')]
@@ -12,7 +11,6 @@ export default class Tabs {
     this.mediaQuery = window.matchMedia(`(min-width: ${this.tailwindConfig.theme.screens.lg})`)
     this.index = 0
 
-    // Config
     this.config = {
       tabsToAccordion: this.el.dataset.tabsToAccordion === 'true' ? true : false,
     }

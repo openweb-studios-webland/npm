@@ -2,6 +2,8 @@
 {% set subheading = subheading ?? null %}
 {% set heading = heading ?? null %}
 {% set text = text ?? null %}
+{% set button_link = button_link ?? null %}
+{% set button_text = button_text ?? null %}
 
 <div class="bg-blue">
   <div class="container">
@@ -24,6 +26,12 @@
             <div class="text">
               {{ text }}
             </div>
+          {% endif %}
+
+          {% if button_link and button_text %}
+            <a class="button mt-25 lg:mt-30" href="{{ button_link }}">
+              {{ button_text }}
+            </a>
           {% endif %}
         </div>
       </div>

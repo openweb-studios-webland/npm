@@ -88,6 +88,27 @@ if (function_exists('acf_add_local_field_group')):
 				'delay' => 0,
 			),
 			array(
+                'key' => 'field_nyp9j3wo0g4co',
+                'label' => 'Button',
+                'name' => 'button',
+                'type' => 'clone',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'clone' => array(
+                    0 => 'group_5d8b9a14327c5',
+                ),
+                'display' => 'seamless',
+                'layout' => 'block',
+                'prefix_label' => 1,
+                'prefix_name' => 1,
+            ),
+			array(
 				'key' => 'field_5db363411c008',
 				'label' => 'Work Groups',
 				'name' => 'work_groups',

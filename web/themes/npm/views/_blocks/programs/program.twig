@@ -80,7 +80,11 @@
       </a>
     {% endif %}
 
-     <button id="{{ uid }}{{ loop.index }}0" class="absolute h-44 mr-5 mt-5 right-0 top-0 w-44">
+     <button
+      id="{{ uid }}{{ loop.index }}0"
+      class="absolute h-44 mr-5 mt-5 right-0 top-0 w-44"
+      aria-controls="{{ uid }}"
+    >
       <span class="screen-reader-only">
         Close
       </span>

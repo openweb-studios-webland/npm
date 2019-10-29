@@ -1,0 +1,33 @@
+
+{% set block = block ?? null %}
+
+{% if block %}
+  <section class="section" data-label="text-with-image">
+    <div class="container">
+      <div class="flex flex-wrap items-center -mx-30 lg:flex-no-wrap{{ block.alignment_select == 'right' ? ' lg:flex-row-reverse' }}">
+        <div class="pb-50 px-30 w-full md:pb-75 lg:pb-0 lg:w-1/2">
+          {% if block.heading %}
+            <h2 class="heading-3">
+              {{ block.heading }}
+            </h2>
+          {% endif %}
+
+          {% if block.text %}
+            <div class="text">
+              {{ block.text }}
+            </div>
+          {% endif %}
+        </div>
+        <div class="px-30 w-full lg:w-1/2">
+          {% set image = TimberImage(block.image) %}
+
+          {% if image.src %}
+            <div class="-mx-20">
+              <img src="{{ image.src | resize(1440, null, 'center') }}" alt="{{ image.alt }}" />
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}

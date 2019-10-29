@@ -1,7 +1,7 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section bg-gray" data-label="cards">
+  <section class="section bg-gray" data-label="featured-content">
     {% if block.heading %}
       <div class="container-sm">
         <h2 class="heading-3 text-center">
@@ -10,12 +10,12 @@
       </div>
     {% endif %}
 
-    {% if block.cards | length %}
+    {% if block.featured_content | length %}
       <div class="container">
         <div class="flex flex-wrap -mb-30 lg:flex-no-wrap">
-          {% for card in block.cards %}
+          {% for card in block.featured_content %}
             <div class="mb-30 w-full lg:flex-1-1-0 lg:w-auto">
-              {% include '_blocks/cards/card.twig' ignore missing %}
+              {% include '_blocks/featured-content/card.twig' ignore missing %}
             </div>
           {% endfor %}
         </div>

@@ -11,7 +11,7 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Image',
                 'name' => 'image',
                 'type' => 'image',
-                'instructions' => 'Allowed file type is SVG with all fill attributes removed',
+                'instructions' => 'Allowed file type is SVG. All fill attributes should be removed.',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -76,7 +76,7 @@ if (function_exists('acf_add_local_field_group')):
                     'id' => '',
                 ),
                 'layouts' => array(
-                    acf_dynamic_clones_get_local_field_group('Featured Content', 'cards-format'),
+                    acf_dynamic_clones_get_local_field_group('Featured Content', 'featured-content-format'),
                     acf_dynamic_clones_get_local_field_group('Featured Work', 'featured-work'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero'),
                     acf_dynamic_clones_get_local_field_group('Insights', 'insights'),

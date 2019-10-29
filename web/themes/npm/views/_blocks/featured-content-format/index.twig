@@ -1,26 +1,26 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section bg-gradient clearfix pt-0" data-label="cards-platform">
+  <section class="section bg-gradient clearfix pt-0" data-label="featured-content-platform">
     <div class="float-left -mt-30 w-full md:-mt-40 lg:-mt-50">
-      {% if block.cards | length %}
+      {% if block.featured_content | length %}
         <div class="container-lg">
           <div class="flex flex-wrap -mb-30 lg:flex-no-wrap">
-            {% for card in block.cards %}
+            {% for card in block.featured_content %}
               <div class="mb-30 flex-1-1-0 w-full lg:w-auto">
-                {% include '_blocks/cards/card.twig' ignore missing %}
+                {% include '_blocks/featured-content/card.twig' ignore missing %}
               </div>
             {% endfor %}
           </div>
         </div>
       {% endif %}
 
-      {% if block.secondary_cards | length %}
+      {% if block.secondary_featured_content | length %}
         <div class="container-sm mt-50 md:mt-75 lg:mt-100">
           <div class="-mb-30">
-            {% for card in block.secondary_cards %}
+            {% for card in block.secondary_featured_content %}
               <div class="mb-30">
-                {% include '_blocks/cards-format/card.twig' ignore missing %}
+                {% include '_blocks/featured-content-format/card.twig' ignore missing %}
               </div>
             {% endfor %}
           </div>

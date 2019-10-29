@@ -3,11 +3,11 @@
 if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
-        'key' => 'group_oebnbo65bgdau',
+        'key' => 'group_oebnb865bgdau',
         'title' => 'Archive Service',
         'fields' => array(
             array(
-                'key' => 'field_pd24iusm3bbaf',
+                'key' => 'field_xd24iusm3bbaf',
                 'label' => 'Blocks',
                 'name' => 'blocks',
                 'type' => 'flexible_content',
@@ -20,7 +20,7 @@ if (function_exists('acf_add_local_field_group')):
                     'id' => '',
                 ),
                 'layouts' => array(
-                    acf_dynamic_clones_get_local_field_group('Featured Content', 'cards-archive-service'),
+                    acf_dynamic_clones_get_local_field_group('Featured Content', 'featured-content-archive-service'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero-archive-service'),
                     acf_dynamic_clones_get_local_field_group('Work', 'work-archive-service'),
                 ),
@@ -32,7 +32,7 @@ if (function_exists('acf_add_local_field_group')):
         'location' => array(
             array(
                 array(
-                    'param' => 'page_template',
+                    'param' => 'post_template',
                     'operator' => '==',
                     'value' => 'archive-service.php',
                 ),

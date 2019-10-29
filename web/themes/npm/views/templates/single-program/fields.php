@@ -11,7 +11,7 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Image',
                 'name' => 'image',
                 'type' => 'image',
-                'instructions' => 'Recommended dimensions are 600 x 600',
+                'instructions' => 'Recommended dimensions are 600 x 600.',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(

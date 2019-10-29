@@ -1,0 +1,51 @@
+{% set block = block ?? null %}
+
+{% if block %}
+  <section class="section relative" data-label="hero-archive-insight">
+    {{ svg('pattern', { classes: 'absolute bottom-0 hidden inset-x-0 w-full lg:block' }) }}
+
+    <div class="container">
+      <div class="flex flex-wrap items-center relative">
+        <div class="w-full lg:w-7/12">
+          <div class="pb-50 md:pb-75 lg:pb-0 lg:pr-60 lg:z-10">
+            {% if block.subheading %}
+              <div class="heading-6 mb-20">
+                {{ block.subheading }}
+              </div>
+            {% endif %}
+
+            {% if block.heading %}
+              <h1 class="heading-3">
+                {{ block.heading }}
+              </h1>
+            {% endif %}
+
+            {% if block.text %}
+              <div class="text text-16 lg:text-18">
+                {{ block.text }}
+              </div>
+            {% endif %}
+
+            {% if block.button_link and block.button_text %}
+              <a class="button mt-25 lg:mt-30" href="{{ block.button_link }}">
+                {{ block.button_text }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="w-full lg:clearfix lg:w-5/12">
+          {% set image = TimberImage(block.image) %}
+
+          {% if image.src %}
+            <img
+              class="pin-r max-w-screen -mx-20"
+              src="{{ image.src | resize(1440, 1080) }}"
+              alt="{{ image.alt }}"
+            />
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}

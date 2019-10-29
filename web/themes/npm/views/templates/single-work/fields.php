@@ -9,7 +9,7 @@ if (function_exists('acf_add_local_field_group')):
 			array(
 				'key' => 'field_5db73c5ce7674',
 				'label' => 'Image',
-				'name' => 'single_image',
+				'name' => 'image',
 				'type' => 'image',
 				'instructions' => 'Recommended dimensions are 1440 x 1440',
 				'required' => 0,

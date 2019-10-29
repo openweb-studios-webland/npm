@@ -42,7 +42,7 @@ export default class InfiniteScroll {
     const items = document.querySelectorAll('body > div')
 
     items.forEach(item => {
-      this.container.appendChild(el)
+      this.container.appendChild(item)
 
       this.initModules(item, '[data-module="video"]', Video)
       this.initModules(item, '[data-module="audio"]', Audio)

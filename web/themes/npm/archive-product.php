@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Template Name: Products (Archive)
+ */
+
 $context = Timber::get_context();
 $taxonomy = 'platform';
 $platforms = Timber::get_terms(array(
@@ -99,5 +103,6 @@ if (count($context['current_platforms']['parents']) > 0) {
 }
 
 $context['products'] = new Timber\PostQuery($args);
+$context['fields'] = get_fields();
 
 Timber::render('templates/archive-product/index.twig', $context);

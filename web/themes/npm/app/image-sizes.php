@@ -4,7 +4,7 @@
  * Add/modify image sizes
  * https://developer.wordpress.org/reference/functions/add_image_size/
  */
-function add_custom_image_sizes()
+function npm_add_custom_image_sizes()
 {
     add_image_size('small', 640);
     add_image_size('medium', 768);
@@ -13,4 +13,4 @@ function add_custom_image_sizes()
     add_image_size('xxlarge', 1920);
 }
 
-add_action('after_setup_theme', 'add_custom_image_sizes');
+add_action('after_setup_theme', 'npm_add_custom_image_sizes');

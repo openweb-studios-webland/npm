@@ -4,12 +4,12 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
         'key' => 'group_5da4da09c1b3c',
-		'title' => 'Cards Format',
+		'title' => 'Featured Content Format',
 		'fields' => array(
 			array(
 				'key' => 'field_5da4da0d130c5',
-				'label' => 'Cards',
-				'name' => 'cards',
+				'label' => 'Featured Content',
+				'name' => 'featured_content',
 				'type' => 'repeater',
 				'instructions' => '',
 				'required' => 0,
@@ -30,7 +30,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 						'label' => 'Image',
 						'name' => 'image',
 						'type' => 'image',
-						'instructions' => 'Recommended dimensions are 1440 x 810',
+						'instructions' => 'Recommended dimensions are 1440 x 810.',
 						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
@@ -112,8 +112,8 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 			),
 			array(
 				'key' => 'field_5da4da70130ca',
-				'label' => 'Secondary Cards',
-				'name' => 'secondary_cards',
+				'label' => 'Secondary Featured Content',
+				'name' => 'secondary_featured_content',
 				'type' => 'repeater',
 				'instructions' => '',
 				'required' => 0,
@@ -127,14 +127,14 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 				'min' => 0,
 				'max' => 0,
 				'layout' => 'block',
-				'button_label' => 'Add Secondary Card',
+				'button_label' => 'Add Featured Content',
 				'sub_fields' => array(
 					array(
 						'key' => 'field_5da4da70130cb',
 						'label' => 'Image',
 						'name' => 'image',
 						'type' => 'image',
-						'instructions' => 'Recommended dimensions are 660 x 371',
+						'instructions' => 'Recommended dimensions are 660 x 371.',
 						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(

@@ -1,0 +1,42 @@
+<a class="bg-white block h-full p-30 shadow-sm text-14" href="{{ product.link }}">
+  <ul class="flex mb-30 -mx-5">
+    {% for platform in product.get_terms('platform') %}
+      {% if platform.parent == 0 %}
+        <li class="px-5">
+          <span class="screen-reader-only">
+            {{ platform.name }}
+          </span>
+
+          {% set image = TimberImage(platform.image) %}
+
+          {% if image.file_loc %}
+            <span class="text-blue-light">
+              {{ fn('file_get_contents', image.file_loc)}}
+            </span>
+          {% endif %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  <h2 class="heading-7 mb-15">
+    {{ product.title }}
+  </h2>
+
+  {% if product.subheading %}
+    <div class="font-bold mb-15">
+      {{ product.subheading }}
+    </div>
+  {% endif %}
+
+  {% if product.text %}
+    <p class="text">
+      {{ product.text }}
+    </p>
+  {% endif %}
+
+  <span class="link mt-20">
+    Details
+    {{ svg('link') }}
+  </span>
+</a>

@@ -4,7 +4,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
         'key' => 'group_5d94d3b8c912e',
-        'title' => 'Cards',
+        'title' => 'Featured Content',
         'fields' => array(
             array(
                 'key' => 'field_5d94f185cd204',
@@ -27,8 +27,8 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
             ),
             array(
                 'key' => 'field_5d94d3bd7ee35',
-                'label' => 'Cards',
-                'name' => 'cards',
+                'label' => 'Featured Content',
+                'name' => 'featured_content',
                 'type' => 'repeater',
                 'instructions' => '',
                 'required' => 0,
@@ -49,7 +49,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                         'label' => 'Image',
                         'name' => 'image',
                         'type' => 'image',
-                        'instructions' => 'Recommended dimensions are 1440 x 810',
+                        'instructions' => 'Recommended dimensions are 1440 x 810.',
                         'required' => 0,
                         'conditional_logic' => 0,
                         'wrapper' => array(

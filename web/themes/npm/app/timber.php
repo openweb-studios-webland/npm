@@ -24,15 +24,16 @@ class Site extends Timber\Site
     {
         add_theme_support('menus');
 
-        add_filter('timber_context', array($this, 'add_to_context'));
-        add_filter('get_twig', array($this, 'add_to_twig'));
+        add_filter('timber_context', array($this, 'npm_add_to_context'));
+        add_filter('get_twig', array($this, 'npm_add_to_twig'));
 
-        add_action('wp_enqueue_scripts', array($this, 'enqueue'));
+        add_action('wp_enqueue_scripts', array($this, 'npm_enqueue'));
+        add_action('wp_enqueue_scripts', array($this, 'npm_dequeue'));
 
         parent::__construct();
     }
 
-    public function add_to_context($context)
+    public function npm_add_to_context($context)
     {
         $context['menu']['primary'] = new Timber\Menu('primary', ['depth' => 3]);
         $context['menu']['secondary'] = new Timber\Menu('secondary', ['depth' => 1]);
@@ -43,7 +44,7 @@ class Site extends Timber\Site
         return $context;
     }
 
-    public function add_to_twig($twig)
+    public function npm_add_to_twig($twig)
     {
         // Add custom extenstions, filters, and functions to Twig
         $twig->addExtension(new SvgExtension('themes/npm/assets/images'));
@@ -51,9 +52,9 @@ class Site extends Timber\Site
         return $twig;
     }
 
-    public function enqueue()
+    public function npm_enqueue()
     {
-        function get_asset_path($file_name)
+        function npm_get_asset_path($file_name)
         {
             // Cache the decoded manifest so that we only read it in once
             $manifest_content = null;
@@ -73,19 +74,19 @@ class Site extends Timber\Site
             return "/build/{$file_name}";
         }
 
-        wp_enqueue_script('scripts', get_template_directory_uri() . get_asset_path('main.js'), array(), false, true);
+        wp_enqueue_script('npm-scripts', get_template_directory_uri() . npm_get_asset_path('main.js'), array(), false, true);
 
         if (env('WP_ENV') !== 'dev' && env('WP_ENV') !== 'development') {
-            wp_enqueue_style('styles', get_template_directory_uri() . get_asset_path('main.css'));
+            wp_enqueue_style('npm-styles', get_template_directory_uri() . npm_get_asset_path('main.css'));
         }
 
         // Fonts hosted by NPR (Gotham SSm)
-        wp_enqueue_style('fonts', 'https://s.npr.org/templates/css/fonts/GothamSSm.css');
+        wp_enqueue_style('npm-fonts', 'https://s.npr.org/templates/css/fonts/GothamSSm.css');
 
         return;
     }
 
-    public function dequeue_scripts()
+    public function npm_dequeue()
     {
         if (!is_admin()) {
             wp_deregister_script('jquery');

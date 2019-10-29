@@ -2,58 +2,28 @@
 
 {% block content %}
   <div class="archive-product">
-    {% include '_partials/hero.twig' ignore missing with {
-      heading: 'Products',
-      text: 'See examples and specifications for NPM\'s sponsorship products across all platforms.',
-    } only %}
+    {% if fields.blocks %}
+      {% for block in fields.blocks %}
+        {% include '_blocks/' ~ block.acf_fc_layout ~ '/index.twig' ignore missing with {
+          block: block
+        } %}
+      {% endfor %}
+    {% endif %}
 
-    <div class="bg-gray py-50">
-      <div class="container-lg">
-        {% include 'templates/archive-product/platform-parents.twig' ignore missing %}
-        {% include 'templates/archive-product/platform-children.twig' ignore missing %}
+      {% if products | length %}
+      <div class="bg-gray py-50">
+        <div class="container-lg">
+          {% include 'templates/archive-product/platforms.twig' ignore missing %}
 
-        <div class="flex flex-wrap -mb-20 -mx-10 pt-50">
-          {% for product in products %}
-            <div class="mb-20 px-10 w-full md:w-1/2 lg:w-1/4">
-              <a class="bg-white block h-full p-30 shadow-sm text-14" href="{{ product.link }}">
-                <ul class="flex mb-30 -mx-5">
-                  {% for platform in product.get_terms('platform') %}
-                    {% if platform.parent == 0 %}
-                      <li class="px-5">
-                        <span class="screen-reader-only">
-                          {{ platform.name }}
-                        </span>
-                        {{ svg(platform.slug, { classes: 'text-blue-light' }) }}
-                      </li>
-                    {% endif %}
-                  {% endfor %}
-                </ul>
-
-                <h2 class="heading-7 mb-15">
-                  {{ product.title }}
-                </h2>
-
-                {% if product.subheading %}
-                  <div class="font-bold mb-15">
-                    {{ product.subheading }}
-                  </div>
-                {% endif %}
-
-                {% if product.text %}
-                  <p class="text">
-                    {{ product.text }}
-                  </p>
-                {% endif %}
-
-                <span class="link mt-20">
-                  Details
-                  {{ svg('link') }}
-                </span>
-              </a>
-            </div>
-          {% endfor %}
+          <div class="flex flex-wrap -mb-20 -mx-10 pt-50">
+            {% for product in products %}
+              <div class="mb-20 px-10 w-full md:w-1/2 lg:w-1/4">
+                {% include 'templates/archive-product/product.twig' ignore missing %}
+              </div>
+            {% endfor %}
+          </div>
         </div>
       </div>
-    </div>
+    {% endif %}
   </div>
 {% endblock %}

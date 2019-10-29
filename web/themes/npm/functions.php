@@ -2,6 +2,7 @@
 
 require_once get_template_directory() . '/app/timber.php';
 require_once get_template_directory() . '/app/admin.php';
+require_once get_template_directory() . '/app/posts-per-page.php';
 require_once get_template_directory() . '/app/query-vars.php';
 require_once get_template_directory() . '/app/post-types.php';
 require_once get_template_directory() . '/app/taxonomies.php';

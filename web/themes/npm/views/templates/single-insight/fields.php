@@ -11,7 +11,7 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Image',
                 'name' => 'image',
                 'type' => 'image',
-                'instructions' => 'Recommended dimensions are 1920 x 800',
+                'instructions' => 'Recommended dimensions are 1920 x 800.',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -86,7 +86,7 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Featured Image',
                 'name' => 'featured_image',
                 'type' => 'image',
-                'instructions' => 'Recommended dimensions are 720 x 540',
+                'instructions' => 'Recommended dimensions are 720 x 540.',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -110,7 +110,7 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Text',
                 'name' => 'text',
                 'type' => 'textarea',
-                'instructions' => 'Recommended length is 120 characters',
+                'instructions' => 'Recommended length is 120 characters.',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -129,7 +129,7 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Button Text',
                 'name' => 'button_text',
                 'type' => 'text',
-                'instructions' => 'Button link will be dynamically generated',
+                'instructions' => 'Button link will be dynamically generated.',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(

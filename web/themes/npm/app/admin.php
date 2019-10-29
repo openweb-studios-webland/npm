@@ -4,7 +4,7 @@
  * Remove unwanted menus from the admin
  * https://codex.wordpress.org/Function_Reference/remove_menu_page
  */
-function admin_remove_menus()
+function npm_admin_remove_menus()
 {
     if (!current_user_can('manage_options')) {
         // remove_menu_page('upload.php'); // Media
@@ -21,7 +21,7 @@ function admin_remove_menus()
     remove_menu_page('edit-comments.php'); // Comments
 }
 
-add_action('admin_menu', 'admin_remove_menus');
+add_action('admin_menu', 'npm_admin_remove_menus');
 
 // Disable Gutenberg for posts
 add_filter('use_block_editor_for_post', '__return_false', 10);

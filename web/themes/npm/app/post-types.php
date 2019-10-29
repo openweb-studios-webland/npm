@@ -1,6 +1,6 @@
 <?php
 
-function create_post_type_labels($post_type_name = 'Posts', $post_type_singular_name = 'Post')
+function npm_create_post_type_labels($post_type_name = 'Posts', $post_type_singular_name = 'Post')
 {
     $text_domain = get_stylesheet();
     $post_type_labels = array(
@@ -20,11 +20,11 @@ function create_post_type_labels($post_type_name = 'Posts', $post_type_singular_
     return $post_type_labels;
 }
 
-function register_post_types()
+function npm_register_post_types()
 {
     register_post_type('call-to-action',
         array(
-            'labels' => create_post_type_labels('Calls to Action', 'Call to Action'),
+            'labels' => npm_create_post_type_labels('Calls to Action', 'Call to Action'),
             'has_archive' => false,
             'menu_icon' => '',
             'public' => true,
@@ -34,8 +34,8 @@ function register_post_types()
 
     register_post_type('insight',
         array(
-            'labels' => create_post_type_labels('Insights', 'Insight'),
-            'has_archive' => true,
+            'labels' => npm_create_post_type_labels('Insights', 'Insight'),
+            'has_archive' => false,
             'menu_icon' => '',
             'public' => true,
             'rewrite' => array('slug' => 'insights'),
@@ -45,8 +45,8 @@ function register_post_types()
 
     register_post_type('product',
         array(
-            'labels' => create_post_type_labels('Products', 'Product'),
-            'has_archive' => true,
+            'labels' => npm_create_post_type_labels('Products', 'Product'),
+            'has_archive' => false,
             'menu_icon' => '',
             'public' => true,
             'rewrite' => array('slug' => 'products'),
@@ -56,7 +56,7 @@ function register_post_types()
 
     register_post_type('program',
         array(
-            'labels' => create_post_type_labels('Programs', 'Program'),
+            'labels' => npm_create_post_type_labels('Programs', 'Program'),
             'has_archive' => false,
             'menu_icon' => '',
             'public' => true,
@@ -67,7 +67,7 @@ function register_post_types()
 
     register_post_type('sponsorship',
         array(
-            'labels' => create_post_type_labels('Sponsorships', 'Sponsorship'),
+            'labels' => npm_create_post_type_labels('Sponsorships', 'Sponsorship'),
             'has_archive' => false,
             'menu_icon' => '',
             'public' => true,
@@ -77,7 +77,7 @@ function register_post_types()
 
     register_post_type('testimonial',
         array(
-            'labels' => create_post_type_labels('Testimonials', 'Testimonial'),
+            'labels' => npm_create_post_type_labels('Testimonials', 'Testimonial'),
             'has_archive' => false,
             'menu_icon' => '',
             'public' => true,
@@ -87,7 +87,7 @@ function register_post_types()
 
     register_post_type('work',
         array(
-            'labels' => create_post_type_labels('Work', 'Work'),
+            'labels' => npm_create_post_type_labels('Work', 'Work'),
             'has_archive' => false,
             'menu_icon' => '',
             'public' => true,
@@ -95,4 +95,4 @@ function register_post_types()
     );
 }
 
-add_action('init', 'register_post_types');
+add_action('init', 'npm_register_post_types');

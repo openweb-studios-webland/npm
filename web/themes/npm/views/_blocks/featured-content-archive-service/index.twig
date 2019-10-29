@@ -1,13 +1,13 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section pt-0 relative" data-label="cards-services">
-    {% if block.cards | length %}
+  <section class="section pt-0 relative" data-label="featured-content-services">
+    {% if block.featured_content | length %}
       <div class="container">
         <div class="flex flex-wrap -mb-30 lg:flex-no-wrap">
-          {% for card in block.cards %}
+          {% for card in block.featured_content %}
             <div class="mb-30 w-full lg:flex-1-1-0 lg:w-auto">
-              {% include '_blocks/cards/card.twig' ignore missing %}
+              {% include '_blocks/featured-content/card.twig' ignore missing %}
             </div>
           {% endfor %}
         </div>

@@ -1,6 +1,8 @@
 {% set video = video ?? null %}
 {% set image = image ? TimberImage(image) : null %}
 
+{{ dump(image)}}
+
 <div data-module="video">
   <div class="video" data-audio-play-pause>
     {{ video }}

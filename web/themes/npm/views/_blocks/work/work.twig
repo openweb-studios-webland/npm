@@ -3,7 +3,7 @@
 
   {% include '_partials/audio.twig' ignore missing with {
     audio: audio,
-    image: block.image,
+    image: work.image,
   } only %}
 
   <div class="mt-20">
@@ -27,7 +27,7 @@
 
   {% include '_partials/video.twig' ignore missing with {
     video: video,
-    image: block.image,
+    image: work.image,
   } only %}
 
   <div class="mt-20">
@@ -48,7 +48,7 @@
   </div>
 {% else %}
   {% include '_partials/image.twig' ignore missing with {
-    image: block.image,
+    image: work.image,
   } only %}
 
   <div class="mt-20">

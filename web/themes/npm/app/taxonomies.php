@@ -1,6 +1,6 @@
 <?php
 
-function create_taxonomy_labels($taxonomy_name = 'Taxonomies', $taxonomy_singular_name = 'Taxonomy')
+function npm_create_taxonomy_labels($taxonomy_name = 'Taxonomies', $taxonomy_singular_name = 'Taxonomy')
 {
     $text_domain = get_stylesheet();
     $taxonomy_labels = array(
@@ -20,7 +20,7 @@ function create_taxonomy_labels($taxonomy_name = 'Taxonomies', $taxonomy_singula
     return $taxonomy_labels;
 }
 
-function register_taxonomies()
+function npm_register_taxonomies()
 {
     register_taxonomy(
         'platform',
@@ -30,7 +30,7 @@ function register_taxonomies()
         ),
         array(
             'hierarchical' => true,
-            'labels' => create_taxonomy_labels('Platforms', 'Platform'),
+            'labels' => npm_create_taxonomy_labels('Platforms', 'Platform'),
             'public' => true,
             'rewrite' => array('slug' => 'formats'),
             'show_admin_column' => true,
@@ -42,11 +42,11 @@ function register_taxonomies()
         'program',
         array(
             'hierarchical' => true,
-            'labels' => create_taxonomy_labels('Topics', 'Topic'),
+            'labels' => npm_create_taxonomy_labels('Topics', 'Topic'),
             'rewrite' => array('slug' => 'topics'),
             'show_admin_column' => true,
         )
     );
 }
 
-add_action('init', 'register_taxonomies');
+add_action('init', 'npm_register_taxonomies');

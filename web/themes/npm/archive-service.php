@@ -1,24 +1,19 @@
 <?php
 
 /**
- * Template Name: Services (Index)
+ * Template Name: Services (Archive)
  */
 
 global $paged;
 
-if (!isset($paged) || !$paged) {
-    $paged = 1;
-}
-
+$pages = get_query_var('paged') ? get_query_var('paged') : 1;
 $context = Timber::get_context();
-$context['post'] = new Timber\Post();
-$context['work_posts'] = new Timber\PostQuery(
-    array(
-        'posts_per_page' => 9,
-        'post_type' => 'work',
-        'paged' => $paged,
-    )
+$args = array(
+    'posts_per_page' => 9,
+    'post_type' => 'work',
+    'paged' => $paged,
 );
+$context['work'] = new Timber\PostQuery($args);
 $context['fields'] = get_fields();
 
 if ($paged > 1) {

@@ -32,7 +32,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'label' => 'Image',
                 'name' => 'image',
                 'type' => 'image',
-                'instructions' => 'Recommended dimensions are 1080 x 810',
+                'instructions' => 'Recommended dimensions are 1080 x 810.',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(

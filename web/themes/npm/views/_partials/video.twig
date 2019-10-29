@@ -1,15 +1,13 @@
 {% set video = video ?? null %}
 {% set image = image ? TimberImage(image) : null %}
 
-{{ dump(image)}}
-
 <div data-module="video">
   <div class="video" data-audio-play-pause>
     {{ video }}
 
     {% if image.src %}
       <div class="video-overlay absolute h-full inset-1/2 translate-1/2 w-full z-10">
-        <img src="{{ image.src | resize(720, 405) }}" alt="{{ image.alt }}" />
+        <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
 
         <button class="absolute inset-1/2 h-80 translate-1/2 w-80" data-video-play>
           <span class="screen-reader-only">

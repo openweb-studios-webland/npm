@@ -21,6 +21,7 @@ if (function_exists('acf_add_local_field_group')):
                 ),
                 'layouts' => array(
                     acf_dynamic_clones_get_local_field_group('Featured Insight', 'featured-insight'),
+                    acf_dynamic_clones_get_local_field_group('Featured Report', 'featured-report'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero-archive-insight'),
                 ),
                 'button_label' => 'Add Block',

@@ -38,7 +38,7 @@
 
     {% if image.src %}
       <div class="audio-overlay absolute h-full inset-1/2 transition translate-1/2 w-full z-10">
-        <img src="{{ image.src | resize(720, 405) }}" alt="{{ image.alt }}" />
+        <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
 
         <button class="absolute inset-1/2 h-80 translate-1/2 w-80">
           <span class="screen-reader-only">

@@ -65,6 +65,16 @@ function npm_register_post_types()
         )
     );
 
+    register_post_type('report',
+        array(
+            'labels' => npm_create_post_type_labels('Reports', 'Report'),
+            'has_archive' => false,
+            'menu_icon' => '',
+            'public' => true,
+            'rewrite' => array('slug' => 'reports'),
+        )
+    );
+
     register_post_type('sponsorship',
         array(
             'labels' => npm_create_post_type_labels('Sponsorships', 'Sponsorship'),

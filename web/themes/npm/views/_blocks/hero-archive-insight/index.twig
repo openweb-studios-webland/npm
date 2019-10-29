@@ -1,48 +1,51 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section relative" data-label="hero-archive-insight">
+  {% set insight_report = Post(block.featured_insight_report) %}
+
+  <section class="section pb-0 relative lg:pb-100" data-label="hero-archive-insight">
     {{ svg('pattern', { classes: 'absolute bottom-0 hidden inset-x-0 w-full lg:block' }) }}
 
     <div class="container">
-      <div class="flex flex-wrap items-center relative">
-        <div class="w-full lg:w-7/12">
-          <div class="pb-50 md:pb-75 lg:pb-0 lg:pr-60 lg:z-10">
-            {% if block.subheading %}
-              <div class="heading-6 mb-20">
-                {{ block.subheading }}
-              </div>
-            {% endif %}
-
-            {% if block.heading %}
-              <h1 class="heading-3">
-                {{ block.heading }}
-              </h1>
-            {% endif %}
-
-            {% if block.text %}
-              <div class="text text-16 lg:text-18">
-                {{ block.text }}
-              </div>
-            {% endif %}
-
-            {% if block.button_link and block.button_text %}
-              <a class="button mt-25 lg:mt-30" href="{{ block.button_link }}">
-                {{ block.button_text }}
-              </a>
-            {% endif %}
+      <div class="flex flex-wrap items-center -mx-30 relative">
+        <div class="pb-50 px-30 w-full md:pb-75 lg:pb-0 lg:w-1/2">
+          <div class="heading-6 mb-20">
+            {{ insight_report.post_type | title }}
           </div>
+
+          <h1 class="heading-3">
+            {{ insight_report.title }}
+          </h1>
+
+          {% if insight_report.text %}
+            <div class="text text-16 lg:text-18">
+              {{ insight_report.text }}
+            </div>
+          {% endif %}
+
+          <a class="button mt-25 lg:mt-30" href="{{ insight_report.button_link ?? insight_report.link }}">
+            {{ insight_report.button_text ?? 'Read More' }}
+          </a>
         </div>
 
-        <div class="w-full lg:clearfix lg:w-5/12">
-          {% set image = TimberImage(block.image) %}
+        <div class="clearfix px-30 w-full lg:w-1/2">
+          {% if insight_report.type == 'video' %}
+            {% set video = insight_report.get_field('video') ?? null %}
 
-          {% if image.src %}
-            <img
-              class="pin-r max-w-screen -mx-20"
-              src="{{ image.src | resize(1440, 1080) }}"
-              alt="{{ image.alt }}"
-            />
+            {% include '_partials/video.twig' ignore missing with {
+              video: video,
+              image: insight_report.image,
+            } only %}
+          {% else %}
+            {% set image = TimberImage(insight_report.featured_image) %}
+
+            {% if image.src %}
+              <img
+                class="pin-r max-w-screen -mx-20"
+                src="{{ image.src | resize(1440, 1080, 'center') }}"
+                alt="{{ image.alt }}"
+              />
+            {% endif %}
           {% endif %}
         </div>
       </div>

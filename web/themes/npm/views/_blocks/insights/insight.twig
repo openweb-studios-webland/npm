@@ -1,29 +1,23 @@
-{% set featured_image = TimberImage(insight.featured_image) %}
+{% set image = TimberImage(insight.image) %}
 
-<a href="{{ insight.link }}">
-  {% if featured_image %}
+<a href="{{ insight.button_link ?? insight.link }}">
+  {% if image.src %}
     <img
       class="mb-20"
-      src="{{ featured_image.src | resize(720, 540) }}"
-      alt="{{ featured_image.alt }}"
+      src="{{ image.src | resize(720, 540, 'center') }}"
+      alt="{{ image.alt }}"
     />
   {% endif %}
 
-  {% if insight.post_type and insight.post_date %}
-    <ul class="flex flex-wrap mb-5 -mx-10 text-gray-a11y text-11">
-      {% if insight.post_type %}
-        <li class="border-r border-gray-a11y leading-none mb-10 px-10">
-          {{ insight.post_type | title }}
-        </li>
-      {% endif %}
+  <ul class="flex flex-wrap mb-5 -mx-10 text-gray-a11y text-11">
+    <li class="border-r border-gray-a11y leading-none mb-10 px-10">
+      {{ insight.post_type | title }}
+    </li>
 
-      {% if insight.post_date %}
-        <li class="leading-none mb-10 px-10">
-          {{ insight.post_date }}
-        </li>
-      {% endif %}
-    </ul>
-  {% endif %}
+    <li class="leading-none mb-10 px-10">
+      {{ insight.post_date | date('F Y') }}
+    </li>
+  </ul>
 
   <h3 class="heading-7 mb-10">
     {{ insight.title }}

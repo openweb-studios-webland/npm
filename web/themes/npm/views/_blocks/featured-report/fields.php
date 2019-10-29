@@ -7,7 +7,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
         'title' => 'Featured Report',
         'fields' => array(
             array(
-                'key' => 'field_5o9mk99sa5tk0',
+                'key' => 'field_5o945tysa5tk0',
                 'label' => 'Featured Report',
                 'name' => 'featured_report',
                 'type' => 'post_object',

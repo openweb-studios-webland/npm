@@ -70,18 +70,8 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'sub_fields' => array(
                     array(
                         'key' => 'field_5db76b423a30e',
-<<<<<<< HEAD
-<<<<<<< HEAD
                         'label' => 'Text',
                         'name' => 'text',
-=======
-                        'label' => 'Location',
-                        'name' => 'location',
->>>>>>> Added about template, location block, and team block
-=======
-                        'label' => 'Text',
-                        'name' => 'text',
->>>>>>> Changed location field name
                         'type' => 'textarea',
                         'instructions' => '',
                         'required' => 0,

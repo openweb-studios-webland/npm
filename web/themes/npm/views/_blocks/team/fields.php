@@ -49,11 +49,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                         'label' => 'Image',
                         'name' => 'image',
                         'type' => 'image',
-<<<<<<< HEAD
-                        'instructions' => 'Recommended dimensions are 720 x 720.',
-=======
                         'instructions' => 'Recommended dimensions are 720 x 720',
->>>>>>> Added about template, location block, and team block
                         'required' => 0,
                         'conditional_logic' => 0,
                         'wrapper' => array(

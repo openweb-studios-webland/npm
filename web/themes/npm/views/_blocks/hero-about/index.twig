@@ -5,11 +5,9 @@
     <div class="container">
       <div class="flex -mx-30">
         <div class="px-30 w-full lg:w-3/4">
-          {% if block.subheading %}
-            <div class="heading-6 mb-20">
-              {{ block.subheading }}
-            </div>
-          {% endif %}
+          <div class="heading-6 mb-20">
+            {{ post.title }}
+          </div>
 
           {% if block.heading %}
             <h1 class="heading-3">

@@ -5,8 +5,8 @@
 
   <section class="section" data-label="featured-insight">
     <div class="container">
-      <div class="flex flex-wrap items-center -mx-30 lg:flex-no-wrap lg:flex-row-reverse">
-        <div class="pb-50 px-30 w-full md:pb-75 lg:pb-0 lg:w-1/2">
+      <div class="flex flex-wrap items-center -mb-50 -mx-30 lg:flex-no-wrap lg:flex-row-reverse">
+        <div class="mb-50 px-30 w-full lg:w-1/2">
           <div class="flex flex-wrap mb-20 -mx-10 text-gray-a11y text-11">
             <div class="border-r border-gray-a11y leading-none mb-10 px-10">
               {{ insight.post_type | title }}
@@ -31,15 +31,16 @@
             {{ insight.button_text ?? 'Read More' }}
           </a>
         </div>
-        <div class="px-30 w-full lg:w-1/2">
-          {% set image = TimberImage(insight.featured_image) %}
 
-          {% if image.src %}
+        {% set image = TimberImage(insight.featured_image) %}
+
+        {% if image.src %}
+          <div class="mb-50 px-30 w-full lg:w-1/2">
             <div class="-mx-20 lg:mx-0">
               <img src="{{ image.src | resize(1440, 1080, 'center') }}" alt="{{ image.alt }}" />
             </div>
-          {% endif %}
-        </div>
+          </div>
+        {% endif %}
       </div>
     </div>
   </section>

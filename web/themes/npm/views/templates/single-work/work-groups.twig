@@ -28,7 +28,7 @@
                       {% set thumbnail_image = TimberImage(work.thumbnail_image) %}
 
                       {% if thumbnail_image.src %}
-                        <img src="{{ thumbnail_image.src | resize(150, 150) }}" alt="{{ thumbnail_image.alt }}" />
+                        <img src="{{ thumbnail_image.src | resize(150, 150, 'center') }}" alt="{{ thumbnail_image.alt }}" />
                       {% endif %}
                     </div>
 
@@ -45,7 +45,7 @@
                     {% set image = TimberImage(work.image) %}
 
                     {% if image.src %}
-                      <img src="{{ image.src | resize(720, 405) }}" alt="{{ image.alt }}" />
+                      <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
 
                       <button class="absolute inset-1/2 h-80 translate-1/2 w-80">
                         <span class="screen-reader-only">
@@ -71,7 +71,7 @@
                     data-module="modal"
                   >
                     <div class="flex flex-col h-full justify-center" tabindex="-1" data-modal-close>
-                      <div class="container-sm w-full">
+                      <div class="container-md w-full">
                         <div
                           class="bg-white max-h-screen overflow-y-auto p-50 relative"
                           role="dialog"
@@ -96,7 +96,7 @@
 
                   {% if image.src %}
                     <div data-modal-open="{{ uid }}">
-                      <img src="{{ image.src | resize(720, 405) }}" alt="{{ image.alt }}" />
+                      <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
                     </div>
                   {% endif %}
 
@@ -121,7 +121,7 @@
                           role="dialog"
                           aria-modal="true"
                         >
-                          <div class="container-sm">
+                          <div class="container-md">
                             {% if work.images | length %}
                               <div
                                 class="carousel overflow-x-hidden"
@@ -134,7 +134,7 @@
                                       {% set image = TimberImage(image) %}
 
                                       {% if image.src %}
-                                        <img src="{{ image.src | resize(1920) }}" alt="{{ image.alt }}" />
+                                        <img src="{{ image.src | resize(1920, null, 'center') }}" alt="{{ image.alt }}" />
                                       {% endif %}
 
                                       {% if image.caption %}

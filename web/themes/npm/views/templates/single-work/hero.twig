@@ -9,12 +9,10 @@
   <div class="container">
     <div class="flex flex-wrap items-center -mx-30">
       <div class="px-30 w-full lg:w-7/12">
-        <div class="py-50 text-white md:py-75 lg:py-0">
-          {% if subheading %}
-            <div class="heading-6 mb-20">
-              {{ subheading }}
-            </div>
-          {% endif %}
+        <div class="section text-white lg:py-0">
+          <div class="heading-6 mb-20">
+            Work
+          </div>
 
           {% if heading %}
             <h1 class="heading-3">
@@ -39,8 +37,8 @@
       <div class="px-30 w-full lg:w-5/12">
         {% if image.src %}
           <img
-            class="pin-r max-w-screen -mx-20 relative"
-            src="{{ image.src | resize(1440, 1440) }}"
+            class="pin-r -mx-20 max:mx-0"
+            src="{{ image.src | resize(1440, 1440, 'center') }}"
             alt="{{ image.alt }}"
           />
         {% endif %}

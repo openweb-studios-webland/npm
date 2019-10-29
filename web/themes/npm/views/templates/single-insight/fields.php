@@ -4,37 +4,13 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_5d9cb704694ae',
-        'title' => 'Insight',
+        'title' => 'Insight Single',
         'fields' => array(
             array(
-                'key' => 'field_5d9cba89d8e27',
-                'label' => 'Image',
-                'name' => 'image',
-                'type' => 'image',
-                'instructions' => 'Recommended dimensions are 1920 x 800.',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'return_format' => 'array',
-                'preview_size' => 'thumbnail',
-                'library' => 'all',
-                'min_width' => 1920,
-                'min_height' => 800,
-                'min_size' => '',
-                'max_width' => '',
-                'max_height' => '',
-                'max_size' => '',
-                'mime_types' => '',
-            ),
-            array(
-                'key' => 'field_5d9cba97d8e28',
-                'label' => 'Content',
-                'name' => 'content',
-                'type' => 'wysiwyg',
+                'key' => 'field_pd24is4wwtfa3',
+                'label' => 'Blocks',
+                'name' => 'blocks',
+                'type' => 'flexible_content',
                 'instructions' => '',
                 'required' => 0,
                 'conditional_logic' => 0,
@@ -43,11 +19,16 @@ if (function_exists('acf_add_local_field_group')):
                     'class' => '',
                     'id' => '',
                 ),
-                'default_value' => '',
-                'tabs' => 'all',
-                'toolbar' => 'full',
-                'media_upload' => 1,
-                'delay' => 0,
+                'layouts' => array(
+                    acf_dynamic_clones_get_local_field_group('Hero', 'hero-single-insight'),
+                    acf_dynamic_clones_get_local_field_group('Images', 'images'),
+                    acf_dynamic_clones_get_local_field_group('Text', 'text'),
+                    acf_dynamic_clones_get_local_field_group('Text with Image', 'text-with-image'),
+                    acf_dynamic_clones_get_local_field_group('Videos', 'videos'),
+                ),
+                'button_label' => 'Add Block',
+                'min' => '',
+                'max' => '',
             ),
         ),
         'location' => array(
@@ -61,7 +42,7 @@ if (function_exists('acf_add_local_field_group')):
         ),
         'menu_order' => 0,
         'position' => 'acf_after_title',
-        'style' => 'default',
+        'style' => 'seamless',
         'label_placement' => 'top',
         'instruction_placement' => 'label',
         'hide_on_screen' => array(
@@ -79,7 +60,7 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_5d9cc6f91c7ff',
-        'title' => 'Index',
+        'title' => 'Insight Archive',
         'fields' => array(
             array(
                 'key' => 'field_5db85a263408b',

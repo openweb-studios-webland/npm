@@ -3,7 +3,7 @@
 {% if block %}
   <section class="section bg-blue text-white" data-label="team">
     {% if block.heading %}
-      <div class="container-sm">
+      <div class="container-md">
         <h2 class="heading-3 text-center">
           {{ block.heading }}
         </h2>
@@ -17,7 +17,7 @@
             {% set image = TimberImage(team.image) %}
 
             {% if image.src %}
-              <img class="mb-30 rounded-full" src="{{ image.src | resize(720, 720) }}" alt="{{ image.alt }}" />
+              <img class="mb-30 rounded-full" src="{{ image.src | resize(720, 720, 'center') }}" alt="{{ image.alt }}" />
             {% endif %}
 
             {% if team.name %}

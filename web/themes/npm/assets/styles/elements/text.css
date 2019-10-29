@@ -3,7 +3,8 @@
   & p,
   & dl,
   & ol,
-  & ul {
+  & ul,
+  & blockquote {
     @apply mb-30;
 
     &:last-child {
@@ -18,7 +19,8 @@
   & dl,
   & ol,
   & ul {
-    @apply leading-tight;
+    @apply leading-tight
+      pl-20;
 
     & > dd,
     & > dt,
@@ -38,6 +40,61 @@
 
   & ol {
     list-style: decimal;
+  }
+
+  & img {
+    @apply relative
+      w-screen;
+    left: 50%;
+    max-width: 960px;
+    transform: translateX(-50%);
+  }
+
+  & blockquote,
+  & blockquote p {
+    @apply font-serif
+      italic
+      relative
+      text-20;
+
+    @screen md {
+      @apply text-24;
+    }
+
+    @screen md {
+      @apply text-30;
+    }
+  }
+
+  & blockquote {
+    @apply mt-0
+      mx-0
+      pb-30
+      relative;
+    left: 50%;
+    max-width: 840px;
+    transform: translateX(-50%);
+    width: calc(100vw - 40px);
+
+    &::before {
+      @apply absolute
+        bg-crimson
+        bottom-0
+        left-0;
+      content: "";
+      height: 5px;
+      width: 120px;
+    }
+
+    & p {
+      @apply mb-20;
+
+      &:last-child:not(:first-child) {
+        @apply font-sans
+          not-italic
+          text-14;
+      }
+    }
   }
 }
 /*! purgecss end ignore */

@@ -5,18 +5,16 @@
 
   <section
     class="section bg-cover relative text-white lg:-mb-50"
-    style="background-image: url('{{ background_image.src | resize(1920, 700) }}');"
+    style="background-image: url('{{ background_image.src | resize(1920, 700, 'center') }}');"
     data-label="hero-services"
   >
     <div class="absolute bg-black inset-0 opacity-90"></div>
 
     <div class="container">
       <div class="relative w-full lg:w-2/3">
-        {% if block.subheading %}
-          <div class="heading-6 mb-20">
-            {{ block.subheading }}
-          </div>
-        {% endif %}
+        <div class="heading-6 mb-20">
+          Services
+        </div>
 
         {% if block.heading %}
           <h1 class="heading-3">

@@ -7,8 +7,8 @@
     {{ svg('pattern', { classes: 'absolute bottom-0 hidden inset-x-0 w-full lg:block' }) }}
 
     <div class="container">
-      <div class="flex flex-wrap items-center -mx-30 relative">
-        <div class="pb-50 px-30 w-full md:pb-75 lg:pb-0 lg:w-1/2">
+      <div class="flex flex-wrap items-center -mb-50 -mx-30 relative">
+        <div class="mb-50 px-30 w-full lg:w-1/2">
           <div class="heading-6 mb-20">
             {{ insight_report.post_type | title }}
           </div>
@@ -28,7 +28,7 @@
           </a>
         </div>
 
-        <div class="clearfix px-30 w-full lg:w-1/2">
+        <div class="mb-50 px-30 w-full lg:w-1/2">
           {% if insight_report.type == 'video' %}
             {% set video = insight_report.get_field('video') ?? null %}
 
@@ -41,7 +41,7 @@
 
             {% if image.src %}
               <img
-                class="pin-r max-w-screen -mx-20"
+                class="pin-r -mx-20 max:mx-0"
                 src="{{ image.src | resize(1440, 1080, 'center') }}"
                 alt="{{ image.alt }}"
               />

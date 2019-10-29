@@ -4,7 +4,7 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_5da5d29e5276b',
-        'title' => 'Testimonial',
+        'title' => 'Testimonial Single',
         'fields' => array(
             array(
                 'key' => 'field_5da5d2a2b4924',

@@ -1,23 +1,22 @@
 .pin-l,
 .pin-r {
-  @media (min-width: 1200px) {
+  @apply max-w-screen;
+
+  @screen max {
     width: calc(100% + ((100vw - 1160px) / 2));
   }
 }
 
-
 .pin-l {
-  @media (min-width: 1200px) {
-    @apply float-left
-      mr-0;
-    margin-left: calc((1160px - 100vw) / 2) !important; /* Override inline Tailwind utilities */
+  @screen max {
+    @apply float-left;
+    transform: translateX(calc((1160px - 100vw) / 2));
   }
 }
 
 .pin-r {
-  @media (min-width: 1200px) {
-    @apply float-right
-      ml-0;
-    margin-right: calc((1160px - 100vw) / 2) !important; /* Override inline Tailwind utilities */
+  @screen max {
+    @apply float-right;
+    transform: translateX(calc((100vw - 1160px) / 2));
   }
 }

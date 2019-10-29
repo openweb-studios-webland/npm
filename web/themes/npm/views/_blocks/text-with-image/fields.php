@@ -3,11 +3,11 @@
 if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
-        'key' => 'group_5db870452293c',
+        'key' => 'group_5db87r552293c',
         'title' => 'Text with Image',
         'fields' => array(
             array(
-                'key' => 'field_5db8710fa24e1',
+                'key' => 'field_5db871zfa24e1',
                 'label' => 'Alignment',
                 'name' => 'alignment',
                 'type' => 'clone',
@@ -20,7 +20,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                     'id' => '',
                 ),
                 'clone' => array(
-                    0 => 'group_9nzyqkg26b6ok',
+                    0 => 'group_9nfyqkg26b6ok',
                 ),
                 'display' => 'seamless',
                 'layout' => 'block',
@@ -28,7 +28,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'prefix_name' => 1,
             ),
             array(
-                'key' => 'field_5db8709fa24df',
+                'key' => 'field_5db8009fa24df',
                 'label' => 'Image',
                 'name' => 'image',
                 'type' => 'image',
@@ -52,7 +52,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'mime_types' => '',
             ),
             array(
-                'key' => 'field_5db8704aa24dd',
+                'key' => 'field_5db8712aa24dd',
                 'label' => 'Heading',
                 'name' => 'heading',
                 'type' => 'text',
@@ -71,7 +71,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'maxlength' => '',
             ),
             array(
-                'key' => 'field_5db87097a24de',
+                'key' => 'field_5dd47097a24de',
                 'label' => 'Text',
                 'name' => 'text',
                 'type' => 'wysiwyg',

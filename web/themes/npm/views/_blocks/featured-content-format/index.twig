@@ -2,13 +2,13 @@
 
 {% if block %}
   <section class="section bg-gradient clearfix pt-0" data-label="featured-content-platform">
-    <div class="float-left -mt-30 w-full md:-mt-40 lg:-mt-50">
+    <div class="float-left w-full lg:-mt-50">
       {% if block.featured_content | length %}
         <div class="container-lg">
           <div class="flex flex-wrap -mb-30 lg:flex-no-wrap">
-            {% for card in block.featured_content %}
+            {% for featured_content in block.featured_content %}
               <div class="mb-30 flex-1-1-0 w-full lg:w-auto">
-                {% include '_blocks/featured-content/card.twig' ignore missing %}
+                {% include '_blocks/featured-content/featured-content.twig' ignore missing %}
               </div>
             {% endfor %}
           </div>
@@ -16,11 +16,11 @@
       {% endif %}
 
       {% if block.secondary_featured_content | length %}
-        <div class="container-sm mt-50 md:mt-75 lg:mt-100">
-          <div class="-mb-30">
-            {% for card in block.secondary_featured_content %}
-              <div class="mb-30">
-                {% include '_blocks/featured-content-format/card.twig' ignore missing %}
+        <div class="container-md section pb-0">
+          <div class="flex flex-wrap -mb-30 -mx-30">
+            {% for featured_content in block.secondary_featured_content %}
+              <div class="mb-30 px-30">
+                {% include '_blocks/featured-content-format/featured-content.twig' ignore missing %}
               </div>
             {% endfor %}
           </div>

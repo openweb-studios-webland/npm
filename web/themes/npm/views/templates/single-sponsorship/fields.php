@@ -4,7 +4,7 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_rmlgkiuo93h4w',
-        'title' => 'Sponsoship',
+        'title' => 'Sponsorship Single',
         'fields' => array(
             array(
                 'key' => 'field_4s62gwu9qdg30',

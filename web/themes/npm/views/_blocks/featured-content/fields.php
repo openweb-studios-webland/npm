@@ -42,7 +42,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'min' => 2,
                 'max' => 3,
                 'layout' => 'block',
-                'button_label' => 'Add Card',
+                'button_label' => 'Add Featured Content',
                 'sub_fields' => array(
                     array(
                         'key' => 'field_5d94f11ccd200',

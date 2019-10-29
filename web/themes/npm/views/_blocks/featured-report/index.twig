@@ -5,8 +5,8 @@
 
   <section class="section bg-blue pb-0 text-white lg:pb-100" data-label="featured-report">
     <div class="container">
-      <div class="flex flex-wrap items-center -mx-30 lg:flex-no-wrap lg:flex-row-reverse">
-        <div class="pb-50 px-30 w-full md:pb-75 lg:pb-0 lg:w-1/2">
+      <div class="flex flex-wrap items-center -mb-50 -mx-30 lg:flex-no-wrap lg:flex-row-reverse">
+        <div class="mb-50 px-30 w-full lg:w-1/2">
           <h2 class="heading-3">
             {{ report.title }}
           </h2>
@@ -21,7 +21,7 @@
             {{ report.button_text ?? 'Read More' }}
           </a>
         </div>
-        <div class="px-30 w-full lg:w-1/2">
+        <div class="mb-50 px-30 w-full lg:w-1/2">
           {% set image = TimberImage(report.featured_image) %}
 
           {% if image.src %}

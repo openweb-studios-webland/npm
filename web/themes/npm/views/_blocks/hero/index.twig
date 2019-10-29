@@ -1,17 +1,11 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="pt-50 relative z-10 md:pt-75 lg:-mb-50 lg:pt-0" data-label="hero">
+  <section class="section pb-0 relative z-10 lg:-mb-50 lg:pt-0" data-label="hero">
     <div class="container">
-      <div class="flex flex-wrap items-center">
-        <div class="w-full lg:w-7/12">
-          <div class="pb-50 md:pb-75 lg:pb-0 lg:pr-60 lg:relative lg:z-10">
-            {% if block.subheading %}
-              <div class="heading-6 mb-20">
-                {{ block.subheading }}
-              </div>
-            {% endif %}
-
+      <div class="flex flex-wrap items-center -mb-50">
+        <div class="mb-50 w-full lg:w-7/12">
+          <div class="px-30 lg:pr-60 lg:relative lg:z-10">
             {% if block.heading %}
               <h1 class="heading-3">
                 {{ block.heading }}
@@ -32,17 +26,17 @@
           </div>
         </div>
 
-        <div class="clearfix w-full lg:w-5/12">
-          {% set image = TimberImage(block.image) %}
+        {% set image = TimberImage(block.image) %}
 
-          {% if image.src %}
+        {% if image.src %}
+          <div class="mb-50 px-30 w-full lg:w-5/12">
             <img
-              class="pin-r max-w-screen -mx-20"
-              src="{{ image.src | resize(1440, 1440) }}"
+              class="pin-r -mx-20 max:mx-0"
+              src="{{ image.src | resize(1440, 1440, 'center') }}"
               alt="{{ image.alt }}"
             />
-          {% endif %}
-        </div>
+          </div>
+        {% endif %}
       </div>
     </div>
   </section>

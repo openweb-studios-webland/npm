@@ -8,6 +8,7 @@ module.exports = {
       md: '768px',
       lg: '1024px',
       xl: '1280px',
+      max: '1200px',
     },
     colors: {
       transparent: 'transparent',
@@ -268,7 +269,7 @@ module.exports = {
     borderWidth: ['responsive'],
     boxShadow: ['responsive', 'hover', 'focus'],
     cursor: [],
-    display: ['responsive'],
+    display: ['responsive', 'hover', 'group-hover', 'focus'],
     fill: [],
     flex: ['responsive'],
     flexDirection: ['responsive'],

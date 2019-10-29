@@ -4,7 +4,7 @@
   {% set image = TimberImage(program.image) %}
 
   {% if image.src %}
-    <img src="{{ image.src | resize(600, 600) }}" alt="{{ image.alt }}" />
+    <img src="{{ image.src | resize(600, 600, 'center') }}" alt="{{ image.alt }}" />
   {% endif %}
 
   <div class="p-20">

@@ -1,0 +1,32 @@
+<div class="lg:bg-white lg:p-20 lg:shadow-sm">
+  <div class="flex flex-wrap items-center lg:flex-no-wrap -mb-30 lg:-mx-20">
+    <div class="mb-30 w-full lg:px-20 lg:w-5/12">
+      {% set image = TimberImage(featured_content.image) %}
+
+      {% if image.src %}
+        <img src="{{ image.src | resize(1440, 900, 'center') }}" alt="{{ image.alt }}" />
+      {% endif %}
+    </div>
+
+    <div class="mb-30 text-white w-full lg:px-20 lg:text-black lg:w-7/12">
+      {% if featured_content.heading %}
+        <h3 class="heading-4 mb-20">
+          {{ featured_content.heading }}
+        </h3>
+      {% endif %}
+
+      {% if featured_content.text %}
+        <div class="text">
+          {{ featured_content.text }}
+        </div>
+      {% endif %}
+
+      {% if featured_content.button_link and featured_content.button_text %}
+        <a class="link mt-20 text-white lg:text-blue-link" href="{{ featured_content.button_link }}">
+          {{ featured_content.button_text }}
+          {{ svg('link') }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>

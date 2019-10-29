@@ -4,7 +4,7 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_5db8561f7644b',
-        'title' => 'Index',
+        'title' => 'Report Archive',
         'fields' => array(
             array(
                 'key' => 'field_5db85623b353f',

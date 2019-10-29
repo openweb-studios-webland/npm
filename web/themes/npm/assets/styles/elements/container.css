@@ -6,6 +6,10 @@
 }
 
 .container-sm {
+  max-width: 720px;
+}
+
+.container-md {
   max-width: 960px;
 }
 

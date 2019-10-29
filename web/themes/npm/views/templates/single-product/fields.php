@@ -4,7 +4,7 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_m4he7v9xlug52',
-        'title' => 'Single Product',
+        'title' => 'Product Single',
         'fields' => array(
             array(
                 'key' => 'field_gw7yn9xfkdtf2',
@@ -59,7 +59,7 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_5dae2574343b1',
-        'title' => 'Index',
+        'title' => 'Product Archive',
         'fields' => array(
             array(
                 'key' => 'field_5dae258065d0f',

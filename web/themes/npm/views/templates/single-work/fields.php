@@ -4,7 +4,7 @@ if (function_exists('acf_add_local_field_group')):
 
 	acf_add_local_field_group(array(
 		'key' => 'group_5db35ce3c77d6',
-		'title' => 'Single',
+		'title' => 'Work Single',
 		'fields' => array(
 			array(
 				'key' => 'field_5db73c5ce7674',
@@ -29,25 +29,6 @@ if (function_exists('acf_add_local_field_group')):
 				'max_height' => '',
 				'max_size' => '',
 				'mime_types' => '',
-			),
-			array(
-				'key' => 'field_5db73c44e7671',
-				'label' => 'Subheading',
-				'name' => 'subheading',
-				'type' => 'text',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'maxlength' => '',
 			),
 			array(
 				'key' => 'field_5db73c4ae7672',
@@ -401,7 +382,7 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_5d9ce61wut65e',
-        'title' => 'Index',
+        'title' => 'Work Archive',
         'fields' => array(
 			array(
 				'key' => 'field_wz5fp4woxi93f',

@@ -4,7 +4,7 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_5d8d0f69d0162',
-        'title' => 'Program',
+        'title' => 'Program Single',
         'fields' => array(
             array(
                 'key' => 'field_5d8d0f6e084eb',

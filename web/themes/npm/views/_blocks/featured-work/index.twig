@@ -6,12 +6,12 @@
       {% if block.featured_work %}
         {% set featured_work = Post(block.featured_work) %}
 
-        <div class="flex flex-wrap items-center -mx-20">
-          <div class="mb-30 px-20 w-full lg:mb-0 lg:w-2/3">
+        <div class="flex flex-wrap items-center -mb-30 -mx-20">
+          <div class="mb-30 px-20 w-full lg:w-2/3">
             {% set featured_image = TimberImage(featured_work.featured_image) %}
 
             {% if featured_image %}
-              <img src="{{ featured_image.src | resize(1440, 900) }}" alt="{{ featured_image.alt }}" />
+              <img src="{{ featured_image.src | resize(1440, 900, 'center') }}" alt="{{ featured_image.alt }}" />
             {% endif %}
           </div>
 

@@ -3,20 +3,46 @@
 
 {% if block %}
   <section class="section" data-label="images">
-    <div class="container">
-      {% if block.images | length %}
-        <div class="flex flex-wrap items-center justify-center -mb-50 -mx-30">
-          {% for image in block.images %}
-            <div class="pb-50 px-30 w-full{{ loop.first and loop.last ? ' lg:w-3/4' : ' lg:w-1/2' }}">
-              {% set image = TimberImage(image) %}
+    {% if block.heading or block.text %}
+      <div class="container-sm">
+        {% if block.heading %}
+          <h2 class="heading-3 text-center">
+            {{ block.heading }}
+          </h2>
+        {% endif %}
 
-              {% if image.src %}
-                <img src="{{ image.src | resize(1440, 960) }}" alt="{{ image.alt }}" />
-              {% endif %}
-            </div>
-          {% endfor %}
+        {% if block.text %}
+          <div class="text">
+            {{ block.text }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if block.images | length %}
+      {% if block.images | length > 1 %}
+        <div class="container mt-50">
+          <div class="flex flex-wrap items-center justify-center -mb-50 -mx-30">
+            {% for image in block.images %}
+              <div class="mb-50 px-30 w-full lg:w-1/2">
+                {% set image = TimberImage(image) %}
+
+                {% if image.src %}
+                  <img src="{{ image.src | resize(1440, 960, 'center') }}" alt="{{ image.alt }}" />
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% else %}
+        <div class="container-md mt-50">
+          {% set image = TimberImage(block.images[0]) %}
+
+          {% if image.src %}
+            <img src="{{ image.src | resize(1440, 960, 'center') }}" alt="{{ image.alt }}" />
+          {% endif %}
         </div>
       {% endif %}
-    </div>
+    {% endif %}
   </section>
 {% endif %}

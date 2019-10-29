@@ -11,10 +11,10 @@
       <div class="container">
         <div class="flex flex-wrap items-end -mx-30">
           <div class="px-30 hidden w-full lg:block lg:w-5/12">
-            <img src="{{ image.src | resize(960, 960) }}" alt="{{ image.alt }}" />
+            <img src="{{ image.src | resize(960, 960, 'center') }}" alt="{{ image.alt }}" />
           </div>
 
-          <div class="px-30 py-50 w-full md:py-75 lg:py-100 lg:w-7/12">
+          <div class="px-30 py-50 w-full lg:py-100 lg:w-7/12">
             {% include '_partials/call-to-action/call-to-action.twig' ignore missing %}
           </div>
         </div>
@@ -22,7 +22,7 @@
     </div>
   {% else %}
     <div class="section">
-      <div class="container-sm">
+      <div class="container-md">
         {% include '_partials/call-to-action/call-to-action.twig' ignore missing %}
       </div>
     </div>

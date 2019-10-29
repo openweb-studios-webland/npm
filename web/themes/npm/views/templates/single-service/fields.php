@@ -4,7 +4,7 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_eky8w5zk45384',
-        'title' => 'Single Service',
+        'title' => 'Service Single',
         'fields' => array(
             array(
                 'key' => 'field_xkr6l8m1ay374',

@@ -7,25 +7,6 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
         'title' => 'Hero About',
         'fields' => array(
             array(
-                'key' => 'field_ekk6jkb4oppn3',
-                'label' => 'Subheading',
-                'name' => 'subheading',
-                'type' => 'text',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'maxlength' => '',
-            ),
-            array(
                 'key' => 'field_011aast4y7i9q',
                 'label' => 'Heading',
                 'name' => 'heading',

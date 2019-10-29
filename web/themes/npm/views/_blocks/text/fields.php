@@ -22,7 +22,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'default_value' => '',
                 'tabs' => 'all',
                 'toolbar' => 'full',
-                'media_upload' => 0,
+                'media_upload' => 1,
                 'delay' => 0,
             ),
         ),

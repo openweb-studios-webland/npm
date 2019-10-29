@@ -1,41 +1,39 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section data-label="locations">
-    <div class="bg-gradient text-white">
-      <div class="container">
-        <div class="flex flex-wrap items-center -mx-30">
-          <div class="hidden px-30 w-full lg:block lg:-mt-50 lg:w-1/4">
-            {% set image = TimberImage(block.image) %}
+  <section class="bg-gradient text-white" data-label="locations">
+    <div class="container">
+      <div class="flex flex-wrap items-center -mx-30">
+        <div class="hidden px-30 w-full lg:block lg:-mt-50 lg:w-1/4">
+          {% set image = TimberImage(block.image) %}
 
-            {% if image.src %}
-              <img
-                class="pin-l max-w-screen -mx-20"
-                src="{{ image.src | resize(900, 1100) }}"
-                alt="{{ image.alt }}"
-              />
-            {% endif %}
-          </div>
+          {% if image.src %}
+            <img
+              class="pin-l max-w-screen -mx-20"
+              src="{{ image.src | resize(900, 1100) }}"
+              alt="{{ image.alt }}"
+            />
+          {% endif %}
+        </div>
 
-          <div class="px-30 py-50 w-full md:py-75 lg:py-0 lg:w-3/4">
-            {% if block.heading %}
-              <h2 class="heading-6">
-                {{ block.heading }}
-              </h2>
-            {% endif %}
+        <div class="px-30 py-50 w-full md:py-75 lg:py-0 lg:w-3/4">
+          {% if block.heading %}
+            <h2 class="heading-6">
+              {{ block.heading }}
+            </h2>
+          {% endif %}
 
-            {% if block.locations | length %}
-              <ul class="flex flex-wrap -mb-50 -mx-30">
-                {% for location in block.locations %}
-                  <li class="mb-50 px-30 w-full md:w-1/2">
-                    <p>
-                      {{ location.text }}
-                    </p>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </div>
+          {% if block.locations | length %}
+            <ul class="flex flex-wrap -mb-50 -mx-30">
+              {% for location in block.locations %}
+                <li class="mb-50 px-30 w-full md:w-1/2">
+                  <p>
+                    {{ location.text }}
+                  </p>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         </div>
       </div>
     </div>

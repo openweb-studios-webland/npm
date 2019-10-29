@@ -4,7 +4,9 @@ export default class Video {
     this.iframe = this.el.querySelector('iframe')
     this.trigger = this.el.querySelector('[data-video-play]')
 
-    this.attachEventListeners()
+    if (this.trigger) {
+      this.attachEventListeners()
+    }
   }
 
   attachEventListeners = () => {

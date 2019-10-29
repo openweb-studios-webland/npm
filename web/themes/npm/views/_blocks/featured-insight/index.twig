@@ -7,15 +7,15 @@
     <div class="container">
       <div class="flex flex-wrap items-center -mx-30 lg:flex-no-wrap lg:flex-row-reverse">
         <div class="pb-50 px-30 w-full md:pb-75 lg:pb-0 lg:w-1/2">
-          <ul class="flex flex-wrap mb-20 -mx-10 text-gray-a11y text-11">
-            <li class="border-r border-gray-a11y leading-none mb-10 px-10">
+          <div class="flex flex-wrap mb-20 -mx-10 text-gray-a11y text-11">
+            <div class="border-r border-gray-a11y leading-none mb-10 px-10">
               {{ insight.post_type | title }}
-            </li>
+            </div>
 
-            <li class="leading-none mb-10 px-10">
+            <div class="leading-none mb-10 px-10">
               {{ insight.post_date | date('F Y') }}
-            </li>
-          </ul>
+            </div>
+          </div>
 
           <h2 class="heading-3">
             {{ insight.title }}

@@ -1,0 +1,18 @@
+
+{% set block = block ?? null %}
+
+{% if block %}
+  <section class="section" data-label="text">
+    <div class="container">
+      <div class="flex flex-wrap items-center justify-center -mx-30">
+        <div class="px-30 w-full lg:w-7/12">
+          {% if block.text %}
+            <div class="text">
+              {{ block.text}}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}

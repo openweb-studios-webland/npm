@@ -1,4 +1,3 @@
-/*! purgecss start ignore */
 .video {
   @apply h-0
     overflow-hidden
@@ -20,4 +19,3 @@
     opacity-0
     pointer-events-none;
 }
-/*! purgecss end ignore */

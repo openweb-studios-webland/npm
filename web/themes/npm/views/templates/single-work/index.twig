@@ -1,7 +1,7 @@
 {% extends '_layouts/base.twig' %}
 
 {% block content %}
-  <div class="single-work">
+  <div data-label="single-work">
     {% include 'templates/single-work/hero.twig' ignore missing with {
       image: fields.single_image,
       heading: fields.heading,

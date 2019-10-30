@@ -1,7 +1,7 @@
 {% extends '_layouts/base.twig' %}
 
 {% block content %}
-  <div class="audience">
+  <div data-label="audience">
     {% if fields.blocks %}
       {% for block in fields.blocks %}
         {% include '_blocks/' ~ block.acf_fc_layout ~ '/index.twig' ignore missing with {

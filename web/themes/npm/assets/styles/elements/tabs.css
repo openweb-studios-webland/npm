@@ -1,4 +1,3 @@
-/*! purgecss start ignore */
 .tabs-trigger {
   &[aria-expanded="true"] {
     @apply border-b-0;
@@ -71,4 +70,3 @@
     width: 75%;
   }
 }
-/*! purgecss end ignore */

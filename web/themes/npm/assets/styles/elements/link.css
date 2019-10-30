@@ -1,4 +1,3 @@
-/*! purgecss start ignore */
 .link {
   @apply flex
     font-bold
@@ -18,4 +17,3 @@
     @apply ml-10;
   }
 }
-/*! purgecss end ignore */

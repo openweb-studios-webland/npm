@@ -11,7 +11,7 @@
             {% set featured_image = TimberImage(featured_work.featured_image) %}
 
             {% if featured_image %}
-              <img src="{{ featured_image.src | resize(1440, 900, 'center') }}" alt="{{ featured_image.alt }}" />
+              <img src="{{ featured_image.src | resize(1080, 675, 'center') }}" alt="{{ featured_image.alt }}" />
             {% endif %}
           </div>
 

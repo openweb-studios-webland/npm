@@ -94,7 +94,7 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Featured Image',
                 'name' => 'featured_image',
                 'type' => 'image',
-                'instructions' => 'Recommended dimensions are 1440 x 1080.',
+                'instructions' => 'Recommended dimensions are 1080 x 810.',
                 'required' => 0,
                 'conditional_logic' => array(
                     array(

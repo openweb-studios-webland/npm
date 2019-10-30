@@ -13,13 +13,23 @@
 
     <div class="container">
       {% if insights | length %}
-        <div class="flex flex-wrap -mb-40 -mx-30">
-          {% for insight in insights %}
-            <div class="mb-40 px-30 w-full md:w-1/2 lg:w-1/3">
-              {% include '_blocks/insights/insight.twig' ignore missing %}
-            </div>
-          {% endfor %}
-        </div>
+        {% if block.type == 'large' %}
+          <div class="-mb-50">
+            {% for insight in Post(insights) %}
+              <div class="{{ not loop.last ? 'border-b border-gray-border ' }}mb-50 pb-50">
+                {% include '_blocks/insights/insight-large.twig' ignore missing %}
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="flex flex-wrap -mb-50 -mx-30">
+            {% for insight in Post(insights) %}
+              <div class="mb-50 px-30 w-full md:w-1/2 lg:w-1/3">
+                {% include '_blocks/insights/insight-small.twig' ignore missing %}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
       {% endif %}
     </div>
   </section>

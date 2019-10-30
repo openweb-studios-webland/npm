@@ -2,7 +2,7 @@
   {% set image = TimberImage(featured_content.image) %}
 
   {% if image.src %}
-    <img src="{{ image.src | resize(1440, 900, 'center') }}" alt="{{ image.alt }}" />
+    <img src="{{ image.src | resize(1080, 675, 'center') }}" alt="{{ image.alt }}" />
   {% endif %}
 
   <div class="p-30 lg:py-50">

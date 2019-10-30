@@ -39,7 +39,7 @@
                         {% set image = TimberImage(image) %}
 
                         {% if image.src %}
-                          <img src="{{ image.src | resize(1440, 810, 'center') }}" alt="{{ image.alt }}" />
+                          <img src="{{ image.src | resize(1080, 607, 'center') }}" alt="{{ image.alt }}" />
                         {% endif %}
                       </div>
                     {% endfor %}
@@ -52,7 +52,7 @@
               {% if image.src %}
                 <img
                   class="pin-r -mx-20 w-screen-7/12 max:mx-0"
-                  src="{{ image.src | resize(1440, 810, 'center') }}"
+                  src="{{ image.src | resize(1080, 607, 'center') }}"
                   alt="{{ image.alt }}"
                 />
               {% endif %}

@@ -3,8 +3,8 @@
 if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
-        'key' => 'group_5db8qar552293c',
-        'title' => 'Text with Image',
+        'key' => 'group_z95076jgklccr',
+        'title' => 'Text with Call to Action',
         'fields' => array(
             array(
                 'key' => 'field_5db871zfa24e1',
@@ -28,10 +28,10 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'prefix_name' => 1,
             ),
             array(
-                'key' => 'field_5db8zz9fa24df',
-                'label' => 'Image',
-                'name' => 'image',
-                'type' => 'image',
+                'key' => 'field_axjjjbbdj07dr',
+                'label' => 'Call to Action',
+                'name' => 'call_to_action',
+                'type' => 'post_object',
                 'instructions' => '',
                 'required' => 0,
                 'conditional_logic' => 0,
@@ -40,19 +40,17 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                     'class' => '',
                     'id' => '',
                 ),
-                'return_format' => 'array',
-                'preview_size' => 'thumbnail',
-                'library' => 'all',
-                'min_width' => '',
-                'min_height' => '',
-                'min_size' => '',
-                'max_width' => '',
-                'max_height' => '',
-                'max_size' => '',
-                'mime_types' => '',
+                'post_type' => array(
+                    0 => 'call-to-action',
+                ),
+                'taxonomy' => '',
+                'allow_null' => 0,
+                'multiple' => 0,
+                'return_format' => 'object',
+                'ui' => 1,
             ),
             array(
-                'key' => 'field_5dd47097a24de',
+                'key' => 'field_gzjqq5gt5dsmo',
                 'label' => 'Text',
                 'name' => 'text',
                 'type' => 'wysiwyg',

@@ -22,6 +22,7 @@ if (function_exists('acf_add_local_field_group')):
                 'layouts' => array(
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero-single-report'),
                     acf_dynamic_clones_get_local_field_group('Images', 'images'),
+                    acf_dynamic_clones_get_local_field_group('Insights', 'insights'),
                     acf_dynamic_clones_get_local_field_group('Text', 'text'),
                     acf_dynamic_clones_get_local_field_group('Text with Image', 'text-with-image'),
                     acf_dynamic_clones_get_local_field_group('Videos', 'videos'),
@@ -67,7 +68,7 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Featured Image',
                 'name' => 'featured_image',
                 'type' => 'image',
-                'instructions' => 'Recommended dimensions are 1440 x 810.',
+                'instructions' => 'Recommended dimensions are 1080 x 607.',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -78,8 +79,8 @@ if (function_exists('acf_add_local_field_group')):
                 'return_format' => 'array',
                 'preview_size' => 'thumbnail',
                 'library' => 'all',
-                'min_width' => 1440,
-                'min_height' => 810,
+                'min_width' => 1080,
+                'min_height' => 607,
                 'min_size' => '',
                 'max_width' => '',
                 'max_height' => '',

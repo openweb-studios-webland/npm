@@ -1,0 +1,36 @@
+
+{% set block = block ?? null %}
+
+{% if block %}
+  <section class="section" data-label="text-with-image">
+    <div class="container-md">
+      <div class="{{ block.alignment_select == 'left' ? 'lg:flex-row-reverse ' }}flex flex-wrap items-center -mb-50 -mx-30 lg:flex-no-wrap">
+        {% if block.text %}
+          <div class="mb-50 px-30 w-full lg:w-1/2">
+            <div class="text">
+              {{ block.text }}
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="mb-50 px-30 w-full lg:w-1/2">
+          <div class="border border-gray-border p-30 text-center lg:p-50">
+            {% set call_to_action = Post(block.call_to_action) %}
+
+            {% if call_to_action.heading %}
+              <h2 class="heading-5 mb-0">
+                {{ call_to_action.heading }}
+              </h2>
+            {% endif %}
+
+            {% if call_to_action.button_link and call_to_action.button_text %}
+              <a class="button-outline-crimson mt-25 lg:mt-30" href="{{ call_to_action.button_link }}">
+                {{ call_to_action.button_text }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}

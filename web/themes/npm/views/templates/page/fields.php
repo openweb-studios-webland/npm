@@ -24,6 +24,7 @@ if (function_exists('acf_add_local_field_group')):
                     acf_dynamic_clones_get_local_field_group('Images', 'images'),
                     acf_dynamic_clones_get_local_field_group('Insights', 'insights'),
                     acf_dynamic_clones_get_local_field_group('Text', 'text'),
+                    acf_dynamic_clones_get_local_field_group('Text with Call to Action', 'text-with-call-to-action'),
                     acf_dynamic_clones_get_local_field_group('Text with Image', 'text-with-image'),
                     acf_dynamic_clones_get_local_field_group('Videos', 'videos'),
                 ),

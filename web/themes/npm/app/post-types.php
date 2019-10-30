@@ -27,8 +27,8 @@ function npm_register_post_types()
             'labels' => npm_create_post_type_labels('Calls to Action', 'Call to Action'),
             'has_archive' => false,
             'menu_icon' => '',
-            'public' => true,
-            'publicly_queryable' => false,
+            'public' => false,
+            'show_ui' => true,
         )
     );
 
@@ -59,8 +59,8 @@ function npm_register_post_types()
             'labels' => npm_create_post_type_labels('Programs', 'Program'),
             'has_archive' => false,
             'menu_icon' => '',
-            'public' => true,
-            'publicly_queryable' => false,
+            'public' => false,
+            'show_ui' => true,
             'taxonomies' => array('topic'),
         )
     );
@@ -81,7 +81,6 @@ function npm_register_post_types()
             'has_archive' => false,
             'menu_icon' => '',
             'public' => true,
-            'publicly_queryable' => false,
         )
     );
 
@@ -90,8 +89,8 @@ function npm_register_post_types()
             'labels' => npm_create_post_type_labels('Testimonials', 'Testimonial'),
             'has_archive' => false,
             'menu_icon' => '',
-            'public' => true,
-            'publicly_queryable' => false,
+            'public' => false,
+            'show_ui' => true,
         )
     );
 

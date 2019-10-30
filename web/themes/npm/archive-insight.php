@@ -6,11 +6,14 @@
 
 global $paged;
 
-$pages = get_query_var('paged') ? get_query_var('paged') : 1;
+$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 $context = Timber::get_context();
 $args = array(
     'posts_per_page' => 9,
-    'post_type' => 'insight',
+    'post_type' => array(
+        'insight',
+        'report',
+    ),
     'paged' => $paged,
 );
 $context['insights'] = new Timber\PostQuery($args);

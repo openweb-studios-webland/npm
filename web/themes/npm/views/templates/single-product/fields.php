@@ -63,8 +63,8 @@ if (function_exists('acf_add_local_field_group')):
         'fields' => array(
             array(
                 'key' => 'field_5dae258065d0f',
-                'label' => 'Subheading',
-                'name' => 'subheading',
+                'label' => 'Variants',
+                'name' => 'variants',
                 'type' => 'text',
                 'instructions' => '',
                 'required' => 0,

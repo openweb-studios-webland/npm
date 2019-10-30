@@ -1,38 +1,39 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section -mb-50" data-label="hero-single-insight">
-    <div class="container pb-50">
-      <div class="heading-6 mb-20">
-        Insights
-      </div>
-
-      <h1 class="heading-2">
-        {{ post.title }}
-      </h1>
-
-      <div class="flex flex-wrap mb-5 -mx-10 text-gray-a11y text-11">
-        <div class="border-r border-gray-a11y leading-none mb-10 px-10">
-          {{ post.post_type | title }}
+  <section class="section" data-label="hero-single-insight">
+    <div class="-mb-50">
+      <div class="container pb-50">
+        <div class="heading-6 mb-20">
+          Insights
         </div>
 
-        <div class="leading-none mb-10 px-10">
-          {{ post.post_date | date('F Y') }}
+        <h1 class="heading-2">
+          {{ post.title }}
+        </h1>
+
+        <div class="flex flex-wrap mb-5 -mx-10 text-gray-a11y text-11">
+          <div class="border-r border-gray-a11y leading-none mb-10 px-10">
+            {{ post.post_type | title }}
+          </div>
+
+          <div class="leading-none mb-10 px-10">
+            {{ post.post_date | date('F Y') }}
+          </div>
         </div>
       </div>
-    </div>
 
-    {% set image = TimberImage(block.image) %}
+      {% set image = TimberImage(block.image) %}
 
-    {% if image.src %}
-      <div class="container-lg pb-50">
-        <div class="-mx-20 lg:mx-0">
+      {% if image.src %}
+        <div class="container-lg pb-50">
           <img
+            class="max-w-screen -mx-20 lg:max-w-full lg:mx-0"
             src="{{ image.src | resize(1920, 800, 'center') }}"
             alt="{{ image.alt }}"
           />
         </div>
-      </div>
-    {% endif %}
+      {% endif %}
+    </div>
   </section>
 {% endif %}

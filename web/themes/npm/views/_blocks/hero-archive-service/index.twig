@@ -1,11 +1,11 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  {% set background_image = TimberImage(block.background_image) %}
+  {% set image = TimberImage(block.background_image) %}
 
   <section
     class="section bg-cover relative text-white lg:-mb-50"
-    style="background-image: url('{{ background_image.src | resize(1920, 700, 'center') }}');"
+    style="background-image: url('{{ image.src | resize(1920, 700, 'center') }}');"
     data-label="hero-services"
   >
     <div class="absolute bg-black inset-0 opacity-90"></div>

@@ -49,8 +49,22 @@ $field_group = array(
                 'value' => 'format',
             ),
         ),
+        array(
+            array(
+                'param' => 'post_type',
+                'operator' => '==',
+                'value' => 'insight',
+            ),
+        ),
+        array(
+            array(
+                'param' => 'post_type',
+                'operator' => '==',
+                'value' => 'report',
+            ),
+        ),
     ),
-    'menu_order' => 1,
+    'menu_order' => 10,
     'position' => 'acf_after_title',
     'style' => 'default',
     'label_placement' => 'top',

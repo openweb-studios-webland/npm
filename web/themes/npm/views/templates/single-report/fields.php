@@ -3,6 +3,62 @@
 if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
+        'key' => 'group_2ve39erxvi7lk',
+        'title' => 'Report Single',
+        'fields' => array(
+            array(
+                'key' => 'field_2s8fmdb57ibbz',
+                'label' => 'Blocks',
+                'name' => 'blocks',
+                'type' => 'flexible_content',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'layouts' => array(
+                    acf_dynamic_clones_get_local_field_group('Hero', 'hero-single-report'),
+                    acf_dynamic_clones_get_local_field_group('Images', 'images'),
+                    acf_dynamic_clones_get_local_field_group('Text', 'text'),
+                    acf_dynamic_clones_get_local_field_group('Text with Image', 'text-with-image'),
+                    acf_dynamic_clones_get_local_field_group('Videos', 'videos'),
+                ),
+                'button_label' => 'Add Block',
+                'min' => '',
+                'max' => '',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'report',
+                ),
+            ),
+        ),
+        'menu_order' => 1,
+        'position' => 'acf_after_title',
+        'style' => 'seamless',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => array(
+            0 => 'the_content',
+            1 => 'excerpt',
+            2 => 'discussion',
+            3 => 'comments',
+            4 => 'featured_image',
+            5 => 'slug',
+            6 => 'author',
+        ),
+        'active' => 1,
+        'description' => '',
+    ));
+
+    acf_add_local_field_group(array(
         'key' => 'group_5db8561f7644b',
         'title' => 'Report Archive',
         'fields' => array(
@@ -11,7 +67,7 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Featured Image',
                 'name' => 'featured_image',
                 'type' => 'image',
-                'instructions' => 'Recommended dimensions are 1440 x 1080.',
+                'instructions' => 'Recommended dimensions are 1440 x 810.',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -23,7 +79,7 @@ if (function_exists('acf_add_local_field_group')):
                 'preview_size' => 'thumbnail',
                 'library' => 'all',
                 'min_width' => 1440,
-                'min_height' => 1080,
+                'min_height' => 810,
                 'min_size' => '',
                 'max_width' => '',
                 'max_height' => '',
@@ -53,6 +109,25 @@ if (function_exists('acf_add_local_field_group')):
                 'max_height' => '',
                 'max_size' => '',
                 'mime_types' => '',
+            ),
+            array(
+                'key' => 'field_5db9b7cb3af1b',
+                'label' => 'Download',
+                'name' => 'download',
+                'type' => 'file',
+                'instructions' => 'Allowed file type is PDF.',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'return_format' => 'array',
+                'library' => 'all',
+                'min_size' => '',
+                'max_size' => '',
+                'mime_types' => 'pdf',
             ),
             array(
                 'key' => 'field_5db85694b3541',

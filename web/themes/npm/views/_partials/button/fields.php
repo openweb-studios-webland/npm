@@ -30,7 +30,7 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Link',
                 'name' => 'link',
                 'type' => 'text',
-                'instructions' => '',
+                'instructions' => 'If applicable, will default to the post link.',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(

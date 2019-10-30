@@ -3,7 +3,9 @@
 
 <div class="aspect-ratio-16/9 overflow-hidden relative" data-module="audio">
   <div class="absolute flex flex-col justify-center inset-0 p-10">
-    <div data-audio-player data-audio-source="{{ audio.url }}"></div>
+    {% if audio.url %}
+      <div data-audio-player data-audio-source="{{ audio.url }}"></div>
+    {% endif %}
 
     <div class="flex items-center mt-10 -mx-5">
       <div class="px-5">

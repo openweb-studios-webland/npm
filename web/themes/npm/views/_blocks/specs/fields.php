@@ -209,7 +209,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 				'label' => 'Specs Download',
 				'name' => 'specs_download',
 				'type' => 'file',
-				'instructions' => '',
+				'instructions' => 'Allowed file type is PDF.',
 				'required' => 0,
 				'conditional_logic' => 0,
 				'wrapper' => array(
@@ -228,7 +228,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 				'label' => 'Guidelines Download',
 				'name' => 'guidelines_download',
 				'type' => 'file',
-				'instructions' => '',
+				'instructions' => 'Allowed file type is PDF.',
 				'required' => 0,
 				'conditional_logic' => 0,
 				'wrapper' => array(

@@ -25,13 +25,11 @@
             </h2>
           {% endif %}
 
-          {% if block.locations | length %}
+          {% if globals.locations | length %}
             <ul class="flex flex-wrap -mb-50 -mx-30">
-              {% for location in block.locations %}
-                <li class="mb-50 px-30 w-full md:w-1/2">
-                  <p>
-                    {{ location.text }}
-                  </p>
+              {% for location in globals.locations %}
+                <li class="text mb-50 px-30 w-full md:w-1/2">
+                  {{ location.text }}
                 </li>
               {% endfor %}
             </ul>

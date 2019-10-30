@@ -43,11 +43,9 @@
             </div>
           {% endif %}
 
-          {% set download = post.get_field('download') %}
-
-          {% if download.url %}
-            <a class="button mt-25 lg:mt-30" href="{{ download.url }}" download>
-              Download the Report ({{ download.subtype | upper }})
+          {% if fields.download.url %}
+            <a class="button mt-25 lg:mt-30" href="{{ fields.download.url }}" download>
+              Download the Report ({{ fields.download.subtype | upper }})
             </a>
           {% endif %}
         </div>

@@ -197,25 +197,25 @@
     },
     {
         "name": "johnpbloch/wordpress",
-        "version": "5.2.3",
-        "version_normalized": "5.2.3.0",
+        "version": "5.2.4",
+        "version_normalized": "5.2.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/johnpbloch/wordpress.git",
-            "reference": "e39361341439df042ace80ba9445b3e0acb87215"
+            "reference": "33fca34d16818a8d893d374eecd5c8c46cab6e88"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/e39361341439df042ace80ba9445b3e0acb87215",
-            "reference": "e39361341439df042ace80ba9445b3e0acb87215",
+            "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/33fca34d16818a8d893d374eecd5c8c46cab6e88",
+            "reference": "33fca34d16818a8d893d374eecd5c8c46cab6e88",
             "shasum": ""
         },
         "require": {
-            "johnpbloch/wordpress-core": "5.2.3",
+            "johnpbloch/wordpress-core": "5.2.4",
             "johnpbloch/wordpress-core-installer": "^1.0",
             "php": ">=5.6.20"
         },
-        "time": "2019-09-05T01:17:14+00:00",
+        "time": "2019-10-14T20:47:31+00:00",
         "type": "package",
         "installation-source": "dist",
         "notification-url": "https://packagist.org/downloads/",
@@ -238,26 +238,26 @@
     },
     {
         "name": "johnpbloch/wordpress-core",
-        "version": "5.2.3",
-        "version_normalized": "5.2.3.0",
+        "version": "5.2.4",
+        "version_normalized": "5.2.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/johnpbloch/wordpress-core.git",
-            "reference": "455a884ce96b042602d1eb04fdf2b8e003be0eef"
+            "reference": "01530fea56649a4040971fc614baa546273d964c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/455a884ce96b042602d1eb04fdf2b8e003be0eef",
-            "reference": "455a884ce96b042602d1eb04fdf2b8e003be0eef",
+            "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/01530fea56649a4040971fc614baa546273d964c",
+            "reference": "01530fea56649a4040971fc614baa546273d964c",
             "shasum": ""
         },
         "require": {
             "php": ">=5.6.20"
         },
         "provide": {
-            "wordpress/core-implementation": "5.2.3"
+            "wordpress/core-implementation": "5.2.4"
         },
-        "time": "2019-09-05T01:17:09+00:00",
+        "time": "2019-10-14T20:47:26+00:00",
         "type": "wordpress-core",
         "installation-source": "dist",
         "notification-url": "https://packagist.org/downloads/",
@@ -328,6 +328,35 @@
         "keywords": [
             "wordpress"
         ]
+    },
+    {
+        "name": "manuelodelain/svg-twig-extension",
+        "version": "0.1",
+        "version_normalized": "0.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/manuelodelain/svg-twig-extension.git",
+            "reference": "7850120e4c93165828cc6c8d8da9ba7f0991b7dd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/manuelodelain/svg-twig-extension/zipball/7850120e4c93165828cc6c8d8da9ba7f0991b7dd",
+            "reference": "7850120e4c93165828cc6c8d8da9ba7f0991b7dd",
+            "shasum": ""
+        },
+        "require-dev": {
+            "twig/twig": "~1.0"
+        },
+        "time": "2017-11-13T13:15:05+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "manuelodelain\\Twig\\Extension\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "description": "Add inline svg with Twig"
     },
     {
         "name": "oscarotero/env",
@@ -428,17 +457,17 @@
     },
     {
         "name": "squizlabs/php_codesniffer",
-        "version": "3.4.2",
-        "version_normalized": "3.4.2.0",
+        "version": "3.5.1",
+        "version_normalized": "3.5.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-            "reference": "b8a7362af1cc1aadb5bd36c3defc4dda2cf5f0a8"
+            "reference": "82cd0f854ceca17731d6d019c7098e3755c45060"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/b8a7362af1cc1aadb5bd36c3defc4dda2cf5f0a8",
-            "reference": "b8a7362af1cc1aadb5bd36c3defc4dda2cf5f0a8",
+            "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/82cd0f854ceca17731d6d019c7098e3755c45060",
+            "reference": "82cd0f854ceca17731d6d019c7098e3755c45060",
             "shasum": ""
         },
         "require": {
@@ -450,7 +479,7 @@
         "require-dev": {
             "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
         },
-        "time": "2019-04-10T23:49:02+00:00",
+        "time": "2019-10-16T21:14:26+00:00",
         "bin": [
             "bin/phpcs",
             "bin/phpcbf"
@@ -600,16 +629,16 @@
     },
     {
         "name": "wpackagist-plugin/duracelltomi-google-tag-manager",
-        "version": "1.10",
-        "version_normalized": "1.10.0.0",
+        "version": "1.10.1",
+        "version_normalized": "1.10.1.0",
         "source": {
             "type": "svn",
             "url": "https://plugins.svn.wordpress.org/duracelltomi-google-tag-manager/",
-            "reference": "tags/1.10"
+            "reference": "tags/1.10.1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://downloads.wordpress.org/plugin/duracelltomi-google-tag-manager.1.10.zip"
+            "url": "https://downloads.wordpress.org/plugin/duracelltomi-google-tag-manager.1.10.1.zip"
         },
         "require": {
             "composer/installers": "~1.0"
@@ -617,6 +646,26 @@
         "type": "wordpress-plugin",
         "installation-source": "dist",
         "homepage": "https://wordpress.org/plugins/duracelltomi-google-tag-manager/"
+    },
+    {
+        "name": "wpackagist-plugin/intuitive-custom-post-order",
+        "version": "3.1.2",
+        "version_normalized": "3.1.2.0",
+        "source": {
+            "type": "svn",
+            "url": "https://plugins.svn.wordpress.org/intuitive-custom-post-order/",
+            "reference": "tags/3.1.2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://downloads.wordpress.org/plugin/intuitive-custom-post-order.3.1.2.zip"
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "https://wordpress.org/plugins/intuitive-custom-post-order/"
     },
     {
         "name": "wpackagist-plugin/safe-svg",
@@ -640,16 +689,16 @@
     },
     {
         "name": "wpackagist-plugin/timber-library",
-        "version": "1.11.0",
-        "version_normalized": "1.11.0.0",
+        "version": "1.12.0",
+        "version_normalized": "1.12.0.0",
         "source": {
             "type": "svn",
             "url": "https://plugins.svn.wordpress.org/timber-library/",
-            "reference": "tags/1.11.0"
+            "reference": "tags/1.12.0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://downloads.wordpress.org/plugin/timber-library.1.11.0.zip"
+            "url": "https://downloads.wordpress.org/plugin/timber-library.1.12.0.zip"
         },
         "require": {
             "composer/installers": "~1.0"
@@ -660,16 +709,16 @@
     },
     {
         "name": "wpackagist-plugin/wordpress-seo",
-        "version": "12.1",
-        "version_normalized": "12.1.0.0",
+        "version": "12.3",
+        "version_normalized": "12.3.0.0",
         "source": {
             "type": "svn",
             "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-            "reference": "tags/12.1"
+            "reference": "tags/12.3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://downloads.wordpress.org/plugin/wordpress-seo.12.1.zip"
+            "url": "https://downloads.wordpress.org/plugin/wordpress-seo.12.3.zip"
         },
         "require": {
             "composer/installers": "~1.0"

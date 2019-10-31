@@ -11,6 +11,10 @@ class ComposerStaticInit70f233f6f63de92e8648486244ec5653
     );
 
     public static $prefixLengthsPsr4 = array (
+        'm' => 
+        array (
+            'manuelodelain\\Twig\\Extension\\' => 29,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
@@ -30,6 +34,10 @@ class ComposerStaticInit70f233f6f63de92e8648486244ec5653
     );
 
     public static $prefixDirsPsr4 = array (
+        'manuelodelain\\Twig\\Extension\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/manuelodelain/svg-twig-extension/src',
+        ),
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',

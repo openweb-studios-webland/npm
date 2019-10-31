@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'manuelodelain\\Twig\\Extension\\' => array($vendorDir . '/manuelodelain/svg-twig-extension/src'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
     'FFraenz\\PrivateComposerInstaller\\' => array($vendorDir . '/ffraenz/private-composer-installer/src/PrivateComposerInstaller'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),

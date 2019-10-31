@@ -76,7 +76,7 @@ class Site extends Timber\Site
 
         wp_enqueue_script('npm-scripts', get_template_directory_uri() . npm_get_asset_path('main.js'), array(), false, true);
 
-        if (WP_ENV !== 'dev' && WP_ENV !== 'development') {
+        if ($_ENV['PANTHEON_ENVIRONMENT'] || (WP_ENV !== 'dev' && WP_ENV !== 'development')) {
             wp_enqueue_style('npm-styles', get_template_directory_uri() . npm_get_asset_path('main.css'));
         }
 

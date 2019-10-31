@@ -6,7 +6,7 @@
       {% if block.audiences | length %}
         {% set uid = random() %}
 
-        <div class="flex flex-wrap relative">
+        <div class="flex flex-wrap relative lg:flex-no-wrap">
           <div class="relative text-white lg:w-1/4" data-module="tabs" data-tabs-to-accordion="true">
             <div class="pin-l absolute bg-gradient hidden inset-y-0 lg:block"></div>
 
@@ -29,6 +29,7 @@
                       {{ svg('accordion', { classes: 'ml-10 lg:hidden' }) }}
                       {{ svg('tabs', { classes: 'absolute hidden inset-y-0 right-0 text-white translate-l-full' }) }}
                     </button>
+
                     <div
                       id="{{ uid }}{{ loop.index }}"
                       class="tabs-target border-b border-white-semi-opaque lg:border-b-0"

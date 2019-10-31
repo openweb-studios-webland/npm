@@ -27,13 +27,13 @@
         {% if block.images | length %}
           <div class="mb-50 px-30 w-full lg:w-1/2">
             {% if block.images | length > 1 %}
-              <div class="pin-r -mx-20 w-screen-7/12 max:mx-0">
+              <div class="pin-r -mx-20 max:mx-0 max:w-screen-7/12">
                 <div
-                  class="overflow-x-hidden relative"
+                  class="overflow-x-hidden"
                   data-module="carousel"
                   data-carousel-autoplay="true"
                 >
-                  <div class="carousel-track flex" data-carousel-track>
+                  <div class="carousel-track flex relative" data-carousel-track>
                     {% for image in block.images %}
                       <div class="flex-0 w-full" data-carousel-item>
                         {% set image = TimberImage(image) %}
@@ -51,7 +51,7 @@
 
               {% if image.src %}
                 <img
-                  class="pin-r -mx-20 w-screen-7/12 max:mx-0"
+                  class="pin-r -mx-20 max:mx-0 max:w-screen-7/12"
                   src="{{ image.src | resize(1080, 607, 'center') }}"
                   alt="{{ image.alt }}"
                 />

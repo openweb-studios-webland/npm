@@ -13,7 +13,7 @@ $args = array(
     'post_type' => 'work',
     'paged' => $paged,
 );
-$context['work'] = new Timber\PostQuery($args);
+$context['work'] = Timber::get_posts($args);
 $context['fields'] = get_fields();
 
 if ($paged > 1) {

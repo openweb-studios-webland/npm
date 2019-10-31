@@ -13,7 +13,7 @@ $args = array(
         ),
     ),
 );
-$context['insights'] = new Timber\PostQuery($args);
+$context['insights'] = Timber::get_posts($args);
 $context['fields'] = get_fields("term_{$term_id}");
 
 Timber::render('templates/taxonomy-platform/index.twig', $context);

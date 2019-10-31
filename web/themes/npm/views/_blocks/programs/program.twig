@@ -59,7 +59,7 @@
         Runs on
       </h4>
       <p class="font-bold mb-20">
-        {% for platform in Post(program.platforms) %}
+        {% for platform in program.platforms %}
           {{ loop.last ? platform.title : platform.title ~ ', ' }}
         {% endfor %}
       </p>

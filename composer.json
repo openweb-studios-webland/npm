@@ -66,7 +66,8 @@
   "scripts": {
     "pre-update-cmd": [
       "php -r \"!file_exists('web/wp') ? mkdir('web/wp') : null;\"",
-      "php -r \"!file_exists('web/plugins') ? mkdir('web/plugins') : null;\""
+      "php -r \"!file_exists('web/plugins') ? mkdir('web/plugins') : null;\"",
+      "php -r \"!file_exists('web/wp-content') ? mkdir('web/wp-content') : null;\""
     ]
   }
 }

@@ -5,7 +5,7 @@
     {% if block.testimonials | length %}
       <div class="relative overflow-x-hidden" data-module="carousel">
         <div class="carousel-track flex relative" data-carousel-track>
-          {% for testimonial in Post(block.testimonials) %}
+          {% for testimonial in block.testimonials %}
             <div class="flex-0 w-full" data-carousel-item>
               <div class="container">
                 {% include '_blocks/testimonials/testimonial.twig' ignore missing %}

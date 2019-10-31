@@ -15,6 +15,8 @@ $args = array(
         'report',
     ),
     'paged' => $paged,
+    'meta_key' => 'appears_on',
+    'meta_value' => 'insights',
 );
 $context['insights'] = new Timber\PostQuery($args);
 $context['fields'] = get_fields();

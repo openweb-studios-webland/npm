@@ -15,7 +15,7 @@ Timber::render('templates/single.twig', $context);
  * );
  *
  * Sidebar ex:
- * $context['sidebar']['posts'] = new Timber\PostQuery(
+ * $context['sidebar']['posts'] = Timber::get_posts(
  *   array(
  *     'posts_per_page' => 3,
  *     'post__not_in' => array(1),

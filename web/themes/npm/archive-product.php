@@ -102,7 +102,7 @@ if (count($context['current_platforms']['parents']) > 0) {
     }
 }
 
-$context['products'] = new Timber\PostQuery($args);
+$context['products'] = Timber::get_posts($args);
 $context['fields'] = get_fields();
 
 Timber::render('templates/archive-product/index.twig', $context);

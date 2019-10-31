@@ -164,38 +164,6 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 								'mime_types' => '',
 							),
 							array(
-								'key' => 'field_5db361fc19c07',
-								'label' => 'Thumbnail Image',
-								'name' => 'thumbnail_image',
-								'type' => 'image',
-								'instructions' => 'Recommended dimensions are 150 x 150',
-								'required' => 0,
-								'conditional_logic' => array(
-									array(
-										array(
-											'field' => 'field_5db3610e19c03',
-											'operator' => '==',
-											'value' => 'audio',
-										),
-									),
-								),
-								'wrapper' => array(
-									'width' => '',
-									'class' => '',
-									'id' => '',
-								),
-								'return_format' => 'array',
-								'preview_size' => 'thumbnail',
-								'library' => 'all',
-								'min_width' => 150,
-								'min_height' => 150,
-								'min_size' => '',
-								'max_width' => '',
-								'max_height' => '',
-								'max_size' => '',
-								'mime_types' => '',
-							),
-							array(
 								'key' => 'field_5db361b819c06',
 								'label' => 'Audio',
 								'name' => 'audio',
@@ -221,6 +189,36 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 								'min_size' => '',
 								'max_size' => '',
 								'mime_types' => 'mp3, wav',
+							),
+							array(
+								'key' => 'field_5dbb58d2667ca',
+								'label' => 'Program',
+								'name' => 'program',
+								'type' => 'post_object',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => array(
+									array(
+										array(
+											'field' => 'field_5db3610e19c03',
+											'operator' => '==',
+											'value' => 'audio',
+										),
+									),
+								),
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'post_type' => array(
+									0 => 'program',
+								),
+								'taxonomy' => '',
+								'allow_null' => 0,
+								'multiple' => 0,
+								'return_format' => 'object',
+								'ui' => 1,
 							),
 							array(
 								'key' => 'field_5db3622419c08',

@@ -45,6 +45,8 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
         }
     }
 
+    define('WP_ENV', $_ENV['PANTHEON_ENVIRONMENT']);
+
     define('WP_HOME',    $scheme . '://' . $_SERVER['HTTP_HOST']);
     define('WP_SITEURL', $scheme . '://' . $_SERVER['HTTP_HOST'] . '/wp');
 

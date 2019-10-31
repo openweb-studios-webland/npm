@@ -65,6 +65,7 @@ module.exports = {
           extensions: [TEMPLATE_EXT],
         },
       ],
+      whitelist: ['float-right', 'min-w-0'],
     }),
     cssnano({
       preset: 'default',

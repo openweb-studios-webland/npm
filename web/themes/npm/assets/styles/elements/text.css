@@ -48,6 +48,24 @@
     left: 50%;
     max-width: 960px;
     transform: translateX(-50%);
+
+    &.alignleft,
+    &.alignright {
+      @apply left-auto
+        mb-30;
+      transform: none;
+      width: 50%;
+    }
+
+    &.alignleft {
+      @apply float-left
+        mr-30;
+    }
+
+    &.alignright {
+      @apply float-right
+        ml-30;
+    }
   }
 
   & blockquote,

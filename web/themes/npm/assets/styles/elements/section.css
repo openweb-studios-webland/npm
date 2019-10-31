@@ -9,3 +9,19 @@
     @apply py-100;
   }
 }
+
+main section:last-child:not([class*="bg-"]) {
+  @apply relative;
+
+  &::before {
+    @apply absolute
+      bg-gray-border
+      bottom-0
+      w-full;
+    content: "";
+    height: 1px;
+    left: 50%;
+    max-width: 1160px;
+    transform: translateX(-50%);
+  }
+}

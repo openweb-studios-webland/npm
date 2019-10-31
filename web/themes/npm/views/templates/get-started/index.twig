@@ -2,8 +2,12 @@
 
 {% block content %}
   <div data-label="get-started">
-    <div class="section">
+    <section class="section">
       <div class="container">
+        <h1 class="heading-3">
+          {{ post.title }}
+        </h1>
+
         <div class="flex flex-wrap -mb-50 -mx-30">
           {% if fields.embed %}
             <div class="mb-50 px-30 w-full lg:w-2/3">
@@ -13,6 +17,10 @@
 
           <div class="mb-50 px-30 w-full lg:w-1/3">
             <aside class="bg-gray p-30">
+              <h2 class="heading-6">
+                Our Offices
+              </h2>
+
               {% if globals.locations | length %}
                 <ul class="-mb-30">
                   {% for location in globals.locations %}
@@ -26,6 +34,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 {% endblock %}

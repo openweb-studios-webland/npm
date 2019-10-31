@@ -47,7 +47,7 @@
   }
 }
 
-.specs .tabs-triggers {
+.spec-groups .tabs-triggers {
   &[aria-expanded="true"]::before {
     @apply block;
   }

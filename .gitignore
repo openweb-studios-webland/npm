@@ -23,7 +23,7 @@ yarn-error.log
 # WordPress
 license.txt
 !web/wp
-# web/uploads
+web/wp-content/uploads
 web/blogs.dir
 web/upgrade/*
 web/backup-db/*

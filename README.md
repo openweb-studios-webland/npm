@@ -88,7 +88,7 @@ Before deploying, you'll need to set up a couple things.
 2. Add the Pantheon repo as a git remote:
 
     ```
-    git remote add ssh://codeserver.dev.5fe26cf4-6978-4e0f-8bd1-6eeca8a290ac@codeserver.dev.5fe26cf4-6978-4e0f-8bd1-6eeca8a290ac.drush.in:2222/~/repository.git pantheon
+    git remote add pantheon ssh://codeserver.dev.5fe26cf4-6978-4e0f-8bd1-6eeca8a290ac@codeserver.dev.5fe26cf4-6978-4e0f-8bd1-6eeca8a290ac.drush.in:2222/~/repository.git
     ```
 
 ### Deploying to `Dev`

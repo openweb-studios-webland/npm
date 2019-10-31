@@ -35,7 +35,7 @@ web/cache/supercache/*
 !web/mu-plugins/mu-autoloader.php
 !web/mu-plugins/acf-dynamic-clones
 !web/plugins
-web/themes/**/build
+# web/themes/**/build
 
 # WP Engine
 .smushit-status

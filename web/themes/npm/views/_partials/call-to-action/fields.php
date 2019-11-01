@@ -44,9 +44,9 @@ $field_group = array(
         ),
         array(
             array(
-                'param' => 'post_type',
+                'param' => 'taxonomy',
                 'operator' => '==',
-                'value' => 'format',
+                'value' => 'post_format',
             ),
         ),
         array(

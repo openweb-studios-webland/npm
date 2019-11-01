@@ -4,7 +4,7 @@
   <section class="section" data-label="hero-single-product">
     <div class="container">
       <div class="flex flex-wrap items-center -mx-30">
-        <div class="mb-30 px-30 w-full lg:w-7/12">
+        <div class="mb-30 px-30 w-full{{ block.video or block.audio or block.image.src ? ' lg:w-7/12' : ' lg:w-2/3' }}">
           {% if block.heading %}
             <h1 class="heading-3 mb-10">
               {{ block.heading }}
@@ -36,14 +36,18 @@
         </div>
 
         <div class="px-30 w-full lg:w-5/12">
-          {% if block.video %}
+          {% if block.type == 'video' %}
             {% include '_partials/video.twig' ignore missing with {
               video: block.video,
               image: block.image,
             } only %}
-          {% elseif block.audio %}
+          {% elseif block.type == 'audio' %}
             {% include '_partials/audio.twig' ignore missing with {
               audio: block.audio,
+              image: block.image,
+            } only %}
+          {% else %}
+            {% include '_partials/image.twig' ignore missing with {
               image: block.image,
             } only %}
           {% endif %}

@@ -21,7 +21,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 				),
 				'collapsed' => '',
 				'min' => 0,
-				'max' => 0,
+				'max' => 7,
 				'layout' => 'block',
 				'button_label' => 'Add Spec Group',
 				'sub_fields' => array(

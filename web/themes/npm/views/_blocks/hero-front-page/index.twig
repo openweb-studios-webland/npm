@@ -26,8 +26,8 @@
 
         {% if block.images | length %}
           <div class="mb-50 px-30 w-full lg:w-1/2">
-            {% if block.images | length > 1 %}
-              <div class="pin-r -mx-20 max:mx-0 max:w-screen-7/12">
+            <div class="pin-r -mx-20 lg:mx-0 lg:w-screen-7/12">
+              {% if block.images | length > 1 %}
                 <div
                   class="overflow-x-hidden"
                   data-module="carousel"
@@ -45,17 +45,13 @@
                     {% endfor %}
                   </div>
                 </div>
-              </div>
-            {% else %}
-              {% set image = TimberImage(block.images[0]) %}
+              {% else %}
+                {% set image = TimberImage(block.images[0]) %}
 
-              {% if image.src %}
-                <img
-                  class="pin-r -mx-20 max:mx-0 max:w-screen-7/12"
-                  src="{{ image.src | resize(1080, 607, 'center') }}"
-                  alt="{{ image.alt }}"
-                />
-              {% endif %}
+                {% if image.src %}
+                  <img src="{{ image.src | resize(1080, 607, 'center') }}" alt="{{ image.alt }}" />
+                {% endif %}
+              </div>
             {% endif %}
           </div>
         {% endif %}

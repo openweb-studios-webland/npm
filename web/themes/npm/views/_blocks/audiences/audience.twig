@@ -3,14 +3,14 @@
 {% if image.src %}
   <div class="clearfix">
     <img
-      class="pin-r -mx-20 max:mx-0"
+      class="pin-r -mx-20 lg:mx-0"
       src="{{ image.src | resize(1620, 720, 'center') }}"
       alt="{{ image.alt }}"
     />
   </div>
 {% endif %}
 
-<div class="py-30 md:py-40 lg:pl-60 lg:py-60">
+<div class="py-30 lg:pl-60 lg:py-50">
   {% if audience.heading %}
     <h2 class="heading-3 hidden lg:block">
       {{ audience.heading }}
@@ -34,7 +34,7 @@
   {% endif %}
 
   {% if audience.attribution %}
-    <p class="text mt-20 text-gray-a11y text-11 md:mt-25 lg:mt-30">
+    <p class="text mt-20 text-11 md:mt-25 lg:mt-30">
       {{ audience.attribution }}
     </p>
   {% endif %}

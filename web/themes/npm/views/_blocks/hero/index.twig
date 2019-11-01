@@ -3,7 +3,7 @@
 {% if block %}
   <section class="section pb-0 relative lg:pt-0" data-label="hero">
     <div class="container">
-      <div class="flex flex-wrap items-center -mb-50 -mx-30">
+      <div class="flex flex-wrap items-center -mx-30 lg:-mb-50">
         <div class="mb-50 px-30 w-full lg:py-50 lg:w-7/12">
           {% if block.heading %}
             <h1 class="heading-3">
@@ -29,7 +29,7 @@
         {% if image.src %}
           <div class="px-30 w-full lg:w-5/12">
             <img
-              class="pin-r -mx-20 max:mx-0"
+              class="pin-r -mx-20 lg:mx-0"
               src="{{ image.src | resize(1080, 1080, 'center') }}"
               alt="{{ image.alt }}"
             />

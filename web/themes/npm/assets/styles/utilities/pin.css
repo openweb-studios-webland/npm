@@ -2,21 +2,31 @@
 .pin-r {
   @apply max-w-screen;
 
-  @screen max {
+  @screen lg {
+    width: calc(100% + 30px);
+  }
+
+  @media (min-width: 1200px) {
     width: calc(100% + ((100vw - 1160px) / 2));
   }
 }
 
 .pin-l {
-  @screen max {
+  @screen lg {
     @apply float-left;
+  }
+
+  @media (min-width: 1200px) {
     transform: translateX(calc((1160px - 100vw) / 2));
   }
 }
 
 .pin-r {
-  @screen max {
+  @screen lg {
     @apply float-right;
+  }
+
+  @media (min-width: 1200px) {
     transform: translateX(calc((100vw - 1160px) / 2));
   }
 }

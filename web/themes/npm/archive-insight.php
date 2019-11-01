@@ -9,7 +9,7 @@ global $paged;
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 $context = Timber::get_context();
 $args = array(
-    'posts_per_page' => 9,
+    'posts_per_page' => 6,
     'post_type' => array(
         'insight',
         'report',
@@ -18,7 +18,7 @@ $args = array(
     'meta_key' => 'appears_on',
     'meta_value' => 'insights',
 );
-$context['insights'] = new Timber\PostQuery($args);
+$context['insights'] = Timber::get_posts($args);
 $context['fields'] = get_fields();
 
 if ($paged > 1) {

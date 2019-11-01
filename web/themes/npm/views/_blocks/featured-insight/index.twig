@@ -27,8 +27,8 @@
             </div>
           {% endif %}
 
-          <a class="button mt-25 lg:mt-30" href="{{ insight.button_link ?? insight.link }}">
-            {{ insight.button_text ?? 'Read More' }}
+          <a class="button mt-25 lg:mt-30" href="{{ insight.button_link is not empty ? insight.button_link : insight.link }}">
+            {{ insight.button_text is not empty ? insight.button_text : 'Read More' }}
           </a>
         </div>
 

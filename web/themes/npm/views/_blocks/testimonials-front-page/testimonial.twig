@@ -1,18 +1,18 @@
 <div class="flex flex-wrap items-center -mx-30 lg:flex-no-wrap lg:flex-row-reverse">
-  <div class="px-30 w-full lg:w-1/2">
-    {% set image = TimberImage(testimonial.image) %}
+  {% set image = TimberImage(testimonial.image) %}
 
-    {% if image.src %}
+  {% if image.src %}
+    <div class="px-30 w-full lg:w-1/2">
       <img
         class="pin-r -mx-20 lg:mx-0"
         src="{{ image.src | resize(1080, 1080, 'center') }}"
         alt="{{ image.alt }}"
       />
-    {% endif %}
-  </div>
+    </div>
+  {% endif %}
 
   <div class="px-30 w-full lg:pr-60 lg:w-1/2">
-    <div class="pt-50 text-center text-white lg:py-150 lg:text-left">
+    <div class="mt-50 text-center text-white lg:mt-0 lg:py-100 lg:text-left">
       {% if testimonial.heading %}
         <h2 class="heading-3">
           {{ testimonial.heading }}

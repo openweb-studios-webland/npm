@@ -73,7 +73,7 @@ $ yarn build
 
 ## Deployment
 
-### Things to be aware of
+### Things to Be Aware Of
 
 Pantheon handles deploys by exposing a git repo that you will push to. Pantheon does not allow running any commands on its systems, so the repo must contain all of the final deployed contents. In practice, this means:
 
@@ -87,50 +87,57 @@ Before deploying, you'll need to set up a couple things.
 1. Add your SSH key by signing into Pantheon and finding the _SSH Keys_ section of the user's _Account_ settings.
 2. Add the Pantheon repo as a git remote:
 
-    ```
-    git remote add pantheon ssh://codeserver.dev.5fe26cf4-6978-4e0f-8bd1-6eeca8a290ac@codeserver.dev.5fe26cf4-6978-4e0f-8bd1-6eeca8a290ac.drush.in:2222/~/repository.git
-    ```
+   ```
+   git remote add pantheon ssh://codeserver.dev.5fe26cf4-6978-4e0f-8bd1-6eeca8a290ac@codeserver.dev.5fe26cf4-6978-4e0f-8bd1-6eeca8a290ac.drush.in:2222/~/repository.git
+   ```
 
-### Deploying to `Dev`
+### Deploying to `dev`
 
 To deploy code to Pantheon:
 
 1. If Composer dependencies have been changed, run `composer install` and commit the changes.
 2. Build the production assets and commit them.
-3. Make sure all of your changes are in the `master` branch.
-4. Push your changes to Pantheon:
+3. Make sure all of changes are in the `master` branch.
+4. Push changes to Pantheon:
 
-    ```
-    git push pantheon master
-    ```
-5. Your changes are now live in the `Dev` environment.
+   ```
+   git push pantheon master
+   ```
 
-### Deploying to `Test`/`Live`
+5. Changes are now live in the `dev` environment.
 
-To get your changes to the `Test` or `Live` environments, you must first push your changes to `Dev`, then deploy those changes to the other environments using the Pantheon dashboard.
+Expedite the `dev` deploy (includes `yarn build`):
 
-To deploy your changes to `Test`:
+```bash
+$ yarn deploy
+```
 
-1. Push your changes to `Dev`.
+### Deploying to `test`/`live`
+
+To get changes to the `test` or `live` environments, you must first push changes to `dev`, then deploy those changes to the other environments using the Pantheon dashboard.
+
+To deploy changes to `test`:
+
+1. Push changes to `dev`.
 2. In the Pantheon dashboard, click the "Test" tab and click "Deploys" in the sidebar.
-3. You will see a form where you can deploy the new commits from `Dev` to `Test`.
+3. You will see a form where you can deploy the new commits from `dev` to `test`.
 
-To deploy your changes to `Live`:
+To deploy changes to `live`:
 
-1. Push your changes to `Dev`.
-2. Deploy your changes from `Dev` to `Test`.
+1. Push changes to `dev`.
+2. Deploy changes from `dev` to `test`.
 3. In the Pantheon dashboard, click the "Live" tab and click "Deploys" in the sidebar.
-4. You will see a form where you can deploy the new commits from `Test` to `Live`.
+4. You will see a form where you can deploy the new commits from `test` to `live`.
 
 ### Environments
 
 The following Pantheon environments are available:
 
-| Environment | URL |
-| --- | --- |
-| Dev | https://dev-national-public-media-v2.pantheonsite.io/ |
-| Test | https://test-national-public-media-v2.pantheonsite.io/ |
-| Live | https://live-national-public-media-v2.pantheonsite.io/ |
+| Environment | URL                                                    |
+| ----------- | ------------------------------------------------------ |
+| Dev         | https://dev-national-public-media-v2.pantheonsite.io/  |
+| Test        | https://test-national-public-media-v2.pantheonsite.io/ |
+| Live        | https://live-national-public-media-v2.pantheonsite.io/ |
 
 ---
 

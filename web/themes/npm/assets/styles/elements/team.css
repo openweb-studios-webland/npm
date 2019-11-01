@@ -1,3 +1,3 @@
-.team-open[aria-expanded="true"] {
+.team-members-open[aria-expanded="true"] {
   @apply hidden;
 }

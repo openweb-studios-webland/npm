@@ -4,7 +4,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
         'key' => 'group_5db74fc07f58c',
-        'title' => 'Team',
+        'title' => 'Team Members',
         'fields' => array(
             array(
                 'key' => 'field_5zp76b163a30c',
@@ -27,8 +27,8 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
             ),
             array(
                 'key' => 'field_5db74fd8b7f2d',
-                'label' => 'Team',
-                'name' => 'team',
+                'label' => 'Team Members',
+                'name' => 'team_members',
                 'type' => 'repeater',
                 'instructions' => '',
                 'required' => 0,

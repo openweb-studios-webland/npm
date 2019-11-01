@@ -1,10 +1,42 @@
-/*! purgecss start ignore */
 .header.stuck {
-  @apply shadow-xs;
+  @screen lg {
+    @apply shadow-xs;
+  }
 }
 
-.menu[aria-hidden] {
+.header-button {
+  & svg {
+    &:last-of-type {
+      @apply hidden;
+    }
+  }
+
+  &[aria-expanded="true"] {
+    & svg {
+      &:first-of-type {
+        @apply hidden;
+      }
+
+      &:last-of-type {
+        @apply block;
+      }
+    }
+  }
+}
+
+.menu,
+.submenu {
+  clip-path: inset(1px 0 -15px);
+}
+
+.menu {
   @screen lg {
-    @apply block;
+    clip-path: none;
+  }
+
+  &[aria-hidden] {
+    @screen lg {
+      @apply block;
+    }
   }
 }

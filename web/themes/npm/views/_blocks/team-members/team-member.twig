@@ -1,0 +1,56 @@
+{% set image = TimberImage(team_member.image) %}
+
+{% if image.src %}
+  <img class="mb-30 rounded-full" src="{{ image.src | resize(720, 720, 'center') }}" alt="{{ image.alt }}" />
+{% endif %}
+
+{% if team_member.name %}
+  <h3 class="heading-5 mb-10">
+    {{ team_member.name }}
+  </h3>
+{% endif %}
+
+{% if team_member.title %}
+  <div>
+    {{ team_member.title }}
+  </div>
+{% endif %}
+
+{% if team_member.text %}
+  {% set uid = random() %}
+
+  <div class="border-t border-blue-light mt-15 pt-5">
+    <button
+      class="team-members-open flex items-center -mx-5 text-blue-light text-14"
+      data-module="toggle"
+      data-toggle-partner="{{ uid }}0"
+      aria-controls="{{ uid }}"
+    >
+      <span class="px-5">
+        Bio
+      </span>
+
+      <span class="px-5">
+        {{ svg('dropdown') }}
+      </span>
+    </button>
+  </div>
+
+  <div
+    id="{{ uid }}"
+    class="pt-20 text text-14"
+    aria-hidden="true"
+  >
+    {{ team_member.text }}
+
+    <div class="border-t border-blue-light mt-15 pt-5">
+      <button
+        id="{{ uid }}0"
+        class="text-blue-light text-14"
+        aria-controls="{{ uid }}"
+      >
+        Close Bio
+      </button>
+    </div>
+  </div>
+{% endif %}

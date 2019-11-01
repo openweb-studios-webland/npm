@@ -43,15 +43,16 @@
                           <div class="mb-5 px-15 text-gray-a11y w-full lg:w-1/3">
                             {% if spec.tooltip %}
                               <div class="flex items-center -mx-5">
-                                <div class="px-5">
+                                <span class="px-5">
                                   {{ spec.heading }}
-                                </div>
+                                </span>
 
                                 <button class="group px-5 relative">
                                   {{ svg('info') }}
-                                  <div class="tooltip absolute bg-white bottom-full hidden left-1/2 p-20 rounded shadow-sm text-black text-left text-14 translate-x-1/2 group-hover:block">
+
+                                  <span class="tooltip absolute bg-white bottom-full hidden left-1/2 p-20 rounded shadow-sm text-black text-left text-14 translate-x-1/2 group-hover:block">
                                     {{ spec.tooltip }}
-                                  </div>
+                                  </span>
                                 </button>
                               </div>
                             {% else %}

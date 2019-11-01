@@ -21,15 +21,14 @@
             {{ report.button_text ?? 'Read More' }}
           </a>
         </div>
-        <div class="mb-50 px-30 w-full lg:w-1/2">
-          {% set image = TimberImage(report.featured_image) %}
 
-          {% if image.src %}
-            <div class="-mx-20 lg:mx-0">
-              <img src="{{ image.src | resize(1080, 810, 'center') }}" alt="{{ image.alt }}" />
-            </div>
-          {% endif %}
-        </div>
+        {% set image = TimberImage(report.featured_image) %}
+
+        {% if image.src %}
+          <div class="mb-50 px-30 w-full lg:w-1/2">
+            <img class="max-w-screen -mx-20 lg:max-w-full lg:shadow lg:mx-0" src="{{ image.src | resize(1080, 810, 'center') }}" alt="{{ image.alt }}" />
+          </div>
+        {% endif %}
       </div>
     </div>
   </section>

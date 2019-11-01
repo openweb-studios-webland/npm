@@ -6,7 +6,7 @@
   {% if level == 1 %}
     <div
       id="{{ uid }}"
-      class="submenu {{ front_page ? 'bg-blue border-blue-link' : 'bg-white border-gray' }} border-b border-t left-0 -mx-20 px-20 lg:shadow-xs transition w-screen lg:absolute lg:border-b-0 lg:mx-0 lg:px-0 lg:top-full"
+      class="submenu {{ front_page ? 'bg-blue border-blue-link' : 'bg-white border-gray' }} border-b border-t left-0 -mt-1 -mx-20 px-20 transition w-screen lg:absolute lg:border-b-0 lg:mx-0 lg:px-0 lg:shadow-xs lg:top-full"
       aria-hidden="true"
     >
       <div class="container">
@@ -53,20 +53,25 @@
       {% endfor %}
     </ul>
   {% else %}
-    <div class="{{ front_page ? 'bg-blue border-blue-link ' : 'bg-white border-gray ' }}border-t -mx-20 px-20 lg:border-t-0 lg:mx-0 lg:px-0">
+    <div class="{{ front_page ? 'bg-blue border-blue-link ' : 'bg-white border-gray ' }}border-t px-20 lg:border-t-0 lg:px-0">
       <ul class="flex flex-wrap -mx-15">
         {% for item in items %}
-          <li class="{{ item.classes | join(' ') | trim }} leading-none px-15 py-10 w-full lg:w-auto">
+          <li class="{{ item.classes | join(' ') | trim }} border-b border-gray-border leading-none py-10 w-full lg:border-b-0 lg:px-15 lg:w-auto">
             {% if item.children | length %}
               {% set uid = random() %}
 
               <button
-                class="border-b-2 border-transparent flex font-bold inline-block items-center py-10 transition-fast w-full whitespace-no-wrap lg:hover:border-blue-link"
+                class="border-b-2 border-transparent flex font-bold inline-block items-center -mx-5 py-10 transition-fast w-full whitespace-no-wrap lg:hover:border-blue-link"
                 data-module="toggle"
                 aria-controls="{{ uid }}"
               >
-                {{ item.title }}
-                {{ svg('menu', { classes: 'ml-10 text-blue-link w-10' }) }}
+                <span class="px-5">
+                  {{ item.title }}
+                </span>
+
+                <span class="px-5 text-blue-link">
+                  {{ svg('dropdown') }}
+                </span>
               </button>
 
               {% include '_partials/header/menu.twig' ignore missing with {
@@ -80,6 +85,12 @@
             {% endif %}
           </li>
         {% endfor %}
+
+        <li class="my-50 w-full lg:hidden">
+          <a class="button-small" href="/contact">
+            Contact Us
+          </a>
+        </li>
       </ul>
     </div>
   {% endif %}

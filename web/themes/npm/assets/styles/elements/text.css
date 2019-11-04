@@ -1,5 +1,10 @@
 /*! purgecss start ignore */
 .text {
+  & a {
+    @apply font-bold
+      text-blue-link;
+  }
+
   & p,
   & dl,
   & ol,
@@ -20,7 +25,7 @@
   & ol,
   & ul {
     @apply leading-tight
-      pl-20;
+      pl-40;
 
     & > dd,
     & > dt,
@@ -43,7 +48,8 @@
   }
 
   & img {
-    @apply relative
+    @apply mb-30
+      relative
       w-screen;
     left: 50%;
     max-width: 960px;
@@ -51,8 +57,7 @@
 
     &.alignleft,
     &.alignright {
-      @apply left-auto
-        mb-30;
+      @apply left-auto;
       transform: none;
       width: 50%;
     }

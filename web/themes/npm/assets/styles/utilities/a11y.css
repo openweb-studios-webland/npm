@@ -1,5 +1,5 @@
 @variants responsive, hover, focus {
-  .screen-reader-only {
+  .sr-only {
     @apply absolute
       border-none
       -m-1
@@ -10,7 +10,7 @@
     width: 1px;
   }
 
-  .screen-reader-undo {
+  .sr-undo {
     @apply absolute
       h-auto
       m-0

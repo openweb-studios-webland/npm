@@ -13,7 +13,15 @@
     @apply mt-30;
   }
 
+  &:hover,
+  &:focus {
+    & svg {
+      transform: translateX(5px);
+    }
+  }
+
   & svg {
-    @apply ml-10;
+    @apply ml-10
+      transition-fast;
   }
 }

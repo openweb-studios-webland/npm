@@ -22,7 +22,7 @@ if (function_exists('acf_add_local_field_group')):
                 'layouts' => array(
                     acf_dynamic_clones_get_local_field_group('Featured Content', 'featured-content'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero-front-page'),
-                    acf_dynamic_clones_get_local_field_group('Programs', 'programs'),
+                    acf_dynamic_clones_get_local_field_group('Related Programs', 'programs'),
                     acf_dynamic_clones_get_local_field_group('Stats', 'stats'),
                     acf_dynamic_clones_get_local_field_group('Testimonials', 'testimonials-front-page'),
                     acf_dynamic_clones_get_local_field_group('Related Work', 'work'),

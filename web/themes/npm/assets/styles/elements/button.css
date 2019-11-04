@@ -13,7 +13,6 @@
     text-center
     text-white
     w-full;
-  min-width: 250px;
 
   @screen md {
     @apply px-30

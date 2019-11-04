@@ -10,10 +10,9 @@
         <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
 
         <button class="absolute inset-1/2 h-80 translate-1/2 w-80" data-video-play>
-          <span class="screen-reader-only">
+          <span class="sr-only">
             Play
           </span>
-
           {{ svg('play') }}
         </button>
       </div>

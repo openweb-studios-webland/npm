@@ -3,8 +3,8 @@
 {% if block %}
   <section class="section" data-label="work">
     {% if block.heading %}
-      <div class="container-md">
-        <h2 class="heading-3 text-center">
+      <div class="container-sm text-center">
+        <h2 class="heading-3">
           {{ block.heading }}
         </h2>
       </div>
@@ -13,7 +13,7 @@
     {% if block.work | length %}
       <div class="container">
         <div class="flex flex-wrap -mb-40 -mx-30">
-          {% for work in block.work %}
+          {% for work in Post(block.work) %}
             <div class="mb-40 px-30 w-full md:w-1/2 lg:w-1/3">
               {% include '_blocks/work/work.twig' ignore missing %}
             </div>

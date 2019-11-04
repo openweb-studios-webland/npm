@@ -1,7 +1,11 @@
 {% set image = TimberImage(team_member.image) %}
 
 {% if image.src %}
-  <img class="mb-30 rounded-full" src="{{ image.src | resize(720, 720, 'center') }}" alt="{{ image.alt }}" />
+  <img
+    class="max-w-200 mb-30 mx-auto rounded-full"
+    src="{{ image.src | resize(720, 720, 'center') }}"
+    alt="{{ image.alt }}"
+  />
 {% endif %}
 
 {% if team_member.name %}

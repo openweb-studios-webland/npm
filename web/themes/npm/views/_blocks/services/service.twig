@@ -1,22 +1,22 @@
 {% set uid = random() %}
 
 <div class="bg-white relative shadow-sm">
-  {% set image = TimberImage(program.image) %}
+  {% set image = TimberImage(service.image) %}
 
   {% if image.src %}
     <img src="{{ image.src | resize(450, 450, 'center') }}" alt="{{ image.alt }}" />
   {% endif %}
 
   <div class="p-20">
-    {% if program.heading %}
+    {% if service.heading %}
       <h3 class="heading-4 mb-15">
-        {{ program.heading }}
+        {{ service.heading }}
       </h3>
     {% endif %}
 
-    {% if program.short_text %}
+    {% if service.short_text %}
       <div class="text text-14">
-        {{ program.short_text }}
+        {{ service.short_text }}
       </div>
     {% endif %}
 
@@ -36,52 +36,55 @@
     aria-hidden="true"
   >
     <h3 class="heading-4 mb-20">
-      {{ program.title }}
+      {{ service.title }}
     </h3>
 
-    {% if program.host %}
-      <h4 class="mb-5 text-11 text-gray-a11y">
-        Hosted by
-      </h4>
-
-      <p class="heading-7 mb-20">
-        {{ program.host }}
-      </p>
-    {% endif %}
-
-    {% if program.text %}
+    {% if service.text %}
       <div class="text mb-20 text-14">
-        {{ program.text }}
+        {{ service.text }}
       </div>
     {% endif %}
 
-    {% if program.platforms | length %}
+    {% if service.platforms | length %}
       <h4 class="mb-5 text-11 text-gray-a11y">
-        Runs on
+        Available on
       </h4>
 
       <p class="font-bold mb-20 text-14">
-        {% for platform in Post(program.platforms) %}
-          {{ loop.last ? platform.title : platform.title ~ ', ' }}
+        {% for platform in Term(service.platforms)  %}
+          {{ loop.last ? platform.name : platform.name ~ ', ' }}
         {% endfor %}
       </p>
     {% endif %}
 
-    {% set topics = Post(program).get_terms('topic') %}
-
-    {% if topics | length %}
+    {% if service.products | length %}
       <h4 class="mb-5 text-11 text-gray-a11y">
-        Topics
+        Related Products
       </h4>
 
-      <p class="mb-20 text-14">
-        {{ topics | join(', ') }}
+      <p class="font-bold mb-20 text-14">
+        {% for product in Post(service.products) %}
+            {{ loop.last ? '<a class="text-blue-link" href="' ~ product.link ~ '">' ~ product.title ~ '</a>' : '<a class="text-blue-link" href="' ~ product.link ~ '">' ~ product.title ~ '</a>, ' }}
+          </a>
+        {% endfor %}
       </p>
     {% endif %}
 
-    {% if program.button_link and program.button_text %}
-      <a class="button w-full" href="{{ program.button_link }}">
-        {{ program.button_text }}
+    {% if service.work | length %}
+      <h4 class="mb-5 text-11 text-gray-a11y">
+        Related Work
+      </h4>
+
+      <p class="font-bold mb-20 text-14">
+        {% for work in Post(service.work) %}
+          {{ loop.last ? '<a class="text-blue-link" href="' ~ work.link ~ '">' ~ work.title ~ '</a>' : '<a class="text-blue-link" href="' ~ work.link ~ '">' ~ work.title ~ '</a>, ' }}
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    {% if service.button_link and service.button_text %}
+      <a class="button w-full" href="{{ service.button_link }}">
+        {{ service.button_text }}
       </a>
     {% endif %}
 

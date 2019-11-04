@@ -4,7 +4,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
         'key' => 'group_5da4da09c1b3c',
-		'title' => 'Featured Content Format',
+		'title' => 'Featured Content Taxonomy Platform',
 		'fields' => array(
 			array(
 				'key' => 'field_5da4da0d130c5',

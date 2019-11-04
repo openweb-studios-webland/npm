@@ -6,23 +6,25 @@
   {% endif %}
 
   <div class="p-30 lg:py-50">
-    {% if featured_content.heading %}
-      <h3 class="heading-4">
-        {{ featured_content.heading }}
-      </h3>
-    {% endif %}
+    <div class="relative pb-30 lg:pb-50">
+      {% if featured_content.heading %}
+        <h3 class="heading-4">
+          {{ featured_content.heading }}
+        </h3>
+      {% endif %}
 
-    {% if featured_content.text %}
-      <div class="text">
-        {{ featured_content.text }}
-      </div>
-    {% endif %}
+      {% if featured_content.text %}
+        <div class="text">
+          {{ featured_content.text }}
+        </div>
+      {% endif %}
 
-    {% if featured_content.button_link and featured_content.button_text %}
-      <a class="link" href="{{ featured_content.button_link }}">
-        {{ featured_content.button_text }}
-        {{ svg('link') }}
-      </a>
-    {% endif %}
+      {% if featured_content.button_link and featured_content.button_text %}
+        <a class="link absolute bottom-0 left-0" href="{{ featured_content.button_link }}">
+          {{ featured_content.button_text }}
+          {{ svg('link') }}
+        </a>
+      {% endif %}
+    </div>
   </div>
 </div>

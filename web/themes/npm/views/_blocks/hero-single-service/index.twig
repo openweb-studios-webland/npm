@@ -4,14 +4,14 @@
   {% set image = TimberImage(block.background_image) %}
 
   <section
-    class="section bg-cover pb-0 relative text-white lg:pt-0"
+    class="bg-center bg-cover relative text-white"
     style="background-image: url('{{ image.src | resize(1920, 700, 'center') }}');"
     data-label="hero-single-services"
   >
     <div class="absolute bg-black inset-0 opacity-90"></div>
 
     <div class="container">
-      <div class="flex flex-wrap items-center -mb-50 -mx-30 relative">
+      <div class="flex flex-wrap items-center -mb-50 -mx-30 py-50 relative">
         <div class="mb-50 px-30 w-full lg:w-7/12">
           <div class="heading-6 mb-20">
             {{ post.title }}

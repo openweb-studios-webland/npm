@@ -76,10 +76,10 @@ if (function_exists('acf_add_local_field_group')):
                     'id' => '',
                 ),
                 'layouts' => array(
-                    acf_dynamic_clones_get_local_field_group('Featured Content', 'featured-content-format'),
+                    acf_dynamic_clones_get_local_field_group('Featured Content', 'featured-content-taxonomy-platform'),
                     acf_dynamic_clones_get_local_field_group('Featured Work', 'featured-work'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero'),
-                    acf_dynamic_clones_get_local_field_group('Insights', 'insights'),
+                    acf_dynamic_clones_get_local_field_group('Related Insights', 'insights'),
                     acf_dynamic_clones_get_local_field_group('Stats', 'stats'),
                     acf_dynamic_clones_get_local_field_group('Related Work', 'work'),
                 ),

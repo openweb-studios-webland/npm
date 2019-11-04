@@ -3,11 +3,11 @@
 if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
-        'key' => 'group_5d8cfe065b07z',
-        'title' => 'Programs',
+        'key' => 'group_u6llxhyui7eg7',
+        'title' => 'Products',
         'fields' => array(
             array(
-                'key' => 'field_5d8d2f1afb62d',
+                'key' => 'field_yuxoozelbw0r6',
                 'label' => 'Heading',
                 'name' => 'heading',
                 'type' => 'text',
@@ -26,7 +26,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'maxlength' => '',
             ),
             array(
-                'key' => 'field_5d8d2f20fb62e',
+                'key' => 'field_cjewzrl8ix4go',
                 'label' => 'Text',
                 'name' => 'text',
                 'type' => 'wysiwyg',
@@ -45,7 +45,29 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'delay' => 0,
             ),
             array(
-                'key' => 'field_5d94f156cd20z',
+                'key' => 'field_84i9a1iz32lky',
+                'label' => 'Related Products',
+                'name' => 'products',
+                'type' => 'post_object',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'post_type' => array(
+                    0 => 'product',
+                ),
+                'taxonomy' => '',
+                'allow_null' => 0,
+                'multiple' => 1,
+                'return_format' => 'object',
+                'ui' => 1,
+            ),
+            array(
+                'key' => 'field_y77nep3qpnh14',
                 'label' => 'Button',
                 'name' => 'button',
                 'type' => 'clone',
@@ -64,28 +86,6 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'layout' => 'block',
                 'prefix_label' => 1,
                 'prefix_name' => 1,
-            ),
-            array(
-                'key' => 'field_5d8d2z35fb62f',
-                'label' => 'Related Programs',
-                'name' => 'programs',
-                'type' => 'post_object',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'post_type' => array(
-                    0 => 'program',
-                ),
-                'taxonomy' => '',
-                'allow_null' => 0,
-                'multiple' => 1,
-                'return_format' => 'object',
-                'ui' => 1,
             ),
         ),
     ));

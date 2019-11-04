@@ -1,0 +1,42 @@
+{% set block = block ?? null %}
+
+{% if block %}
+  <section class="section bg-gray" data-label="featured-products">
+    <div class="container-sm text-center">
+      {% if block.heading %}
+        <h2 class="heading-3">
+          {{ block.heading }}
+        </h2>
+      {% endif %}
+
+      {% if block.text %}
+        <div class="text mb-25 lg:mt-30">
+          {{ block.text }}
+        </div>
+      {% endif %}
+    </div>
+
+    {% if block.products | length %}
+      <div class="container-md">
+        <div class="flex flex-wrap -mb-30 -mx-15">
+          {% for product in Post(block.products) %}
+            <div class="mb-30 px-15 w-full lg:w-1/2">
+              {% include '_blocks/products/product.twig' ignore missing %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.button_link and block.button_text %}
+      <div class="container-sm text-center">
+        <span class="inline-block">
+          <a class="link mt-30 lg:mt-50" href="{{ block.button_link }}">
+            {{ block.button_text }}
+            {{ svg('link') }}
+          </a>
+        </span>
+      </div>
+    {% endif %}
+  </section>
+{% endif %}

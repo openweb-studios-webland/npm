@@ -3,7 +3,7 @@
     <div class="-mb-20 overflow-x-auto pb-20">
       <ul class="flex items-center -mx-10 lg:-mx-20">
         <li class="flex-no-shrink px-10 lg:px-20">
-          <a class="{{ current_platforms.parents | length ? 'text-gray-a11y ' : 'text-blue-link ' }}font-bold inline-block pb-15 relative text-center whitespace-no-wrap" href="{{ fn('get_post_type_archive_link', 'product') }}">
+          <a class="{{ current_platforms.parents | length ? 'text-gray-a11y ' : 'text-blue-link ' }}font-bold inline-block pb-15 relative text-center transition-fast whitespace-no-wrap hover:text-blue-link" href="{{ fn('get_post_type_archive_link', 'product') }}">
             All Formats
           </a>
         </li>
@@ -23,7 +23,7 @@
                 {{ platform.name }}
               </a>
             {% else %}
-              <a class="flex font-bold items-center pb-15 relative text-gray-a11y text-center whitespace-no-wrap" href="{{ fn('add_query_arg', 'platform', platform.slug) }}">
+              <a class="flex font-bold items-center pb-15 relative text-gray-a11y text-center transition-fast whitespace-no-wrap hover:text-blue-link" href="{{ fn('add_query_arg', 'platform', platform.slug) }}">
                 {% if image.file_loc %}
                   <span class="mr-5">
                     {{ fn('file_get_contents', image.file_loc)}}
@@ -52,7 +52,7 @@
                 {{ svg('clear', { classes: 'ml-5' }) }}
               </a>
             {% else %}
-              <a class="font-bold inline-block text-gray-a11y whitespace-no-wrap" href="{{ fn('add_query_arg', 'platform', current_platforms.children | merge([platform.slug]) | merge([platform.item_parent.slug]) | join(',') ) }}">
+              <a class="font-bold inline-block text-gray-a11y transition-fast whitespace-no-wrap hover:text-blue-link" href="{{ fn('add_query_arg', 'platform', current_platforms.children | merge([platform.slug]) | merge([platform.item_parent.slug]) | join(',') ) }}">
                 {{ platform.name }}
               </a>
             {% endif %}

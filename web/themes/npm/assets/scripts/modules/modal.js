@@ -101,7 +101,7 @@ export default class Modal {
   }
 
   attachEventListeners = () => {
-    const triggers = [...document.querySelectorAll(`[data-modal-open="${this.el.id}"]`)]
+    const triggers = [...document.querySelectorAll(`[aria-controls="${this.el.id}"]`)]
 
     if (triggers.length > 0) {
       triggers.forEach(trigger => {

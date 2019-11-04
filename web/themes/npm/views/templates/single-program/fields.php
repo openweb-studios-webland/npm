@@ -11,7 +11,7 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Image',
                 'name' => 'image',
                 'type' => 'image',
-                'instructions' => 'Recommended dimensions are 600 x 600.',
+                'instructions' => 'Recommended dimensions are 450 x 450.',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -22,8 +22,8 @@ if (function_exists('acf_add_local_field_group')):
                 'return_format' => 'array',
                 'preview_size' => 'thumbnail',
                 'library' => 'all',
-                'min_width' => 600,
-                'min_height' => 600,
+                'min_width' => 450,
+                'min_height' => 450,
                 'min_size' => '',
                 'max_width' => '',
                 'max_height' => '',
@@ -108,7 +108,7 @@ if (function_exists('acf_add_local_field_group')):
             ),
             array(
                 'key' => 'field_5d8d2b86d1fc9',
-                'label' => 'Platforms',
+                'label' => 'Related Platforms',
                 'name' => 'platforms',
                 'type' => 'post_object',
                 'instructions' => '',

@@ -20,7 +20,7 @@
       <div class="container pt-50">
         <div data-module="infinite-scroll" data-infinite-scroll-count="{{ work.pagination.total }}">
           <div class="flex flex-wrap -mb-40 -mx-30" data-infinite-scroll-container>
-            {% for work in work %}
+            {% for work in Post(work) %}
               <div class="mb-40 px-30 w-full md:w-1/2 lg:w-1/3">
                 {% include '_blocks/work/work.twig' ignore missing %}
               </div>

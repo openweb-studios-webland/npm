@@ -182,6 +182,7 @@ module.exports = {
     },
     maxWidth: {
       '0': '0',
+      '200': '200px',
       none: 'none',
       full: '100%',
       screen: '100vw',
@@ -209,6 +210,7 @@ module.exports = {
     opacity: {
       '0': '0',
       '50': '0.5',
+      '75': '0.75',
       '90': '0.9',
       '100': '1',
     },

@@ -1,7 +1,7 @@
 {% extends '_layouts/base.twig' %}
 
 {% block content %}
-  <div data-label="single-insight">
+  <div class="relative" data-label="single-insight">
     {% if fields.blocks %}
       {% for block in fields.blocks %}
         {% include '_blocks/' ~ block.acf_fc_layout ~ '/index.twig' ignore missing with {
@@ -9,5 +9,7 @@
         } %}
       {% endfor %}
     {% endif %}
+
+    {{ svg('pattern', { classes: 'hidden max-w-full w-full lg:block' }) }}
   </div>
 {% endblock %}

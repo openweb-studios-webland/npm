@@ -135,7 +135,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 								'label' => 'Images',
 								'name' => 'images',
 								'type' => 'gallery',
-								'instructions' => 'Recommended dimensions are 1920 x 810',
+								'instructions' => 'Recommended dimensions are 1920 x 1080',
 								'required' => 0,
 								'conditional_logic' => array(
 									array(
@@ -156,7 +156,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 								'insert' => 'append',
 								'library' => 'all',
 								'min_width' => 1920,
-								'min_height' => 810,
+								'min_height' => 1080,
 								'min_size' => '',
 								'max_width' => '',
 								'max_height' => '',

@@ -3,50 +3,48 @@
 {% if block %}
   {% set image = TimberImage(block.background_image) %}
 
-  <section
-    class="bg-center bg-cover relative text-white"
-    style="background-image: url('{{ image.src | resize(1920, 700, 'center') }}');"
-    data-label="hero-single-services"
-  >
-    <div class="absolute bg-black inset-0 opacity-90"></div>
+  <section class="text-white" data-label="hero-single-services">
+    <div class="bg-center bg-cover relative" style="background-image: url('{{ image.src | resize(1920, 700, 'center') }}');">
+      <div class="absolute bg-black inset-0 opacity-90"></div>
 
-    <div class="container">
-      <div class="flex flex-wrap items-center -mb-50 -mx-30 py-50 relative">
-        <div class="mb-50 px-30 w-full lg:w-7/12">
-          <div class="heading-6 mb-20">
-            {{ post.title }}
+      <div class="container">
+        <div class="flex flex-wrap items-center -mx-30 relative">
+          <div class="px-30 py-50 w-full lg:mb-50 lg:w-7/12">
+            <div class="heading-6 mb-20">
+              {{ post.title }}
+            </div>
+
+            {% if block.heading %}
+              <h1 class="heading-3">
+                {{ block.heading }}
+              </h1>
+            {% endif %}
+
+            {% if block.text %}
+              <div class="text text-16 lg:text-18">
+                {{ block.text }}
+              </div>
+            {% endif %}
+
+            {% if block.button_link and block.button_text %}
+              <a class="button mt-25 lg:mt-30" href="{{ block.button_link }}">
+                {{ block.button_text }}
+              </a>
+            {% endif %}
           </div>
 
-          {% if block.heading %}
-            <h1 class="heading-3">
-              {{ block.heading }}
-            </h1>
-          {% endif %}
+          {% set image = TimberImage(block.image) %}
 
-          {% if block.text %}
-            <div class="text text-16 lg:text-18">
-              {{ block.text }}
+          {% if image.src %}
+            <div class="hidden px-30 w-full lg:block lg:-mb-50 lg:w-5/12">
+              <img
+                class="pin-r -mx-20 lg:mx-0"
+                src="{{ image.src | resize(1080, 1080, 'center') }}"
+                alt="{{ image.alt }}"
+              />
             </div>
           {% endif %}
-
-          {% if block.button_link and block.button_text %}
-            <a class="button mt-25 lg:mt-30" href="{{ block.button_link }}">
-              {{ block.button_text }}
-            </a>
-          {% endif %}
         </div>
-
-        {% set image = TimberImage(block.image) %}
-
-        {% if image.src %}
-          <div class="hidden mb-100 pt-50 px-30 w-full lg:block lg:w-5/12">
-            <img
-              class="pin-r -mx-20 lg:mx-0"
-              src="{{ image.src | resize(1080, 1080, 'center') }}"
-              alt="{{ image.alt }}"
-            />
-          </div>
-        {% endif %}
       </div>
     </div>
   </section>

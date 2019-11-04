@@ -25,7 +25,7 @@
           <div class="flex flex-wrap items-center justify-center -mb-50 -mx-30">
             {% for video in block.videos %}
               <div class="mb-50 px-30 w-full lg:w-1/2">
-                {% include '_partials/video.twig' ignore missing with {
+                {% include '_partials/video/index.twig' ignore missing with {
                   video: video.video,
                   image: video.image,
                 } only %}
@@ -37,7 +37,7 @@
         <div class="container-sm mt-50">
           {% set video = block.videos[0] %}
 
-          {% include '_partials/video.twig' ignore missing with {
+          {% include '_partials/video/index.twig' ignore missing with {
             video: video.video,
             image: video.image,
           } only %}

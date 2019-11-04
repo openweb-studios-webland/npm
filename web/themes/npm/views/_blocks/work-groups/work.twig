@@ -2,7 +2,7 @@
 
 {% if work.type == 'audio' %}
   <div class="border border-gray-border">
-    {% include '_partials/audio.twig' ignore missing with {
+    {% include '_partials/audio/index.twig' ignore missing with {
       audio: work.audio,
     } only %}
   </div>
@@ -48,39 +48,16 @@
     </div>
   {% endif %}
 
-  <div
-    id="{{ uid }}"
-    class="modal bg-black-semi-opaque fixed inset-0 py-20 z-50"
-    aria-hidden="true"
-    data-module="modal"
-  >
-    <div class="flex flex-col h-full justify-center" tabindex="-1" data-modal-close>
-      <div class="container-md w-full">
-        <div
-          class="modal-content bg-white overflow-y-auto p-50 relative"
-          role="dialog"
-          aria-modal="true"
-        >
-          <div class="video" tabindex="0">
-            {{ work.video }}
-          </div>
-
-          <button class="absolute h-44 right-0 top-0 w-44" aria-label="Close modal" data-modal-close>
-            <span class="sr-only">
-              Close
-            </span>
-            {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+  {% include '_partials/video/modal.twig' ignore missing with {
+    video: work.video,
+    uid: uid,
+  } only %}
 {% else %}
   {% set image = TimberImage(work.image) %}
 
   {% if image.src %}
     <div aria-controls="{{ uid }}">
-      <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
+      <img src="{{ image.src | resize(540, 301, 'center') }}" alt="{{ image.alt }}" />
     </div>
   {% endif %}
 
@@ -92,66 +69,8 @@
     </div>
   {% endif %}
 
-  <div
-    id="{{ uid }}"
-    class="modal bg-black-semi-opaque fixed inset-0 z-50"
-    aria-hidden="true"
-    data-module="modal"
-  >
-    <div class="flex flex-col h-full justify-center" tabindex="-1" data-modal-close>
-      <div class="container w-full">
-        <div
-          class="modal-content bg-white overflow-y-auto p-50 relative"
-          role="dialog"
-          aria-modal="true"
-        >
-          {% if work.images | length %}
-            <div class="container-md">
-              <div
-                class="carousel overflow-x-hidden"
-                data-module="carousel"
-                data-carousel-loop="false"
-                tabindex="0"
-              >
-                <div class="carousel-track flex items-center relative -mx-10" data-carousel-track>
-                  {% for image in work.images %}
-                    <div class="flex-0 px-10 w-full">
-                      {% set image = TimberImage(image) %}
-
-                      {% if image.src %}
-                        <img src="{{ image.src | resize(1920, null, 'center') }}" alt="{{ image.alt }}" />
-                      {% endif %}
-
-                      {% if image.caption %}
-                        <p class="mt-20 text text-14">
-                          {{ image.caption }}
-                        </p>
-                      {% endif %}
-                    </div>
-                  {% endfor %}
-                </div>
-
-                <div class="flex mt-30 -mx-5 text-blue">
-                  <div class="px-5">
-                    {% include '_partials/carousel/button-prev.twig' ignore missing %}
-                  </div>
-
-                  <div class="px-5">
-                    {% include '_partials/carousel/button-next.twig' ignore missing %}
-                  </div>
-                </div>
-              </div>
-            </div>
-          {% endif %}
-
-          <button class="absolute h-44 right-0 top-0 w-44" aria-label="Close modal" data-modal-close>
-            <span class="sr-only">
-              Close
-            </span>
-            {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+  {% include '_partials/image/modal.twig' ignore missing with {
+    images: work.images,
+    uid: uid,
+  } only %}
 {% endif %}

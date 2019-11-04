@@ -1,0 +1,97 @@
+{% set audio = audio ?? null %}
+{% set uid = uid ?? null %}
+
+{% if audio %}
+  <div
+    id="{{ uid }}"
+    class="modal bg-black-semi-opaque fixed inset-0 py-20 z-50"
+    aria-hidden="true"
+    data-module="modal"
+  >
+    <div class="flex flex-col h-full justify-center" tabindex="-1" data-modal-close>
+      <div class="container-md w-full">
+        <div
+          class="modal-content bg-white overflow-y-auto p-50 relative"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div class="flex flex-col justify-center inset-0 p-10" data-module="audio">
+            {% if audio.url %}
+              <div data-audio-player data-audio-source="{{ audio.url }}"></div>
+            {% endif %}
+
+            <div class="flex items-center mt-10 -mx-5">
+              <div class="px-5">
+                <button class="audio-play-pause block bg-blue-link h-24 relative rounded-full text-white w-24" data-audio-play-pause>
+                  <span class="sr-only">
+                    Play
+                  </span>
+                  {{ svg('audio-play', { classes: 'absolute inset-1/2 ml-1 translate-1/2' }) }}{{ svg('audio-pause', { classes: 'absolute inset-1/2 translate-1/2' }) }}
+                </button>
+              </div>
+
+              <div class="px-5">
+                <button class="audio-backward block bg-gray-border h-24 relative rounded-full text-white w-24" data-audio-skip-backward>
+                  <span class="sr-only">
+                    Skip Backward
+                  </span>
+                  {{ svg('audio-backward', { classes: 'absolute inset-1/2 translate-1/2' }) }}
+                </button>
+              </div>
+
+              <div class="px-5">
+                <time class="text-gray-a11y text-12" data-audio-progress></time>
+              </div>
+
+              {% if audio.caption %}
+                {% set uid = random() %}
+
+                <div class="flex-1 px-5 text-right">
+                  <button class="text-blue-link text-12" aria-controls="{{ uid }}">
+                    Read Transcript
+                  </button>
+                </div>
+
+                <div
+                  id="{{ uid }}"
+                  class="modal bg-black-semi-opaque fixed inset-0 py-20 z-50"
+                  aria-hidden="true"
+                  data-module="modal"
+                  tabindex="0"
+                >
+                  <div class="flex flex-col h-full justify-center" tabindex="-1" data-modal-close>
+                    <div class="container-sm w-full">
+                      <div
+                        class="modal-content bg-white overflow-y-auto p-50 relative"
+                        role="dialog"
+                        aria-modal="true"
+                      >
+                        <div class="text">
+                          {{ audio.caption }}
+                        </div>
+
+                        <button class="absolute h-44 right-0 top-0 w-44" aria-label="Close modal" data-modal-close>
+                          <span class="sr-only">
+                            Close
+                          </span>
+                          {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+
+          <button class="absolute h-44 right-0 top-0 w-44" aria-label="Close modal" data-modal-close>
+            <span class="sr-only">
+              Close
+            </span>
+            {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

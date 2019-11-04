@@ -32,7 +32,7 @@
           {% if insight_report.type == 'video' %}
             {% set video = insight_report.get_field('video') ?? null %}
 
-            {% include '_partials/video.twig' ignore missing with {
+            {% include '_partials/video/index.twig' ignore missing with {
               video: video,
               image: insight_report.image,
             } only %}

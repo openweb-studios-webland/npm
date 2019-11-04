@@ -1,5 +1,6 @@
 import whatInput from 'what-input'
 import '@babel/polyfill'
+import './polyfills/closest'
 import './polyfills/foreach'
 import './polyfills/sticky'
 import '../styles/index.css'

@@ -142,11 +142,39 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 						'button_label' => 'Add Sample',
 						'sub_fields' => array(
 							array(
+								'key' => 'field_rqsgrkm1y9r5o',
+								'label' => 'Type',
+								'name' => 'type',
+								'type' => 'select',
+								'instructions' => '',
+								'required' => 1,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'choices' => array(
+									'image' => 'Image',
+									'audio' => 'Audio',
+									'video' => 'Video',
+								),
+								'default_value' => array(
+									0 => 'image',
+								),
+								'allow_null' => 0,
+								'multiple' => 0,
+								'ui' => 0,
+								'return_format' => 'value',
+								'ajax' => 0,
+								'placeholder' => '',
+							),
+							array(
 								'key' => 'field_5da72e2412928',
 								'label' => 'Image',
 								'name' => 'image',
 								'type' => 'image',
-								'instructions' => 'Recommended dimensions are 460 x 292',
+								'instructions' => 'Recommended dimensions are 540 x 405',
 								'required' => 1,
 								'conditional_logic' => 0,
 								'wrapper' => array(
@@ -157,8 +185,8 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 								'return_format' => 'array',
 								'preview_size' => 'thumbnail',
 								'library' => 'all',
-								'min_width' => 460,
-								'min_height' => 292,
+								'min_width' => 540,
+								'min_height' => 405,
 								'min_size' => '',
 								'max_width' => '',
 								'max_height' => '',
@@ -172,7 +200,15 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 								'type' => 'oembed',
 								'instructions' => '',
 								'required' => 0,
-								'conditional_logic' => 0,
+								'conditional_logic' => array(
+									array(
+										array(
+											'field' => 'field_rqsgrkm1y9r5o',
+											'operator' => '==',
+											'value' => 'video',
+										),
+									),
+								),
 								'wrapper' => array(
 									'width' => '',
 									'class' => '',
@@ -188,7 +224,15 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 								'type' => 'file',
 								'instructions' => 'Allowed file types are MP3 and WAV',
 								'required' => 0,
-								'conditional_logic' => 0,
+								'conditional_logic' => array(
+									array(
+										array(
+											'field' => 'field_rqsgrkm1y9r5o',
+											'operator' => '==',
+											'value' => 'audio',
+										),
+									),
+								),
 								'wrapper' => array(
 									'width' => '',
 									'class' => '',

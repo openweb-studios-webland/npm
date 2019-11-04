@@ -13,7 +13,7 @@ export default class Modal {
 
     aria.toggle(this.active, this.el)
     this.setFocusToFirstElements()
-    this.attachopenEventListeners()
+    this.attachOpenEventListeners()
   }
 
   closeModal = () => {
@@ -110,7 +110,7 @@ export default class Modal {
     }
   }
 
-  attachopenEventListeners = () => {
+  attachOpenEventListeners = () => {
     this.el.addEventListener('click', this.onClick)
     document.addEventListener('keyup', this.onKeyup)
   }
@@ -121,7 +121,7 @@ export default class Modal {
   }
 
   onClick = e => {
-    if (e.target.hasAttribute('data-modal-close')) {
+    if (e.target.hasAttribute('data-modal-close') && e.target.closest('[data-module="modal"]') === this.el) {
       this.closeModal()
 
       e.preventDefault()

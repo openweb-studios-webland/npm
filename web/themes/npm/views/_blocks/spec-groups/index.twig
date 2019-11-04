@@ -74,13 +74,7 @@
                     <div class="flex flex-wrap -mb-20 -mx-10 pt-20">
                       {% for sample in spec_group.samples %}
                         <div class="mb-20 px-10 w-1/2">
-                          <div class="border border-gray-border">
-                            {% set image = TimberImage(sample.image) %}
-
-                            {% if image.src %}
-                              <img src="{{ image.src | resize(720, 540, 'center') }}" alt="{{ image.alt }}" />
-                            {% endif %}
-                          </div>
+                          {% include '_blocks/spec-groups/sample.twig' ignore missing %}
                         </div>
                       {% endfor %}
                     </div>

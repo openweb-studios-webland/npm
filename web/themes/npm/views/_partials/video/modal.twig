@@ -1,0 +1,32 @@
+{% set video = video ?? null %}
+{% set uid = uid ?? null %}
+
+{% if video %}
+  <div
+    id="{{ uid }}"
+    class="modal bg-black-semi-opaque fixed inset-0 py-20 z-50"
+    aria-hidden="true"
+    data-module="modal"
+  >
+    <div class="flex flex-col h-full justify-center" tabindex="-1" data-modal-close>
+      <div class="container-md w-full">
+        <div
+          class="modal-content bg-white overflow-y-auto p-50 relative"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div class="video" tabindex="0">
+            {{ video }}
+          </div>
+
+          <button class="absolute h-44 right-0 top-0 w-44" aria-label="Close modal" data-modal-close>
+            <span class="sr-only">
+              Close
+            </span>
+            {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

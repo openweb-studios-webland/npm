@@ -37,17 +37,17 @@
 
         <div class="px-30 w-full lg:w-5/12">
           {% if block.type == 'video' %}
-            {% include '_partials/video.twig' ignore missing with {
+            {% include '_partials/video/index.twig' ignore missing with {
               video: block.video,
               image: block.image,
             } only %}
           {% elseif block.type == 'audio' %}
-            {% include '_partials/audio.twig' ignore missing with {
+            {% include '_partials/audio/index.twig' ignore missing with {
               audio: block.audio,
               image: block.image,
             } only %}
           {% else %}
-            {% include '_partials/image.twig' ignore missing with {
+            {% include '_partials/image/index.twig' ignore missing with {
               image: block.image,
             } only %}
           {% endif %}

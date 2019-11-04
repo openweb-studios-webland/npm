@@ -8,38 +8,36 @@
 
       {{ wp_head }}
   </head>
-  <body class="{{ body_class }}">
-    <a class="sr-only focus:sr-undo" href="#main">
+  <body class="{{ body_class }} preload">
+    <a class="sr-only focus:sr-undo" href="#main" data-module="preload">
       Skip to Content
     </a>
 
     {% include '_partials/header/index.twig' ignore missing %}
 
-    <div class="overflow-x-hidden">
-      <main
-        id="main"
-        role="main"
-        tabindex="-1"
-      >
-        {% block content %}
-          Sorry, we couldn't find the associated content.
-        {% endblock %}
+    <main
+      id="main"
+      role="main"
+      tabindex="-1"
+    >
+      {% block content %}
+        Sorry, we couldn't find the associated content.
+      {% endblock %}
 
-        {% if fields is defined and fields.call_to_action | length %}
-          {% include '_partials/call-to-action/index.twig' ignore missing with {
-            color_select: fields.call_to_action.color_select,
-            image: fields.call_to_action.image,
-            heading: fields.call_to_action.heading,
-            text: fields.call_to_action.text,
-            button_link: fields.call_to_action.button_link,
-            button_text: fields.call_to_action.button_text,
-          } only %}
-        {% endif %}
-      </main>
+      {% if fields is defined and fields.call_to_action | length %}
+        {% include '_partials/call-to-action/index.twig' ignore missing with {
+          color_select: fields.call_to_action.color_select,
+          image: fields.call_to_action.image,
+          heading: fields.call_to_action.heading,
+          text: fields.call_to_action.text,
+          button_link: fields.call_to_action.button_link,
+          button_text: fields.call_to_action.button_text,
+        } only %}
+      {% endif %}
+    </main>
 
-      {% include '_partials/footer/index.twig' ignore missing %}
+    {% include '_partials/footer/index.twig' ignore missing %}
 
-      {{ wp_footer }}
-    </div>
+    {{ wp_footer }}
   </body>
 </html>

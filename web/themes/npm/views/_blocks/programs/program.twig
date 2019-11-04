@@ -16,7 +16,7 @@
 
     {% if program.text %}
       <div class="text text-14">
-        {{ program.text }}
+        {{ program.text | length > 120 ? program.text | excerpt(120) ~ '...' : program.text }}
       </div>
     {% endif %}
 
@@ -32,7 +32,7 @@
 
   <div
     id="{{ uid }}{{ loop.index }}"
-    class="absolute bg-white inset-0 px-30 py-40 shadow-sm"
+    class="absolute bg-white inset-x-0 min-h-full px-30 py-40 shadow-sm top-0"
     aria-hidden="true"
   >
     <h3 class="heading-4 mb-20">

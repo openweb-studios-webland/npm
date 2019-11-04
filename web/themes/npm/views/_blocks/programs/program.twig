@@ -1,6 +1,6 @@
 {% set uid = random() %}
 
-<div class="bg-white relative shadow-sm">
+<div class="bg-white h-full relative shadow-sm">
   {% set image = TimberImage(program.image) %}
 
   {% if image.src %}
@@ -40,9 +40,9 @@
     </h3>
 
     {% if program.host %}
-      <h4 class="mb-5 text-11 text-gray-a11y">
+      <div class="mb-5 text-11 text-gray-a11y">
         Hosted by
-      </h4>
+      </div>
 
       <p class="heading-7 mb-20">
         {{ program.host }}
@@ -56,13 +56,13 @@
     {% endif %}
 
     {% if program.platforms | length %}
-      <h4 class="mb-5 text-11 text-gray-a11y">
+      <div class="mb-5 text-11 text-gray-a11y">
         Available on
-      </h4>
+      </div>
 
       <p class="font-bold mb-20 text-14">
-        {% for platform in Post(program.platforms) %}
-          {{ loop.last ? platform.title : platform.title ~ ', ' }}
+        {% for platform in Term(program.platforms) %}
+          {{ loop.last ? platform.name : platform.name ~ ', ' }}
         {% endfor %}
       </p>
     {% endif %}
@@ -70,9 +70,9 @@
     {% set topics = Post(program).get_terms('topic') %}
 
     {% if topics | length %}
-      <h4 class="mb-5 text-11 text-gray-a11y">
+      <div class="mb-5 text-11 text-gray-a11y">
         Topics
-      </h4>
+      </div>
 
       <p class="mb-20 text-14">
         {{ topics | join(', ') }}

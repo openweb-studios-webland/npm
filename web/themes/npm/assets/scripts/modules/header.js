@@ -12,7 +12,7 @@ export default class Header {
       'scroll',
       debounce(() => {
         this.checkPosition()
-      }, 200)
+      }, 50)
     )
   }
 

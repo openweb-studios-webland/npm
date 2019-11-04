@@ -1,6 +1,7 @@
 .header.stuck {
   @screen lg {
-    @apply shadow-xs;
+    @apply py-10
+      shadow-xs;
   }
 }
 
@@ -23,6 +24,16 @@
     }
   }
 }
+
+/*! purgecss start ignore */
+.admin-bar .header {
+  top: 46px;
+
+  @media (min-width: 782px) {
+    top: 32px;
+  }
+}
+/*! purgecss end ignore */
 
 .menu,
 .submenu {

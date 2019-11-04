@@ -12,7 +12,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'name' => 'type',
                 'type' => 'select',
                 'instructions' => '',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',
@@ -54,11 +54,11 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
             ),
             array(
                 'key' => 'field_5d9cca9608e71',
-                'label' => 'Insights',
+                'label' => 'Related Insights',
                 'name' => 'insights',
                 'type' => 'post_object',
                 'instructions' => '',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',

@@ -61,7 +61,7 @@ function npm_register_post_types()
             'menu_icon' => '',
             'public' => false,
             'show_ui' => true,
-            'taxonomies' => array('topic'),
+            'taxonomies' => array('topic', 'category'),
         )
     );
 

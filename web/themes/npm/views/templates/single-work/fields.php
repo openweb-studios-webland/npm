@@ -23,7 +23,7 @@ if (function_exists('acf_add_local_field_group')):
                     acf_dynamic_clones_get_local_field_group('Featured Content', 'featured-content'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero-single-work'),
                     acf_dynamic_clones_get_local_field_group('Images', 'images'),
-                    acf_dynamic_clones_get_local_field_group('Insights', 'insights'),
+                    acf_dynamic_clones_get_local_field_group('Related Insights', 'insights'),
                     acf_dynamic_clones_get_local_field_group('Text', 'text'),
                     acf_dynamic_clones_get_local_field_group('Related Work', 'work'),
                     acf_dynamic_clones_get_local_field_group('Work Groups', 'work-groups'),
@@ -71,7 +71,7 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'type',
                 'type' => 'select',
                 'instructions' => '',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',
@@ -123,7 +123,7 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'image',
                 'type' => 'image',
                 'instructions' => 'Recommended dimensions are 720 x 405',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',
@@ -198,7 +198,7 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'text',
                 'type' => 'textarea',
                 'instructions' => 'Recommended length is 120 characters',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',

@@ -41,10 +41,11 @@ function npm_register_taxonomies()
         'topic',
         'program',
         array(
-            'hierarchical' => true,
             'labels' => npm_create_taxonomy_labels('Topics', 'Topic'),
             'rewrite' => array('slug' => 'topics'),
+            'public' => false,
             'show_admin_column' => true,
+            'show_ui' => true,
         )
     );
 }

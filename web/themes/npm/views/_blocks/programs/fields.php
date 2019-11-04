@@ -12,7 +12,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'name' => 'heading',
                 'type' => 'text',
                 'instructions' => '',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',
@@ -31,7 +31,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'name' => 'text',
                 'type' => 'wysiwyg',
                 'instructions' => '',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',
@@ -66,12 +66,12 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'prefix_name' => 1,
             ),
             array(
-                'key' => 'field_5d8d2z35fb62f',
+                'key' => 'field_5dzz6z35fb62f',
                 'label' => 'Related Programs',
                 'name' => 'programs',
                 'type' => 'post_object',
                 'instructions' => '',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',

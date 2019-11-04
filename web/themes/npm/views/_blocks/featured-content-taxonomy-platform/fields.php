@@ -12,7 +12,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 				'name' => 'featured_content',
 				'type' => 'repeater',
 				'instructions' => '',
-				'required' => 0,
+				'required' => 1,
 				'conditional_logic' => 0,
 				'wrapper' => array(
 					'width' => '',
@@ -20,8 +20,8 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 					'id' => '',
 				),
 				'collapsed' => '',
-				'min' => 0,
-				'max' => 0,
+				'min' => 2,
+				'max' => 3,
 				'layout' => 'block',
 				'button_label' => 'Add Featured Content',
 				'sub_fields' => array(
@@ -31,7 +31,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 						'name' => 'image',
 						'type' => 'image',
 						'instructions' => 'Recommended dimensions are 1080 x 607.',
-						'required' => 0,
+						'required' => 1,
 						'conditional_logic' => 0,
 						'wrapper' => array(
 							'width' => '',
@@ -55,7 +55,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 						'name' => 'heading',
 						'type' => 'text',
 						'instructions' => '',
-						'required' => 0,
+						'required' => 1,
 						'conditional_logic' => 0,
 						'wrapper' => array(
 							'width' => '',
@@ -74,7 +74,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 						'name' => 'text',
 						'type' => 'wysiwyg',
 						'instructions' => '',
-						'required' => 0,
+						'required' => 1,
 						'conditional_logic' => 0,
 						'wrapper' => array(
 							'width' => '',
@@ -116,7 +116,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 				'name' => 'secondary_featured_content',
 				'type' => 'repeater',
 				'instructions' => '',
-				'required' => 0,
+				'required' => 1,
 				'conditional_logic' => 0,
 				'wrapper' => array(
 					'width' => '',
@@ -124,8 +124,8 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 					'id' => '',
 				),
 				'collapsed' => '',
-				'min' => 0,
-				'max' => 0,
+				'min' => 1,
+				'max' => 5,
 				'layout' => 'block',
 				'button_label' => 'Add Featured Content',
 				'sub_fields' => array(
@@ -135,7 +135,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 						'name' => 'image',
 						'type' => 'image',
 						'instructions' => 'Recommended dimensions are 660 x 371.',
-						'required' => 0,
+						'required' => 1,
 						'conditional_logic' => 0,
 						'wrapper' => array(
 							'width' => '',
@@ -159,7 +159,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 						'name' => 'heading',
 						'type' => 'text',
 						'instructions' => '',
-						'required' => 0,
+						'required' => 1,
 						'conditional_logic' => 0,
 						'wrapper' => array(
 							'width' => '',
@@ -178,7 +178,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 						'name' => 'text',
 						'type' => 'wysiwyg',
 						'instructions' => '',
-						'required' => 0,
+						'required' => 1,
 						'conditional_logic' => 0,
 						'wrapper' => array(
 							'width' => '',
@@ -214,6 +214,27 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 					),
 				),
 			),
+			array(
+                'key' => 'field_lxmwx00kae4k0',
+                'label' => 'Button',
+                'name' => 'button',
+                'type' => 'clone',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'clone' => array(
+                    0 => 'group_5d8b9a14327c5',
+                ),
+                'display' => 'seamless',
+                'layout' => 'block',
+                'prefix_label' => 1,
+                'prefix_name' => 1,
+            ),
 		),
     ));
 

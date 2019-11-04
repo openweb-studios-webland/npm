@@ -68,7 +68,7 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'variants',
                 'type' => 'text',
                 'instructions' => '',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',
@@ -87,7 +87,7 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'text',
                 'type' => 'textarea',
                 'instructions' => 'Recommended length is 120 characters.',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',

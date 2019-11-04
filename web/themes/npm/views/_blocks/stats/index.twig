@@ -9,7 +9,6 @@
     data-label="stats"
   >
     <div class="container">
-
       {% if block.type == '2_column' or block.type == '2_column_image' %}
         <div class="flex flex-wrap -mb-30 -mx-30">
           {% if block.type == '2_column' %}
@@ -61,7 +60,7 @@
         </div>
       {% else %}
         {% if block.heading %}
-          <h2 class="heading-6">
+          <h2 class="{{ block.color_select != 'white' and block.color_select != 'gray' ? 'text-blue-light ' }}heading-6">
             {{ block.heading }}
           </h2>
         {% endif %}

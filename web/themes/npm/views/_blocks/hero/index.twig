@@ -5,6 +5,12 @@
     <div class="container">
       <div class="flex flex-wrap items-center -mx-30 lg:-mb-50">
         <div class="mb-50 px-30 w-full lg:py-50 lg:w-7/12">
+          {% if block.subheading %}
+            <div class="heading-8 mb-20">
+              {{ block.subheading }}
+            </div>
+          {% endif %}
+
           {% if block.heading %}
             <h1 class="heading-3">
               {{ block.heading }}

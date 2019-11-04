@@ -10,7 +10,7 @@
       <div class="flex flex-wrap items-center -mb-50 -mx-30 relative">
         <div class="mb-50 px-30 w-full lg:w-1/2">
           <div class="heading-6 mb-20">
-            {{ insight_report.post_type | title }}
+            {{ insight_report.post_type == 'insight' ? 'Article' : insight_report.post_type | title }}
           </div>
 
           <h1 class="heading-3">

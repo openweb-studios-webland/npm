@@ -8,22 +8,16 @@
           {% set image = TimberImage(block.image) %}
 
           {% if image.src %}
-          <div class="pin-l -mx-20 lg:mx-0">
-            <img
-
-              src="{{ image.src | resize(900, 1100, 'center') }}"
-              alt="{{ image.alt }}"
-            />
+            <div class="pin-l -mx-20 lg:mx-0">
+              <img src="{{ image.src | resize(900, 1100, 'center') }}" alt="{{ image.alt }}" />
             </div>
           {% endif %}
         </div>
 
         <div class="section px-30 w-full lg:py-50 lg:w-3/4">
-          {% if block.heading %}
-            <h2 class="heading-6">
-              {{ block.heading }}
-            </h2>
-          {% endif %}
+          <h2 class="heading-6">
+            Our Offices
+          </h2>
 
           {% if globals.locations | length %}
             <ul class="flex flex-wrap -mb-50 -mx-30">

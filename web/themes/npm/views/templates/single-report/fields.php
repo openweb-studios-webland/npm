@@ -22,7 +22,7 @@ if (function_exists('acf_add_local_field_group')):
                 'layouts' => array(
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero-single-report'),
                     acf_dynamic_clones_get_local_field_group('Images', 'images'),
-                    acf_dynamic_clones_get_local_field_group('Insights', 'insights'),
+                    acf_dynamic_clones_get_local_field_group('Related Insights', 'insights'),
                     acf_dynamic_clones_get_local_field_group('Text', 'text'),
                     acf_dynamic_clones_get_local_field_group('Videos', 'videos'),
                 ),
@@ -68,7 +68,7 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'appears_on',
                 'type' => 'select',
                 'instructions' => '',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',
@@ -119,7 +119,7 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'image',
                 'type' => 'image',
                 'instructions' => 'Recommended dimensions are 720 x 540.',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',
@@ -143,7 +143,7 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'download',
                 'type' => 'file',
                 'instructions' => 'Allowed file type is PDF.',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',
@@ -162,7 +162,7 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'text',
                 'type' => 'textarea',
                 'instructions' => 'Recommended length is 120 characters.',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',

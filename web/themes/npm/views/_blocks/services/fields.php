@@ -90,7 +90,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                         'name' => 'image',
                         'type' => 'image',
                         'instructions' => 'Recommended dimensions are 450 x 450.',
-                        'required' => 0,
+                        'required' => 1,
                         'conditional_logic' => 0,
                         'wrapper' => array(
                             'width' => '',
@@ -114,7 +114,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                         'name' => 'short_text',
                         'type' => 'wysiwyg',
                         'instructions' => '',
-                        'required' => 0,
+                        'required' => 1,
                         'conditional_logic' => 0,
                         'wrapper' => array(
                             'width' => '',
@@ -133,7 +133,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                         'name' => 'text',
                         'type' => 'wysiwyg',
                         'instructions' => '',
-                        'required' => 0,
+                        'required' => 1,
                         'conditional_logic' => 0,
                         'wrapper' => array(
                             'width' => '',
@@ -152,7 +152,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                         'name' => 'platforms',
                         'type' => 'taxonomy',
                         'instructions' => '',
-                        'required' => 0,
+                        'required' => 1,
                         'conditional_logic' => 0,
                         'wrapper' => array(
                             'width' => '',
@@ -174,7 +174,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                         'name' => 'products',
                         'type' => 'post_object',
                         'instructions' => '',
-                        'required' => 0,
+                        'required' => 1,
                         'conditional_logic' => 0,
                         'wrapper' => array(
                             'width' => '',
@@ -196,7 +196,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                         'name' => 'work',
                         'type' => 'post_object',
                         'instructions' => '',
-                        'required' => 0,
+                        'required' => 1,
                         'conditional_logic' => 0,
                         'wrapper' => array(
                             'width' => '',

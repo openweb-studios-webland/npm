@@ -61,16 +61,16 @@
           role="dialog"
           aria-modal="true"
         >
+          <div class="video" tabindex="0">
+            {{ work.video }}
+          </div>
+
           <button class="absolute h-44 right-0 top-0 w-44" aria-label="Close modal" data-modal-close>
             <span class="sr-only">
               Close
             </span>
             {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
           </button>
-
-          <div class="video">
-            {{ work.video }}
-          </div>
         </div>
       </div>
     </div>
@@ -105,19 +105,13 @@
           role="dialog"
           aria-modal="true"
         >
-           <button class="absolute h-44 right-0 top-0 w-44" aria-label="Close modal" data-modal-close>
-            <span class="sr-only">
-              Close
-            </span>
-            {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
-          </button>
-
           {% if work.images | length %}
             <div class="container-md">
               <div
                 class="carousel overflow-x-hidden"
                 data-module="carousel"
                 data-carousel-loop="false"
+                tabindex="0"
               >
                 <div class="carousel-track flex items-center relative -mx-10" data-carousel-track>
                   {% for image in work.images %}
@@ -149,6 +143,13 @@
               </div>
             </div>
           {% endif %}
+
+          <button class="absolute h-44 right-0 top-0 w-44" aria-label="Close modal" data-modal-close>
+            <span class="sr-only">
+              Close
+            </span>
+            {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
+          </button>
         </div>
       </div>
     </div>

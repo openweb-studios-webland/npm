@@ -4,14 +4,14 @@
 {% if audio %}
   <div
     id="{{ uid }}"
-    class="modal bg-black-semi-opaque fixed inset-0 py-20 z-50"
+    class="modal bg-black-semi-opaque fixed inset-0 z-50"
     aria-hidden="true"
     data-module="modal"
   >
     <div class="flex flex-col h-full justify-center" tabindex="-1" data-modal-close>
       <div class="container-sm w-full">
         <div
-          class="modal-content bg-white overflow-y-auto p-50 relative"
+          class="modal-content bg-white overflow-x-hidden overflow-y-auto py-50 relative"
           role="dialog"
           aria-modal="true"
         >
@@ -54,7 +54,7 @@
 
                 <div
                   id="{{ uid }}"
-                  class="modal bg-black-semi-opaque fixed inset-0 py-20 z-50"
+                  class="modal bg-black-semi-opaque fixed inset-0 z-50"
                   aria-hidden="true"
                   data-module="modal"
                   tabindex="0"
@@ -62,7 +62,7 @@
                   <div class="flex flex-col h-full justify-center" tabindex="-1" data-modal-close>
                     <div class="container-sm w-full">
                       <div
-                        class="modal-content bg-white overflow-y-auto p-50 relative"
+                        class="modal-content bg-white overflow-x-hidden overflow-y-auto py-50 relative"
                         role="dialog"
                         aria-modal="true"
                       >

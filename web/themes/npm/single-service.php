@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Services (Single)
+ * Template Name: Services Single
  */
 
 $context = Timber::get_context();

@@ -4,7 +4,7 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_oebnbo65bgdau',
-        'title' => 'Insights',
+        'title' => 'Insights Archive',
         'fields' => array(
             array(
                 'key' => 'field_pd24iusm3bbaf',
@@ -22,7 +22,7 @@ if (function_exists('acf_add_local_field_group')):
                 'layouts' => array(
                     acf_dynamic_clones_get_local_field_group('Featured Article', 'featured-article'),
                     acf_dynamic_clones_get_local_field_group('Featured Report', 'featured-report'),
-                    acf_dynamic_clones_get_local_field_group('Hero', 'hero-insights'),
+                    acf_dynamic_clones_get_local_field_group('Hero', 'hero-archive-insight'),
                 ),
                 'button_label' => 'Add Block',
                 'min' => '',
@@ -34,7 +34,7 @@ if (function_exists('acf_add_local_field_group')):
                 array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'insights.php',
+                    'value' => 'archive-insight.php',
                 ),
             ),
         ),

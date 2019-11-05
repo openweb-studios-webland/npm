@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Insights
+ * Template Name: Insights Archive
  */
 
 global $paged;
@@ -22,7 +22,7 @@ $context['articles'] = Timber::get_posts($args);
 $context['fields'] = get_fields();
 
 if ($paged > 1) {
-    Timber::render('templates/insights/ajax.twig', $context);
+    Timber::render('templates/archive-insight/ajax.twig', $context);
 } else {
-    Timber::render('templates/insights/index.twig', $context);
+    Timber::render('templates/archive-insight/index.twig', $context);
 }

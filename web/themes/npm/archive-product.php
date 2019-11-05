@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Products (Archive)
+ * Template Name: Products Archive
  */
 
 $context = Timber::get_context();

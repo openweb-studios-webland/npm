@@ -4,7 +4,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
         'key' => 'group_8qjgyxf0nmnwu',
-        'title' => 'Hero Insights',
+        'title' => 'Hero Archive Insight',
         'fields' => array(
             array(
                 'key' => 'field_5o9mkzwsa5tk0',

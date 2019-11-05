@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Services (Archive)
+ * Template Name: Services Archive
  */
 
 global $paged;

@@ -1,0 +1,142 @@
+{% extends '_layouts/base.twig' %}
+
+{% block content %}
+  {% if fields.blocks %}
+    {% for block in fields.blocks %}
+      {% include '_blocks/' ~ block.acf_fc_layout ~ '/index.twig' ignore missing with {
+        block: block
+      } %}
+    {% endfor %}
+  {% endif %}
+
+  {% if categories | length %}
+    <section class="section">
+      <div class="-mb-100">
+        {% for category in Term(categories) %}
+          <div class="mb-100">
+            <div class="container-sm">
+              <h2 class="heading-3 text-center">
+                {{ category.name }}
+              </h2>
+            </div>
+
+            {% if category.programs | length %}
+              <div class="container">
+                <div class="flex flex-wrap -mb-20 -mx-10">
+                  {% for program in Post(category.programs) %}
+                    <div class="mb-20 px-10 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+                      {% set uid = random() %}
+                      {% set image = TimberImage(program.image) %}
+
+                      {% if image.src %}
+                        <button aria-controls="{{ uid }}" >
+                          <img src="{{ image.src | resize(300, 300, 'center') }}" alt="{{ image.alt }}" />
+                        </button>
+                      {% endif %}
+
+                       <div
+                        id="{{ uid }}"
+                        class="modal bg-black-semi-opaque fixed inset-0 py-20 z-50"
+                        aria-hidden="true"
+                        data-module="modal"
+                        tabindex="0"
+                      >
+                        <div class="flex flex-col h-full justify-center" tabindex="-1" data-modal-close>
+                          <div class="container w-full">
+                            <div
+                              class="modal-content bg-white overflow-y-auto p-50 relative"
+                              role="dialog"
+                              aria-modal="true"
+                            >
+                              <div class="container-md">
+                                <div class="flex flex-wrap -mb-50 -mx-30">
+                                  <div class="mb-50 px-30 w-full lg:w-1/3">
+                                    {% if image.src %}
+                                      <img src="{{ image.src | resize(450, 450, 'center') }}" alt="{{ image.alt }}" />
+                                    {% endif %}
+                                  </div>
+                                  <div class="mb-50 px-30 w-full lg:w-7/12">
+                                    <div class="mb-5 text-11 text-gray-a11y">
+                                      NPR Podcast
+                                    </div>
+
+                                    <h3 class="heading-4 mb-20">
+                                      {{ program.title }}
+                                    </h3>
+
+                                    {% if program.host %}
+                                      <div class="mb-5 text-11 text-gray-a11y">
+                                        Hosted by
+                                      </div>
+
+                                      <p class="heading-7 mb-20">
+                                        {{ program.host }}
+                                      </p>
+                                    {% endif %}
+
+                                    {% if program.text %}
+                                      <div class="text mb-20 text-14">
+                                        {{ program.text }}
+                                      </div>
+                                    {% endif %}
+
+                                    <div class="flex flex-wrap -mb-20 -mx-20">
+                                      {% if program.platforms | length %}
+                                        <div class="mb-20 px-20">
+                                          <div class="mb-5 text-11 text-gray-a11y">
+                                            Available on
+                                          </div>
+
+                                          <p class="font-bold mb-20 text-14">
+                                            {% for platform in Term(program.platforms) %}
+                                              {{ loop.last ? platform.name : platform.name ~ ', ' }}
+                                            {% endfor %}
+                                          </p>
+                                        </div>
+                                      {% endif %}
+
+                                      {% set topics = Post(program).get_terms('topic') %}
+
+                                      {% if topics | length %}
+                                        <div class="mb-20 px-20">
+                                          <div class="mb-5 text-11 text-gray-a11y">
+                                            Topics
+                                          </div>
+
+                                          <p class="mb-20 text-14">
+                                            {{ topics | join(', ') }}
+                                          </p>
+                                        </div>
+                                      {% endif %}
+                                    </div>
+
+                                    {% if program.button_link and program.button_text %}
+                                      <a class="button" href="{{ program.button_link }}">
+                                        {{ program.button_text }}
+                                      </a>
+                                    {% endif %}
+                                  </div>
+                                </div>
+                              </div>
+
+                              <button class="absolute h-44 right-0 top-0 w-44" aria-label="Close modal" data-modal-close>
+                                <span class="sr-only">
+                                  Close
+                                </span>
+                                {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+{% endblock %}

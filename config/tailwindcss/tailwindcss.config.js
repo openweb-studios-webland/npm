@@ -226,6 +226,7 @@ module.exports = {
     textColor: theme => theme('colors'),
     width: theme => ({
       auto: 'auto',
+      '1/5': '20%',
       '1/4': '25%',
       '1/3': '33.33333%',
       '5/12': '41.66667%',

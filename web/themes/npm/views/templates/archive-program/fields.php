@@ -3,11 +3,11 @@
 if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
-        'key' => 'group_oettyo65bgdau',
-        'title' => 'Product Archive',
+        'key' => 'group_2faiol7j5eqpm',
+        'title' => 'Program Archive',
         'fields' => array(
             array(
-                'key' => 'field_pd24is4w3bbaf',
+                'key' => 'field_tjwqwo21rgf3x',
                 'label' => 'Blocks',
                 'name' => 'blocks',
                 'type' => 'flexible_content',
@@ -32,7 +32,7 @@ if (function_exists('acf_add_local_field_group')):
                 array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'archive-product.php',
+                    'value' => 'archive-program.php',
                 ),
             ),
         ),

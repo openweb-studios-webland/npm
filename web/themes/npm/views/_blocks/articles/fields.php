@@ -57,8 +57,8 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'label' => 'Related Articles',
                 'name' => 'articles',
                 'type' => 'post_object',
-                'instructions' => '',
-                'required' => 1,
+                'instructions' => ' On About and Insights pages, related articles will be automatically populated. They can be overridden by selecting below.',
+                'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',

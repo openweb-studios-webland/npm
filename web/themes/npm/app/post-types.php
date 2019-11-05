@@ -26,7 +26,7 @@ function npm_register_post_types()
         array(
             'labels' => npm_create_post_type_labels('Articles', 'Article'),
             'has_archive' => false,
-            'menu_icon' => '',
+            'menu_icon' => 'dashicons-welcome-write-blog',
             'public' => true,
             'rewrite' => array('slug' => 'insights/articles'),
             'taxonomies' => array('platform'),
@@ -37,7 +37,7 @@ function npm_register_post_types()
         array(
             'labels' => npm_create_post_type_labels('Calls to Action', 'Call to Action'),
             'has_archive' => false,
-            'menu_icon' => '',
+            'menu_icon' => 'dashicons-admin-post',
             'public' => false,
             'show_ui' => true,
         )
@@ -47,7 +47,7 @@ function npm_register_post_types()
         array(
             'labels' => npm_create_post_type_labels('Products', 'Product'),
             'has_archive' => false,
-            'menu_icon' => '',
+            'menu_icon' => 'dashicons-products',
             'public' => true,
             'rewrite' => array('slug' => 'products'),
             'taxonomies' => array('platform'),
@@ -58,7 +58,7 @@ function npm_register_post_types()
         array(
             'labels' => npm_create_post_type_labels('Programs', 'Program'),
             'has_archive' => false,
-            'menu_icon' => '',
+            'menu_icon' => 'dashicons-screenoptions',
             'public' => false,
             'show_ui' => true,
             'taxonomies' => array('topic', 'category'),
@@ -69,7 +69,7 @@ function npm_register_post_types()
         array(
             'labels' => npm_create_post_type_labels('Reports', 'Report'),
             'has_archive' => false,
-            'menu_icon' => '',
+            'menu_icon' => 'dashicons-chart-pie',
             'public' => true,
             'rewrite' => array('slug' => 'insights/reports'),
         )
@@ -79,7 +79,7 @@ function npm_register_post_types()
         array(
             'labels' => npm_create_post_type_labels('Sponsorships', 'Sponsorship'),
             'has_archive' => false,
-            'menu_icon' => '',
+            'menu_icon' => 'dashicons-groups',
             'public' => true,
         )
     );
@@ -88,7 +88,7 @@ function npm_register_post_types()
         array(
             'labels' => npm_create_post_type_labels('Testimonials', 'Testimonial'),
             'has_archive' => false,
-            'menu_icon' => '',
+            'menu_icon' => 'dashicons-editor-quote',
             'public' => false,
             'show_ui' => true,
         )
@@ -98,7 +98,7 @@ function npm_register_post_types()
         array(
             'labels' => npm_create_post_type_labels('Work', 'Work'),
             'has_archive' => false,
-            'menu_icon' => '',
+            'menu_icon' => 'dashicons-admin-media',
             'public' => true,
         )
     );

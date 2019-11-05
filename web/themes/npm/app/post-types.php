@@ -22,6 +22,17 @@ function npm_create_post_type_labels($post_type_name = 'Posts', $post_type_singu
 
 function npm_register_post_types()
 {
+    register_post_type('article',
+        array(
+            'labels' => npm_create_post_type_labels('Articles', 'Article'),
+            'has_archive' => false,
+            'menu_icon' => '',
+            'public' => true,
+            'rewrite' => array('slug' => 'insights/articles'),
+            'taxonomies' => array('platform'),
+        )
+    );
+
     register_post_type('call-to-action',
         array(
             'labels' => npm_create_post_type_labels('Calls to Action', 'Call to Action'),
@@ -29,17 +40,6 @@ function npm_register_post_types()
             'menu_icon' => '',
             'public' => false,
             'show_ui' => true,
-        )
-    );
-
-    register_post_type('insight',
-        array(
-            'labels' => npm_create_post_type_labels('Insights', 'Insight'),
-            'has_archive' => false,
-            'menu_icon' => '',
-            'public' => true,
-            'rewrite' => array('slug' => 'insights'),
-            'taxonomies' => array('platform'),
         )
     );
 
@@ -71,7 +71,7 @@ function npm_register_post_types()
             'has_archive' => false,
             'menu_icon' => '',
             'public' => true,
-            'rewrite' => array('slug' => 'reports'),
+            'rewrite' => array('slug' => 'insights/reports'),
         )
     );
 

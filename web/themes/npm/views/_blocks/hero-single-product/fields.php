@@ -40,7 +40,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'name' => 'image',
                 'type' => 'image',
                 'instructions' => 'Recommended dimensions are 960 x 540.',
-                'required' => 1,
+                'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',

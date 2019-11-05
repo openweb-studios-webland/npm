@@ -3,11 +3,11 @@
 if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
-        'key' => 'group_qmlgkiuo93h4w',
-        'title' => 'Work Single',
+        'key' => 'group_5d9cb704694ae',
+        'title' => 'Article Single',
         'fields' => array(
             array(
-                'key' => 'field_4s00gwu9qdg30',
+                'key' => 'field_pd24is4wwtfa3',
                 'label' => 'Blocks',
                 'name' => 'blocks',
                 'type' => 'flexible_content',
@@ -24,7 +24,7 @@ if (function_exists('acf_add_local_field_group')):
                     acf_dynamic_clones_get_local_field_group('Embed', 'embed'),
                     acf_dynamic_clones_get_local_field_group('Featured Content', 'featured-content'),
                     acf_dynamic_clones_get_local_field_group('Featured Work', 'featured-work'),
-                    acf_dynamic_clones_get_local_field_group('Hero', 'hero-single-work'),
+                    acf_dynamic_clones_get_local_field_group('Hero', 'hero-single-article'),
                     acf_dynamic_clones_get_local_field_group('Images', 'images'),
                     acf_dynamic_clones_get_local_field_group('Related Articles', 'articles'),
                     acf_dynamic_clones_get_local_field_group('Related Work', 'work'),
@@ -32,7 +32,6 @@ if (function_exists('acf_add_local_field_group')):
                     acf_dynamic_clones_get_local_field_group('Testimonials', 'testimonials'),
                     acf_dynamic_clones_get_local_field_group('Text', 'text'),
                     acf_dynamic_clones_get_local_field_group('Videos', 'videos'),
-                    acf_dynamic_clones_get_local_field_group('Work Groups', 'work-groups'),
                 ),
                 'button_label' => 'Add Block',
                 'min' => '',
@@ -44,7 +43,7 @@ if (function_exists('acf_add_local_field_group')):
                 array(
                     'param' => 'post_type',
                     'operator' => '==',
-                    'value' => 'work',
+                    'value' => 'article',
                 ),
             ),
         ),
@@ -62,16 +61,43 @@ if (function_exists('acf_add_local_field_group')):
             5 => 'slug',
             6 => 'author',
         ),
-        'active' => true,
+        'active' => 1,
         'description' => '',
     ));
 
     acf_add_local_field_group(array(
-        'key' => 'group_5d9ce61wut65e',
-        'title' => 'Work Archive',
+        'key' => 'group_5d9cc6f91c7ff',
+        'title' => 'Insight Archive',
         'fields' => array(
             array(
-                'key' => 'field_wz5fp4woxi93f',
+                'key' => 'field_5db4ea263408b',
+                'label' => 'Appears On',
+                'name' => 'appears_on',
+                'type' => 'select',
+                'instructions' => '',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'insights' => 'Insights',
+                    'about' => 'About',
+                ),
+                'default_value' => array(
+                    0 => 'insights',
+                ),
+                'allow_null' => 0,
+                'multiple' => 0,
+                'ui' => 0,
+                'return_format' => 'value',
+                'ajax' => 0,
+                'placeholder' => '',
+            ),
+            array(
+                'key' => 'field_5db85a263408b',
                 'label' => 'Type',
                 'name' => 'type',
                 'type' => 'select',
@@ -85,7 +111,6 @@ if (function_exists('acf_add_local_field_group')):
                 ),
                 'choices' => array(
                     'image' => 'Image',
-                    'audio' => 'Audio',
                     'video' => 'Video',
                 ),
                 'default_value' => array(
@@ -99,13 +124,21 @@ if (function_exists('acf_add_local_field_group')):
                 'placeholder' => '',
             ),
             array(
-                'key' => 'field_sn5p8bvl1b4p3',
+                'key' => 'field_5db8zeb3b353f',
                 'label' => 'Featured Image',
                 'name' => 'featured_image',
                 'type' => 'image',
-                'instructions' => 'Recommended dimensions are 1080 x 607',
+                'instructions' => 'Recommended dimensions are 1080 x 810.',
                 'required' => 0,
-                'conditional_logic' => 0,
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_5db85a263408b',
+                            'operator' => '==',
+                            'value' => 'image',
+                        ),
+                    ),
+                ),
                 'wrapper' => array(
                     'width' => '',
                     'class' => '',
@@ -114,8 +147,8 @@ if (function_exists('acf_add_local_field_group')):
                 'return_format' => 'array',
                 'preview_size' => 'thumbnail',
                 'library' => 'all',
-                'min_width' => 1080,
-                'min_height' => 607,
+                'min_width' => '',
+                'min_height' => '',
                 'min_size' => '',
                 'max_width' => '',
                 'max_height' => '',
@@ -123,11 +156,11 @@ if (function_exists('acf_add_local_field_group')):
                 'mime_types' => '',
             ),
             array(
-                'key' => 'field_5d9ce61abc844',
+                'key' => 'field_5d9cbq0a4b89z',
                 'label' => 'Image',
                 'name' => 'image',
                 'type' => 'image',
-                'instructions' => 'Recommended dimensions are 720 x 405',
+                'instructions' => 'Recommended dimensions are 720 x 405.',
                 'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -147,34 +180,7 @@ if (function_exists('acf_add_local_field_group')):
                 'mime_types' => '',
             ),
             array(
-                'key' => 'field_5d9ce6a5bc846',
-                'label' => 'Audio',
-                'name' => 'audio',
-                'type' => 'file',
-                'instructions' => 'Allowed file types are MP3 and WAV',
-                'required' => 0,
-                'conditional_logic' => array(
-                    array(
-                        array(
-                            'field' => 'field_wz5fp4woxi93f',
-                            'operator' => '==',
-                            'value' => 'audio',
-                        ),
-                    ),
-                ),
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'return_format' => 'array',
-                'library' => 'all',
-                'min_size' => '',
-                'max_size' => '',
-                'mime_types' => 'mp3, wav',
-            ),
-            array(
-                'key' => 'field_5d9ce652bc845',
+                'key' => 'field_5db859fb3408a',
                 'label' => 'Video',
                 'name' => 'video',
                 'type' => 'oembed',
@@ -183,7 +189,7 @@ if (function_exists('acf_add_local_field_group')):
                 'conditional_logic' => array(
                     array(
                         array(
-                            'field' => 'field_wz5fp4woxi93f',
+                            'field' => 'field_5db85a263408b',
                             'operator' => '==',
                             'value' => 'video',
                         ),
@@ -194,15 +200,15 @@ if (function_exists('acf_add_local_field_group')):
                     'class' => '',
                     'id' => '',
                 ),
-                'width' => '320',
-                'height' => '195',
+                'width' => 320,
+                'height' => 195,
             ),
             array(
-                'key' => 'field_5d9ce7a5bc847',
+                'key' => 'field_5d9cb7724b89w',
                 'label' => 'Text',
                 'name' => 'text',
                 'type' => 'textarea',
-                'instructions' => 'Recommended length is 120 characters',
+                'instructions' => 'Recommended length is 120 characters.',
                 'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -216,13 +222,34 @@ if (function_exists('acf_add_local_field_group')):
                 'rows' => 4,
                 'new_lines' => '',
             ),
+            array(
+                'key' => 'field_5b4ihw3vlu99k',
+                'label' => 'Button',
+                'name' => 'button',
+                'type' => 'clone',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'clone' => array(
+                    0 => 'group_5d8b9a14327c5',
+                ),
+                'display' => 'seamless',
+                'layout' => 'block',
+                'prefix_label' => 1,
+                'prefix_name' => 1,
+            ),
         ),
         'location' => array(
             array(
                 array(
                     'param' => 'post_type',
                     'operator' => '==',
-                    'value' => 'work',
+                    'value' => 'article',
                 ),
             ),
         ),

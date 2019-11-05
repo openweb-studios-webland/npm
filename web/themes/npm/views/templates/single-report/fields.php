@@ -20,9 +20,16 @@ if (function_exists('acf_add_local_field_group')):
                     'id' => '',
                 ),
                 'layouts' => array(
+                    acf_dynamic_clones_get_local_field_group('Call to Action', 'call-to-action'),
+                    acf_dynamic_clones_get_local_field_group('Embed', 'embed'),
+                    acf_dynamic_clones_get_local_field_group('Featured Content', 'featured-content'),
+                    acf_dynamic_clones_get_local_field_group('Featured Work', 'featured-work'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero-single-report'),
                     acf_dynamic_clones_get_local_field_group('Images', 'images'),
-                    acf_dynamic_clones_get_local_field_group('Related Insights', 'insights'),
+                    acf_dynamic_clones_get_local_field_group('Related Articles', 'articles'),
+                    acf_dynamic_clones_get_local_field_group('Related Work', 'work'),
+                    acf_dynamic_clones_get_local_field_group('Stats', 'stats'),
+                    acf_dynamic_clones_get_local_field_group('Testimonials', 'testimonials'),
                     acf_dynamic_clones_get_local_field_group('Text', 'text'),
                     acf_dynamic_clones_get_local_field_group('Videos', 'videos'),
                 ),
@@ -89,6 +96,34 @@ if (function_exists('acf_add_local_field_group')):
                 'ajax' => 0,
                 'placeholder' => '',
             ),
+
+            array(
+                'key' => 'field_zdb85a263408b',
+                'label' => 'Type',
+                'name' => 'type',
+                'type' => 'select',
+                'instructions' => '',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'image' => 'Image',
+                    'video' => 'Video',
+                ),
+                'default_value' => array(
+                    0 => 'image',
+                ),
+                'allow_null' => 0,
+                'multiple' => 0,
+                'ui' => 0,
+                'return_format' => 'value',
+                'ajax' => 0,
+                'placeholder' => '',
+            ),
             array(
                 'key' => 'field_5db85623b353f',
                 'label' => 'Featured Image',
@@ -96,7 +131,15 @@ if (function_exists('acf_add_local_field_group')):
                 'type' => 'image',
                 'instructions' => 'Recommended dimensions are 1080 x 607.',
                 'required' => 0,
-                'conditional_logic' => 0,
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_zdb85a263408b',
+                            'operator' => '==',
+                            'value' => 'image',
+                        ),
+                    ),
+                ),
                 'wrapper' => array(
                     'width' => '',
                     'class' => '',
@@ -118,7 +161,7 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Image',
                 'name' => 'image',
                 'type' => 'image',
-                'instructions' => 'Recommended dimensions are 720 x 540.',
+                'instructions' => 'Recommended dimensions are 720 x 405.',
                 'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -130,12 +173,36 @@ if (function_exists('acf_add_local_field_group')):
                 'preview_size' => 'thumbnail',
                 'library' => 'all',
                 'min_width' => 720,
-                'min_height' => 540,
+                'min_height' => 405,
                 'min_size' => '',
                 'max_width' => '',
                 'max_height' => '',
                 'max_size' => '',
                 'mime_types' => '',
+            ),
+            array(
+                'key' => 'field_5db859fb3408a',
+                'label' => 'Video',
+                'name' => 'video',
+                'type' => 'oembed',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_zdb85a263408b',
+                            'operator' => '==',
+                            'value' => 'video',
+                        ),
+                    ),
+                ),
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'width' => 320,
+                'height' => 195,
             ),
             array(
                 'key' => 'field_5db9b7cb3af1b',

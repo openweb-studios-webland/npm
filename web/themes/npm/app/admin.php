@@ -15,9 +15,9 @@ function npm_admin_remove_menus()
         add_filter('acf/settings/show_admin', '__return_false'); // Custom fields
     }
 
-    // remove_menu_page('edit.php'); // Posts
     // remove_menu_page('edit.php?post_type=page'); // Pages
     // remove_menu_page('users.php'); // Users
+    remove_menu_page('edit.php'); // Posts
     remove_menu_page('edit-comments.php'); // Comments
 }
 

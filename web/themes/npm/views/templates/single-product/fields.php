@@ -21,10 +21,13 @@ if (function_exists('acf_add_local_field_group')):
                 ),
                 'layouts' => array(
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero-single-product'),
+                    acf_dynamic_clones_get_local_field_group('Images', 'images'),
                     acf_dynamic_clones_get_local_field_group('Spec Groups', 'spec-groups'),
                     acf_dynamic_clones_get_local_field_group('Testimonials', 'testimonials'),
                     acf_dynamic_clones_get_local_field_group('Related Products', 'products'),
                     acf_dynamic_clones_get_local_field_group('Related Work', 'work'),
+                    acf_dynamic_clones_get_local_field_group('Text', 'text'),
+                    acf_dynamic_clones_get_local_field_group('Videos', 'videos'),
                 ),
                 'button_label' => 'Add Block',
                 'min' => '',

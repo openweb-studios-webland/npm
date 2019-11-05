@@ -1,0 +1,54 @@
+{% set block = block ?? null %}
+
+{% if block %}
+  {% set article_report = Post(block.featured_article_report) %}
+
+  <section class="section pb-0 relative lg:pb-100" data-label="hero-insights">
+    {{ svg('pattern', { classes: 'absolute bottom-0 hidden inset-x-0 w-full lg:block' }) }}
+
+    <div class="container">
+      <div class="flex flex-wrap items-center -mb-50 -mx-30 relative">
+        <div class="mb-50 px-30 w-full lg:w-1/2">
+          <div class="heading-6 mb-20">
+            {{ article_report.post_type | title }}
+          </div>
+
+          <h1 class="heading-3">
+            {{ article_report.title }}
+          </h1>
+
+          {% if article_report.text %}
+            <div class="text text-16 lg:text-18">
+              {{ article_report.text }}
+            </div>
+          {% endif %}
+
+          <a class="button mt-25 lg:mt-30" href="{{ article_report.button_link ?? article_report.link }}">
+            {{ article_report.button_text ?? 'Read More' }}
+          </a>
+        </div>
+
+        <div class="mb-50 px-30 w-full lg:w-1/2">
+          {% if article_report.type == 'video' %}
+            {% set video = article_report.get_field('video') ?? null %}
+
+            {% include '_partials/video/index.twig' ignore missing with {
+              video: video,
+              image: article_report.image,
+            } only %}
+          {% else %}
+            {% set image = TimberImage(article_report.featured_image) %}
+
+            {% if image.src %}
+              <img
+                class="pin-r -mx-20 lg:mx-0"
+                src="{{ image.src | resize(1080, 810, 'center') }}"
+                alt="{{ image.alt }}"
+              />
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}

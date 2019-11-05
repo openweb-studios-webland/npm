@@ -3,11 +3,11 @@
 if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
-        'key' => 'group_rmlgkiuo93h4w',
-        'title' => 'Sponsorship Single',
+        'key' => 'group_oebnbo65bgdau',
+        'title' => 'Insights',
         'fields' => array(
             array(
-                'key' => 'field_4s62gwu9qdg30',
+                'key' => 'field_pd24iusm3bbaf',
                 'label' => 'Blocks',
                 'name' => 'blocks',
                 'type' => 'flexible_content',
@@ -20,17 +20,9 @@ if (function_exists('acf_add_local_field_group')):
                     'id' => '',
                 ),
                 'layouts' => array(
-                    acf_dynamic_clones_get_local_field_group('Call to Action', 'call-to-action'),
-                    acf_dynamic_clones_get_local_field_group('Featured Content', 'featured-content'),
-                    acf_dynamic_clones_get_local_field_group('Featured Work', 'featured-work'),
-                    acf_dynamic_clones_get_local_field_group('Hero', 'hero'),
-                    acf_dynamic_clones_get_local_field_group('Images', 'images'),
-                    acf_dynamic_clones_get_local_field_group('Programs', 'programs'),
-                    acf_dynamic_clones_get_local_field_group('Related Work', 'work'),
-                    acf_dynamic_clones_get_local_field_group('Stats', 'stats'),
-                    acf_dynamic_clones_get_local_field_group('Testimonials', 'testimonials'),
-                    acf_dynamic_clones_get_local_field_group('Text', 'text'),
-                    acf_dynamic_clones_get_local_field_group('Videos', 'videos'),
+                    acf_dynamic_clones_get_local_field_group('Featured Article', 'featured-article'),
+                    acf_dynamic_clones_get_local_field_group('Featured Report', 'featured-report'),
+                    acf_dynamic_clones_get_local_field_group('Hero', 'hero-insights'),
                 ),
                 'button_label' => 'Add Block',
                 'min' => '',
@@ -40,9 +32,9 @@ if (function_exists('acf_add_local_field_group')):
         'location' => array(
             array(
                 array(
-                    'param' => 'post_type',
+                    'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'sponsorship',
+                    'value' => 'insights.php',
                 ),
             ),
         ),

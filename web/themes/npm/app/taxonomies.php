@@ -25,7 +25,7 @@ function npm_register_taxonomies()
     register_taxonomy(
         'platform',
         array(
-            'insight',
+            'article',
             'product',
         ),
         array(

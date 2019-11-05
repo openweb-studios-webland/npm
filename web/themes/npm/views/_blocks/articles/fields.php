@@ -3,11 +3,38 @@
 if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
-        'key' => 'group_5d9cef19bfa55',
-        'title' => 'Work',
+        'key' => 'group_5d9cca7086992',
+        'title' => 'Articles',
         'fields' => array(
             array(
-                'key' => 'field_5d9cef1e25cff',
+                'key' => 'field_cdw497pai8y12',
+                'label' => 'Type',
+                'name' => 'type',
+                'type' => 'select',
+                'instructions' => '',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'small' => 'Small',
+                    'large' => 'Large',
+                ),
+                'default_value' => array(
+                    0 => 'small',
+                ),
+                'allow_null' => 0,
+                'multiple' => 0,
+                'ui' => 0,
+                'return_format' => 'value',
+                'ajax' => 0,
+                'placeholder' => '',
+            ),
+            array(
+                'key' => 'field_5d9cca7808e70',
                 'label' => 'Heading',
                 'name' => 'heading',
                 'type' => 'text',
@@ -26,9 +53,9 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'maxlength' => '',
             ),
             array(
-                'key' => 'field_5d9cef3725d00',
-                'label' => 'Work',
-                'name' => 'work',
+                'key' => 'field_5d9cca9608e71',
+                'label' => 'Related Articles',
+                'name' => 'articles',
                 'type' => 'post_object',
                 'instructions' => '',
                 'required' => 1,
@@ -39,7 +66,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                     'id' => '',
                 ),
                 'post_type' => array(
-                    0 => 'work',
+                    0 => 'article',
                 ),
                 'taxonomy' => '',
                 'allow_null' => 0,

@@ -1,0 +1,11 @@
+{% set block = block ?? null %}
+
+{% if block %}
+  <section class="section bg-gray" data-label="embed">
+    <div class="container-md">
+      {% if block.embed %}
+        {{ block.embed }}
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

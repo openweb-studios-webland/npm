@@ -4,7 +4,7 @@ $context = Timber::get_context();
 $term_id = get_queried_object()->term_id;
 $args = array(
     'posts_per_page' => 3,
-    'post_type' => 'insight',
+    'post_type' => 'article',
     'tax_query' => array(
         array(
             'taxonomy' => 'platform',
@@ -13,7 +13,7 @@ $args = array(
         ),
     ),
 );
-$context['insights'] = Timber::get_posts($args);
+$context['articles'] = Timber::get_posts($args);
 $context['fields'] = get_fields("term_{$term_id}");
 
 Timber::render('templates/taxonomy-platform/index.twig', $context);

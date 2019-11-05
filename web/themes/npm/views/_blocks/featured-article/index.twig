@@ -1,0 +1,47 @@
+{% set block = block ?? null %}
+
+{% if block %}
+  {% set article = Post(block.featured_article) %}
+
+  <section class="section" data-label="featured-article">
+    <div class="container">
+      <div class="flex flex-wrap items-center -mb-50 -mx-30 lg:flex-no-wrap lg:flex-row-reverse">
+        <div class="mb-50 px-30 w-full lg:w-1/2">
+          <div class="flex flex-wrap mb-20 -mx-10 text-gray-a11y text-11">
+            <div class="border-r border-gray-a11y leading-none mb-10 px-10">
+               {{ article.post_type | title }}
+            </div>
+
+            <div class="leading-none mb-10 px-10">
+              {{ article.post_date | date('F Y') }}
+            </div>
+          </div>
+
+          <h2 class="heading-3">
+            {{ article.title }}
+          </h2>
+
+          {% if article.text %}
+            <div class="text text-16 lg:text-18">
+              {{ article.text }}
+            </div>
+          {% endif %}
+
+          <a class="button mt-25 lg:mt-30" href="{{ article.button_link is not empty ? article.button_link : article.link }}">
+            {{ article.button_text is not empty ? article.button_text : 'Read More' }}
+          </a>
+        </div>
+
+        {% set image = TimberImage(article.featured_image) %}
+
+        {% if image.src %}
+          <div class="mb-50 px-30 w-full lg:w-1/2">
+            <div class="-mx-20 lg:mx-0">
+              <img src="{{ image.src | resize(1080, 810, 'center') }}" alt="{{ image.alt }}" />
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}

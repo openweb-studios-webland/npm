@@ -1,0 +1,53 @@
+/*! purgecss start ignore */
+.call-to-action {
+  @apply border
+    border-gray-border
+    float-right
+    mb-30
+    ml-30
+    p-30
+    text-center
+    w-full;
+
+  @screen lg {
+    width: 50%;
+  }
+}
+
+.call-to-action-heading {
+  @apply font-bold
+    leading-tight
+    mb-20
+    text-18;
+
+  @screen md {
+    @apply mb-25;
+  }
+
+  @screen md {
+    @apply mb-30;
+  }
+}
+
+.call-to-action-button {
+  @apply bg-transparent
+    border-2
+    border-crimson
+    font-bold
+    inline-block
+    leading-tight
+    max-w-full
+    no-underline
+    p-20
+    rounded-full
+    text-center
+    text-crimson
+    w-full;
+
+  @screen md {
+    @apply px-30
+      py-20
+      w-auto;
+  }
+}
+/*! purgecss end ignore */

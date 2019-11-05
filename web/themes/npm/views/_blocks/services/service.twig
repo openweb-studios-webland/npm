@@ -35,9 +35,15 @@
     class="absolute bg-white inset-x-0 min-h-full px-30 py-40 shadow-sm top-0"
     aria-hidden="true"
   >
-    <h3 class="heading-4 mb-20">
-      {{ service.title }}
-    </h3>
+    <div class="mb-5 text-gray-a11y text-11">
+      Service
+    </div>
+
+    {% if service.heading %}
+      <h3 class="heading-4 mb-20">
+        {{ service.heading }}
+      </h3>
+    {% endif %}
 
     {% if service.text %}
       <div class="text mb-20 text-14">
@@ -46,9 +52,9 @@
     {% endif %}
 
     {% if service.platforms | length %}
-      <h4 class="mb-5 text-11 text-gray-a11y">
+      <div class="mb-5 text-11 text-gray-a11y">
         Available on
-      </h4>
+      </div>
 
       <p class="font-bold mb-20 text-14">
         {% for platform in Term(service.platforms)  %}
@@ -58,9 +64,9 @@
     {% endif %}
 
     {% if service.products | length %}
-      <h4 class="mb-5 text-11 text-gray-a11y">
+      <div class="mb-5 text-11 text-gray-a11y">
         Related Products
-      </h4>
+      </div>
 
       <p class="font-bold mb-20 text-14">
         {% for product in Post(service.products) %}
@@ -71,9 +77,9 @@
     {% endif %}
 
     {% if service.work | length %}
-      <h4 class="mb-5 text-11 text-gray-a11y">
+      <div class="mb-5 text-11 text-gray-a11y">
         Related Work
-      </h4>
+      </div>
 
       <p class="font-bold mb-20 text-14">
         {% for work in Post(service.work) %}

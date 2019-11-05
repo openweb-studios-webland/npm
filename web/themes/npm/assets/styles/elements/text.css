@@ -1,8 +1,10 @@
 /*! purgecss start ignore */
 .text {
   & a {
-    @apply font-bold
-      text-blue-link;
+    &:not(.button):not([class*="button-"]):not(.call-to-action-button) {
+      @apply font-bold
+        text-blue-link;
+    }
   }
 
   & p,

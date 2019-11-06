@@ -28,9 +28,8 @@
   </p>
 {% endif %}
 
-{% if article.button_text %}
-  <a class="link text-14" href="{{ article.button_link ?? article.link }}">
-    {{ article.button_text }}
-    {{ svg('link') }}
-  </a>
+<a class="link text-14" href="{{ article.button_link ?? article.link }}">
+  {{ article.button_text ?? 'Read more' }}
+  {{ svg('link') }}
+</a>
 {% endif %}

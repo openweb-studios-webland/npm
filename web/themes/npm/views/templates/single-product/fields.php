@@ -8,7 +8,7 @@ if (function_exists('acf_add_local_field_group')):
         'fields' => array(
             array(
                 'key' => 'field_gw7yn9xfkdtf2',
-                'label' => 'Blocks',
+                'label' => 'Page Blocks',
                 'name' => 'blocks',
                 'type' => 'flexible_content',
                 'instructions' => '',

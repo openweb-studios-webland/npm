@@ -1,10 +1,10 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section bg-gray" data-label="embed">
+  <section class="section bg-{{ block.color_select }}" data-label="embed">
     <div class="container-md">
       {% if block.embed %}
-        {{ block.embed }}
+        {{ block.embed | raw }}
       {% endif %}
     </div>
   </section>

@@ -20,7 +20,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                     'id' => '',
                 ),
                 'collapsed' => '',
-                'min' => 2,
+                'min' => 1,
                 'max' => 3,
                 'layout' => 'block',
                 'button_label' => 'Add Featured Content',

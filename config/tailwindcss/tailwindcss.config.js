@@ -181,9 +181,9 @@ module.exports = {
       screen: '100vh',
     },
     maxWidth: {
-      '0': '0',
       '200': '200px',
       none: 'none',
+      '1/2': '50%',
       full: '100%',
       screen: '100vw',
     },

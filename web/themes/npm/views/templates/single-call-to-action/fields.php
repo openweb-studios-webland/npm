@@ -8,9 +8,9 @@ if (function_exists('acf_add_local_field_group')):
         'fields' => array(
             array(
                 'key' => 'field_5da5f4dd5c4fa',
-                'label' => 'Color',
-                'name' => 'color',
-                'type' => 'clone',
+                'label' => 'Color Select',
+                'name' => 'color_select',
+                'type' => 'select',
                 'instructions' => '',
                 'required' => 1,
                 'conditional_logic' => 0,
@@ -19,13 +19,20 @@ if (function_exists('acf_add_local_field_group')):
                     'class' => '',
                     'id' => '',
                 ),
-                'clone' => array(
-                    0 => 'group_5da5f6122a712',
+                'choices' => array(
+                    'blue' => 'Dark Blue',
+                    'teal' => 'Teal',
+                    'gradient' => 'Gradient',
                 ),
-                'display' => 'seamless',
-                'layout' => 'block',
-                'prefix_label' => 1,
-                'prefix_name' => 1,
+                'default_value' => array(
+                    0 => 'blue',
+                ),
+                'allow_null' => 0,
+                'multiple' => 0,
+                'ui' => 0,
+                'return_format' => 'value',
+                'ajax' => 0,
+                'placeholder' => '',
             ),
             array(
                 'key' => 'field_5d966f0ede480',

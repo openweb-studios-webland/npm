@@ -5,7 +5,7 @@
  */
 
 $context = Timber::get_context();
-$context['post'] = new Timber\Post();
+$context['post'] = Timber::get_post();
 $args = array(
     'posts_per_page' => 3,
     'post_type' => array(

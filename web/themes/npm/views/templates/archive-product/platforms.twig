@@ -3,7 +3,7 @@
     <div class="-mb-20 overflow-x-auto pb-20">
       <ul class="flex items-center -mx-10 lg:-mx-20">
         <li class="flex-no-shrink px-10 lg:px-20">
-          <a class="{{ current_platforms.parents | length ? 'text-gray-a11y ' : 'text-blue-link ' }}font-bold inline-block pb-15 relative text-center transition-fast whitespace-no-wrap hover:text-blue-link" href="{{ fn('get_post_type_archive_link', 'product') }}">
+          <a class="{{ current_platforms.parents | length ? 'text-gray-a11y ' : 'text-blue-link ' }}font-bold inline-block pb-15 relative text-center transition-fast whitespace-no-wrap hover:text-blue-link" href="{{ post.link }}">
             All Formats
           </a>
         </li>

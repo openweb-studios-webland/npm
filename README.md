@@ -195,7 +195,7 @@ if (function_exists('acf_add_local_field_group')):
     'fields' => array(
         array(
         'key' => 'field_c991lat3ewp0o', // Field key must be unique
-        'label' => 'Blocks',
+        'label' => 'Page Blocks',
         'name' => 'blocks',
         'type' => 'flexible_content',
         'instructions' => '',

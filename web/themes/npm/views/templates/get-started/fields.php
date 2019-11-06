@@ -4,7 +4,7 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_5db9daed9599d',
-        'title' => 'Get Started',
+        'title' => 'Get Started Page',
         'fields' => array(
             array(
                 'key' => 'field_5db9daf279df9',

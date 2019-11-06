@@ -5,6 +5,7 @@
  */
 
 $context = Timber::get_context();
+$context['post'] = Timber::get_post();
 $taxonomy = 'platform';
 $platforms = Timber::get_terms(array(
     'taxonomy' => $taxonomy,

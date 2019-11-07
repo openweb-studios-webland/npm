@@ -16,13 +16,17 @@
 
         <div class="lg:absolute lg:inset-x-0 lg:top-1/2 lg:translate-y-1/2">
           <div class="container-lg">
-            <div class="flex justify-center opacity-50 mt-30 -mx-5 text-white lg:justify-between lg:mt-0">
+            <div class="flex justify-center mt-30 -mx-5 lg:justify-between lg:mt-0">
               <div class="px-5">
-                {% include '_partials/carousel/button-prev.twig' ignore missing %}
+                {% include '_partials/carousel/button-prev.twig' ignore missing with {
+                  classes: 'opacity-50 text-white transition-fast hover:opacity-100',
+                } only %}
               </div>
 
               <div class="px-5">
-                {% include '_partials/carousel/button-next.twig' ignore missing %}
+                {% include '_partials/carousel/button-next.twig' ignore missing with {
+                  classes: 'opacity-50 text-white transition-fast hover:opacity-100',
+                } only %}
               </div>
             </div>
           </div>

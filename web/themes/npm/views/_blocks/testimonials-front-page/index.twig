@@ -18,13 +18,17 @@
         {% if block.testimonials | length > 1 %}
           <div class="lg:absolute lg:bottom-0 lg:left-0 lg:mb-50 lg:w-full">
             <div class="container">
-              <div class="flex justify-center opacity-50 mt-30 -mx-5 text-white lg:justify-start lg:mt-0">
+              <div class="flex justify-center mt-30 -mx-5 lg:justify-start lg:mt-0">
                 <div class="px-5">
-                  {% include '_partials/carousel/button-prev.twig' ignore missing only %}
+                  {% include '_partials/carousel/button-prev.twig' ignore missing with {
+                    classes: 'opacity-50 text-white transition-fast hover:opacity-100',
+                  } only %}
                 </div>
 
                 <div class="px-5">
-                  {% include '_partials/carousel/button-next.twig' ignore missing only %}
+                  {% include '_partials/carousel/button-next.twig' ignore missing with {
+                    classes: 'opacity-50 text-white transition-fast hover:opacity-100',
+                  } only %}
                 </div>
               </div>
             </div>

@@ -28,13 +28,17 @@
         {% endfor %}
       </div>
 
-      <div class="flex mt-30 -mx-5 text-blue">
+      <div class="flex mt-30 -mx-5">
         <div class="px-5">
-          {% include '_partials/carousel/button-prev.twig' ignore missing %}
+          {% include '_partials/carousel/button-prev.twig' ignore missing with {
+            classes: 'text-blue',
+          } only %}
         </div>
 
         <div class="px-5">
-          {% include '_partials/carousel/button-next.twig' ignore missing %}
+          {% include '_partials/carousel/button-next.twig' ignore missing with {
+            classes: 'text-blue',
+          } only %}
         </div>
       </div>
     </div>

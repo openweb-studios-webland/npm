@@ -1,12 +1,16 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section" data-label="hero-single-product">
+  <section class="section pb-50" data-label="hero-single-product">
     <div class="container">
-      <div class="flex flex-wrap items-center -mx-30">
-        <div class="mb-30 px-30 w-full{{ block.video or block.audio or block.image.src ? ' lg:w-7/12' : ' lg:w-2/3' }}">
+      <div class="flex flex-wrap items-center -mb-30 -mx-30">
+        <div class="mb-30 px-30 w-full{{ block.type == 'no_image' ? ' lg:w-7/12' : ' lg:w-3/4' }}">
+          <a class="heading-6 inline-block mb-20 text-blue-denim" href="/products/">
+            Products
+          </a>
+
           {% if block.heading %}
-            <h1 class="heading-3 mb-10">
+            <h1 class="heading-3 mb-15">
               {{ block.heading }}
             </h1>
           {% endif %}
@@ -35,23 +39,25 @@
           {% endif %}
         </div>
 
-        <div class="px-30 w-full lg:w-5/12">
-          {% if block.type == 'video' %}
-            {% include '_partials/video/index.twig' ignore missing with {
-              video: block.video,
-              image: block.image,
-            } only %}
-          {% elseif block.type == 'audio' %}
-            {% include '_partials/audio/index.twig' ignore missing with {
-              audio: block.audio,
-              image: block.image,
-            } only %}
-          {% else %}
-            {% include '_partials/image/index.twig' ignore missing with {
-              image: block.image,
-            } only %}
-          {% endif %}
-        </div>
+        {% if block.type != 'no_image' %}
+          <div class="mb-30 px-30 w-full lg:w-5/12">
+            {% if block.type == 'audio' %}
+              {% include '_partials/audio/index.twig' ignore missing with {
+                audio: block.audio,
+                image: block.image,
+              } only %}
+            {% elseif block.type == 'audio' %}
+              {% include '_partials/video/index.twig' ignore missing with {
+                video: block.video,
+                image: block.image,
+              } only %}
+            {% elseif image.src %}
+              {% set image = TimberImage(block.image) %}
+
+              <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
+            {% endif %}
+          </div>
+        {% endif %}
       </div>
     </div>
   </section>

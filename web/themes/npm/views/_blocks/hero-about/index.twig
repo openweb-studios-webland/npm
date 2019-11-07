@@ -3,8 +3,10 @@
 {% if block %}
   <section class="section" data-label="hero-about">
     <div class="container">
-      <div class="flex -mx-30">
-        <div class="px-30 w-full lg:w-3/4">
+      <div class="flex flex-wrap items-center -mb-50 -mx-30">
+        {% set image = TimberImage(block.image) %}
+
+        <div class="mb-50 px-30 w-full{{ image.src ? ' lg:w-7/12' : ' lg:w-3/4' }}">
           <div class="heading-6 mb-20">
             {{ post.title }}
           </div>
@@ -27,6 +29,12 @@
             </a>
           {% endif %}
         </div>
+
+        {% if image.src %}
+          <div class="mb-50 px-30 w-full lg:w-5/12">
+            <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
+          </div>
+        {% endif %}
       </div>
     </div>
   </section>

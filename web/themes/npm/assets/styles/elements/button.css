@@ -16,7 +16,7 @@
     w-full;
   min-width: 200px;
 
-  @screen md {
+  @screen sm {
     @apply px-30
       py-20
       w-auto;

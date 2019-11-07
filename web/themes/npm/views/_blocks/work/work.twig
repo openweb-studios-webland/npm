@@ -47,9 +47,11 @@
     </a>
   </div>
 {% else %}
-  {% include '_partials/image/index.twig' ignore missing with {
-    image: work.image,
-  } only %}
+  {% set image = TimberImage(work.image) %}
+
+  {% if image.src %}
+    <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
+  {% endif %}
 
   <div class="mt-20">
     <h3 class="heading-7 mb-10">

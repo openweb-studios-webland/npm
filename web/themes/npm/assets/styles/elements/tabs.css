@@ -1,4 +1,4 @@
-[data-tabs-trigger] {
+[data-label="audiences"] [data-tabs-trigger] {
   &[aria-expanded="true"] {
     @apply border-b-0;
 
@@ -60,7 +60,8 @@
       bg-blue-denim
       bottom-0
       hidden
-      inset-x-0;
+      inset-x-0
+      w-auto;
     content: "";
     height: 5px;
   }

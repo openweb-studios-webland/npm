@@ -20,12 +20,13 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                     'id' => '',
                 ),
                 'choices' => array(
+                    'no_image' => 'No Image',
                     'image' => 'Image',
                     'audio' => 'Audio',
                     'video' => 'Video',
                 ),
                 'default_value' => array(
-                    0 => 'image',
+                    0 => 'no_image',
                 ),
                 'allow_null' => 0,
                 'multiple' => 0,
@@ -41,7 +42,15 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'type' => 'image',
                 'instructions' => 'Recommended dimensions are 960 x 540.',
                 'required' => 0,
-                'conditional_logic' => 0,
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_5123610e19c03',
+                            'operator' => '!=',
+                            'value' => 'no_image',
+                        ),
+                    ),
+                ),
                 'wrapper' => array(
                     'width' => '',
                     'class' => '',

@@ -1,5 +1,0 @@
-{% set image = image ? TimberImage(image) : null %}
-
-{% if image.src %}
-  <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
-{% endif %}

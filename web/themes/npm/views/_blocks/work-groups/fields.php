@@ -96,7 +96,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 								'label' => 'Image',
 								'name' => 'image',
 								'type' => 'image',
-								'instructions' => 'Recommended dimensions are 720 x 405',
+								'instructions' => 'Recommended dimensions are 720 x 405.',
 								'required' => 0,
 								'conditional_logic' => array(
 									array(
@@ -135,7 +135,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 								'label' => 'Images',
 								'name' => 'images',
 								'type' => 'gallery',
-								'instructions' => 'Recommended dimensions are 1920 x 1080',
+								'instructions' => 'Recommended dimensions are 1920 x 1080.',
 								'required' => 0,
 								'conditional_logic' => array(
 									array(
@@ -168,7 +168,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 								'label' => 'Audio',
 								'name' => 'audio',
 								'type' => 'file',
-								'instructions' => 'Allowed file types are MP3 and WAV',
+								'instructions' => 'Allowed file types are MP3 and WAV.',
 								'required' => 0,
 								'conditional_logic' => array(
 									array(
@@ -249,7 +249,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 								'label' => 'Text',
 								'name' => 'text',
 								'type' => 'textarea',
-								'instructions' => 'Recommended length is 120 characters',
+								'instructions' => 'Recommended length is 120 characters.',
 								'required' => 1,
 								'conditional_logic' => 0,
 								'wrapper' => array(

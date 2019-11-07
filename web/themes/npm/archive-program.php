@@ -18,7 +18,7 @@ foreach ($categories as $category) {
         'post_type' => 'program',
         'cat' => $category->id,
     );
-    $category->programs = Timber::get_posts($args);
+    $category->programs = new Timber\PostQuery($args);
 
     array_push($context['categories'], $category);
 }

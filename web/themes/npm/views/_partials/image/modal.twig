@@ -2,64 +2,46 @@
 {% set uid = uid ?? null %}
 
 {% if images | length %}
-  <div
-    id="{{ uid }}"
-    class="modal bg-black-semi-opaque fixed inset-0 z-50"
-    aria-hidden="true"
-    data-module="modal"
-  >
-    <div class="flex flex-col h-full justify-center" tabindex="-1" data-modal-close>
-      <div class="container w-full">
-        <div
-          class="modal-content bg-white overflow-x-hidden overflow-y-auto py-50 relative"
-          role="dialog"
-          aria-modal="true"
-        >
-          <div class="container-md">
-            <div
-              class="carousel overflow-x-hidden"
-              data-module="carousel"
-              data-carousel-loop="false"
-              tabindex="0"
-            >
-              <div class="carousel-track flex items-center relative -mx-10" data-carousel-track>
-                {% for image in images %}
-                  <div class="flex-0 px-10 w-full">
-                    {% set image = TimberImage(image) %}
 
-                    {% if image.src %}
-                      <img src="{{ image.src | resize(1920, null, 'center') }}" alt="{{ image.alt }}" />
-                    {% endif %}
+  {% set content %}
+    <div
+      class="carousel overflow-x-hidden"
+      data-module="carousel"
+      data-carousel-loop="false"
+      tabindex="0"
+    >
+      <div class="carousel-track flex items-center relative -mx-10" data-carousel-track>
+        {% for image in images %}
+          <div class="flex-0 px-10 w-full">
+            {% set image = TimberImage(image) %}
 
-                    {% if image.caption %}
-                      <p class="mt-20 text text-14">
-                        {{ image.caption }}
-                      </p>
-                    {% endif %}
-                  </div>
-                {% endfor %}
-              </div>
+            {% if image.src %}
+              <img src="{{ image.src | resize(1920, null, 'center') }}" alt="{{ image.alt }}" />
+            {% endif %}
 
-              <div class="flex mt-30 -mx-5 text-blue">
-                <div class="px-5">
-                  {% include '_partials/carousel/button-prev.twig' ignore missing %}
-                </div>
-
-                <div class="px-5">
-                  {% include '_partials/carousel/button-next.twig' ignore missing %}
-                </div>
-              </div>
-            </div>
+            {% if image.caption %}
+              <p class="mt-20 text text-14">
+                {{ image.caption }}
+              </p>
+            {% endif %}
           </div>
+        {% endfor %}
+      </div>
 
-          <button class="absolute h-44 right-0 top-0 w-44" aria-label="Close modal" data-modal-close>
-            <span class="sr-only">
-              Close
-            </span>
-            {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
-          </button>
+      <div class="flex mt-30 -mx-5 text-blue">
+        <div class="px-5">
+          {% include '_partials/carousel/button-prev.twig' ignore missing %}
+        </div>
+
+        <div class="px-5">
+          {% include '_partials/carousel/button-next.twig' ignore missing %}
         </div>
       </div>
     </div>
-  </div>
+  {% endset %}
+
+  {% include '_partials/modal.twig' ignore missing with {
+    content: content,
+    uid: uid,
+  } only %}
 {% endif %}

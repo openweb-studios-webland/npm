@@ -12,6 +12,7 @@
     rounded-full
     text-center
     text-white
+    transition
     w-full;
   min-width: 200px;
 
@@ -19,6 +20,16 @@
     @apply px-30
       py-20
       w-auto;
+  }
+
+  &:hover {
+    @apply bg-crimson-dark
+      border-crimson-dark;
+  }
+
+  &:focus {
+    @apply outline-none;
+    box-shadow: 0px 0px 20px theme(colors.crimson.default);
   }
 }
 
@@ -28,7 +39,42 @@
     border-white;
 }
 
-@variants responsive, hover, focus {
+.button-white {
+  &:hover,
+  &:focus {
+    @apply bg-crimson
+      border-crimson;
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 20px theme(colors.denim-blue);
+  }
+}
+
+.button-outline-blue {
+  &:hover {
+    @apply bg-blue-denim
+      border-blue-denim;
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 20px theme(colors.blue.denim);
+  }
+}
+
+.button-outline-crimson {
+  &:hover {
+    @apply bg-crimson
+      border-crimson
+      text-white;
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 20px theme(colors.crimson.default);
+  }
+}
+
+@variants responsive {
   .button-crimson {
     @apply bg-crimson
       border-crimson
@@ -42,7 +88,7 @@
   }
 
   .button-outline-blue {
-    @apply border-blue-link;
+    @apply border-blue-denim;
   }
 
   .button-outline-crimson {

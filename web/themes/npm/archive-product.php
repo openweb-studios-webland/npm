@@ -5,7 +5,7 @@
  */
 
 $context = Timber::get_context();
-$context['post'] = Timber::get_post();
+$context['post'] = new Timber\Post();
 $taxonomy = 'platform';
 $platforms = Timber::get_terms(array(
     'taxonomy' => $taxonomy,
@@ -103,7 +103,7 @@ if (count($context['current_platforms']['parents']) > 0) {
     }
 }
 
-$context['products'] = Timber::get_posts($args);
+$context['products'] = new Timber\PostQuery($args);
 $context['fields'] = get_fields();
 
 Timber::render('templates/archive-product/index.twig', $context);

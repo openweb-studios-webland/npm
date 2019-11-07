@@ -12,23 +12,26 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       black: {
-        'semi-opaque': 'rgba(22, 22, 22, 0.25)',
+        semitransparent: 'rgba(22, 22, 22, 0.25)',
         default: '#161616',
       },
       white: {
-        'semi-opaque': 'rgba(255, 255, 255, 0.25)',
+        semitransparent: 'rgba(255, 255, 255, 0.25)',
         default: '#fff',
       },
-      crimson: '#db3053',
+      crimson: {
+        dark: '#c22a49',
+        default: '#db3053',
+      },
       purple: '#161c58',
       teal: '#0c8483',
       blue: {
         light: '#65bdff',
-        link: '#0a6eb9',
+        denim: '#0a6eb9',
         default: '#242c70',
       },
       gray: {
-        a11y: '#707070',
+        dark: '#707070',
         border: '#e1e1e1',
         default: '#f4f4f4',
       },
@@ -298,7 +301,7 @@ module.exports = {
     minWidth: ['responsive'],
     objectFit: false,
     objectPosition: false,
-    opacity: ['responsive'],
+    opacity: ['responsive', 'hover', 'focus'],
     order: ['responsive'],
     outline: false,
     overflow: ['responsive'],

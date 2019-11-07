@@ -1,10 +1,13 @@
-.tabs-trigger {
+[data-tabs-trigger] {
   &[aria-expanded="true"] {
     @apply border-b-0;
 
     @screen lg {
-      @apply shadow-md
-        text-black;
+      @apply text-black;
+
+      &::before {
+        @apply shadow-md;
+      }
     }
 
     &::before {
@@ -41,32 +44,24 @@
   }
 
   &::after {
-    @apply bg-black-semi-opaque
+    @apply bg-black-semitransparent
       bottom-0;
     height: 1px;
   }
 }
 
-.spec-groups .tabs-triggers {
+[data-label="spec-groups"] [data-tabs-trigger] {
   &[aria-expanded="true"]::before {
     @apply block;
   }
 
   &::before {
     @apply absolute
-      bg-blue-link
+      bg-blue-denim
       bottom-0
       hidden
       inset-x-0;
     content: "";
     height: 5px;
-  }
-}
-
-.audience .tabs-targets {
-  @apply w-full;
-
-  @screen lg {
-    width: 75%;
   }
 }

@@ -1,9 +1,7 @@
-.link {
-  @apply flex
-    font-bold
-    items-center
+.arrow {
+  @apply font-bold
     mt-20
-    text-blue-link;
+    text-blue-denim;
 
   @screen md {
     @apply mt-25;
@@ -21,7 +19,7 @@
   }
 
   & svg {
-    @apply ml-10
-      transition-fast;
+    @apply inline-block
+      ml-10;
   }
 }

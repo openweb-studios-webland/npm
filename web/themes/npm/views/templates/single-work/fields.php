@@ -151,7 +151,7 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Audio',
                 'name' => 'audio',
                 'type' => 'file',
-                'instructions' => 'Allowed file types are MP3 and WAV',
+                'instructions' => 'Allowed file types are MP3 and WAV.',
                 'required' => 0,
                 'conditional_logic' => array(
                     array(

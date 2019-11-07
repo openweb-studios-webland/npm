@@ -1,11 +1,40 @@
-.carousel-track > [aria-hidden] {
+[data-carousel-track] > [aria-hidden] {
   @apply block;
 }
 
-.programs .carousel-track > [aria-hidden] {
-  @apply opacity-50;
+[data-label="programs"],
+[data-label="services"] {
+  & [data-carousel-track] > [aria-hidden] {
+    @apply opacity-50;
 
-  @screen md {
-    @apply opacity-100;
+    @screen md {
+      @apply opacity-100;
+    }
   }
+
+  & [data-carousel-item] {
+    & > div {
+      @apply transition;
+
+      &:hover,
+      &:focus {
+        transform: scale(1.05);
+      }
+    }
+
+    &:not([aria-hidden]),
+    &:not([aria-hidden]) + [data-carousel-item] {
+      & > div {
+        @apply shadow-sm;
+      }
+    }
+  }
+
+  /*! purgecss start ignore */
+  & [data-carousel-prev][disabled],
+  & [data-carousel-next][disabled] {
+    @apply opacity-50
+      pointer-events-none;
+  }
+  /*! purgecss end ignore */
 }

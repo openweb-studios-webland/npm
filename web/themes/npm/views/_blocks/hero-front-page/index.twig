@@ -39,7 +39,7 @@
                         {% set image = TimberImage(image) %}
 
                         {% if image.src %}
-                          <img src="{{ image.src | resize(1080, 607, 'center') }}" alt="{{ image.alt }}" />
+                          <img src="{{ image.src | resize(1440, 930, 'center') }}" alt="{{ image.alt }}" />
                         {% endif %}
                       </div>
                     {% endfor %}
@@ -49,7 +49,7 @@
                 {% set image = TimberImage(block.images[0]) %}
 
                 {% if image.src %}
-                  <img src="{{ image.src | resize(1080, 607, 'center') }}" alt="{{ image.alt }}" />
+                  <img src="{{ image.src | resize(1440, 930, 'center') }}" alt="{{ image.alt }}" />
                 {% endif %}
               </div>
             {% endif %}

@@ -1,6 +1,8 @@
-<button class="block h-44 w-44" data-carousel-prev>
+{% set classes = classes ?? null %}
+
+<button class="{{ classes ? classes ~ ' ' }}block h-44 w-44" data-carousel-prev>
   <span class="sr-only">
-    Previous
+    Previous Item
   </span>
   {{ svg('carousel-prev') }}
 </button>

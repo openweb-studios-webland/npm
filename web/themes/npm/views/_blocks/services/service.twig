@@ -1,41 +1,46 @@
 {% set uid = random() %}
 
-<div class="bg-white h-full relative shadow-sm">
-  {% set image = TimberImage(service.image) %}
+<div class="bg-white h-full relative">
+  <button
+    class="block text-left"
+    data-module="toggle"
+    data-toggle-partner="{{ uid }}{{ loop.index }}0"
+    aria-controls="{{ uid }}{{ loop.index }}"
+  >
+    {% set image = TimberImage(service.image) %}
 
-  {% if image.src %}
-    <img src="{{ image.src | resize(450, 450, 'center') }}" alt="{{ image.alt }}" />
-  {% endif %}
-
-  <div class="p-20">
-    {% if service.heading %}
-      <h3 class="heading-4 mb-15">
-        {{ service.heading }}
-      </h3>
+    {% if image.src %}
+      <img src="{{ image.src | resize(450, 450, 'center') }}" alt="{{ image.alt }}" />
     {% endif %}
 
-    {% if service.text %}
-      <div class="text text-14">
-        {{ service.text | length > 120 ? service.text | excerpt(120) ~ '...' : service.text }}
-      </div>
-    {% endif %}
+    <div class="p-20">
+      {% if service.heading %}
+        <h3 class="heading-4 mb-15">
+          {{ service.heading }}
+        </h3>
+      {% endif %}
 
-    <button
-      class="font-bold inline-block mt-20 text-14 text-blue-link"
-      data-module="toggle"
-      data-toggle-partner="{{ uid }}{{ loop.index }}0"
-      aria-controls="{{ uid }}{{ loop.index }}"
-    >
-      See Details
-    </button>
-  </div>
+      {% if service.text %}
+        <div class="text text-14">
+          {{ service.text | length > 120 ? service.text | excerpt(30) ~ '...' : service.text }}
+        </div>
+      {% endif %}
+
+      <span class="font-bold inline-block mt-20 text-14 text-blue-denim">
+        See Details
+        <span class="sr-only">
+          for {{ program.title }}
+        </span>
+      </span>
+    </div>
+  </button>
 
   <div
     id="{{ uid }}{{ loop.index }}"
     class="absolute bg-white inset-x-0 min-h-full px-30 py-40 shadow-sm top-0"
     aria-hidden="true"
   >
-    <div class="mb-5 text-gray-a11y text-11">
+    <div class="mb-5 text-gray-dark text-11">
       Service
     </div>
 
@@ -52,7 +57,7 @@
     {% endif %}
 
     {% if service.platforms | length %}
-      <div class="mb-5 text-11 text-gray-a11y">
+      <div class="mb-5 text-11 text-gray-dark">
         Available on
       </div>
 
@@ -64,26 +69,26 @@
     {% endif %}
 
     {% if service.products | length %}
-      <div class="mb-5 text-11 text-gray-a11y">
+      <div class="mb-5 text-11 text-gray-dark">
         Related Products
       </div>
 
       <p class="font-bold mb-20 text-14">
         {% for product in Post(service.products) %}
-            {{ loop.last ? '<a class="text-blue-link" href="' ~ product.link ~ '">' ~ product.title ~ '</a>' : '<a class="text-blue-link" href="' ~ product.link ~ '">' ~ product.title ~ '</a>, ' }}
+            {{ loop.last ? '<a class="text-blue-denim" href="' ~ product.link ~ '">' ~ product.title ~ '</a>' : '<a class="text-blue-denim" href="' ~ product.link ~ '">' ~ product.title ~ '</a>, ' }}
           </a>
         {% endfor %}
       </p>
     {% endif %}
 
     {% if service.work | length %}
-      <div class="mb-5 text-11 text-gray-a11y">
+      <div class="mb-5 text-11 text-gray-dark">
         Related Work
       </div>
 
       <p class="font-bold mb-20 text-14">
         {% for work in Post(service.work) %}
-          {{ loop.last ? '<a class="text-blue-link" href="' ~ work.link ~ '">' ~ work.title ~ '</a>' : '<a class="text-blue-link" href="' ~ work.link ~ '">' ~ work.title ~ '</a>, ' }}
+          {{ loop.last ? '<a class="text-blue-denim" href="' ~ work.link ~ '">' ~ work.title ~ '</a>' : '<a class="text-blue-denim" href="' ~ work.link ~ '">' ~ work.title ~ '</a>, ' }}
         {% endfor %}
       </p>
     {% endif %}
@@ -100,7 +105,7 @@
       aria-controls="{{ uid }}"
     >
       <span class="sr-only">
-        Close
+        Close {{ program.title }} Details
       </span>
       {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
     </button>

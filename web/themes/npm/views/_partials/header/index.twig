@@ -1,5 +1,5 @@
 <header
-  class="header {{ front_page ? 'bg-blue text-white ' : 'bg-white ' }}relative py-10 top-0 transition z-30 lg:py-30 lg:sticky"
+  class="{{ front_page ? 'bg-blue text-white ' : 'bg-white ' }}relative py-10 top-0 transition z-30 lg:py-30 lg:sticky"
   data-module="header"
   data-label="header"
 >
@@ -15,9 +15,10 @@
 
       <nav
         id="{{ uid }}"
-        class="menu absolute flex-1 left-0 px-20 shadow-xs top-full w-screen z-40 lg:shadow-none lg:static"
+        class="absolute flex-1 left-0 px-20 shadow-xs top-full w-screen z-40 lg:shadow-none lg:static"
         role="navigation"
         aria-hidden="true"
+        data-header-menu
       >
         {% include '_partials/header/menu.twig' ignore missing with {
           uid: uid,
@@ -34,12 +35,13 @@
 
     <div class="px-20 lg:hidden">
       <button
-        class="header-button h-44 relative -mr-10 w-44"
+        class="h-44 relative -mr-10 w-44"
+        data-header-button
         data-module="toggle"
         aria-controls="{{ uid }}"
       >
         <span class="sr-only">
-          Menu
+          Toggle Menu
         </span>
         {{ svg('menu', { classes: 'absolute inset-1/2 translate-1/2' }) }}
         {{ svg('menu-close', { classes: 'absolute inset-1/2 translate-1/2' }) }}

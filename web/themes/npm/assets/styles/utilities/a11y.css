@@ -21,6 +21,10 @@
 }
 
 /*! purgecss start ignore */
+*:focus {
+  outline-color: red;
+}
+
 [data-whatinput="mouse"],
 [data-whatinput="touch"] {
   & *:focus {

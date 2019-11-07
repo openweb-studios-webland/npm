@@ -1,0 +1,41 @@
+{% set size = size ?? 'md' %}
+{% set content = content ?? null %}
+{% set uid = uid ?? null %}
+
+<div
+  id="{{ uid }}"
+  class="bg-black-semitransparent fixed inset-0 z-50"
+  aria-hidden="true"
+  data-module="modal"
+>
+  <div
+    class="flex flex-col h-full justify-center"
+    tabindex="-1"
+    data-modal-close
+  >
+    <div class="{{ size != '' ? 'container-' ~ size ~ ' ' : 'container ' }}w-full">
+      <div
+        class="bg-white overflow-x-hidden overflow-y-auto py-30 relative lg:p-50"
+        aria-modal="true"
+        role="dialog"
+        tabindex="0"
+        data-modal-content
+      >
+        {% if content %}
+          {{ content }}
+        {% endif %}
+
+        <button
+          class="absolute h-44 right-0 top-0 w-44"
+          aria-label="Close Modal"
+          data-modal-close
+        >
+          <span class="sr-only">
+            Close Modal
+          </span>
+          {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

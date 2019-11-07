@@ -22,7 +22,9 @@
         tabindex="-1"
       >
         {% block content %}
-          Sorry, we couldn't find the associated content.
+          <p class="text">
+            Sorry, we couldn't find the associated content.
+          </p>
         {% endblock %}
 
         {% if fields is defined and fields.call_to_action | length %}

@@ -3,18 +3,18 @@
     overflow-hidden
     relative;
   padding-bottom:56.25%;
+
+  & iframe {
+    @apply absolute
+      h-full
+      left-0
+      top-0
+      w-full;
+    left:0;
+  }
 }
 
-.video iframe {
-  @apply absolute
-    h-full
-    left-0
-    top-0
-    w-full;
-  left:0;
-}
-
-.active .video-overlay {
+.active [data-video-overlay] {
   @apply invisible
     opacity-0
     pointer-events-none;

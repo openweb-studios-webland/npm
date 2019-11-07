@@ -12,21 +12,15 @@
 }
 
 .pin-l {
-  @screen lg {
-    @apply float-left;
-  }
-
   @media (min-width: 1200px) {
-    transform: translateX(calc((1160px - 100vw) / 2));
+    @apply float-left;
+    margin-left: calc((1160px - 100vw) / 2) !important;
   }
 }
 
 .pin-r {
-  @screen lg {
-    @apply float-right;
-  }
-
   @media (min-width: 1200px) {
-    transform: translateX(calc((100vw - 1160px) / 2));
+    @apply float-right;
+    margin-right: calc((1160px - 100vw) / 2) !important;
   }
 }

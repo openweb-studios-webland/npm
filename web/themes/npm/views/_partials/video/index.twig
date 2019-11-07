@@ -7,12 +7,16 @@
       {{ video }}
 
       {% if image.src %}
-        <div class="video-overlay absolute h-full inset-1/2 translate-1/2 w-full z-10">
+        <div
+          class="absolute h-full inset-1/2 translate-1/2 w-full z-10"
+          data-video-play
+          data-video-overlay
+        >
           <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
 
-          <button class="absolute inset-1/2 h-80 translate-1/2 w-80" data-video-play>
+          <button class="absolute inset-1/2 h-80 translate-1/2 w-80">
             <span class="sr-only">
-              Play
+              Play Video
             </span>
             {{ svg('play') }}
           </button>

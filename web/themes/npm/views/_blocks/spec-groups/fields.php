@@ -174,7 +174,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 								'label' => 'Image',
 								'name' => 'image',
 								'type' => 'image',
-								'instructions' => 'Recommended dimensions are 540 x 405',
+								'instructions' => 'Recommended dimensions are 345 x 219.',
 								'required' => 1,
 								'conditional_logic' => 0,
 								'wrapper' => array(
@@ -185,8 +185,8 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 								'return_format' => 'array',
 								'preview_size' => 'thumbnail',
 								'library' => 'all',
-								'min_width' => 540,
-								'min_height' => 405,
+								'min_width' => 345,
+								'min_height' => 219,
 								'min_size' => '',
 								'max_width' => '',
 								'max_height' => '',
@@ -222,7 +222,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 								'label' => 'Audio',
 								'name' => 'audio',
 								'type' => 'file',
-								'instructions' => 'Allowed file types are MP3 and WAV',
+								'instructions' => 'Allowed file types are MP3 and WAV.',
 								'required' => 0,
 								'conditional_logic' => array(
 									array(

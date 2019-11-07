@@ -13,7 +13,7 @@
     <section class="section">
       <div class="container">
         <div class="-mb-50 md:-mb-75 lg:-mb-100">
-          {% for category in Term(categories) %}
+          {% for category in categories %}
             <div class="mb-50 md:mb-75 lg:mb-100">
               <h2 class="heading-3">
                 {{ category.name }}
@@ -21,7 +21,7 @@
 
               {% if category.programs | length %}
                 <div class="flex flex-wrap -mb-20 -mx-10">
-                  {% for program in Post(category.programs) %}
+                  {% for program in category.programs %}
                     <div class="mb-20 px-10 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
                       {% set uid = random() %}
                       {% set image = TimberImage(program.image) %}
@@ -32,102 +32,82 @@
                         </button>
                       {% endif %}
 
-                      <div
-                        id="{{ uid }}"
-                        class="modal bg-black-semi-opaque fixed inset-0 z-50"
-                        aria-hidden="true"
-                        data-module="modal"
-                        tabindex="0"
-                      >
-                        <div class="flex flex-col h-full justify-center" tabindex="-1" data-modal-close>
-                          <div class="container w-full">
-                            <div
-                              class="modal-content bg-white overflow-x-hidden overflow-y-auto py-50 relative"
-                              role="dialog"
-                              aria-modal="true"
-                            >
-                              <div class="container-md">
-                                <div class="flex flex-wrap -mb-30 -mx-20">
-                                  <div class="mb-30 px-20 w-full md:w-5/12">
-                                    {% if image.src %}
-                                      <img src="{{ image.src | resize(450, 450, 'center') }}" alt="{{ image.alt }}" />
-                                    {% endif %}
-                                  </div>
+                      {% set content %}
+                        <div class="flex flex-wrap -mb-30 -mx-20">
+                          <div class="mb-30 px-20 w-full md:w-5/12">
+                            {% if image.src %}
+                              <img src="{{ image.src | resize(450, 450, 'center') }}" alt="{{ image.alt }}" />
+                            {% endif %}
+                          </div>
 
-                                  <div class="mb-30 px-20 w-full md:w-7/12">
-                                    <div class="mb-5 text-11 text-gray-a11y">
-                                      NPR Podcast
-                                    </div>
+                          <div class="mb-30 px-20 w-full md:w-7/12">
+                            <div class="mb-5 text-11 text-gray-dark">
+                              NPR Podcast
+                            </div>
 
-                                    <h1 class="heading-4 mb-20">
-                                      {{ program.title }}
-                                    </h1>
+                            <h1 class="heading-4 mb-20">
+                              {{ program.title }}
+                            </h1>
 
-                                    {% if program.host %}
-                                      <div class="mb-5 text-11 text-gray-a11y">
-                                        Hosted by
-                                      </div>
-
-                                      <p class="heading-7 mb-20">
-                                        {{ program.host }}
-                                      </p>
-                                    {% endif %}
-
-                                    {% if program.text %}
-                                      <div class="text mb-20 text-14">
-                                        {{ program.text }}
-                                      </div>
-                                    {% endif %}
-
-                                    <div class="flex flex-wrap -mb-20 -mx-20">
-                                      {% if program.platforms | length %}
-                                        <div class="mb-20 px-20">
-                                          <div class="mb-5 text-11 text-gray-a11y">
-                                            Available on
-                                          </div>
-
-                                          <p class="font-bold mb-20 text-14">
-                                            {% for platform in Term(program.platforms) %}
-                                              {{ loop.last ? platform.name : platform.name ~ ', ' }}
-                                            {% endfor %}
-                                          </p>
-                                        </div>
-                                      {% endif %}
-
-                                      {% set topics = Post(program).get_terms('topic') %}
-
-                                      {% if topics | length %}
-                                        <div class="mb-20 px-20">
-                                          <div class="mb-5 text-11 text-gray-a11y">
-                                            Topics
-                                          </div>
-
-                                          <p class="mb-20 text-14">
-                                            {{ topics | join(', ') }}
-                                          </p>
-                                        </div>
-                                      {% endif %}
-                                    </div>
-
-                                    {% if program.button_link and program.button_text %}
-                                      <a class="button" href="{{ program.button_link }}">
-                                        {{ program.button_text }}
-                                      </a>
-                                    {% endif %}
-                                  </div>
-                                </div>
+                            {% if program.host %}
+                              <div class="mb-5 text-11 text-gray-dark">
+                                Hosted by
                               </div>
 
-                              <button class="absolute h-44 right-0 top-0 w-44" aria-label="Close modal" data-modal-close>
-                                <span class="sr-only">
-                                  Close
-                                </span>
-                                {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
-                              </button>
+                              <p class="heading-7 mb-20">
+                                {{ program.host }}
+                              </p>
+                            {% endif %}
+
+                            {% if program.text %}
+                              <div class="text mb-20 text-14">
+                                {{ program.text }}
+                              </div>
+                            {% endif %}
+
+                            <div class="flex flex-wrap -mb-20 -mx-20">
+                              {% if program.platforms | length %}
+                                <div class="mb-20 px-20">
+                                  <div class="mb-5 text-11 text-gray-dark">
+                                    Available on
+                                  </div>
+
+                                  <p class="font-bold mb-20 text-14">
+                                    {% for platform in Term(program.platforms) %}
+                                      {{ loop.last ? platform.name : platform.name ~ ', ' }}
+                                    {% endfor %}
+                                  </p>
+                                </div>
+                              {% endif %}
+
+                              {% set topics = Post(program).get_terms('topic') %}
+
+                              {% if topics | length %}
+                                <div class="mb-20 px-20">
+                                  <div class="mb-5 text-11 text-gray-dark">
+                                    Topics
+                                  </div>
+
+                                  <p class="mb-20 text-14">
+                                    {{ topics | join(', ') }}
+                                  </p>
+                                </div>
+                              {% endif %}
                             </div>
+
+                            {% if program.button_link and program.button_text %}
+                              <a class="button" href="{{ program.button_link }}">
+                                {{ program.button_text }}
+                              </a>
+                            {% endif %}
                           </div>
                         </div>
-                      </div>
+                      {% endset %}
+
+                      {% include '_partials/modal.twig' ignore missing with {
+                        content: content,
+                        uid: uid,
+                      } only %}
                     </div>
                   {% endfor %}
                 </div>

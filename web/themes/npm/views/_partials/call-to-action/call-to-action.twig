@@ -5,22 +5,22 @@
 {% endif %}
 
 {% if text %}
-  <div class="text">
+  <div class="text mb-25 lg:mt-30">
     {{ text }}
   </div>
 {% endif %}
 
 {% if button_link and button_text %}
   {% if color_select == 'white' or color_select == 'gray' %}
-    <a class="button mt-25 lg:mt-30" href="{{ button_link }}">
+    <a class="button" href="{{ button_link }}">
       {{ button_text }}
     </a>
   {% elseif image %}
-    <a class="button-white mt-25 lg:mt-30" href="{{ button_link }}">
+    <a class="button-white" href="{{ button_link }}">
       {{ button_text }}
     </a>
   {% else %}
-    <a class="button-outline mt-25 lg:mt-30" href="{{ button_link }}">
+    <a class="button-outline" href="{{ button_link }}">
       {{ button_text }}
     </a>
   {% endif %}

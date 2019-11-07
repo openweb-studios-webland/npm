@@ -1,11 +1,11 @@
-.header.stuck {
+[data-module="header"].stuck {
   @screen lg {
     @apply py-10
       shadow-xs;
   }
 }
 
-.header-button {
+[data-header-button] {
   & svg {
     &:last-of-type {
       @apply hidden;
@@ -26,19 +26,19 @@
 }
 
 /*! purgecss start ignore */
-.admin-bar .header {
-  @media (min-width: 782px) {
+.admin-bar [data-module="header"] {
+  @screen lg {
     top: 32px;
   }
 }
 /*! purgecss end ignore */
 
-.menu,
-.submenu {
+[data-header-menu],
+[data-header-submenu] {
   clip-path: inset(1px 0 -15px);
 }
 
-.menu {
+[data-header-menu] {
   @screen lg {
     clip-path: none;
   }

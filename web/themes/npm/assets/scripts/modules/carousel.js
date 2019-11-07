@@ -15,7 +15,7 @@ export default class Carousel {
       itemsToMove: this.el.dataset.carouselMove || 1, // data-carousel-move
       loop: this.el.dataset.carouselLoop === 'false' ? false : true, // data-carousel-loop
       transition: this.el.dataset.carouselTransition === 'false' ? false : true, // data-carousel-transition
-      transitionSpeed: this.el.dataset.carouselTransitionSpeed || 600, // data-carousel-transition-speed
+      transitionSpeed: this.el.dataset.carouselTransitionSpeed || 400, // data-carousel-transition-speed
     }
 
     // Initialize if carousel contians more than 1 item
@@ -49,6 +49,10 @@ export default class Carousel {
 
     this.attachEventListeners()
     this.toggleAttributes()
+
+    if (!this.config.loop) {
+      this.toggleTriggerAttributes()
+    }
   }
 
   reset = () => {
@@ -101,13 +105,17 @@ export default class Carousel {
 
     // Set track position and transition
     Object.assign(this.track.style, {
-      transition: this.config.transition && setTransition ? `all ${this.config.transitionSpeed}ms linear` : '',
+      transition: this.config.transition && setTransition ? `all ${this.config.transitionSpeed}ms ease` : '',
       left: `-${this.itemsWidth * this.index}px`,
     })
 
     // Check if current item is the first or last item
     this.checkIndex()
     this.toggleAttributes()
+
+    if (!this.config.loop) {
+      this.toggleTriggerAttributes()
+    }
   }
 
   checkIndex = () => {
@@ -148,6 +156,22 @@ export default class Carousel {
     }
   }
 
+  toggleTriggerAttributes = () => {
+    let attribute = null
+
+    if (this.index <= 0) {
+      attribute = 'data-carousel-prev'
+    } else if (this.index >= this.itemsCount - this.itemsOffset + 1) {
+      attribute = 'data-carousel-next'
+    }
+
+    if (this.triggers.length > 0) {
+      this.triggers.forEach(trigger => {
+        trigger.disabled = attribute && trigger.hasAttribute(attribute) ? true : false
+      })
+    }
+  }
+
   attachEventListeners = () => {
     this.triggers = [
       ...this.el.querySelectorAll([
@@ -170,7 +194,7 @@ export default class Carousel {
       debounce(() => {
         this.reset()
         this.init()
-      }, 200)
+      }, 50)
     )
   }
 

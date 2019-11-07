@@ -12,7 +12,7 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'image',
                 'type' => 'image',
                 'instructions' => 'Allowed file type is SVG. All fill attributes should be removed.',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',

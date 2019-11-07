@@ -1,4 +1,4 @@
-.modal {
+[data-module="modal"] {
   @apply block opacity-100
     pointer-events-auto
     visible;
@@ -11,6 +11,6 @@
   }
 }
 
-.modal-content {
+[data-modal-content] {
   max-height: calc(100vh - 100px);
 }

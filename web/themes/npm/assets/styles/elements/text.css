@@ -3,7 +3,7 @@
   & a {
     &:not(.button):not([class*="button-"]):not(.call-to-action-button) {
       @apply font-bold
-        text-blue-link;
+        text-blue-denim;
     }
   }
 

@@ -16,28 +16,27 @@
 
             <div class="section relative z-10">
               <h2 class="heading-6 text-center lg:text-left">
-                Our Audience Is:
+                Our Audience is:
               </h2>
 
               <ul>
                 {% for audience in block.audiences %}
                   <li>
                     <button
-                      class="tabs-trigger border-b border-white-semi-opaque flex heading-4 items-center mb-0 py-20 pr-30 relative text-left w-full lg:block lg:border-b-0 lg:py-30"
+                      class="border-b border-white-semitransparent flex heading-4 items-center mb-0 py-20 pr-30 relative text-left w-full lg:block lg:border-b-0 lg:py-30"
                       data-tabs-trigger
                       aria-controls="{{ uid }}{{ loop.index }}"
                     >
                       <span class="relative z-10">
                         {{ audience.heading }}
                       </span>
-
                       {{ svg('accordion', { classes: 'ml-10 lg:hidden' }) }}
                       {{ svg('tabs', { classes: 'absolute hidden inset-y-0 right-0 text-white translate-l-full' }) }}
                     </button>
 
                     <div
                       id="{{ uid }}{{ loop.index }}"
-                      class="tabs-target border-b border-white-semi-opaque lg:border-b-0"
+                      class="tabs-target border-b border-white-semitransparent lg:border-b-0"
                       data-tabs-target
                     >
                       {% include '_blocks/audiences/audience.twig' ignore missing %}

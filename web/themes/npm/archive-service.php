@@ -9,11 +9,11 @@ global $paged;
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 $context = Timber::get_context();
 $args = array(
-    'posts_per_page' => 9,
+    'posts_per_page' => 1,
     'post_type' => 'work',
     'paged' => $paged,
 );
-$context['work'] = Timber::get_posts($args);
+$context['work'] = new Timber\PostQuery($args);
 $context['fields'] = get_fields();
 
 if ($paged > 1) {

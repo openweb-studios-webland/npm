@@ -1,14 +1,11 @@
 import aria from '../utilities/aria'
-import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '../../../../../../config/tailwindcss/tailwindcss.config.js'
 
 export default class Tabs {
   constructor(el) {
     this.el = el
     this.triggers = [...this.el.querySelectorAll('[data-tabs-trigger]')]
     this.targets = [...this.el.querySelectorAll('[data-tabs-target]')]
-    this.tailwindConfig = resolveConfig(tailwindConfig) // Tailwind CSS config variables
-    this.mediaQuery = window.matchMedia(`(min-width: ${this.tailwindConfig.theme.screens.lg})`)
+    this.mediaQuery = window.matchMedia(`(min-width: 1024px)`)
     this.index = 0
 
     this.config = {

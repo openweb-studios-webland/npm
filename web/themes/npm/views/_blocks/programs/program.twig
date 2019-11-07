@@ -1,41 +1,46 @@
 {% set uid = random() %}
 
-<div class="bg-white h-full relative shadow-sm">
-  {% set image = TimberImage(program.image) %}
+<div class="bg-white h-full relative">
+  <button
+    class="block text-left"
+    data-module="toggle"
+    data-toggle-partner="{{ uid }}{{ loop.index }}0"
+    aria-controls="{{ uid }}{{ loop.index }}"
+  >
+    {% set image = TimberImage(program.image) %}
 
-  {% if image.src %}
-    <img src="{{ image.src | resize(450, 450, 'center') }}" alt="{{ image.alt }}" />
-  {% endif %}
-
-  <div class="p-20">
-    {% if program.heading %}
-      <h3 class="heading-4 mb-15">
-        {{ program.heading }}
-      </h3>
+    {% if image.src %}
+      <img src="{{ image.src | resize(450, 450, 'center') }}" alt="{{ image.alt }}" />
     {% endif %}
 
-    {% if program.text %}
-      <div class="text text-14">
-        {{ program.text | length > 120 ? program.text | excerpt(120) ~ '...' : program.text }}
-      </div>
-    {% endif %}
+    <div class="p-20">
+      {% if program.heading %}
+        <h3 class="heading-4 mb-15">
+          {{ program.heading }}
+        </h3>
+      {% endif %}
 
-    <button
-      class="font-bold inline-block mt-20 text-14 text-blue-link"
-      data-module="toggle"
-      data-toggle-partner="{{ uid }}{{ loop.index }}0"
-      aria-controls="{{ uid }}{{ loop.index }}"
-    >
-      See Details
-    </button>
-  </div>
+      {% if program.text %}
+        <div class="text text-14">
+          {{ program.text | length > 120 ? program.text | excerpt(30) ~ '...' : program.text }}
+        </div>
+      {% endif %}
+
+      <span class="font-bold inline-block mt-20 text-14 text-blue-denim">
+        See Details
+        <span class="sr-only">
+          for {{ program.title }}
+        </span>
+      </span>
+    </div>
+  </button>
 
   <div
     id="{{ uid }}{{ loop.index }}"
     class="absolute bg-white inset-x-0 min-h-full px-30 py-40 shadow-sm top-0"
     aria-hidden="true"
   >
-    <div class="mb-5 text-11 text-gray-a11y">
+    <div class="mb-5 text-11 text-gray-dark">
       NPR Podcast
     </div>
 
@@ -44,7 +49,7 @@
     </h3>
 
     {% if program.host %}
-      <div class="mb-5 text-11 text-gray-a11y">
+      <div class="mb-5 text-11 text-gray-dark">
         Hosted by
       </div>
 
@@ -60,7 +65,7 @@
     {% endif %}
 
     {% if program.platforms | length %}
-      <div class="mb-5 text-11 text-gray-a11y">
+      <div class="mb-5 text-11 text-gray-dark">
         Available on
       </div>
 
@@ -74,7 +79,7 @@
     {% set topics = Post(program).get_terms('topic') %}
 
     {% if topics | length %}
-      <div class="mb-5 text-11 text-gray-a11y">
+      <div class="mb-5 text-11 text-gray-dark">
         Topics
       </div>
 
@@ -95,7 +100,7 @@
       aria-controls="{{ uid }}"
     >
       <span class="sr-only">
-        Close
+        Close {{ program.title }} Details
       </span>
       {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
     </button>

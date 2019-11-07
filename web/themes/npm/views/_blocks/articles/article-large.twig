@@ -28,8 +28,8 @@
       </p>
     {% endif %}
 
-    <a class="arrow text-14" href="{{ article.button_link ?? article.link }}">
-      {{ article.button_text ?? 'Read more' }}
+    <a class="arrow text-14" href="{{ article.button_link | length ? article.button_link : article.link }}">
+      {{ article.button_text | length ? article.button_text : 'Read more' }}
       {{ svg('arrow') }}
     </a>
   </div>

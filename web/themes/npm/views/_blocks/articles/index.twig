@@ -1,18 +1,18 @@
 {% set block = block ?? null %}
-{% set articles = block.articles | length ? block.articles : articles %}
+{% set articles = block.articles | length ? Post(block.articles) : articles %}
 
 {% if block %}
   <section class="section" data-label="articles">
     {% if block.heading %}
       <div class="container-sm text-center">
-        <h2 class="heading-3">
+        <h2 class="heading-4 mb-40">
           {{ block.heading }}
         </h2>
       </div>
     {% endif %}
 
-    <div class="container">
-      {% if articles | length %}
+    {% if articles | length %}
+      <div class="container">
         {% if block.type == 'large' %}
           <div class="-mb-50">
             {% for article in articles %}
@@ -36,7 +36,7 @@
             </a>
           </div>
         {% endif %}
-      {% endif %}
-    </div>
+      </div>
+    {% endif %}
   </section>
 {% endif %}

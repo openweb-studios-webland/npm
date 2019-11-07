@@ -23,8 +23,8 @@
             </div>
           {% endif %}
 
-          <a class="button mt-25 lg:mt-30" href="{{ article_report.button_link ?? article_report.link }}">
-            {{ article_report.button_text ?? 'Read more' }}
+          <a class="button mt-25 lg:mt-30" href="{{ article_report.button_link | length ?  article_report.button_link : article_report.link }}">
+            {{ article_report.button_text | length ? article_report.button_text : 'Read more' }}
           </a>
         </div>
 

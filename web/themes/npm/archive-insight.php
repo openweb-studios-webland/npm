@@ -18,7 +18,7 @@ $args = array(
     'meta_key' => 'appears_on',
     'meta_value' => 'insights',
 );
-$context['articles'] = Timber::get_posts($args);
+$context['articles'] = new Timber\PostQuery($args);
 $context['fields'] = get_fields();
 
 if ($paged > 1) {

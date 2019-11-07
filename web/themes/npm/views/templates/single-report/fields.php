@@ -26,6 +26,7 @@ if (function_exists('acf_add_local_field_group')):
                     acf_dynamic_clones_get_local_field_group('Featured Work', 'featured-work'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero-single-report'),
                     acf_dynamic_clones_get_local_field_group('Images', 'images'),
+                    acf_dynamic_clones_get_local_field_group('Past Reports', 'reports'),
                     acf_dynamic_clones_get_local_field_group('Related Articles', 'articles'),
                     acf_dynamic_clones_get_local_field_group('Related Work', 'work'),
                     acf_dynamic_clones_get_local_field_group('Stats', 'stats'),
@@ -181,7 +182,7 @@ if (function_exists('acf_add_local_field_group')):
                 'mime_types' => '',
             ),
             array(
-                'key' => 'field_5db859fb3408a',
+                'key' => 'field_512859fb3408a',
                 'label' => 'Video',
                 'name' => 'video',
                 'type' => 'oembed',

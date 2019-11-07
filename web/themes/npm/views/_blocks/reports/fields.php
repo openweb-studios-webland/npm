@@ -4,7 +4,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
         'key' => 'group_8ypu61z3d8yyz',
-        'title' => 'Past Reports',
+        'title' => 'Reports',
         'fields' => array(
             array(
                 'key' => 'field_n80r584wzx3o2',
@@ -31,7 +31,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'name' => 'reports',
                 'type' => 'post_object',
                 'instructions' => '',
-                'required' => 1,
+                'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',
@@ -39,7 +39,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                     'id' => '',
                 ),
                 'post_type' => array(
-                    0 => 'product',
+                    0 => 'report',
                 ),
                 'taxonomy' => '',
                 'allow_null' => 0,

@@ -1,9 +1,10 @@
 .pin-l,
 .pin-r {
-  @apply max-w-screen;
+  @apply max-w-screen
+    w-auto;
 
   @screen lg {
-    width: calc(100% + 30px);
+    width: calc(100% + 20px);
   }
 
   @media (min-width: 1200px) {
@@ -12,15 +13,27 @@
 }
 
 .pin-l {
+  @apply float-left
+    -mx-20;
+
+  @screen lg {
+    @apply -ml-20;
+  }
+
   @media (min-width: 1200px) {
-    @apply float-left;
-    margin-left: calc((1160px - 100vw) / 2) !important;
+    margin-left: calc((1160px - 100vw) / 2);
   }
 }
 
 .pin-r {
+  @apply float-right
+    -mx-20;
+
+  @screen lg {
+    @apply -mr-20;
+  }
+
   @media (min-width: 1200px) {
-    @apply float-right;
-    margin-right: calc((1160px - 100vw) / 2) !important;
+    margin-right: calc((1160px - 100vw) / 2);
   }
 }

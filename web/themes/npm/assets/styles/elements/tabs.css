@@ -6,7 +6,7 @@
       @apply text-black;
 
       &::before {
-        @apply shadow-md;
+        @apply shadow-lg;
       }
     }
 

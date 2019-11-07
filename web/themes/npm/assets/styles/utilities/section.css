@@ -14,6 +14,18 @@
   }
 }
 
+[data-label="featured-work"] + [data-label="work"] {
+  @apply pt-0;
+
+  @screen md {
+    @apply -mt-25;
+  }
+
+  @screen lg {
+    @apply -mt-50;
+  }
+}
+
 main section {
   &:first-child:not([class*="bg-"]) {
     @apply border-t

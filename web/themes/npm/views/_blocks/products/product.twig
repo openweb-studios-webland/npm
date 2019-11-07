@@ -1,5 +1,5 @@
-<div class="bg-white h-full p-30 shadow-sm text-14">
-  <div class="h-full pb-50 relative">
+<a class="bg-white block flex flex-col h-full px-15 py-20 shadow-sm text-14 transition lg:p-30 hover:shadow hover:translate-t-10"  href="{{ product.link }}">
+  <div class="flex-grow">
     {% set platforms = product.get_terms('platform') %}
 
     {% if platforms | length %}
@@ -39,10 +39,15 @@
         {{ product.text }}
       </p>
     {% endif %}
-
-    <a class="arrow absolute bottom-0 left-0" href="{{ product.link }}">
-      Details
-      {{ svg('arrow') }}
-    </a>
   </div>
-</div>
+
+  <div>
+    <span class="arrow mt-20">
+      Details
+      <span class="sr-only">
+        for {{ product.title }}
+      </span>
+      {{ svg('arrow') }}
+    </span>
+  </div>
+</a>

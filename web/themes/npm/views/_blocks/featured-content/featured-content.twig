@@ -1,30 +1,30 @@
-<div class="bg-white h-full shadow-sm">
+<div class="bg-white flex flex-col h-full shadow-sm">
   {% set image = TimberImage(featured_content.image) %}
 
   {% if image.src %}
     <img src="{{ image.src | resize(1080, 675, 'center') }}" alt="{{ image.alt }}" />
   {% endif %}
 
-  <div class="p-30">
-    <div class="relative pb-30 lg:pb-50">
-      {% if featured_content.heading %}
-        <h3 class="heading-4">
-          {{ featured_content.heading }}
-        </h3>
-      {% endif %}
+  <div class="flex-grow my-20 px-20 lg:my-30 lg:px-30">
+    {% if featured_content.heading %}
+      <h3 class="heading-4">
+        {{ featured_content.heading }}
+      </h3>
+    {% endif %}
 
-      {% if featured_content.text %}
-        <div class="text">
-          {{ featured_content.text }}
-        </div>
-      {% endif %}
-
-      {% if featured_content.button_link and featured_content.button_text %}
-        <a class="arrow absolute bottom-0 left-0" href="{{ featured_content.button_link }}">
-          {{ featured_content.button_text }}
-          {{ svg('arrow') }}
-        </a>
-      {% endif %}
-    </div>
+    {% if featured_content.text %}
+      <div class="text">
+        {{ featured_content.text }}
+      </div>
+    {% endif %}
   </div>
+
+  {% if featured_content.button_link and featured_content.button_text %}
+    <div class="mb-20 px-20 lg:mb-30 lg:px-30">
+      <a class="arrow mt-0 " href="{{ featured_content.button_link }}">
+        {{ featured_content.button_text }}
+        {{ svg('arrow') }}
+      </a>
+    </div>
+  {% endif %}
 </div>

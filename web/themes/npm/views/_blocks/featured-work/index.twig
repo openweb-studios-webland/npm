@@ -1,7 +1,7 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section" data-label="work">
+  <section class="section" data-label="featured-work">
     <div class="container">
       {% if block.featured_work %}
         {% set work = Post(block.featured_work) %}
@@ -11,16 +11,16 @@
             {% set image = TimberImage(work.featured_image) %}
 
             {% if image %}
-              <img src="{{ image.src | resize(1080, 675, 'center') }}" alt="{{ image.alt }}" />
+              <img src="{{ image.src | resize(1080, 679, 'center') }}" alt="{{ image.alt }}" />
             {% endif %}
           </div>
 
-          <div class="px-20 w-full lg:w-1/3">
+          <div class="mb-30 px-20 w-full lg:w-1/3">
             <h4 class="heading-6 mb-20">
               Featured Work
             </h4>
 
-            <h3 class="heading-7 mb-10">
+            <h3 class="heading-7 mb-15">
               {{ work.title }}
             </h3>
 
@@ -30,7 +30,7 @@
               </p>
             {% endif %}
 
-            <a class="arrow text-14" href="{{ work.link }}">
+            <a class="arrow mt-20 text-14" href="{{ work.link }}">
               View the work
               {{ svg('arrow') }}
             </a>

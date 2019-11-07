@@ -1,4 +1,4 @@
-@variants responsive {
+@variants responsive, hover, focus {
   .translate-1\/2 {
     transform: translate(-50%, -50%);
   }
@@ -9,6 +9,10 @@
 
   .translate-y-1\/2 {
     transform: translateY(-50%);
+  }
+
+  .translate-t-10 {
+    transform: translateY(-10px);
   }
 
   .translate-l-full {

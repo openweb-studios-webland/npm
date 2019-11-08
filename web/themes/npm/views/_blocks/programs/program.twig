@@ -2,7 +2,7 @@
 
 <div class="bg-white h-full relative">
   <button
-    class="block text-left"
+    class="block flex flex-col h-full text-left"
     data-module="toggle"
     data-toggle-partner="{{ uid }}{{ loop.index }}0"
     aria-controls="{{ uid }}{{ loop.index }}"
@@ -10,28 +10,34 @@
     {% set image = TimberImage(program.image) %}
 
     {% if image.src %}
-      <img src="{{ image.src | resize(450, 450, 'center') }}" alt="{{ image.alt }}" />
+      <div>
+        <img src="{{ image.src | resize(450, 450, 'center') }}" alt="{{ image.alt }}" />
+      </div>
     {% endif %}
 
-    <div class="p-20">
-      {% if program.heading %}
-        <h3 class="heading-4 mb-15">
-          {{ program.heading }}
-        </h3>
-      {% endif %}
+    <div class="flex flex-col flex-grow p-20">
+      <div class="flex-grow">
+        {% if program.heading %}
+          <h3 class="heading-4 mb-15">
+            {{ program.heading }}
+          </h3>
+        {% endif %}
 
-      {% if program.text %}
-        <div class="text text-14">
-          {{ program.text | length > 120 ? program.text | excerpt(30) ~ '...' : program.text }}
-        </div>
-      {% endif %}
+        {% if program.text %}
+          <div class="text text-14">
+            {{ program.text | length > 120 ? program.text | excerpt(30) ~ '...' : program.text }}
+          </div>
+        {% endif %}
+      </div>
 
-      <span class="font-bold inline-block mt-20 text-14 text-blue-denim">
-        See Details
-        <span class="sr-only">
-          for {{ program.title }}
+      <div>
+        <span class="font-bold inline-block mt-20 text-14 text-blue-denim">
+          See Details
+          <span class="sr-only">
+            for {{ program.heading }}
+          </span>
         </span>
-      </span>
+      </div>
     </div>
   </button>
 
@@ -41,12 +47,14 @@
     aria-hidden="true"
   >
     <div class="mb-5 text-11 text-gray-dark">
-      NPR Podcast
+      {{ program.subheading ?? 'NPR Podcast' }}
     </div>
 
-    <h3 class="heading-4 mb-20">
-      {{ program.title }}
-    </h3>
+    {% if program.heading %}
+      <h3 class="heading-4 mb-20">
+        {{ program.heading }}
+      </h3>
+    {% endif %}
 
     {% if program.host %}
       <div class="mb-5 text-11 text-gray-dark">
@@ -100,7 +108,7 @@
       aria-controls="{{ uid }}"
     >
       <span class="sr-only">
-        Close {{ program.title }} Details
+        Close {{ program.heading }} Details
       </span>
       {{ svg('close', { classes: 'absolute inset-1/2 pointer-events-none translate-1/2' }) }}
     </button>

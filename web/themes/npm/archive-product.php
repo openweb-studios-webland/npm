@@ -79,6 +79,8 @@ function addToPlatform($platform, $current_platforms, $taxonomy)
 $args = array(
     'posts_per_page' => -1,
     'post_type' => 'product',
+    // 'meta_key' => 'appears_on_products',
+    // 'meta_value' => 1,
 );
 
 if (count($context['current_platforms']['parents']) > 0) {

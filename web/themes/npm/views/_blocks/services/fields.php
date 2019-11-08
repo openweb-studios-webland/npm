@@ -7,6 +7,25 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
         'title' => 'Services',
         'fields' => array(
             array(
+                'key' => 'field_16tic1zlscb7k',
+                'label' => 'SubHeading',
+                'name' => 'subheading',
+                'type' => 'text',
+                'instructions' => 'Defaults to "Service".',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ),
+            array(
                 'key' => 'field_5fytmqpbmyjfk',
                 'label' => 'Heading',
                 'name' => 'heading',

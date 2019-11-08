@@ -2,7 +2,7 @@
 
 <div class="bg-white h-full relative">
   <button
-    class="block text-left"
+    class="block flex flex-col h-full text-left"
     data-module="toggle"
     data-toggle-partner="{{ uid }}{{ loop.index }}0"
     aria-controls="{{ uid }}{{ loop.index }}"
@@ -13,25 +13,29 @@
       <img src="{{ image.src | resize(450, 450, 'center') }}" alt="{{ image.alt }}" />
     {% endif %}
 
-    <div class="p-20">
-      {% if service.heading %}
-        <h3 class="heading-4 mb-15">
-          {{ service.heading }}
-        </h3>
-      {% endif %}
+    <div class="flex flex-col flex-grow p-20">
+      <div class="flex-grow">
+        {% if service.heading %}
+          <h3 class="heading-4 mb-15">
+            {{ service.heading }}
+          </h3>
+        {% endif %}
 
-      {% if service.text %}
-        <div class="text text-14">
-          {{ service.text | length > 120 ? service.text | excerpt(30) ~ '...' : service.text }}
-        </div>
-      {% endif %}
+        {% if service.text %}
+          <div class="text text-14">
+            {{ service.text | length > 120 ? service.text | excerpt(30) ~ '...' : service.text }}
+          </div>
+        {% endif %}
+      </div>
 
-      <span class="font-bold inline-block mt-20 text-14 text-blue-denim">
-        See Details
-        <span class="sr-only">
-          for {{ program.title }}
+      <div>
+        <span class="font-bold inline-block mt-20 text-14 text-blue-denim">
+          See Details
+          <span class="sr-only">
+            for {{ program.title }}
+          </span>
         </span>
-      </span>
+      </div>
     </div>
   </button>
 
@@ -41,7 +45,7 @@
     aria-hidden="true"
   >
     <div class="mb-5 text-gray-dark text-11">
-      Service
+      {{ service.subheading ?? 'Service' }}
     </div>
 
     {% if service.heading %}

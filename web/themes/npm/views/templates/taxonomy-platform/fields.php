@@ -4,15 +4,34 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_5db351170db28',
-        'title' => 'Image',
+        'title' => 'Platform',
         'fields' => array(
+            array(
+                'key' => 'field_5dc5c7f7bfe9f',
+                'label' => 'Appears on Products',
+                'name' => 'appears_on_products',
+                'type' => 'true_false',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'message' => '',
+                'default_value' => 1,
+                'ui' => 1,
+                'ui_on_text' => '',
+                'ui_off_text' => '',
+            ),
             array(
                 'key' => 'field_5db3511a7128e',
                 'label' => 'Image',
                 'name' => 'image',
                 'type' => 'image',
                 'instructions' => 'Allowed file type is SVG. All fill attributes should be removed.',
-                'required' => 1,
+                'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',

@@ -30,7 +30,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'label' => 'Past Reports',
                 'name' => 'reports',
                 'type' => 'post_object',
-                'instructions' => '',
+                'instructions' => 'Will be automatically populated, unless overridden by selecting reports below.',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(

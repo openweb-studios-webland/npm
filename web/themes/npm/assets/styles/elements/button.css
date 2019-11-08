@@ -8,7 +8,8 @@
     leading-tight
     max-w-full
     no-underline
-    p-20
+    px-20
+    py-15
     rounded-full
     text-center
     text-white
@@ -18,7 +19,6 @@
 
   @screen sm {
     @apply px-30
-      py-20
       w-auto;
   }
 
@@ -99,7 +99,7 @@
   .button-small {
     @apply min-w-0
       px-20
-      py-15
+      py-10
       text-12
       tracking-wide
       uppercase;

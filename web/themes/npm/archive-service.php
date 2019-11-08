@@ -9,7 +9,7 @@ global $paged;
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 $context = Timber::get_context();
 $args = array(
-    'posts_per_page' => 1,
+    'posts_per_page' => 6,
     'post_type' => 'work',
     'paged' => $paged,
 );

@@ -5,7 +5,7 @@
   <section class="section" data-label="articles">
     {% if block.heading %}
       <div class="container-sm text-center">
-        <h2 class="heading-4 mb-40">
+        <h2 class="{{ block.type == 'large' ? 'heading-6 ' : 'heading-4 ' }}mb-40">
           {{ block.heading }}
         </h2>
       </div>

@@ -2,11 +2,9 @@
 
 <div class="flex flex-col h-full">
   {% if image.src %}
-    <img
-      class="mb-20"
-      src="{{ image.src | resize(720, 540, 'center') }}"
-      alt="{{ image.alt }}"
-    />
+    <div class="mb-20">
+      <img src="{{ image.src | resize(720, 540, 'center') }}" alt="{{ image.alt }}" />
+    </div>
   {% endif %}
 
   <div class="flex-grow">

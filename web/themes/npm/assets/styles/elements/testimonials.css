@@ -1,0 +1,3 @@
+[data-label="testimonials-front-page"] [data-carousel-item][aria-hidden] {
+  @apply h-0;
+}

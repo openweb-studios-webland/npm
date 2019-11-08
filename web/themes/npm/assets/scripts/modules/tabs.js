@@ -39,7 +39,7 @@ export default class Tabs {
 
   convertToTabs = () => {
     this.container = document.createElement('div')
-    this.container.classList.add('flex-1')
+    this.container.classList.add('w-full', 'lg:w-2/3', 'xl:w-3/4')
     this.el.parentNode.insertBefore(this.container, this.el.nextSibling)
 
     this.targets.forEach(target => {

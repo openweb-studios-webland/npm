@@ -2,7 +2,9 @@
   {% set image = TimberImage(featured_content.image) %}
 
   {% if image.src %}
-    <img src="{{ image.src | resize(1080, 675, 'center') }}" alt="{{ image.alt }}" />
+    <div>
+      <img src="{{ image.src | resize(1080, 675, 'center') }}" alt="{{ image.alt }}" />
+    </div>
   {% endif %}
 
   <div class="flex-grow my-20 px-20 lg:my-30 lg:px-30">

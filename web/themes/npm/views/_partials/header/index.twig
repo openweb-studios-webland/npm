@@ -3,49 +3,51 @@
   data-module="header"
   data-label="header"
 >
-  <div class="flex justify-between items-center">
-    <div class="flex-0 px-20">
-      <a href="/">
-        {{ svg('logo', { classes: 'logo' }) }}
-      </a>
-    </div>
+  <div class="container-lg">
+    <div class="flex justify-between items-center -mx-20">
+      <div class="flex-0 px-20">
+        <a href="/">
+          {{ svg('logo', { classes: 'logo' }) }}
+        </a>
+      </div>
 
-    {% if menu.primary.items | length %}
-      {% set uid = random() %}
+      {% if menu.primary.items | length %}
+        {% set uid = random() %}
 
-      <nav
-        id="{{ uid }}"
-        class="absolute flex-1 left-0 px-20 shadow-xs top-full w-screen z-40 lg:shadow-none lg:static"
-        role="navigation"
-        aria-hidden="true"
-        data-header-menu
-      >
-        {% include '_partials/header/menu.twig' ignore missing with {
-          uid: uid,
-          items: menu.primary.items,
-        } %}
-      </nav>
-    {% endif %}
+        <nav
+          id="{{ uid }}"
+          class="absolute flex-1 left-0 px-20 shadow-xs top-full w-screen z-40 lg:shadow-none lg:static"
+          role="navigation"
+          aria-hidden="true"
+          data-header-menu
+        >
+          {% include '_partials/header/menu.twig' ignore missing with {
+            uid: uid,
+            items: menu.primary.items,
+          } %}
+        </nav>
+      {% endif %}
 
-    <div class="hidden flex-0 px-20 lg:block">
-      <a class="{{ front_page ? ' button-outline-blue ' }}button-small" href="/get-started/">
-        Contact Us
-      </a>
-    </div>
+      <div class="hidden flex-0 px-20 lg:block">
+        <a class="{{ front_page ? ' button-outline-blue ' }}button-small" href="/get-started/">
+          Contact Us
+        </a>
+      </div>
 
-    <div class="px-20 lg:hidden">
-      <button
-        class="h-44 relative -mr-10 w-44"
-        data-header-button
-        data-module="toggle"
-        aria-controls="{{ uid }}"
-      >
-        <span class="sr-only">
-          Toggle Menu
-        </span>
-        {{ svg('menu', { classes: 'absolute inset-1/2 translate-1/2' }) }}
-        {{ svg('menu-close', { classes: 'absolute inset-1/2 translate-1/2' }) }}
-      </button>
+      <div class="px-20 lg:hidden">
+        <button
+          class="h-44 relative -mr-10 w-44"
+          data-header-button
+          data-module="toggle"
+          aria-controls="{{ uid }}"
+        >
+          <span class="sr-only">
+            Toggle Menu
+          </span>
+          {{ svg('menu', { classes: 'absolute inset-1/2 translate-1/2' }) }}
+          {{ svg('menu-close', { classes: 'absolute inset-1/2 translate-1/2' }) }}
+        </button>
+      </div>
     </div>
   </div>
 </header>

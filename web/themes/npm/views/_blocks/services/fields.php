@@ -8,7 +8,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
         'fields' => array(
             array(
                 'key' => 'field_16tic1zlscb7k',
-                'label' => 'SubHeading',
+                'label' => 'Subheading',
                 'name' => 'subheading',
                 'type' => 'text',
                 'instructions' => 'Defaults to "Service".',

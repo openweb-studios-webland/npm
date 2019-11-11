@@ -7,25 +7,6 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
         'title' => 'Programs',
         'fields' => array(
             array(
-                'key' => 'field_sjynjbr9fsxok',
-                'label' => 'SubHeading',
-                'name' => 'subheading',
-                'type' => 'text',
-                'instructions' => 'Defaults to "NPR Podcast".',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'maxlength' => '',
-            ),
-            array(
                 'key' => 'field_5d8d2f1afb62d',
                 'label' => 'Heading',
                 'name' => 'heading',

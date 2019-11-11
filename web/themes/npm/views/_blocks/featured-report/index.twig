@@ -22,13 +22,26 @@
           </a>
         </div>
 
-        {% set image = TimberImage(report.featured_image) %}
+        <div class="mb-50 px-30 w-full lg:w-1/2">
+          {% if report.type == 'video' %}
+            {% set video = report.get_field('video') ?? null %}
 
-        {% if image.src %}
-          <div class="mb-50 px-30 w-full lg:w-1/2">
-            <img class="max-w-screen -mx-20 lg:max-w-full lg:shadow lg:mx-0" src="{{ image.src | resize(1080, 810, 'center') }}" alt="{{ image.alt }}" />
-          </div>
-        {% endif %}
+            {% include '_partials/video/index.twig' ignore missing with {
+              video: video,
+              image: report.image,
+            } only %}
+          {% else %}
+            {% set image = TimberImage(report.featured_image) %}
+
+            {% if image.src %}
+              <img
+                class="lg:shadow"
+                src="{{ image.src | resize(1080, 810, 'center') }}"
+                alt="{{ image.alt }}"
+              />
+            {% endif %}
+          {% endif %}
+        </div>
       </div>
     </div>
   </section>

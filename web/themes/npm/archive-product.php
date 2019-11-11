@@ -7,9 +7,12 @@
 $context = Timber::get_context();
 $context['post'] = new Timber\Post();
 $taxonomy = 'platform';
-$platforms = Timber::get_terms(array(
+$args = array(
     'taxonomy' => $taxonomy,
-));
+    'meta_key' => 'appears_on_products',
+    'meta_value' => 1,
+);
+$platforms = Timber::get_terms($args);
 $context['platforms'] = [
     'parents' => [],
     'children' => [],
@@ -79,8 +82,6 @@ function addToPlatform($platform, $current_platforms, $taxonomy)
 $args = array(
     'posts_per_page' => -1,
     'post_type' => 'product',
-    // 'meta_key' => 'appears_on_products',
-    // 'meta_value' => 1,
 );
 
 if (count($context['current_platforms']['parents']) > 0) {

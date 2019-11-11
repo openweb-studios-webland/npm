@@ -1,6 +1,6 @@
 {% if platforms.parents | length %}
   <div class="overflow-hidden">
-    <div class="-mb-20 overflow-x-auto pb-20">
+    <div class="-mb-20 overflow-x-auto pb-15">
       <ul class="flex items-center -mx-10 lg:-mx-20">
         <li class="flex-no-shrink px-10 lg:px-20">
           <a class="{{ current_platforms.parents | length ? 'text-gray-dark ' : 'text-blue-denim ' }}font-bold inline-block pb-15 relative text-center transition-fast whitespace-no-wrap hover:text-blue-denim" href="{{ post.link }}">
@@ -11,7 +11,7 @@
         {% for platform in platforms.parents %}
           {% set image = TimberImage(platform.image) %}
 
-          <li class="flex-no-shrink px-10 lg:px-20">
+          <li class="flex-no-shrink px-10 lg:px-15">
             {% if platform.current %}
               <a class="flex font-bold items-center pb-15 relative text-blue-denim text-center whitespace-no-wrap" href="{{ fn('get_post_type_archive_link', 'product') }}">
                 {% if image.file_loc %}

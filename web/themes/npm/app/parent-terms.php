@@ -3,6 +3,8 @@
 // Auto-check parent terms when a child term is checked
 function npm_check_parent_terms($post_id = null, $post = null)
 {
+    global $post;
+
     if (!$post || $post->post_type != 'product') {
         return;
     }

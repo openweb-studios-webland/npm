@@ -22,7 +22,7 @@
 
 /*! purgecss start ignore */
 *:focus {
-  outline-color: red;
+  outline-color: theme(colors.blue.light);
 }
 
 [data-whatinput="mouse"],

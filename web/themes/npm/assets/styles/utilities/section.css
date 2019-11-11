@@ -10,7 +10,19 @@
   }
 
   &:not([class*="bg-"]) + .section:not([class*="bg-"]) {
-    @apply pt-0;
+    @apply relative;
+
+    &::before {
+      @apply absolute
+        bg-gray-border
+        top-0
+        w-full;
+      content: "";
+      height: 1px;
+      left: 50%;
+      max-width: 1160px;
+      transform: translateX(-50%);
+    }
   }
 }
 
@@ -23,6 +35,10 @@
 
   @screen lg {
     @apply -mt-50;
+  }
+
+  &::before {
+    content: none;
   }
 }
 

@@ -3,8 +3,8 @@
 {% if block %}
   {% set article_report = Post(block.featured_article_report) %}
 
-  <section class="section pb-0 relative lg:pb-100" data-label="hero-archive-insight">
-    {{ svg('pattern', { classes: 'absolute bottom-0 hidden inset-x-0 w-full lg:block' }) }}
+  <section class="section relative{{ article_report.type != 'video' ? ' pb-0 lg:pb-100' }}" data-label="hero-archive-insight">
+    {{ svg('pattern', { classes: 'absolute bottom-0 hidden h-auto inset-x-0 w-full lg:block' }) }}
 
     <div class="container">
       <div class="flex flex-wrap items-center -mb-50 -mx-30 relative">

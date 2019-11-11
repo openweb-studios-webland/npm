@@ -185,6 +185,7 @@ module.exports = {
     },
     maxWidth: {
       '200': '200px',
+      '230': '230px',
       none: 'none',
       '1/2': '50%',
       full: '100%',

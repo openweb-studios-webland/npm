@@ -79,12 +79,9 @@
   & blockquote p {
     @apply font-serif
       italic
+      leading-tight
       relative
-      text-20;
-
-    @screen md {
-      @apply text-24;
-    }
+      text-24;
 
     @screen md {
       @apply text-30;
@@ -92,7 +89,8 @@
   }
 
   & blockquote {
-    @apply mt-0
+    @apply mb-0
+      mt-0
       mx-0
       pb-30
       relative;

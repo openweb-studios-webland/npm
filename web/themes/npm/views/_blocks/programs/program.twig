@@ -47,7 +47,7 @@
     aria-hidden="true"
   >
     <div class="mb-5 text-11 text-gray-dark">
-      {{ program.subheading ?? 'NPR Podcast' }}
+      {{ program.subheading | length ? program.subheading : 'NPR Podcast' }}
     </div>
 
     <h3 class="heading-4 mb-20">

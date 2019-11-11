@@ -33,7 +33,7 @@
           <div class="overflow-x-hidden px-40 relative lg:pl-20 lg:pr-100">
             <div data-module="carousel" data-carousel-loop="false">
               <div class="flex relative -mx-10 py-30" data-carousel-track>
-                {% for program in block.programs %}
+                {% for program in Post(block.programs) %}
                   <div class="flex-0 px-10 w-full md:w-1/2 lg:w-1/3" data-carousel-item>
                     {% include '_blocks/programs/program.twig' ignore missing %}
                   </div>

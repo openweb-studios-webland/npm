@@ -50,11 +50,9 @@
       {{ program.subheading ?? 'NPR Podcast' }}
     </div>
 
-    {% if program.heading %}
-      <h3 class="heading-4 mb-20">
-        {{ program.heading }}
-      </h3>
-    {% endif %}
+    <h3 class="heading-4 mb-20">
+      {{ program.title }}
+    </h3>
 
     {% if program.host %}
       <div class="mb-5 text-11 text-gray-dark">

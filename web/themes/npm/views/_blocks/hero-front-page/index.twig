@@ -35,7 +35,7 @@
                 >
                   <div class="carousel-track flex relative" data-carousel-track>
                     {% for image in block.images %}
-                      <div class="flex-0 w-full" data-carousel-item>
+                      <div class="carousel-item flex-0 w-full" data-carousel-item>
                         {% set image = TimberImage(image) %}
 
                         {% if image.src %}

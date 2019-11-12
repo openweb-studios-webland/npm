@@ -78,7 +78,7 @@ if (function_exists('acf_add_local_field_group')):
             ),
             array(
                 'key' => 'field_5d9671x31260c',
-                'label' => 'Call to Action',
+                'label' => 'CTA',
                 'name' => 'error_404_call_to_action',
                 'type' => 'post_object',
                 'instructions' => '',

@@ -5,7 +5,7 @@
         "version_normalized": "5.8.0.0",
         "dist": {
             "type": "zip",
-            "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k={%ACF_PRO_KEY}&t=5.8.0#v5.8.0",
+            "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k={%ACF_PRO_KEY}&t=5.8.0#v5.8.0#v5.8.0",
             "reference": null,
             "shasum": null
         },
@@ -631,16 +631,16 @@
     },
     {
         "name": "wpackagist-plugin/duracelltomi-google-tag-manager",
-        "version": "1.10.1",
-        "version_normalized": "1.10.1.0",
+        "version": "1.11.1",
+        "version_normalized": "1.11.1.0",
         "source": {
             "type": "svn",
             "url": "https://plugins.svn.wordpress.org/duracelltomi-google-tag-manager/",
-            "reference": "tags/1.10.1"
+            "reference": "tags/1.11.1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://downloads.wordpress.org/plugin/duracelltomi-google-tag-manager.1.10.1.zip",
+            "url": "https://downloads.wordpress.org/plugin/duracelltomi-google-tag-manager.1.11.1.zip",
             "reference": null,
             "shasum": null
         },
@@ -697,16 +697,16 @@
     },
     {
         "name": "wpackagist-plugin/safe-svg",
-        "version": "1.9.5",
-        "version_normalized": "1.9.5.0",
+        "version": "1.9.6",
+        "version_normalized": "1.9.6.0",
         "source": {
             "type": "svn",
             "url": "https://plugins.svn.wordpress.org/safe-svg/",
-            "reference": "tags/1.9.5"
+            "reference": "tags/1.9.6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://downloads.wordpress.org/plugin/safe-svg.1.9.5.zip",
+            "url": "https://downloads.wordpress.org/plugin/safe-svg.1.9.6.zip",
             "reference": null,
             "shasum": null
         },

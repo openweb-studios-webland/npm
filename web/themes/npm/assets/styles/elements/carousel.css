@@ -1,10 +1,18 @@
-[data-carousel-track] > [aria-hidden] {
+.carousel-track > [aria-hidden] {
   @apply block;
 }
 
+/*! purgecss start ignore */
+.carousel-prev[disabled],
+.carousel-next[disabled] {
+  @apply opacity-50
+    pointer-events-none;
+}
+/*! purgecss end ignore */
+
 [data-label="programs"],
 [data-label="services"] {
-  & [data-carousel-track] > [aria-hidden] {
+  & .carousel-track > [aria-hidden] {
     @apply opacity-50;
 
     @screen md {
@@ -12,7 +20,7 @@
     }
   }
 
-  & [data-carousel-item] {
+  & .carousel-item {
     & > div {
       @apply transition;
 
@@ -23,7 +31,7 @@
     }
 
     &:not([aria-hidden]),
-    &:not([aria-hidden]) + [data-carousel-item] {
+    &:not([aria-hidden]) + .carousel-item {
       & > div {
         @apply shadow-sm;
       }
@@ -31,10 +39,6 @@
   }
 }
 
-/*! purgecss start ignore */
-[data-carousel-prev][disabled],
-[data-carousel-next][disabled] {
-  @apply opacity-50
-    pointer-events-none;
+[data-label="testimonials-front-page"] .carousel-item[aria-hidden] {
+  @apply h-0;
 }
-/*! purgecss end ignore */

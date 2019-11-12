@@ -41,6 +41,7 @@ Install PHP dependencies (Composer should create `wp` and `wp-content/plugins` d
 
 ```bash
 $ composer install
+$ composer update
 ```
 
 Install NPM dependencies:

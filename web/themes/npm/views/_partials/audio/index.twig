@@ -10,16 +10,17 @@
 
     <div class="flex items-center mt-10 -mx-5">
       <div class="px-5">
-        <button class="block bg-blue-denim h-24 relative rounded-full text-white w-24" data-audio-play-pause>
+        <button class="audio-play-pause inline-block bg-blue-denim h-24 relative rounded-full text-white w-24" data-audio-play-pause>
           <span class="sr-only">
             Play Audio
           </span>
-          {{ svg('audio-play', { classes: 'absolute inset-1/2 ml-1 translate-1/2' }) }}{{ svg('audio-pause', { classes: 'absolute inset-1/2 translate-1/2' }) }}
+          {{ svg('audio-play', { classes: 'absolute inset-1/2 ml-1 translate-1/2' }) }}
+          {{ svg('audio-pause', { classes: 'absolute inset-1/2 translate-1/2' }) }}
         </button>
       </div>
 
       <div class="px-5">
-        <button class="block bg-gray-border h-24 relative rounded-full text-white w-24" data-audio-skip-backward>
+        <button class="inline-block bg-gray-border h-24 relative rounded-full text-white w-24" data-audio-skip-backward>
           <span class="sr-only">
             Skip Audio Backward
           </span>
@@ -54,11 +55,7 @@
   </div>
 
   {% if image.src %}
-    <div
-      class="absolute h-full inset-1/2 transition translate-1/2 w-full z-10"
-      data-audio-play-pause
-      data-audio-overlay
-    >
+    <div class="overlay absolute h-full inset-1/2 transition translate-1/2 w-full z-10" data-audio-play-pause>
       <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
 
       <button class="absolute inset-1/2 h-80 translate-1/2 w-80">

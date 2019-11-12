@@ -28,7 +28,7 @@
         {% endblock %}
 
         {% if fields is defined and fields.call_to_action | length %}
-          {% include '_partials/call-to-action/index.twig' ignore missing with {
+          {% include '_partials/cta/index.twig' ignore missing with {
             color_select: fields.call_to_action.color_select,
             image: fields.call_to_action.image,
             heading: fields.call_to_action.heading,

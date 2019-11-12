@@ -43,7 +43,8 @@
   &:hover,
   &:focus {
     @apply bg-crimson
-      border-crimson;
+      border-crimson
+      text-white;
   }
 
   &:focus {

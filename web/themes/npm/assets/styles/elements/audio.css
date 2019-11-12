@@ -1,8 +1,8 @@
-[data-audio-play-pause] svg:last-of-type {
+.audio-play-pause svg:last-of-type {
   @apply hidden;
 }
 
-.playing [data-audio-play-pause] svg {
+.playing .audio-play-pause svg {
   &:first-of-type {
     @apply hidden;
   }
@@ -12,7 +12,7 @@
   }
 }
 
-.active [data-audio-overlay] {
+.active .overlay {
   @apply invisible
     opacity-0
     pointer-events-none;

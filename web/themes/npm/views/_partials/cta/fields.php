@@ -4,11 +4,11 @@ if (function_exists('acf_add_local_field_group')):
 
     acf_add_local_field_group(array(
         'key' => 'group_5d967127adc7c',
-        'title' => 'Call to Action',
+        'title' => 'CTA',
         'fields' => array(
             array(
                 'key' => 'field_5d96712f1260c',
-                'label' => 'Call to Action',
+                'label' => 'CTA',
                 'name' => 'call_to_action',
                 'type' => 'post_object',
                 'instructions' => '',
@@ -82,7 +82,7 @@ if (function_exists('acf_add_local_field_group')):
         'fields' => array(
             array(
                 'key' => 'field_selo07t0h362t',
-                'label' => 'Call to Action',
+                'label' => 'CTA',
                 'name' => 'call_to_action',
                 'type' => 'post_object',
                 'instructions' => '',
@@ -128,11 +128,11 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 
     acf_dynamic_clones_add_local_field_group(array(
         'key' => 'group_28yah4s4m5e0b',
-        'title' => 'Call to Action',
+        'title' => 'CTA',
         'fields' => array(
             array(
                 'key' => 'field_n7rleyp4f7sbt',
-                'label' => 'Call to Action',
+                'label' => 'CTA',
                 'name' => 'call_to_action',
                 'type' => 'post_object',
                 'instructions' => '',

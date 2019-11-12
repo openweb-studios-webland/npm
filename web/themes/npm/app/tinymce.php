@@ -29,9 +29,9 @@ function npm_call_to_action_shortcode($params)
     $button_link = $params['button_link'];
 
     return
-        '<div class="call-to-action">
-			<p class="call-to-action-heading">' . $text . '</p>
-			<a class="call-to-action-button" href="' . $button_link . '">' . $button_text . '</a>
+        '<div class="cta">
+			<p class="cta-heading">' . $text . '</p>
+			<a class="cta-button" href="' . $button_link . '">' . $button_text . '</a>
 		</div>';
 }
 
@@ -81,8 +81,8 @@ function npm_toolbars($toolbars)
             'link',
             'bullist',
             'numlist',
-			'blockquote',
-			'hr',
+            'blockquote',
+            'hr',
             'pastetext',
             'removeformat',
             'undo',

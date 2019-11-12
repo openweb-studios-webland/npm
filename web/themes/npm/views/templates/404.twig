@@ -22,7 +22,7 @@
   </section>
 
   {% if globals.error_404_call_to_action | length %}
-    {% include '_partials/call-to-action/index.twig' ignore missing with {
+    {% include '_partials/cta/index.twig' ignore missing with {
       color_select: globals.error_404_call_to_action.color_select,
       image: globals.error_404_call_to_action.image,
       heading: globals.error_404_call_to_action.heading,

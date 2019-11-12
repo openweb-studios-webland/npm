@@ -1,4 +1,4 @@
-[data-label="audiences"] [data-tabs-trigger] {
+[data-label="audiences"] .tabs-trigger {
   &[aria-expanded="true"] {
     @apply border-b-0;
 
@@ -50,7 +50,7 @@
   }
 }
 
-[data-label="spec-groups"] [data-tabs-trigger] {
+[data-label="spec-groups"] .tabs-trigger {
   &[aria-expanded="true"]::before {
     @apply block;
   }

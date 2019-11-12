@@ -16,7 +16,7 @@
         {% if block.type == 'large' %}
           <div class="-mb-50">
             {% for article in articles %}
-              <div class="{{ not loop.last ? 'border-b border-gray-border ' }}mb-50 pb-50">
+              <div class="{{ not loop.last ? 'border-b border-gray-border pb-50 ' }}mb-50">
                 {% include '_blocks/articles/article-large.twig' ignore missing %}
               </div>
             {% endfor %}

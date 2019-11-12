@@ -1,7 +1,6 @@
 .arrow {
   @apply font-bold
     inline-block
-    mt-20
     text-blue-denim;
 
   &:hover,

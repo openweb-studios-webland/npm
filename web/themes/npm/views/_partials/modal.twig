@@ -16,11 +16,10 @@
   >
     <div class="{{ size != '' ? 'container-' ~ size ~ ' ' : 'container ' }}w-full">
       <div
-        class="bg-white overflow-x-hidden overflow-y-auto px-20 py-50 relative lg:p-50{{ classes ? ' ' ~ classes }}"
+        class="modal-content bg-white overflow-x-hidden overflow-y-auto px-20 py-50 relative lg:p-50{{ classes ? ' ' ~ classes }}"
         aria-modal="true"
         role="dialog"
         tabindex="0"
-        data-modal-content
       >
         {% if content %}
           {{ content }}

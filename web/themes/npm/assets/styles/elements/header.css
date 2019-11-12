@@ -1,11 +1,11 @@
-[data-module="header"].stuck {
+.header.stuck {
   @screen lg {
     @apply py-10
       shadow-xs;
   }
 }
 
-[data-header-trigger] {
+.header-trigger {
   & svg {
     &:last-of-type {
       @apply hidden;
@@ -30,26 +30,41 @@
 }
 
 /*! purgecss start ignore */
-.admin-bar [data-module="header"] {
+.admin-bar .header {
   @screen lg {
     top: 32px;
   }
 }
 /*! purgecss end ignore */
 
-[data-header-menu],
-[data-header-submenu] {
+.header-menu,
+.header-submenu {
   clip-path: inset(1px 0 -15px);
+
+  &[aria-hidden] {
+    @apply block
+      opacity-0
+      pointer-events-none
+      invisible;
+  }
 }
 
-[data-header-menu] {
+.header-menu {
   @screen lg {
     clip-path: none;
   }
 
   &[aria-hidden] {
     @screen lg {
-      @apply block;
+      @apply opacity-100
+        pointer-events-auto
+        visible;
     }
+  }
+}
+
+.header-submenu[aria-hidden] {
+  @screen lg {
+    transform: translateY(-20px);
   }
 }

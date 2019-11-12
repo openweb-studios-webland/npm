@@ -7,10 +7,10 @@
             {{ svg('logo', { classes: 'logo' }) }}
           </a>
 
-          {% if menu.secondary.items | length %}
+          {% if menu.footer.items | length %}
             <nav class="mt-30 lg:mt-15" role="navigation">
               <ul class="flex flex-wrap -mb-30 -mx-20 lg:-mb-15">
-                {% for item in menu.secondary.items %}
+                {% for item in menu.footer.items %}
                   <li class="leading-none mb-30 px-20 w-full lg:mb-15 lg:w-auto">
                     <a class="transition-fast whitespace-no-wrap hover:text-blue-denim" href="{{ item.link }}">
                       {{ item.title }}

@@ -11,7 +11,7 @@
         </a>
       </div>
 
-      {% if menu.primary.items | length %}
+      {% if menu.header.items | length %}
         {% set uid = random() %}
 
         <nav
@@ -22,7 +22,7 @@
         >
           {% include '_partials/header/menu.twig' ignore missing with {
             uid: uid,
-            items: menu.primary.items,
+            items: menu.header.items,
           } %}
         </nav>
       {% endif %}

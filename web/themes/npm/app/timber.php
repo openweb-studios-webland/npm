@@ -35,8 +35,8 @@ class Site extends Timber\Site
 
     public function npm_add_to_context($context)
     {
-        $context['menu']['primary'] = new Timber\Menu('primary', ['depth' => 3]);
-        $context['menu']['secondary'] = new Timber\Menu('secondary', ['depth' => 1]);
+        $context['menu']['header'] = new Timber\Menu('header', ['depth' => 3]);
+        $context['menu']['footer'] = new Timber\Menu('footer', ['depth' => 1]);
         $context['menu']['resources'] = new Timber\Menu('resources', ['depth' => 1]);
         $context['menu']['utilities'] = new Timber\Menu('utilities', ['depth' => 1]);
         $context['site'] = $this;

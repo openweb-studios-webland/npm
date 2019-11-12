@@ -1,3 +1,7 @@
 img {
   @apply w-full;
 }
+
+body > img {
+  @apply w-auto;
+}

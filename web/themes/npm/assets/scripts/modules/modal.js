@@ -13,11 +13,13 @@ export default class Modal {
 
     aria.toggle(this.active, this.el)
     this.setFocusToFirstElements()
+    this.scrollLock()
     this.attachOpenEventListeners()
   }
 
   closeModal = () => {
     aria.toggle(this.active, this.el)
+    this.scrollLock(false)
     this.detachOpenEventListeners()
 
     if (this.active) {
@@ -36,13 +38,13 @@ export default class Modal {
     }
   }
 
-  scrollLock = (lock = false) => {
+  scrollLock = (scrollLock = true) => {
     const el = document.querySelector('body')
 
-    if (lock) {
-      Object.assign(el.style, { overflow: 'hidden', height: '100vh' })
+    if (scrollLock) {
+      el.classList.add('locked')
     } else {
-      Object.assign(el.style, { overflow: '', height: '' })
+      el.classList.remove('locked')
     }
   }
 

@@ -4,6 +4,7 @@ module.exports = {
   separator: ':',
   theme: {
     screens: {
+      xs: '414px',
       sm: '640px',
       md: '768px',
       lg: '1024px',
@@ -250,6 +251,7 @@ module.exports = {
     }),
     zIndex: {
       auto: 'auto',
+      '1': '-1',
       '0': '0',
       '10': '10',
       '20': '20',

@@ -51,7 +51,7 @@ main section {
   &:last-child:not([class*="bg-"]) {
     @apply relative;
 
-    &::before {
+    &::after {
       @apply absolute
         bg-gray-border
         bottom-0

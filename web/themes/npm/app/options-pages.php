@@ -13,10 +13,114 @@ endif;
 
 // Add fields to options page
 if (function_exists('acf_add_local_field_group')):
+    acf_add_local_field_group(array(
+        'key' => 'group_5dcb007095406',
+        'title' => '404 Page',
+        'fields' => array(
+            array(
+                'key' => 'field_5dcb00782e162',
+                'label' => 'Heading',
+                'name' => 'error_404_heading',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ),
+            array(
+                'key' => 'field_5dcb00822e163',
+                'label' => 'Text',
+                'name' => 'error_404_text',
+                'type' => 'wysiwyg',
+                'instructions' => '',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'tabs' => 'all',
+                'toolbar' => 'basic',
+                'media_upload' => 0,
+                'delay' => 0,
+            ),
+            array(
+                'key' => 'field_5dcb60962e164',
+                'label' => 'Button',
+                'name' => 'error_404_button',
+                'type' => 'clone',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'clone' => array(
+                    0 => 'group_5d8b9a14327c5',
+                ),
+                'display' => 'seamless',
+                'layout' => 'block',
+                'prefix_label' => 1,
+                'prefix_name' => 1,
+            ),
+            array(
+                'key' => 'field_5d9671x31260c',
+                'label' => 'Call to Action',
+                'name' => 'error_404_call_to_action',
+                'type' => 'post_object',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'post_type' => array(
+                    0 => 'call-to-action',
+                ),
+                'taxonomy' => '',
+                'allow_null' => 0,
+                'multiple' => 0,
+                'return_format' => 'object',
+                'ui' => 1,
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'globals',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'acf_after_title',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+    ));
 
     acf_add_local_field_group(array(
         'key' => 'group_5db9d60a95e34',
-        'title' => 'Locations',
+        'title' => 'Locations List',
         'fields' => array(
             array(
                 'key' => 'field_5db9d60e1634c',
@@ -68,7 +172,7 @@ if (function_exists('acf_add_local_field_group')):
                 ),
             ),
         ),
-        'menu_order' => 0,
+        'menu_order' => 1,
         'position' => 'acf_after_title',
         'style' => 'default',
         'label_placement' => 'top',

@@ -5,7 +5,7 @@
   }
 }
 
-[data-header-button] {
+[data-header-trigger] {
   & svg {
     &:last-of-type {
       @apply hidden;
@@ -21,6 +21,10 @@
       &:last-of-type {
         @apply block;
       }
+    }
+
+    & + div {
+      @apply block;
     }
   }
 }

@@ -17,7 +17,7 @@ export default class Header {
   }
 
   checkPosition = () => {
-    const position = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0)
+    const position = Math.floor((window.pageYOffset || document.scrollTop) - (document.clientTop || 0))
 
     position && position > 10 ? this.el.classList.add('stuck') : this.el.classList.remove('stuck')
   }

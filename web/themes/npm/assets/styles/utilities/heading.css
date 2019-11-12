@@ -53,11 +53,7 @@
 
 .heading-2,
 .text h1 {
-  @apply text-24;
-
-  @screen md {
-    @apply text-36;
-  }
+  @apply text-42;
 
   @screen lg {
     @apply text-48;

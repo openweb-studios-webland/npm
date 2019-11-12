@@ -11,7 +11,9 @@
   & dl,
   & ol,
   & ul,
-  & blockquote {
+  & blockquote,
+  & img,
+  & .wp-caption {
     @apply mb-30;
 
     &:last-child {
@@ -49,27 +51,43 @@
     list-style: decimal;
   }
 
-  & img {
-    @apply mb-30
-      relative
+
+  & *:not(.wp-caption ) img {
+    @apply relative
       w-screen;
     left: 50%;
     max-width: 960px;
     transform: translateX(-50%);
+  }
 
-    &.alignleft,
-    &.alignright {
-      @apply left-auto;
-      transform: none;
-      width: 50%;
+  & .wp-caption {
+    width: 100% !important; /* WordPress WYSIWYG inline override */
+  }
+
+  & .wp-caption-text {
+    @apply text-center
+      text-12;
+  }
+
+  & .alignleft,
+  & .alignright {
+    @apply left-auto;
+    transform: none;
+
+    @screen lg {
+      width: 50% !important; /* WordPress WYSIWYG inline override */
     }
+  }
 
-    &.alignleft {
+  & .alignleft {
+    @screen lg {
       @apply float-left
         mr-30;
     }
+  }
 
-    &.alignright {
+  & .alignright {
+    @screen lg {
       @apply float-right
         ml-30;
     }

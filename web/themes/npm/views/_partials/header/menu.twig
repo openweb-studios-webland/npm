@@ -6,14 +6,26 @@
   {% if level == 1 %}
     <div
       id="{{ uid }}"
-      class="{{ front_page ? 'bg-blue border-blue-denim' : 'bg-white border-gray' }} border-b border-t left-0 -mt-1 -mx-20 px-20 transition w-screen lg:absolute lg:border-b-0 lg:mx-0 lg:px-0 lg:shadow-xs lg:top-full"
+      class="{{ front_page ? 'bg-blue border-blue-denim ' : 'bg-white border-gray ' }}absolute border-t h-full left-0 -mt-1 px-20 top-0 transition w-screen lg:h-auto lg:mx-0 lg:px-0 lg:shadow-xs lg:top-full"
       aria-hidden="true"
       data-header-submenu
     >
       <div class="container">
         <ul class="flex flex-wrap -mb-30 -mx-15 py-30 lg:flex-no-wrap lg:py-40 ">
+          <li id="{{ uid }}0" class="lg:hidden">
+            <button class="flex items-center mb-30 text-11 uppercase text-blue-denim tracking-wide">
+              <span class="px-5">
+                {{ svg('arrow-left', { classes: 'text-blue-light' } ) }}
+              </span>
+
+              <span class="px-5">
+                Back
+              </span>
+            </button>
+          </li>
+
           {% for item in items %}
-            <li class="{{ item.classes | join(' ') | trim }} flex-1 leading-normal mb-30 pl-30 px-15 relative w-full lg:w-auto">
+            <li class="{{ item.classes | join(' ') | trim }} {{ not loop.last ? 'border-b border-gray ' }}flex-1 leading-normal mb-20 pb-20 pl-30 px-15 relative w-full lg:border-b-0 lg:mb-30 lg:w-auto">
               {% set image = TimberImage(item.image) %}
 
               {% if image.file_loc %}
@@ -22,7 +34,7 @@
                 </span>
               {% endif %}
 
-              <a class="block font-bold whitespace-no-wrap" href="{{ item.link }}">
+              <a class="block whitespace-no-wrap hover:underline" href="{{ item.link }}">
                 {{ item.title }}
               </a>
 
@@ -47,23 +59,25 @@
     <ul class="flex mt-15 -mx-15">
       {% for item in items %}
         <li class="{{ item.classes | join(' ') | trim }} {{ not loop.last ? 'border-r-2 ' }}border-blue-light leading-none px-15">
-          <a class="{{ not front_page ? 'text-blue-denim ' }}font-bold text-14 whitespace-no-wrap" href="{{ item.link }}">
+          <a class="{{ not front_page ? 'text-blue-denim ' }}text-14 whitespace-no-wrap hover:underline" href="{{ item.link }}">
             {{ item.title }}
           </a>
         </li>
       {% endfor %}
     </ul>
   {% else %}
-    <div class="{{ front_page ? 'bg-blue border-blue-denim ' : 'bg-white border-gray ' }}border-t px-20 lg:border-t-0 lg:px-0">
-      <ul class="flex flex-wrap -mx-15">
+    <div class="{{ front_page ? 'bg-blue border-blue-denim ' : 'bg-white border-gray ' }}border-t px-20 lg:border-t-0 -mx-20 lg:px-0">
+      <ul class="flex flex-wrap lg:-mx-15">
         {% for item in items %}
           <li class="{{ item.classes | join(' ') | trim }} border-b border-gray-border leading-none py-10 w-full lg:border-b-0 lg:px-15 lg:w-auto">
             {% if item.children | length %}
               {% set uid = random() %}
 
               <button
-                class="border-b-2 border-transparent flex font-bold inline-block items-center -mx-5 py-10 transition-fast w-full whitespace-no-wrap lg:hover:border-blue-denim"
+                class="border-b-2 border-transparent flex items-center justify-between -mx-5 py-10 transition-fast w-full whitespace-no-wrap lg:w-auto lg:hover:border-blue-denim"
                 data-module="toggle"
+                data-toggle-partner="{{ uid }}0"
+                data-toggle-outside="true"
                 aria-controls="{{ uid }}"
               >
                 <span class="px-5">
@@ -71,7 +85,8 @@
                 </span>
 
                 <span class="px-5 text-blue-denim">
-                  {{ svg('dropdown') }}
+                  {{ svg('dropdown', { classes: 'hidden lg:block' }) }}
+                  {{ svg('arrow-right', { classes: '-mr-10 text-blue-light lg:hidden' }) }}
                 </span>
               </button>
 
@@ -80,7 +95,7 @@
                 items: item.children,
               } %}
             {% else %}
-              <a class="block border-b-2 border-transparent font-bold inline-block py-10 transition-fast w-full whitespace-no-wrap hover:border-blue-denim" href="{{ item.link }}">
+              <a class="block border-b-2 border-transparent inline-block py-10 transition-fast w-full whitespace-no-wrap lg:border-blue-denim" href="{{ item.link }}">
                 {{ item.title }}
               </a>
             {% endif %}

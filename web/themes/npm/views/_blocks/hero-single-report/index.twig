@@ -1,7 +1,7 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="py-30 bg-blue text-white lg:py-50" data-label="hero-single-report">
+  <section class="bg-blue py-50 text-white" data-label="hero-single-report">
     <div class="container -mb-50">
       <div class="mb-50">
         <div class="heading-6 mb-10">
@@ -28,11 +28,7 @@
 
         {% if image.src %}
           <div class="mb-50 px-30 w-full lg:w-1/2">
-            <img
-              class="max-w-screen -mx-20 lg:max-w-full lg:mx-0"
-              src="{{ image.src | resize(1080, 607, 'center') }}"
-              alt="{{ image.alt }}"
-            />
+            <img src="{{ image.src | resize(1080, 607, 'center') }}" alt="{{ image.alt }}" />
           </div>
         {% endif %}
 

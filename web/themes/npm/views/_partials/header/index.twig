@@ -1,5 +1,5 @@
 <header
-  class="{{ front_page ? 'bg-blue text-white ' : 'bg-white ' }}relative py-10 top-0 transition z-30 lg:py-20 lg:sticky"
+  class="{{ front_page ? 'bg-blue text-white ' : 'bg-white ' }}relative py-10 top-0 transition w-full z-30 lg:py-20 lg:sticky"
   data-module="header"
   data-label="header"
 >
@@ -16,7 +16,7 @@
 
         <nav
           id="{{ uid }}"
-          class="absolute flex-1 left-0 px-20 shadow-xs top-full w-screen z-40 lg:shadow-none lg:static"
+          class="absolute flex-1 left-0 px-20 top-full w-screen z-40 lg:static"
           role="navigation"
           aria-hidden="true"
           data-header-menu
@@ -37,7 +37,7 @@
       <div class="px-20 lg:hidden">
         <button
           class="h-44 relative -mr-10 w-44"
-          data-header-button
+          data-header-trigger
           data-module="toggle"
           aria-controls="{{ uid }}"
         >
@@ -47,6 +47,8 @@
           {{ svg('menu', { classes: 'absolute inset-1/2 translate-1/2' }) }}
           {{ svg('menu-close', { classes: 'absolute inset-1/2 translate-1/2' }) }}
         </button>
+
+        <div class="{{ front_page ? 'bg-blue ' : 'bg-white ' }}fixed hidden inset-0 z-1"></div>
       </div>
     </div>
   </div>

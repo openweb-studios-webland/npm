@@ -7,24 +7,23 @@ if (function_exists('acf_add_local_field_group')):
         'title' => 'Program Archive',
         'fields' => array(
             array(
-                'key' => 'field_tjwqwo21rgf3x',
-                'label' => 'Page Blocks',
-                'name' => 'blocks',
-                'type' => 'flexible_content',
+                'key' => 'field_otfu668z8cg4w',
+                'label' => 'Text',
+                'name' => 'text',
+                'type' => 'wysiwyg',
                 'instructions' => '',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',
                     'class' => '',
                     'id' => '',
                 ),
-                'layouts' => array(
-                    acf_dynamic_clones_get_local_field_group('Hero', 'hero-archive'),
-                ),
-                'button_label' => 'Add Block',
-                'min' => '',
-                'max' => '',
+                'default_value' => '',
+                'tabs' => 'all',
+                'toolbar' => 'basic',
+                'media_upload' => 0,
+                'delay' => 0,
             ),
         ),
         'location' => array(
@@ -38,7 +37,7 @@ if (function_exists('acf_add_local_field_group')):
         ),
         'menu_order' => 0,
         'position' => 'acf_after_title',
-        'style' => 'seamless',
+        'style' => 'default',
         'label_placement' => 'top',
         'instruction_placement' => 'label',
         'hide_on_screen' => array(

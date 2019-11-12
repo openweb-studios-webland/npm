@@ -3,4 +3,13 @@ body {
     leading-normal;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+
+  &.locked {
+    @apply h-screen
+      overflow-y-hidden;
+
+    & [class*="sticky"] {
+      @apply fixed;
+    }
+  }
 }

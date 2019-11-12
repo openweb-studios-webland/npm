@@ -7,24 +7,23 @@ if (function_exists('acf_add_local_field_group')):
         'title' => 'Product Archive',
         'fields' => array(
             array(
-                'key' => 'field_pd24is4w3bbaf',
-                'label' => 'Page Blocks',
-                'name' => 'blocks',
-                'type' => 'flexible_content',
+                'key' => 'field_5d9b5t681a730',
+                'label' => 'Text',
+                'name' => 'text',
+                'type' => 'wysiwyg',
                 'instructions' => '',
-                'required' => 0,
+                'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',
                     'class' => '',
                     'id' => '',
                 ),
-                'layouts' => array(
-                    acf_dynamic_clones_get_local_field_group('Hero', 'hero-archive'),
-                ),
-                'button_label' => 'Add Block',
-                'min' => '',
-                'max' => '',
+                'default_value' => '',
+                'tabs' => 'all',
+                'toolbar' => 'basic',
+                'media_upload' => 0,
+                'delay' => 0,
             ),
         ),
         'location' => array(
@@ -38,7 +37,7 @@ if (function_exists('acf_add_local_field_group')):
         ),
         'menu_order' => 0,
         'position' => 'acf_after_title',
-        'style' => 'seamless',
+        'style' => 'default',
         'label_placement' => 'top',
         'instruction_placement' => 'label',
         'hide_on_screen' => array(

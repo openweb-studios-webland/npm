@@ -23,7 +23,7 @@
             {% if block.button_link and block.button_text %}
               <a class="arrow text-white" href="{{ block.button_link }}">
                 {{ block.button_text }}
-                {{ svg('arrow') }}
+                {{ svg('arrow-right') }}
               </a>
             {% endif %}
           </div>
@@ -51,13 +51,13 @@
               <div class="flex justify-center opacity-50 -mx-5 lg:justify-end lg:opacity-100">
                 <div class="px-5">
                   {% include '_partials/carousel/button-prev.twig' ignore missing with {
-                    classes: 'text-white transition-fast lg:text-blue lg:hover:text-blue-light',
+                    classes: 'text-white transition-fast lg:text-blue hover:text-blue-light',
                   } only %}
                 </div>
 
                 <div class="px-5">
                   {% include '_partials/carousel/button-next.twig' ignore missing with {
-                    classes: 'text-white transition-fast lg:text-blue lg:hover:text-blue-light',
+                    classes: 'text-white transition-fast lg:text-blue hover:text-blue-light',
                   } only %}
                 </div>
               </div>

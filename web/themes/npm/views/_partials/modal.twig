@@ -1,5 +1,6 @@
 {% set size = size ?? 'md' %}
 {% set content = content ?? null %}
+{% set classes = classes ?? null %}
 {% set uid = uid ?? null %}
 
 <div
@@ -15,7 +16,7 @@
   >
     <div class="{{ size != '' ? 'container-' ~ size ~ ' ' : 'container ' }}w-full">
       <div
-        class="bg-white overflow-x-hidden overflow-y-auto px-20 py-30 relative lg:p-50"
+        class="bg-white overflow-x-hidden overflow-y-auto px-20 py-50 relative lg:p-50{{ classes ? ' ' ~ classes }}"
         aria-modal="true"
         role="dialog"
         tabindex="0"

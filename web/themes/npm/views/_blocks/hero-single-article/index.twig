@@ -1,9 +1,9 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section py-30 lg:py-50" data-label="hero-single-article">
+  <section class="py-50" data-label="hero-single-article">
     <div class="-mb-50">
-      <div class="container pb-50">
+      <div class="container mb-50">
         <div class="heading-6 mb-10">
           Insights
         </div>
@@ -26,12 +26,8 @@
       {% set image = TimberImage(block.image) %}
 
       {% if image.src %}
-        <div class="container-lg pb-50">
-          <img
-            class="max-w-screen -mx-20 lg:max-w-full lg:mx-0"
-            src="{{ image.src | resize(1920, 800, 'center') }}"
-            alt="{{ image.alt }}"
-          />
+        <div class="container-lg mb-50">
+          <img src="{{ image.src | resize(1920, 800, 'center') }}" alt="{{ image.alt }}" />
         </div>
       {% endif %}
     </div>

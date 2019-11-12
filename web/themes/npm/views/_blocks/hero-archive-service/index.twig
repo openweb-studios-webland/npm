@@ -4,7 +4,7 @@
   {% set image = TimberImage(block.background_image) %}
 
   <section
-    class="section bg-center bg-cover relative text-white"
+    class="section bg-center bg-cover pb-75 relative text-white md:pb-100"
     style="background-image: url('{{ image.src | resize(1920, 700, 'center') }}');"
     data-label="hero-services"
   >
@@ -17,7 +17,7 @@
         </div>
 
         {% if block.heading %}
-          <h1 class="heading-3">
+          <h1 class="heading-2">
             {{ block.heading }}
           </h1>
         {% endif %}

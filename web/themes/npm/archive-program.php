@@ -5,6 +5,7 @@
  */
 
 $context = Timber::get_context();
+$context['post'] = new Timber\Post();
 $categories = Timber::get_terms(array(
     'taxonomy' => 'category',
     'hide_empty' => true,

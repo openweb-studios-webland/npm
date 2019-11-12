@@ -29,12 +29,12 @@
       }
     }
   }
-
-  /*! purgecss start ignore */
-  & [data-carousel-prev][disabled],
-  & [data-carousel-next][disabled] {
-    @apply opacity-50
-      pointer-events-none;
-  }
-  /*! purgecss end ignore */
 }
+
+/*! purgecss start ignore */
+[data-carousel-prev][disabled],
+[data-carousel-next][disabled] {
+  @apply opacity-50
+    pointer-events-none;
+}
+/*! purgecss end ignore */

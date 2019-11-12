@@ -3,30 +3,32 @@
 {% if block %}
   <section class="bg-teal py-50" data-label="testimonials">
     {% if block.testimonials | length %}
-      <div class="relative overflow-x-hidden" data-module="carousel">
-        <div class="carousel-track flex relative" data-carousel-track>
-          {% for testimonial in block.testimonials %}
-            <div class="flex-0 w-full" data-carousel-item>
-              <div class="container">
-                {% include '_blocks/testimonials/testimonial.twig' ignore missing %}
+      <div class="relative lg:px-60">
+        <div class="overflow-x-hidden" data-module="carousel">
+          <div class="carousel-track flex relative" data-carousel-track>
+            {% for testimonial in block.testimonials %}
+              <div class="flex-0 w-full" data-carousel-item>
+                <div class="container">
+                  {% include '_blocks/testimonials/testimonial.twig' ignore missing %}
+                </div>
               </div>
-            </div>
-          {% endfor %}
-        </div>
+            {% endfor %}
+          </div>
 
-        <div class="lg:absolute lg:inset-x-0 lg:top-1/2 lg:translate-y-1/2">
-          <div class="container-lg">
-            <div class="flex justify-center mt-30 -mx-5 lg:justify-between lg:mt-0">
-              <div class="px-5">
-                {% include '_partials/carousel/button-prev.twig' ignore missing with {
-                  classes: 'opacity-50 text-white transition-fast hover:opacity-100',
-                } only %}
-              </div>
+          <div class="lg:absolute lg:inset-x-0 lg:top-1/2 lg:translate-y-1/2">
+            <div class="container-lg">
+              <div class="flex justify-center mt-30 -mx-5 lg:justify-between lg:mt-0">
+                <div class="px-5">
+                  {% include '_partials/carousel/button-prev.twig' ignore missing with {
+                    classes: 'opacity-50 text-white transition-fast hover:opacity-100',
+                  } only %}
+                </div>
 
-              <div class="px-5">
-                {% include '_partials/carousel/button-next.twig' ignore missing with {
-                  classes: 'opacity-50 text-white transition-fast hover:opacity-100',
-                } only %}
+                <div class="px-5">
+                  {% include '_partials/carousel/button-next.twig' ignore missing with {
+                    classes: 'opacity-50 text-white transition-fast hover:opacity-100',
+                  } only %}
+                </div>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 [data-module="modal"] {
-  @apply block opacity-100
+  @apply opacity-100
     pointer-events-auto
     visible;
 

@@ -85,7 +85,12 @@
 
       {% if block.specs_download %}
         <div class="mt-30">
-          <a class="button" href="{{ block.specs_download.url }}" download>
+          <a
+            class="button"
+            href="{{ block.specs_download.url }}"
+            download
+            data-track-gtm="Download|Specs|{{ block.specs_download.title }}"
+          >
             {{ svg('report', { classes: 'inline-block mr-5' }) }}
             Download Specs
           </a>
@@ -94,7 +99,12 @@
 
       {% if block.guidelines_download %}
         <div class="mt-20">
-          <a class="button-outline-crimson" href="{{ block.guidelines_download.url }}" download>
+          <a
+            class="button-outline-crimson"
+            href="{{ block.guidelines_download.url }}"
+            download
+            data-track-gtm="Download|Creative Content Guidelines|{{ block.guidelines_download.title }}"
+          >
             {{ svg('report', { classes: 'inline-block mr-5' }) }}
             Digital Creative Content Guidelines
           </a>

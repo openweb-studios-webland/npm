@@ -40,7 +40,13 @@
           {% endif %}
 
           {% if fields.download.url %}
-            <a class="button mt-25 lg:mt-30" href="{{ fields.download.url }}" download>
+            <a
+              class="button mt-25 lg:mt-30"
+              href="{{ fields.download.url }}"
+              download
+              data-track-gtm="Download|Report|{{ block.specs_download.title }}"
+            >
+              {{ svg('report', { classes: 'inline-block mr-5' }) }}
               Download the Report ({{ fields.download.subtype | upper }})
             </a>
           {% endif %}

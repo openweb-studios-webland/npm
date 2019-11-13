@@ -3,23 +3,23 @@
 
 {% if video %}
   <div data-module="video" data-video-title="{{ video.title }}">
-    <div class="video">
-      {% if video.html %}
+    {% if video.html %}
+      <div class="video">
         {{ video.html }}
-      {% endif %}
 
-      {% if image.src %}
-        <div class="overlay absolute h-full inset-1/2 translate-1/2 w-full z-10" data-video-play>
-          <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
+        {% if image.src %}
+          <div class="overlay absolute h-full inset-1/2 translate-1/2 w-full z-10" data-video-play>
+            <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
 
-          <button class="absolute inset-1/2 h-80 translate-1/2 w-80">
-            <span class="sr-only">
-              Play Video
-            </span>
-            {{ svg('play') }}
-          </button>
-        </div>
-      {% endif %}
-    </div>
+            <button class="absolute inset-1/2 h-80 translate-1/2 w-80">
+              <span class="sr-only">
+                Play Video
+              </span>
+              {{ svg('play') }}
+            </button>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
   </div>
 {% endif %}

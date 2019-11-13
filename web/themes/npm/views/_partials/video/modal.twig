@@ -3,9 +3,11 @@
 
 {% if video %}
   {% set content %}
-    <div class="video">
-      {{ video }}
-    </div>
+    {% if video.html %}
+      <div class="video">
+        {{ video.html }}
+      </div>
+    {% endif %}
   {% endset %}
 
   {% include '_partials/modal.twig' ignore missing with {

@@ -177,7 +177,7 @@ if (function_exists('acf_add_local_field_group')):
                 'key' => 'field_5d9ce652bc845',
                 'label' => 'Video',
                 'name' => 'video',
-                'type' => 'oembed',
+                'type' => 'text',
                 'instructions' => '',
                 'required' => 0,
                 'conditional_logic' => array(

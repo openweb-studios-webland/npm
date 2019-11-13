@@ -197,7 +197,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 								'key' => 'field_5da72df812926',
 								'label' => 'Video',
 								'name' => 'video',
-								'type' => 'oembed',
+								'type' => 'text',
 								'instructions' => '',
 								'required' => 0,
 								'conditional_logic' => array(

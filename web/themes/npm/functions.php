@@ -12,3 +12,17 @@ require_once get_template_directory() . '/app/image-sizes.php';
 require_once get_template_directory() . '/app/options-pages.php';
 require_once get_template_directory() . '/app/menus.php';
 require_once get_template_directory() . '/app/menu-items.php';
+
+function npm_get_oembed_details($url)
+{
+    require_once ABSPATH . WPINC . '/class-oembed.php';
+
+    $oembed = _wp_oembed_get_object();
+    $provider = $oembed->get_provider($url);
+
+    if (!$provider) {
+        return false;
+    }
+
+    return $oembed->fetch($provider, $url);
+}

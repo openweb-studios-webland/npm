@@ -33,7 +33,11 @@
                 </span>
               {% endif %}
 
-              <a class="block transition-fast whitespace-no-wrap hover:underline" href="{{ item.link }}">
+              <a
+                class="inline-block transition-fast whitespace-no-wrap hover:underline"
+                href="{{ item.link }}"
+                data-track-gtm="Top Navigation|{{ fn('get_the_title', item.menu_item_parent) }}|{{ item.title }}"
+              >
                 {{ item.title }}
               </a>
 
@@ -58,7 +62,11 @@
     <ul class="flex mt-15 -mx-15">
       {% for item in items %}
         <li class="{{ item.classes | join(' ') | trim }} {{ not loop.last ? 'border-r-2 ' }}border-blue-light leading-none px-15">
-          <a class="{{ not front_page ? 'text-blue-denim ' }}font-bold text-14 transition-fast whitespace-no-wrap hover:underline" href="{{ item.link }}">
+          <a
+            class="{{ not front_page ? 'text-blue-denim ' }}font-bold inline-block text-14 transition-fast whitespace-no-wrap hover:underline"
+            href="{{ item.link }}"
+            data-track-gtm="Top Navigation|{{ fn('get_the_title', item.menu_item_parent) }}|{{ item.title }}"
+          >
             {{ item.title }}
           </a>
         </li>
@@ -93,7 +101,11 @@
                 items: item.children,
               } %}
             {% else %}
-              <a class="border-b-2 border-transparent inline-block py-10 transition-fast w-full whitespace-no-wrap lg:hover:border-blue-denim{{ item.current ? ' lg:border-blue-denim' }}" href="{{ item.link }}">
+              <a
+                class="border-b-2 border-transparent inline-block py-10 transition-fast w-full whitespace-no-wrap lg:hover:border-blue-denim{{ item.current ? ' lg:border-blue-denim' }}"
+                href="{{ item.link }}"
+                data-track-gtm="Top Navigation|{{ item.title }}"
+              >
                 {{ item.title }}
               </a>
             {% endif %}
@@ -101,7 +113,11 @@
         {% endfor %}
 
         <li class="my-50 w-full lg:hidden">
-          <a class="button-small" href="/get-started/">
+          <a
+            class="button-small"
+            href="/get-started/"
+            data-track-gtm="Top Navigation|Contact Us"
+          >
             Contact Us
           </a>
         </li>

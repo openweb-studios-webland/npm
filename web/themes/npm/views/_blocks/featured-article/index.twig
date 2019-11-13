@@ -27,8 +27,16 @@
             </div>
           {% endif %}
 
-          <a class="button mt-25 lg:mt-30" href="{{ article.button_link is not empty ? article.button_link : article.link }}">
-            {{ article.button_text is not empty ? article.button_text : 'Read more' }}
+          {% set button_link = article.button_link | length ? article.button_link : article.link %}
+          {% set button_text = article.button_text | length ? article.button_text : 'Read more' %}
+
+          <a
+            class="button mt-25 lg:mt-30"
+            href="{{ button_link }}"
+            data-track-gtm="Call to Action|{{ current_url }}|{{ button_text }}:{{ button_link }}"
+          >
+            {{ button_text }}
+            {{ svg('arrow-right') }}
           </a>
         </div>
 

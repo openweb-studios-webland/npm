@@ -21,7 +21,11 @@
             {% endif %}
 
             {% if block.button_link and block.button_text %}
-              <a class="arrow mt-20 text-white" href="{{ block.button_link }}">
+              <a
+                class="arrow mt-20 text-white"
+                href="{{ block.button_link }}"
+                data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{  block.button_link }}"
+              >
                 {{ block.button_text }}
                 {{ svg('arrow-right') }}
               </a>
@@ -41,7 +45,11 @@
 
                 <div class="carousel-item flex-0 px-10 w-full md:w-1/2 lg:w-1/3" data-carousel-item>
                   <div class="bg-white flex flex-col h-full justify-center p-20">
-                    <a class="button" href="/programs/">
+                    <a
+                      class="button"
+                      href="/programs/"
+                      data-track-gtm="Call to Action|{{ current_url }}|View All Products:/programs/"
+                    >
                       View All Programs
                     </a>
                   </div>

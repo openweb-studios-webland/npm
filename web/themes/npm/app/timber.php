@@ -40,6 +40,7 @@ class Site extends Timber\Site
         $context['menu']['resources'] = new Timber\Menu('resources', ['depth' => 1]);
         $context['menu']['utilities'] = new Timber\Menu('utilities', ['depth' => 1]);
         $context['site'] = $this;
+        $context['current_url'] = Timber\URLHelper::get_current_url();
 
         return $context;
     }

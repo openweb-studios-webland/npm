@@ -26,7 +26,11 @@
               {% endif %}
 
               {% if block.button_link and block.button_text %}
-                <a class="arrow mt-20 text-link-blue" href="{{ block.button_link }}">
+                <a
+                  class="arrow mt-20 text-link-blue"
+                  href="{{ block.button_link }}"
+                  data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{ block.button_link }}"
+                >
                   {{ block.button_text }}
                   {{ svg('arrow-right') }}
                 </a>

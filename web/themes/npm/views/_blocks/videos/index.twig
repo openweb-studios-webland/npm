@@ -22,7 +22,7 @@
     {% if block.videos | length %}
       {% if block.videos | length > 1 %}
         <div class="container mt-50">
-          <div class="flex flex-wrap items-center justify-center -mb-50 -mx-30">
+          <div class="flex flex-wrap justify-center -mb-50 -mx-30">
             {% for video in block.videos %}
               <div class="mb-50 px-30 w-full lg:w-1/2">
                 {% include '_partials/video/index.twig' ignore missing with {

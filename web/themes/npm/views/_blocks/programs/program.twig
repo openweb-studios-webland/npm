@@ -95,7 +95,11 @@
     {% endif %}
 
     {% if program.button_link and program.button_text %}
-      <a class="button w-full" href="{{ program.button_link }}">
+      <a
+        class="button w-full"
+        href="{{ program.button_link }}"
+        data-track-gtm="Call to Action|{{ current_url }}|{{ program.button_text }}:{{ program.button_link }}"
+      >
         {{ program.button_text }}
       </a>
     {% endif %}

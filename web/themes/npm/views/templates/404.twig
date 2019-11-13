@@ -15,8 +15,14 @@
         </div>
       {% endif %}
 
-      <a class="button mt-25 lg:mt-30" href="{{ globals.error_404_button.link | length ? globals.error_404_button.link : '/' }}">
-        {{ globals.error_404_button.text | length ? globals.error_404_button.text : 'Go to Homepage' }}
+      {% set button_link = globals.error_404_button.link | length ? globals.error_404_button.link : '/' %}
+      {% set button_text = globals.error_404_button.text | length ? globals.error_404_button.text : 'Go to Homepage' %}
+      <a
+        class="button mt-25 lg:mt-30"
+        href="{{ button_link }}"
+        data-track-gtm="Call to Action|{{ current_url }}|{{ button_text }}:{{ button_link }}"
+      >
+        {{ button_text }}
       </a>
     </div>
   </section>

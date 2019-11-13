@@ -1,10 +1,12 @@
-{% set video = video ?? null %}
+{% set video = video ? fn('npm_get_oembed_details', video) : null %}
 {% set image = image ? TimberImage(image) : null %}
 
 {% if video %}
-  <div data-module="video">
+  <div data-module="video" data-video-title="{{ video.title }}">
     <div class="video">
-      {{ video }}
+      {% if video.html %}
+        {{ video.html }}
+      {% endif %}
 
       {% if image.src %}
         <div class="overlay absolute h-full inset-1/2 translate-1/2 w-full z-10" data-video-play>

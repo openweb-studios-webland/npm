@@ -17,8 +17,15 @@
             </div>
           {% endif %}
 
-          <a class="button-outline-white mt-25 lg:mt-30" href="{{ report.button_link is not empty ? report.button_link : report.link }}">
-            {{ report.button_text is not empty ? report.button_text : 'Read more' }}
+          {% set button_link =  report.button_link | length ? report.button_link : report.link %}
+          {% set button_text =  report.button_text | length ? report.button_text : 'Read more' %}
+
+          <a
+            class="button-outline-white mt-25 lg:mt-30"
+            href="{{ button_link }}"
+            data-track-gtm="Call to Action|{{ current_url }}|{{ button_text }}:{{ button_link }}"
+          >
+            {{ button_text }}
           </a>
         </div>
 

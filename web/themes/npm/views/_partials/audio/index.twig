@@ -2,7 +2,11 @@
 {% set image = image ? TimberImage(image) : null %}
 {% set uid = random() %}
 
-<div class="aspect-ratio-16/9 overflow-hidden relative" data-module="audio">
+<div
+  class="aspect-ratio-16/9 overflow-hidden relative"
+  data-module="audio"
+  data-audio-title="{{ audio.title }}"
+>
   <div class="absolute flex flex-col justify-center inset-0 p-10">
     {% if audio.url %}
       <div data-audio-player data-audio-source="{{ audio.url }}"></div>

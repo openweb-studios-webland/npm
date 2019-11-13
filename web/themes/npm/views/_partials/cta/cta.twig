@@ -12,15 +12,27 @@
 
 {% if button_link and button_text %}
   {% if color_select == 'white' or color_select == 'gray' %}
-    <a class="button" href="{{ button_link }}">
+    <a
+      class="button"
+      href="{{ button_link }}"
+      data-track-gtm="Call to Action|{{ current_url }}|{{ button_text }}:{{ button_link }}"
+    >
       {{ button_text }}
     </a>
   {% elseif image %}
-    <a class="button-white" href="{{ button_link }}">
+    <a
+      class="button-white"
+      href="{{ button_link }}"
+      data-track-gtm="Call to Action|{{ current_url }}|{{ button_text }}:{{ button_link }}"
+    >
       {{ button_text }}
     </a>
   {% else %}
-    <a class="button-outline" href="{{ button_link }}">
+    <a
+      class="button-outline"
+      href="{{ button_link }}"
+      data-track-gtm="Call to Action|{{ current_url }}|{{ button_text }}:{{ button_link }}"
+    >
       {{ button_text }}
     </a>
   {% endif %}

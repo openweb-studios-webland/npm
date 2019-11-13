@@ -23,8 +23,15 @@
             </div>
           {% endif %}
 
-          <a class="button mt-25 lg:mt-30" href="{{ article_report.button_link | length ?  article_report.button_link : article_report.link }}">
-            {{ article_report.button_text | length ? article_report.button_text : 'Read more' }}
+          {% set button_link = article_report.button_link | length ?  article_report.button_link : article_report.link %}
+          {% set button_text = article_report.button_text | length ? article_report.button_text : 'Read more' %}
+
+          <a
+            class="button mt-25 lg:mt-30"
+            href="{{ button_link }}"
+            data-track-gtm="Call to Action|{{ current_url }}|{{ button_text }}:{{ button_link }}"
+          >
+            {{ button_text }}
           </a>
         </div>
 

@@ -73,21 +73,22 @@ export default class Audio {
     }
 
     this.skipBackwardTrigger.addEventListener('click', this.skipBackward)
-    this.wavesurfer.on('audioprocess', this.audioProcess)
+    this.wavesurfer.on('audioprocess', this.audioProgress)
   }
 
-  audioProcess = seconds => {
+  audioProgress = seconds => {
     this.progress.innerHTML = `${this.formatTimestamp(seconds)} / ${this.duration}`
   }
 
   playPause = e => {
     this.wavesurfer.playPause()
+    this.el.classList.toggle('playing')
 
     if (!this.el.classList.contains('active')) {
       this.el.classList.add('active')
-    }
 
-    this.el.classList.toggle('playing')
+      this.pushToDataLayer()
+    }
 
     e.preventDefault()
   }
@@ -96,5 +97,15 @@ export default class Audio {
     this.wavesurfer.skipBackward()
 
     e.preventDefault()
+  }
+
+  pushToDataLayer = () => {
+    window.dataLayer = window.dataLayer || []
+    dataLayer.push({
+      event: 'dataLayer push event',
+      event_category: 'Audio',
+      event_action: this.player.dataset.audioTitle || 'Audio Title',
+      event_label: 'Play',
+    })
   }
 }

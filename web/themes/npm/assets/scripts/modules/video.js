@@ -4,6 +4,8 @@ export default class Video {
     this.iframe = this.el.querySelector('iframe')
     this.trigger = this.el.querySelector('[data-video-play]')
 
+    console.log(this.iframe.getElementsByTagName('title'))
+
     if (this.trigger) {
       this.attachEventListeners()
     }
@@ -18,8 +20,20 @@ export default class Video {
 
     if (!this.el.classList.contains('active')) {
       this.el.classList.add('active')
+
+      this.pushToDataLayer()
     }
 
     e.preventDefault()
+  }
+
+  pushToDataLayer = () => {
+    window.dataLayer = window.dataLayer || []
+    dataLayer.push({
+      event: 'dataLayer push event',
+      event_category: 'Video',
+      event_action: this.player.dataset.videoTitle || 'Video Title',
+      event_label: 'Play',
+    })
   }
 }

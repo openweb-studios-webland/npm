@@ -13,7 +13,7 @@
     rounded-full
     text-center
     text-white
-    transition
+    transition-fast
     w-full;
   min-width: 200px;
 

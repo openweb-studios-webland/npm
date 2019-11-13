@@ -3,15 +3,19 @@
     inline-block
     text-blue-denim;
 
+
   &:hover,
   &:focus {
     & svg {
-      transform: translateX(5px);
+      transform: translate3d(5px, -0.1em, 0);
     }
   }
 
   & svg {
     @apply inline-block
-      ml-10;
+      ml-5
+      transition-fast;
+    backface-visibility: hidden;
+    transform: translateY(-0.1em);
   }
 }

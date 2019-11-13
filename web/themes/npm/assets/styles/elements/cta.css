@@ -42,12 +42,24 @@
     rounded-full
     text-center
     text-crimson
+    transition-fast
     w-full;
 
   @screen md {
     @apply px-30
       py-20
       w-auto;
+  }
+
+  &:hover {
+    @apply bg-crimson
+      border-crimson
+      text-white;
+  }
+
+  &:focus {
+    @apply outline-none;
+    box-shadow: 0px 0px 20px theme(colors.crimson.default);
   }
 }
 /*! purgecss end ignore */

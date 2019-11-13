@@ -13,7 +13,7 @@
   {% endif %}
 
   <div class="px-30 w-full lg:w-1/2">
-    <div class="mt-50 text-center text-white lg:mt-0 lg:py-150 lg:text-left">
+    <div class="mt-50 text-center text-white lg:mt-0 lg:pb-150 lg:pt-100 lg:text-left">
       {% if testimonial.heading %}
         <h2 class="heading-3">
           {{ testimonial.heading }}
@@ -21,7 +21,7 @@
       {% endif %}
 
       {% if testimonial.text %}
-        <div class="text font-serif italic text-24">
+        <div class="text leading-tight font-serif italic text-18 md:text-20 lg:leading-normal lg:text-24">
           {{ testimonial.text }}
         </div>
       {% endif %}

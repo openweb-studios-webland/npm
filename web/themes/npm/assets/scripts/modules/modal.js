@@ -39,12 +39,12 @@ export default class Modal {
   }
 
   scrollLock = (scrollLock = true) => {
-    const el = document.querySelector('body')
+    const body = document.querySelector('body')
 
     if (scrollLock) {
-      el.classList.add('locked')
+      body.classList.add('locked')
     } else {
-      el.classList.remove('locked')
+      body.classList.remove('locked')
     }
   }
 

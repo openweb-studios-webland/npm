@@ -5,7 +5,7 @@ export default class Tabs {
     this.el = el
     this.triggers = [...this.el.querySelectorAll('[data-tabs-trigger]')]
     this.targets = [...this.el.querySelectorAll('[data-tabs-target]')]
-    this.mediaQuery = window.matchMedia(`(min-width: 1024px)`)
+    this.mq = window.matchMedia(`(min-width: 1024px)`)
     this.index = 0
 
     this.config = {
@@ -55,23 +55,30 @@ export default class Tabs {
     }
 
     if (this.config.tabsToAccordion) {
-      this.mediaQuery.addListener(this.matchMedia)
-      this.matchMedia(this.mediaQuery)
+      this.mq.addListener(this.matchMedia)
+      this.matchMedia()
     }
   }
 
   onClick = e => {
-    aria.toggle(this.triggers[this.index], this.targets[this.index])
+    const index = this.triggers.indexOf(e.currentTarget)
 
-    this.index = this.triggers.indexOf(e.currentTarget)
+    if (index !== this.index) {
+      if (this.triggers[this.index].getAttribute('aria-expanded') === 'true') {
+        aria.toggle(this.triggers[this.index], this.targets[this.index])
+      }
 
-    aria.toggle(this.triggers[this.index], this.targets[this.index])
+      this.index = index
+      aria.toggle(this.triggers[this.index], this.targets[this.index])
+    } else if (this.config.tabsToAccordion && !this.mq.matches) {
+      aria.toggle(this.triggers[this.index], this.targets[this.index])
+    }
 
     e.preventDefault()
   }
 
-  matchMedia = mq => {
-    if (mq.matches) {
+  matchMedia = () => {
+    if (this.mq.matches) {
       this.convertToTabs()
     } else {
       this.convertToAccordion()

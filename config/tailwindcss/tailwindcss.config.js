@@ -121,7 +121,7 @@ module.exports = {
       default: '1',
     },
     fontFamily: {
-      sans: ['Gotham SSm', 'Gotham', 'Arial', 'sans-serif'],
+      sans: ['Gotham SSm', 'Gotham', 'Helvetica', 'Arial', 'sans-serif'],
       serif: ['Georgia', 'Times', '"Times New Roman"', 'serif'],
     },
     fontSize: {
@@ -137,7 +137,6 @@ module.exports = {
       '36': '2.25rem',
       '42': '2.625rem',
       '48': '3rem',
-      '64': '4rem',
       '88': '5.5rem',
     },
     fontWeight: {
@@ -271,7 +270,7 @@ module.exports = {
     backgroundRepeat: [],
     backgroundSize: [],
     borderCollapse: false,
-    borderColor: ['hover', 'focus'],
+    borderColor: ['responsive', 'hover', 'focus'],
     borderRadius: [],
     borderStyle: ['responsive'],
     borderWidth: ['responsive'],

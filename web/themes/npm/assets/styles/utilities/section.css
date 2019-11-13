@@ -8,22 +8,26 @@
   @screen lg {
     @apply py-100;
   }
+}
 
-  &:not([class*="bg-"]) + .section:not([class*="bg-"]) {
-    @apply relative;
+[data-label]:not([class*="bg-"]) + [data-label]:not([class*="bg-"]) {
+  @apply relative;
 
-    &::before {
-      @apply absolute
-        bg-gray-border
-        top-0
-        w-full;
-      content: "";
-      height: 1px;
-      left: 50%;
-      max-width: 1160px;
-      transform: translateX(-50%);
-    }
+  &::before {
+    @apply absolute
+      bg-gray-border
+      top-0
+      w-full;
+    content: "";
+    height: 1px;
+    left: 50%;
+    max-width: 1160px;
+    transform: translateX(-50%);
   }
+}
+
+[data-label*="hero"]:not([class*="bg-"]) + [data-label]:not([class*="bg-"]):before {
+  content: none;
 }
 
 [data-label="featured-work"] + [data-label="work"] {
@@ -42,7 +46,7 @@
   }
 }
 
-main section {
+main [data-label] {
   &:first-child:not([class*="bg-"]) {
     @apply border-t
       border-gray-border;

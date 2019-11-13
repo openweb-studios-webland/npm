@@ -39,7 +39,7 @@
 
 .header-menu,
 .header-submenu {
-  clip-path: inset(1px 0 -15px);
+  clip-path: inset(1px 0 -100vh);
 
   &[aria-hidden] {
     @apply block
@@ -50,7 +50,10 @@
 }
 
 .header-menu {
+  height: calc(100vh - 71px);
+
   @screen lg {
+    @apply h-auto;
     clip-path: none;
   }
 

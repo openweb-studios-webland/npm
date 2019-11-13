@@ -28,10 +28,6 @@
   @apply leading-none
     text-42;
 
-  @screen md {
-    @apply text-64;
-  }
-
   @screen lg {
     @apply text-88;
   }
@@ -62,41 +58,17 @@
 
 .heading-3,
 .text h2 {
-  @apply text-24;
-
-  @screen md {
-    @apply text-30;
-  }
-
-  @screen lg {
-    @apply text-36;
-  }
+  @apply text-36;
 }
 
 .heading-4,
 .text h3 {
-  @apply text-20;
-
-  @screen md {
-    @apply text-22;
-  }
-
-  @screen lg {
-    @apply text-24;
-  }
+  @apply text-24;
 }
 
 .heading-5,
 .text h4 {
-  @apply text-18;
-
-  @screen md {
-    @apply text-20;
-  }
-
-  @screen lg {
-    @apply text-22;
-  }
+  @apply text-22;
 }
 
 .heading-6,

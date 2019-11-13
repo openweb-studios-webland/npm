@@ -1,7 +1,7 @@
 /*! purgecss start ignore */
 .text {
   & a {
-    &:not(.button):not([class*="button-"]):not(.call-to-action-button) {
+    &:not(.button):not([class*="button-"]):not(.cta-button) {
       @apply font-bold
         text-blue-denim;
     }

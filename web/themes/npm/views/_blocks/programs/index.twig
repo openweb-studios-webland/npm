@@ -24,7 +24,7 @@
               <a
                 class="arrow mt-20 text-white"
                 href="{{ block.button_link }}"
-                data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{  block.button_link }}"
+                data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{ block.button_link }}"
               >
                 {{ block.button_text }}
                 {{ svg('arrow-right') }}
@@ -33,45 +33,47 @@
           </div>
         </div>
 
-        <div class="mb-50 px-30 w-full lg:w-3/4">
-          <div class="overflow-x-hidden px-40 relative lg:pl-20 lg:pr-100">
-            <div data-module="carousel" data-carousel-loop="false">
-              <div class="carousel-track flex relative -mx-10 py-30" data-carousel-track>
-                {% for program in Post(block.programs) %}
+        {% if block.programs | length %}
+          <div class="mb-50 px-30 w-full lg:w-3/4">
+            <div class="overflow-x-hidden px-40 relative lg:pl-20 lg:pr-100">
+              <div data-module="carousel" data-carousel-loop="false">
+                <div class="carousel-track flex relative -mx-10 py-30" data-carousel-track>
+                  {% for program in Post(block.programs) %}
+                    <div class="carousel-item flex-0 px-10 w-full md:w-1/2 lg:w-1/3" data-carousel-item>
+                      {% include '_blocks/programs/program.twig' ignore missing %}
+                    </div>
+                  {% endfor %}
+
                   <div class="carousel-item flex-0 px-10 w-full md:w-1/2 lg:w-1/3" data-carousel-item>
-                    {% include '_blocks/programs/program.twig' ignore missing %}
-                  </div>
-                {% endfor %}
-
-                <div class="carousel-item flex-0 px-10 w-full md:w-1/2 lg:w-1/3" data-carousel-item>
-                  <div class="bg-white flex flex-col h-full justify-center p-20">
-                    <a
-                      class="button"
-                      href="/programs/"
-                      data-track-gtm="Call to Action|{{ current_url }}|View All Products:/programs/"
-                    >
-                      View All Programs
-                    </a>
+                    <div class="bg-white flex flex-col h-full justify-center p-20">
+                      <a
+                        class="button"
+                        href="/programs/"
+                        data-track-gtm="Call to Action|{{ current_url }}|View All Products:/programs/"
+                      >
+                        View All Programs
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="flex justify-center opacity-50 -mx-5 lg:justify-end lg:opacity-100">
-                <div class="px-5">
-                  {% include '_partials/carousel/button-prev.twig' ignore missing with {
-                    classes: 'text-white transition-fast lg:text-blue hover:text-blue-light',
-                  } only %}
-                </div>
+                <div class="flex justify-center opacity-50 -mx-5 lg:justify-end lg:opacity-100">
+                  <div class="px-5">
+                    {% include '_partials/carousel/button-prev.twig' ignore missing with {
+                      classes: 'text-white transition-fast lg:text-blue hover:text-blue-light',
+                    } only %}
+                  </div>
 
-                <div class="px-5">
-                  {% include '_partials/carousel/button-next.twig' ignore missing with {
-                    classes: 'text-white transition-fast lg:text-blue hover:text-blue-light',
-                  } only %}
+                  <div class="px-5">
+                    {% include '_partials/carousel/button-next.twig' ignore missing with {
+                      classes: 'text-white transition-fast lg:text-blue hover:text-blue-light',
+                    } only %}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        {% endif %}
       </div>
     </div>
   </section>

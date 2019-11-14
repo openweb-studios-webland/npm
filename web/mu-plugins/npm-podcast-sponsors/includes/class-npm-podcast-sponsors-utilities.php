@@ -1,6 +1,6 @@
 <?php
 
-class Utilities
+class NpmPodcastSponsorsUtilities
 {
     /**
      * @param sting $value
@@ -36,7 +36,7 @@ class Utilities
             $key = ($replaceKey && $key === $currentKey) ? $newKey : $key;
 
             // add the value with the recursive call
-            $newArray[$key] = Utilities::replaceKeys($value, $currentKey, $newKey);
+            $newArray[$key] = NpmPodcastSponsorsUtilities::replaceKeys($value, $currentKey, $newKey);
         }
 
         return $newArray;

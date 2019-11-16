@@ -7,8 +7,8 @@ export default class PodcastSponsors {
     this.select = this.el.querySelector('[data-podcast-sponsors-select]')
     this.checkbox = this.el.querySelector('[data-podcast-sponsors-checkbox]')
     this.search = this.el.querySelector('[data-podcast-sponsors-search]')
-
-    //this.selectors = []
+    this.loading = this.el.querySelector('[data-podcast-sponsors-loading]')
+    this.params = ['podcasts', 'has-offer', 'keywords']
     this.filters = {}
 
     this.init()
@@ -16,24 +16,33 @@ export default class PodcastSponsors {
 
   init = () => {
     this.attachEventListeners()
-
     this.getSearchParams()
   }
 
   attachEventListeners = () => {
     this.select.addEventListener('change', this.onPodcasts)
-    this.checkbox.addEventListener('change', this.onHasOffers)
+    this.checkbox.addEventListener('change', this.onHasOffer)
     this.search.addEventListener('keyup', this.onKeywords)
   }
 
   onPodcasts = e => {
-    this.filters['podcasts'] = [e.target.value, this.select.options[this.select.selectedIndex].text]
+    const value = e.target.value
+
+    if (value && value !== '') {
+      this.filters[this.params[0]] = [e.target.value, this.select.options[this.select.selectedIndex].text]
+    } else {
+      delete this.filters[this.params[0]]
+    }
 
     this.filterItems()
   }
 
-  onHasOffers = e => {
-    this.filters['has-offers'] = e.target.checked
+  onHasOffer = e => {
+    if (e.target.checked) {
+      this.filters[this.params[1]] = 1
+    } else {
+      delete this.filters[this.params[1]]
+    }
 
     this.filterItems()
   }
@@ -42,29 +51,41 @@ export default class PodcastSponsors {
     const value = e.target.value
 
     if (value && value !== '') {
-      this.filters['keywords'] = e.target.value
-
-      this.filterItems()
+      this.filters[this.params[2]] = e.target.value
+    } else {
+      delete this.filters[this.params[2]]
     }
+
+    this.filterItems()
   }
 
   filterItems = () => {
+    this.isLoading(true)
+
     let selectors = []
 
-    if (this.filters.hasOffers) {
-      selectors.push('[data-podcast-sponsors-has-offers="yes"]')
+    if (this.filters[this.params[0]]) {
+      const podcasts =
+        typeof this.filters[this.params[0]] === 'object'
+          ? this.filters[this.params[0]][0]
+          : this.filters[this.params[0]]
+
+      selectors.push(`[data-podcast-sponsors-keywords*="${podcasts}"]`)
     }
 
-    if (this.filters.podcasts) {
-      selectors.push(`[data-podcast-sponsors-keywords*="${this.filters.podcasts[0]}"]`)
+    if (this.filters[this.params[1]]) {
+      selectors.push('[data-podcast-sponsors-has-offer="yes"]')
     }
 
-    if (this.filters.keywords) {
-      selectors.push(`[data-podcast-sponsors-keywords*="${this.filters.keywords}"]`)
+    if (this.filters[this.params[2]]) {
+      selectors.push(`[data-podcast-sponsors-keywords*="${this.filters[this.params[2]]}"]`)
     }
 
     this.setSearchParams()
+
     selectors.length > 0 ? this.filterItemsBySelectors(selectors) : this.filterItemsByLength()
+
+    this.isLoading()
   }
 
   filterItemsByLength = () => {
@@ -76,7 +97,7 @@ export default class PodcastSponsors {
   }
 
   filterItemsBySelectors = selectors => {
-    const items = [...this.el.querySelectorAll(`${selectors.join(' ')}`)]
+    const items = [...this.el.querySelectorAll(`${selectors.join('')}`)]
 
     this.items.forEach(item => {
       items.indexOf(item) === -1 ? item.classList.add('hidden') : item.classList.remove('hidden')
@@ -84,8 +105,19 @@ export default class PodcastSponsors {
   }
 
   getSearchParams = () => {
-    const params = location.search
-    console.log(params)
+    let params = location.search
+
+    if (params !== '') {
+      params = params.substring(1)
+      params = params.split('&')
+
+      params.forEach(param => {
+        param = param.split('=')
+        this.filters[param[0]] = param[1].replace(/-/g, ' ')
+      })
+
+      this.filterItems()
+    }
   }
 
   setSearchParams = () => {
@@ -101,13 +133,22 @@ export default class PodcastSponsors {
         hasParams = true
 
         if (typeof value === 'object') {
-          value = value[0]
+          url += `${separator}${key}=${slugify(value[0])}`
+        } else {
+          url += `${separator}${key}=${slugify(value)}`
         }
-
-        url += `${separator}${key}=${slugify(value)}`
       }
     }
 
+    // Push to history
     history.pushState(null, null, url)
+  }
+
+  isLoading = (loading = false) => {
+    if (loading) {
+      this.loading.classList.remove('hidden')
+    } else {
+      this.loading.classList.add('hidden')
+    }
   }
 }

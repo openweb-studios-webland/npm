@@ -2,15 +2,21 @@
 
 {% block content %}
   <div data-module="podcast-sponsors">
-    {# change to post types #}
+    <div class="hidden" data-podcast-sponsors-loading>
+      Loading...
+    </div>
+
     {% if podcast_sponsors | length %}
       <select data-podcast-sponsors-select>
-        <option value="" selected>
+        <option value=""{{ query_vars.podcast ?: ' selected' }}>
           Filter by podcast
         </option>
 
         {% for podcast_sponsor in podcast_sponsors %}
-          <option value="{{ podcast_sponsor.slug | replace({ '-': ' ', '_': ' ' }) }}">
+          <option
+            value="{{ podcast_sponsor.slug | replace({ '-': ' ', '_': ' ' }) }}"
+            {{ query_vars.podcasts == podcast_sponsor.slug ? 'selected' }}
+          >
             {{ podcast_sponsor.title }}
           </option>
         {% endfor %}
@@ -18,11 +24,19 @@
     {% endif %}
 
     <br>
-    Has Offers
-    <input type="checkbox" data-podcast-sponsors-checkbox>
+    Show offers only
+    <input
+      type="checkbox"
+      {{ query_vars.hasOffer == true ? 'checked' }}
+      data-podcast-sponsors-checkbox
+    >
 
     <br>
-    <input type="text" data-podcast-sponsors-search>
+    <input
+      type="text"
+      value="{{ query_vars.keywords }}"
+      data-podcast-sponsors-search
+    >
 
     {% if promo_codes | length %}
       <ul>
@@ -31,10 +45,12 @@
             <div class="p-10 mb-20" style="border: 2px solid red">
               {% for promo_code in promo_codes %}
                 <div
-                  data-podcast-sponsors-has-offers="{{ promo_code.hasOffer }}"
+                  data-podcast-sponsors-has-offer="{{ promo_code.hasOffer }}"
                   data-podcast-sponsors-keywords="{{ promo_code.searchKeywords }}"
                 >
                   {{ promo_code.sponsorName }}
+
+                  {{ dump(promo_code.hasOffer)}}
                 </div>
               {% endfor %}
             </div>

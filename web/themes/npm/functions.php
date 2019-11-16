@@ -26,3 +26,12 @@ function npm_get_oembed_details($url)
 
     return $oembed->fetch($provider, $url);
 }
+
+function custom_query_vars_filter($vars)
+{
+    $vars[] .= 'podcasts';
+    $vars[] .= 'has-offer';
+    $vars[] .= 'keywords';
+    return $vars;
+}
+add_filter('query_vars', 'custom_query_vars_filter');

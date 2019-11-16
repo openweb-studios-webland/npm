@@ -9,15 +9,6 @@
  * Author URI: https://nationalpublicmedia.com
  */
 
-// Enqueue scripts
-function npm_podcast_sponsors_enqueue()
-{
-    // wp_enqueue_script('npm-podcast-sponsors-scripts', plugin_dir_url(__FILE__) . 'public/js/main.js', array(), false, true);
-    // wp_enqueue_style('npm-podcast-sponsors-styles', plugin_dir_url(__FILE__) . 'public/css/main.css');
-}
-
-add_action('wp_enqueue_scripts', 'npm_podcast_sponsors_enqueue');
-
 // Create post type labels
 function npm_podcast_sponsors_create_post_type_labels($post_type_name = 'Posts', $post_type_singular_name = 'Post')
 {
@@ -35,7 +26,6 @@ function npm_podcast_sponsors_create_post_type_labels($post_type_name = 'Posts',
         'new_item_name' => __("New {$post_type_singular_name} Name", $text_domain),
         'menu_name' => __($post_type_name, $text_domain),
     );
-
     return $post_type_labels;
 }
 
@@ -52,7 +42,6 @@ function npm_podcast_sponsors_register_post_types()
         )
     );
 }
-
 add_action('init', 'npm_podcast_sponsors_register_post_types');
 
 /**

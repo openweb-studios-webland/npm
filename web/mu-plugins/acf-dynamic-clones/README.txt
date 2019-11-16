@@ -1,7 +1,5 @@
 === Plugin Name ===
 Contributors: n/a
-Donate link: https://viget.com
-Tags: comments, spam
 Requires at least: 3.0.1
 Tested up to: 5.2
 Stable tag: 5.2

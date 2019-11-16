@@ -122,7 +122,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ['Gotham SSm', 'Gotham', 'Helvetica', 'Arial', 'sans-serif'],
-      serif: ['Georgia', 'Times', '"Times New Roman"', 'serif'],
+      serif: ['Georgia', 'Times', 'Times New Roman', 'serif'],
     },
     fontSize: {
       '11': '0.6875rem',

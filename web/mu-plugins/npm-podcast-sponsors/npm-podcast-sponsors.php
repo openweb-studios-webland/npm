@@ -12,7 +12,8 @@
 // Enqueue scripts
 function npm_podcast_sponsors_enqueue()
 {
-    // wp_enqueue_script('npm-podcast-sponsors-scripts', plugin_dir_url(__FILE__) . 'public/js/default.js', array(), false, true);
+    // wp_enqueue_script('npm-podcast-sponsors-scripts', plugin_dir_url(__FILE__) . 'public/js/main.js', array(), false, true);
+    // wp_enqueue_style('npm-podcast-sponsors-styles', plugin_dir_url(__FILE__) . 'public/css/main.css');
 }
 
 add_action('wp_enqueue_scripts', 'npm_podcast_sponsors_enqueue');
@@ -64,8 +65,5 @@ function npm_podcast_sponsors()
 
     $npmPodcastSponsors = new NpmPodcastSponsors();
 
-    $npmPodcastSponsors->getData();
-    // $npmPodcastSponsors->render();
-
-    // return $npmPodcastSponsors->getData();
+    return $npmPodcastSponsors->getData();
 }

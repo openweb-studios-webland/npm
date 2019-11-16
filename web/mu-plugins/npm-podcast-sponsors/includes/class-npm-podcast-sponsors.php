@@ -12,7 +12,6 @@ class NpmPodcastSponsors
         'majorDimension=ROWS',
         'key=' . API_KEY,
     ];
-    private $leadAndSponsorBlurbMap = [];
     private $errors = [];
     private $notices = [];
     private $rows = [];
@@ -39,6 +38,7 @@ class NpmPodcastSponsors
      */
     public function getData()
     {
+
         // Update the local feed on disk from remote if local file is older than MAX_SHEET_AGE or if refreshFeed is true
         if ($this->olderThanThreshold || $this->forceRefresh) {
             // Get remost JSON feed
@@ -70,7 +70,7 @@ class NpmPodcastSponsors
             if ($handle) {
                 $feedData = fread($handle, filesize($this->localSheetPath));
                 $jsonFeed = json_decode($feedData, true);
-                $this->rows = $this->addHeaderRows($jsonFeed);
+                $this->rows = $jsonFeed;
             } else {
                 throw new Exception('Could not open local sheet file.');
             }
@@ -85,10 +85,11 @@ class NpmPodcastSponsors
             array_push($errors, 'You must be logged in to perform that action');
         }
 
-        echo '<pre>';
-        print_r($this->rows);die();
+        // echo '<pre>';
+        // print_r($this->rows);
+        // die();
 
-        //return $this->rows;
+        return $this->rows;
     }
 
     /**
@@ -116,28 +117,26 @@ class NpmPodcastSponsors
      */
     private function removeSponsors($rows)
     {
-        $newRows = [];
+        $completeRows = [];
 
         foreach ($rows as $value) {
             $sponsorName = $value['sponsorName'];
 
-            if (!empty($sponsorName)) {
-                if ($this->checkSponsors(
-                    $value['verified'],
-                    $value['complete'],
-                    $value['start'],
-                    $value['expiration'])
-                ) {
-                    if (!array_key_exists($sponsorName, $newRows)) {
-                        $newRows[$sponsorName] = [];
-                    }
-
-                    array_push($newRows[$sponsorName], $value);
+            if (!empty($sponsorName) && $this->checkSponsors(
+                $value['verified'],
+                $value['complete'],
+                $value['start'],
+                $value['expiration'])
+            ) {
+                if (!array_key_exists($sponsorName, $completeRows)) {
+                    $completeRows[$sponsorName] = [];
                 }
+
+                array_push($completeRows[$sponsorName], $value);
             }
         }
 
-        return $newRows;
+        return $completeRows;
     }
 
     /**
@@ -167,13 +166,19 @@ class NpmPodcastSponsors
         $otherSponsors = [];
 
         foreach ($rows as $key => $value) {
+            $isLead = false;
+            $sortedRow = [];
+
             foreach ($value as $value) {
                 if (isset($value['lead']) && $value['lead'] === 'yes') {
-                    $leadSponsors[$key] = $rows[$key];
+                    $isLead = true;
+                    array_unshift($sortedRow, $value);
                 } else {
-                    $otherSponsors[$key] = $rows[$key];
+                    array_push($sortedRow, $value);
                 }
             }
+
+            $isLead ? $leadSponsors[$key] = $sortedRow : $otherSponsors[$key] = $sortedRow;
         }
 
         return array_merge($leadSponsors, $otherSponsors);
@@ -207,12 +212,12 @@ class NpmPodcastSponsors
         return ($isInRange && $isVerifiedComplete) || is_user_logged_in();
     }
 
-    public function render()
-    {
-        $public = new NpmPodcastSponsorsPublic($this->rows);
-        $public->errors = $this->errors;
-        $public->notices = $this->notices;
-        $public->localSheetAge = $this->localSheetAge;
-        $public->render();
-    }
+    // public function render()
+    // {
+    //     $public = new NpmPodcastSponsorsPublic($this->rows);
+    //     $public->errors = $this->errors;
+    //     $public->notices = $this->notices;
+    //     $public->localSheetAge = $this->localSheetAge;
+    //     $public->render();
+    // }
 }

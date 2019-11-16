@@ -9,20 +9,74 @@ class NpmPodcastSponsorsPartial
      * @param array $rows
      * @param array $leadAndSponsorBlurbMap
      */
-    public function __construct($row)
+    public function __construct($rows)
     {
-        $this->row = $row;
-        // $this->leadAndSponsorBlurbMap = $leadAndSponsorBlurbMap;
+        $this->rows = $rows;
     }
 
     public function render()
     { ?>
-		<h2 class="heading-4 mb-10">
-			<?php echo $this->row['sponsorName']; ?>
-		</h2>
+		<?php $firstRow = $this->rows[0]; ?>
 
-		<div class="text border-b border-gray-border mb-20 pb-20">
-			<?php echo $this->row['sponsorDescription']; ?>
+		<div style="border: 2px solid red; margin-bottom: 20px;">
+			<div class="sponsor-meta">
+				<?php if ($firstRow['lead'] === 'yes') : ?>
+					<div class="sponsor-meta-lead">
+						Lead
+					</div>
+				<?php endif; ?>
+
+				<div class="sponsor-meta-heading">
+					<h2>
+						<?php echo $firstRow['sponsorName']; ?>
+					</h2>
+				</div>
+
+				<div class="sponsor-meta-button">
+					<button>
+						<?php if (count($this->rows) > 1) : ?>
+							<?php echo count($this->rows); ?> Codes
+						<?php else : ?>
+							<?php echo count($this->rows); ?> Code
+						<?php endif; ?>
+					</button>
+				</div>
+			</div>
+
+			<div class="sponsor-text">
+				<?php echo $firstRow['sponsorDescription']; ?>
+			</div>
+
+			<div class="sponsor-supports">
+				<p class="sponsor-supports-heading">
+					Supports
+				</p>
+
+				<ul class="sponsor-supports-list">
+					<?php for ($index = 0; $index < count($this->rows); $index++) :
+						$row = $this->rows[$index]; ?>
+						<li>
+							<div class="sponsor-promo-code">
+								<div class="sponsor-promo-code-podcast">
+									<a href="<?php echo $row['podcastUrl']; ?>">
+										<?php echo $row['podcast']; ?>
+									</a>
+								</div>
+
+								<div class="sponsor-promo-code-copy">
+									<a href="<?php echo $row['promoUrl']; ?>">
+										<?php echo $row['promoCopy']; ?>
+									</a>
+								</div>
+
+								<div class="sponsor-promo-code-expiration">
+									Ends <?php echo $row['expiration']; ?>
+								</div>
+							</div>
+						</li>
+					<?php endfor; ?>
+				</ul>
+			</div>
 		</div>
 	<?php }
 

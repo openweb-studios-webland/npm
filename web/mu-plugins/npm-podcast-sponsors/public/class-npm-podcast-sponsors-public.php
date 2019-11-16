@@ -1,11 +1,10 @@
 <?php
 
 require_once plugin_dir_path(__DIR__) . 'partials/class-npm-podcast-sponsors-partial.php';
-require_once plugin_dir_path(__DIR__) . 'includes/npm-podcast-sponsors-constants.php';
 
-class NpmPodcastSponsorsPublic
-{
-    public $localSheetAge;
+class NpmPodcastSponsorsPublic {
+
+    public $sheetAge;
     public $logoUrl;
     public $jsUrl;
     public $cssUrl;
@@ -21,26 +20,31 @@ class NpmPodcastSponsorsPublic
     {
         $this->rows = $rows;
 
-        foreach (PRETTY_PODCAST_MAP as $key => $value) {
-            array_push($this->podcastNames, $value);
-        }
+        // foreach (PRETTY_PODCAST_MAP as $key => $value) {
+        //     array_push($this->podcastNames, $value);
+		// }
+
     }
 
     public function render()
-    { ?>
-		<div class="container">
-			<?php for ($index = 0; $index < count($this->rows); $index++):
-				$row = $this->rows[$index];
+	{ ?>
+		<ul>
+			<?php foreach ($this->rows as $rows) : ?>
+				<li>
+					<?php
+						$sponsorsList = new NpmPodcastSponsorsPartial($rows);
+						$sponsorsList->render();
+					?>
+				</li>
+			<?php endforeach; ?>
+		</ul>
 
-				if ($index < SPONSORS_PER_PAGE): ?>
-					<div>
-				<?php else: ?>
-					<div class="hidden">
-				<?php endif;
-						$sponsorsList = new NpmPodcastSponsorsPartial($row);
-						$sponsorsList->render(); ?>
-					</div>
-			<?php endfor; ?>
-		</div>
-   <?php }
+
+
+                <script>
+                    notifications.errors = <?=json_encode($this->errors)?>;
+                    notifications.notices = <?=json_encode($this->notices)?>;
+                </script>
+
+    <?php }
 }

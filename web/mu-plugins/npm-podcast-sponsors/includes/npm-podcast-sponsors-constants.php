@@ -6,7 +6,7 @@ const API_URL = 'https://content-sheets.googleapis.com/v4/spreadsheets';
 const API_KEY = 'AIzaSyAgNxoaHzjVjIkCEAdwNvRYCKR0PTU4HmA';
 const RANGE = 'A:N';
 
-const SPONSORS_PER_PAGE = 12;
+const PER_PAGE = 12;
 
 // column indices as they appear in the spreadsheet
 const COLUMN_INDICES = [

@@ -1,0 +1,205 @@
+// .container {
+
+//   max-width: 1200px;
+// }
+
+// .container-sm {
+//   padding: 0 20px;
+//   margin: 0 auto;
+//   max-width: 1200px;
+// }
+
+// .sponsors {
+//   font-family: "Gotham SSm", "Gotham", "Helvetica", "Arial", "sans-serif";
+// }
+
+// .sponsors-hero {
+//   background: linear-gradient(165deg, #c22a49 0%, #161c58 100%);
+//   color: #fff;
+//   padding: 50px 0;
+//   text-align: center;
+// }
+
+// .sponsors-hero .container {
+//   max-width: 960px;
+// }
+
+// .sponsors-hero-heading h1,
+// .sponsor-meta-heading h2 {
+//   font-weight: 700;
+//   line-height: 1.2;
+// }
+
+// .sponsors-hero-heading h1 {
+//   font-size: 2.625rem;
+//   margin-bottom: 20px;
+// }
+
+// @media (min-width: 768px) {
+//   .sponsors-hero-heading h1 {
+//     margin-bottom: 25px;
+//   }
+// }
+
+// @media (min-width: 1024px) {
+//   .sponsors-hero-heading h1 {
+//     font-size: 3rem;
+//     margin-bottom: 30px;
+//   }
+// }
+
+// .sponsors-form form,
+// .sponsors-form label {
+//   display: block;
+// }
+
+// .sponsors-form .container {
+//   max-width: 480px;
+// }
+
+// .sponsors-form form {
+//   margin-bottom: -30px;
+// }
+
+// .sponsors-form label {
+//   margin-bottom: 30px;
+// }
+
+// .sponsors-form [type="color"],
+// .sponsors-form [type="date"],
+// .sponsors-form [type="datetime"],
+// .sponsors-form [type="datetime-local"],
+// .sponsors-form [type="email"],
+// .sponsors-form [type="month"],
+// .sponsors-form [type="number"],
+// .sponsors-form [type="password"],
+// .sponsors-form [type="search"],
+// .sponsors-form [type="tel"],
+// .sponsors-form [type="text"],
+// .sponsors-form [type="time"],
+// .sponsors-form [type="url"],
+// .sponsors-form [type="week"],
+// input:not([type]),
+// .sponsors-form select {
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+//   background-color: #fff;
+//   border: 1px solid #161616;
+//   border-radius: 4px;
+//   color: #161616;
+//   font-size: 1rem;
+//   height: 50px;
+//   line-height: 1.4;
+//   padding: 0 15px;
+//   width: 100%;
+// }
+
+// .sponsors-form select {
+//   background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEwIDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMS40MTQyMSAwQzAuNTIzMzA5IDAgMC4wNzcxNDIgMS4wNzcxNCAwLjcwNzEwNyAxLjcwNzExTDQuMjkyODkgNS4yOTI4OUM0LjY4MzQyIDUuNjgzNDIgNS4zMTY1OCA1LjY4MzQyIDUuNzA3MTEgNS4yOTI4OUw5LjI5Mjg5IDEuNzA3MTFDOS45MjI4NiAxLjA3NzE0IDkuNDc2NjkgMCA4LjU4NTc5IDBIMS40MTQyMVoiIGZpbGw9IiMxNjE2MTYiLz4KPC9zdmc+Cg==");
+//   background-position: right 15px center;
+//   background-repeat: no-repeat;
+//   background-size: 12px auto;
+// }
+
+// .sponsors-list {
+//   background-color: #f4f4f4;
+//   margin-bottom: -10px;
+//   padding: 50px 0;
+// }
+
+// .sponsor {
+//   background-color: #fff;
+//   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+//   font-size: 0.875rem;
+//   margin-bottom: 10px;
+//   padding: 20px;
+// }
+
+// .sponsor a:hover {
+//   text-decoration: underline;
+// }
+
+// .sponsor-meta {
+//   display: flex;
+//   flex-flow: row nowrap;
+//   margin: 0 -5px;
+// }
+
+// .sponsor-meta > div {
+//   padding: 0 5px;
+// }
+
+// .sponsor-meta-lead,
+// .sponsor-meta-button {
+//   flex: 0 0 auto;
+// }
+
+// .sponsor-meta-heading {
+//   flex: 1 1 auto;
+// }
+
+// .sponsor-meta-heading h2 {
+//   font-size: 1.5rem;
+//   margin-bottom: 10px;
+// }
+
+// .sponsor-promo-code {
+//   display: flex;
+//   flex-flow: row nowrap;
+//   margin: 0 -20px;
+// }
+
+// .sponsor-promo-code > div {
+//   padding: 0 20px;
+// }
+
+// .sponsor-promo-code-podcast,
+// .sponsor-promo-code-expiration {
+//   flex: 0 0 auto;
+// }
+
+// .sponsor-promo-code-podcast {
+//   font-weight: 700;
+// }
+
+// .sponsor-promo-code-copy {
+//   flex: 1 1 auto;
+// }
+
+// .sponsor-promo-code-copy a {
+//   color: #0a6eb9;
+// }
+
+// .sponsor-supports {
+//   border-top: 1px solid #e1e1e1;
+//   margin-top: 20px;
+//   padding-top: 20px;
+// }
+
+// .sponsor-supports-heading {
+//   color: #707070;
+//   font-family: "Georgia", "Times", "Times New Roman", "serif";
+//   font-style: italic;
+//   margin-bottom: 10px;
+// }
+
+// .sponsor-supports-list li {
+//   border-bottom: 1px solid #e1e1e1;
+//   margin-bottom: 10px;
+//   padding-bottom: 10px;;
+// }
+
+// .sponsor-supports-list li:last-child {
+//   border-bottom: none;
+//   margin-bottom: 0;
+//   padding-bottom: 0;
+// }
+
+
+// @media (min-width: 768px) {
+
+// }
+
+// @media (min-width: 1024px) {
+// }

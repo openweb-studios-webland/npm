@@ -1,28 +1,46 @@
 {% extends '_layouts/base.twig' %}
 
 {% block content %}
-<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-  {# change to post types #}
-  {% if podcast_sponsors | length %}
-    <select>
-      {% for podcast_sponsor in podcast_sponsors %}
-        <option value="{{ podcast_sponsor.sponsorName }}">
-          {{ podcast_sponsor.sponsorName }}
+  <div data-module="podcast-sponsors">
+    {# change to post types #}
+    {% if podcast_sponsors | length %}
+      <select data-podcast-sponsors-select>
+        <option value="" selected>
+          Filter by podcast
         </option>
-      {% endfor %}
-    </select>
-  {% endif %}
 
-  {% if podcast_sponsors | length %}
-    <ul>
-      {% for podcast_sponsor in podcast_sponsors %}
-        <li>
-          {{ dump(podcast_sponsor) }}
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+        {% for podcast_sponsor in podcast_sponsors %}
+          <option value="{{ podcast_sponsor.slug | replace({ '-': ' ', '_': ' ' }) }}">
+            {{ podcast_sponsor.title }}
+          </option>
+        {% endfor %}
+      </select>
+    {% endif %}
+
+    <br>
+    Has Offers
+    <input type="checkbox" data-podcast-sponsors-checkbox>
+
+    <br>
+    <input type="text" data-podcast-sponsors-search>
+
+    {% if promo_codes | length %}
+      <ul>
+        {% for promo_codes in promo_codes %}
+          <li>
+            <div class="p-10 mb-20" style="border: 2px solid red">
+              {% for promo_code in promo_codes %}
+                <div
+                  data-podcast-sponsors-has-offers="{{ promo_code.hasOffer }}"
+                  data-podcast-sponsors-keywords="{{ promo_code.searchKeywords }}"
+                >
+                  {{ promo_code.sponsorName }}
+                </div>
+              {% endfor %}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
 {% endblock %}

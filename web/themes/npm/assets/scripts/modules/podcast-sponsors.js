@@ -4,12 +4,17 @@ export default class PodcastSponsors {
   constructor(el) {
     this.el = el
     this.items = [...this.el.querySelectorAll('[data-podcast-sponsors-keywords]')]
-    this.select = this.el.querySelector('[data-podcast-sponsors-select]')
-    this.checkbox = this.el.querySelector('[data-podcast-sponsors-checkbox]')
-    this.search = this.el.querySelector('[data-podcast-sponsors-search]')
+    this.podcastsInput = this.el.querySelector('[data-podcast-sponsors-podcasts-input]')
+    this.hasOfferInput = this.el.querySelector('[data-podcast-sponsors-has-offer-input]')
+    this.keywordsInput = this.el.querySelector('[data-podcast-sponsors-keywords-input]')
+    this.resetTrigger = this.el.querySelector('[data-podcast-sponsors-reset-trigger]')
+    this.loadMoreTrigger = this.el.querySelector('[data-podcast-sponsors-load-more-trigger]')
+    this.alert = this.el.querySelector('[data-podcast-sponsors-alert]')
     this.loading = this.el.querySelector('[data-podcast-sponsors-loading]')
-    this.params = ['podcasts', 'has-offer', 'keywords']
     this.filters = {}
+    this.params = ['podcasts', 'has-offer', 'keywords']
+    this.page = 1
+    this.itemsPerPage = 15
 
     this.init()
   }
@@ -20,16 +25,18 @@ export default class PodcastSponsors {
   }
 
   attachEventListeners = () => {
-    this.select.addEventListener('change', this.onPodcasts)
-    this.checkbox.addEventListener('change', this.onHasOffer)
-    this.search.addEventListener('keyup', this.onKeywords)
+    this.podcastsInput.addEventListener('change', this.onPodcasts)
+    this.hasOfferInput.addEventListener('change', this.onHasOffer)
+    this.keywordsInput.addEventListener('keyup', this.onKeywords)
+    this.resetTrigger.addEventListener('click', this.onReset)
+    this.loadMoreTrigger.addEventListener('click', this.onLoadMore)
   }
 
   onPodcasts = e => {
     const value = e.target.value
 
     if (value && value !== '') {
-      this.filters[this.params[0]] = [e.target.value, this.select.options[this.select.selectedIndex].text]
+      this.filters[this.params[0]] = e.target.value
     } else {
       delete this.filters[this.params[0]]
     }
@@ -59,49 +66,141 @@ export default class PodcastSponsors {
     this.filterItems()
   }
 
+  onReset = e => {
+    this.filters = {}
+    this.page = 1
+
+    this.filterItems()
+
+    e.preventDefault()
+  }
+
+  onLoadMore = e => {
+    this.page++
+
+    this.filterItems()
+
+    e.preventDefault()
+  }
+
   filterItems = () => {
-    this.isLoading(true)
+    this.showLoading(true)
 
-    let selectors = []
+    // Build queryable selectors
+    let querySelectors = []
 
+    // Podcasts
     if (this.filters[this.params[0]]) {
-      const podcasts =
-        typeof this.filters[this.params[0]] === 'object'
-          ? this.filters[this.params[0]][0]
-          : this.filters[this.params[0]]
-
-      selectors.push(`[data-podcast-sponsors-keywords*="${podcasts}"]`)
+      querySelectors.push(`[data-podcast-sponsors-keywords*="${this.filters[this.params[0]]}"]`)
     }
 
+    // Has offers
     if (this.filters[this.params[1]]) {
-      selectors.push('[data-podcast-sponsors-has-offer="yes"]')
+      querySelectors.push('[data-podcast-sponsors-has-offer="yes"]')
     }
 
+    // Keywords
     if (this.filters[this.params[2]]) {
-      selectors.push(`[data-podcast-sponsors-keywords*="${this.filters[this.params[2]]}"]`)
+      querySelectors.push(`[data-podcast-sponsors-keywords*="${this.filters[this.params[2]]}"]`)
     }
 
     this.setSearchParams()
 
-    selectors.length > 0 ? this.filterItemsBySelectors(selectors) : this.filterItemsByLength()
+    querySelectors.length > 0 ? this.filterItemsBySelectors(querySelectors) : this.filterItemsByLength()
 
-    this.isLoading()
+    this.showLoading()
   }
 
   filterItemsByLength = () => {
+    let itemsCount = 0
+
     for (let i = 0; i < this.items.length; i++) {
       const item = this.items[i]
+      const itemParent = item.closest('[data-podcast-sponsors-item]')
 
-      i < 15 ? item.classList.remove('hidden') : item.classList.add('hidden')
+      let activeItemParent = itemParent !== prevItemParent ? false : activeItemParent
+
+      if (itemsCount < this.page * this.itemsPerPage) {
+        item.classList.remove('hidden')
+
+        // Update items count only once per item parent
+        if (!activeItemParent) {
+          activeItemParent = true
+          itemsCount++
+        }
+
+        itemParent.classList.remove('hidden')
+      } else {
+        if (!activeItemParent) {
+          item.classList.add('hidden')
+          itemParent.classList.add('hidden')
+        }
+      }
+
+      // Store previous item parent to account for siblings
+      const prevItemParent = itemParent
     }
+
+    if (itemsCount === 0) {
+      this.showAlert(true)
+    } else {
+      this.showAlert()
+    }
+
+    itemsCount < this.page * this.itemsPerPage || this.items.length < this.page * this.itemsPerPage
+      ? this.showLoadMore()
+      : this.showLoadMore(true)
   }
 
   filterItemsBySelectors = selectors => {
     const items = [...this.el.querySelectorAll(`${selectors.join('')}`)]
+    let itemsCount = 0
 
-    this.items.forEach(item => {
-      items.indexOf(item) === -1 ? item.classList.add('hidden') : item.classList.remove('hidden')
-    })
+    for (let i = 0; i < this.items.length; i++) {
+      const item = this.items[i]
+      const itemParent = item.closest('[data-podcast-sponsors-item]')
+      let activeItemParent = itemParent !== prevItemParent ? false : activeItemParent
+      let visibleItemsCount = itemParent !== prevItemParent ? 0 : visibleItemsCount
+
+      if (itemsCount < this.page * this.itemsPerPage && items.indexOf(item) > -1) {
+        item.classList.remove('hidden')
+
+        // Update items count only once per item parent
+        if (!activeItemParent) {
+          activeItemParent = true
+          itemsCount++
+        }
+
+        itemParent.classList.remove('hidden')
+
+        // Update visible items count
+        visibleItemsCount++
+        this.updateItemsCount(itemParent, visibleItemsCount)
+      } else {
+        item.classList.add('hidden')
+
+        if (!activeItemParent) {
+          itemParent.classList.add('hidden')
+        }
+      }
+
+      // Store previous item parent to account for siblings
+      const prevItemParent = itemParent
+    }
+
+    if (itemsCount === 0) {
+      this.showAlert(true)
+    } else {
+      this.showAlert()
+    }
+
+    itemsCount < this.page * this.itemsPerPage ? this.showLoadMore() : this.showLoadMore(true)
+  }
+
+  updateItemsCount = (item, count) => {
+    const el = item.querySelector('[data-podcast-sponsors-count]')
+
+    el.innerHTML = count > 1 ? `${count} Codes` : `${count} Code`
   }
 
   getSearchParams = () => {
@@ -115,9 +214,9 @@ export default class PodcastSponsors {
         param = param.split('=')
         this.filters[param[0]] = param[1].replace(/-/g, ' ')
       })
-
-      this.filterItems()
     }
+
+    this.filterItems()
   }
 
   setSearchParams = () => {
@@ -131,24 +230,28 @@ export default class PodcastSponsors {
       for (const [key, value] of filters) {
         const separator = hasParams ? '&' : '?'
         hasParams = true
-
-        if (typeof value === 'object') {
-          url += `${separator}${key}=${slugify(value[0])}`
-        } else {
-          url += `${separator}${key}=${slugify(value)}`
-        }
+        url += `${separator}${key}=${slugify(value)}`
       }
     }
 
-    // Push to history
+    // Push to brwoser history
     history.pushState(null, null, url)
   }
 
-  isLoading = (loading = false) => {
-    if (loading) {
-      this.loading.classList.remove('hidden')
+  showLoadMore = (loadMore = false) => {
+    loadMore ? this.loadMoreTrigger.classList.remove('hidden') : this.loadMoreTrigger.classList.add('hidden')
+  }
+
+  showAlert = (alert = false) => {
+    if (alert) {
+      this.alert.classList.remove('hidden')
+      this.alert.innerHTML = "Sorry, we couldn't find any matching promo codes."
     } else {
-      this.loading.classList.add('hidden')
+      this.alert.classList.add('hidden')
     }
+  }
+
+  showLoading = (loading = false) => {
+    loading ? this.loading.classList.remove('hidden') : this.loading.classList.add('hidden')
   }
 }

@@ -2,8 +2,13 @@
 
 function npm_register_query_vars($vars)
 {
-    $vars[] .= 'format';
-    $vars[] .= 'platform';
+    // Platforms
+    $vars[] .= 'platforms';
+
+    // Podcast sponsors
+    $vars[] .= 'podcasts';
+    $vars[] .= 'has-offer';
+    $vars[] .= 'keywords';
 
     return $vars;
 }

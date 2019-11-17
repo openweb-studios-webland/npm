@@ -1,4 +1,4 @@
-{% set video = video ? fn('npm_get_oembed_details', video) : null %}
+{% set video = video ? fn('npm_get_oembed', video) : null %}
 {% set image = image ? TimberImage(image) : null %}
 
 {% if video %}

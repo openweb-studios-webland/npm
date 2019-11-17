@@ -5,6 +5,7 @@
  */
 
 $context = Timber::get_context();
+$context['post'] = new Timber\Post();
 $context['query_vars'] = array(
     'podcasts' => get_query_var('podcasts'),
     'hasOffer' => get_query_var('has-offer'),
@@ -17,4 +18,4 @@ $args = array(
 $context['podcast_sponsors'] = new Timber\PostQuery($args);
 $context['promo_codes'] = npm_podcast_sponsors();
 
-Timber::render('templates/podcast-sponsors.twig', $context);
+Timber::render('templates/podcast-sponsors/index.twig', $context);

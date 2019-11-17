@@ -13,13 +13,8 @@
         <ul class="flex flex-wrap -mb-30 -mx-15 py-30 lg:flex-no-wrap lg:py-40">
           <li id="{{ uid }}0" class="lg:hidden">
             <button class="flex font-bold items-center mb-30 text-11 uppercase text-blue-denim tracking-wide">
-              <span class="px-5">
-                {{ svg('arrow-left', { classes: '-mt-1 text-blue-light' } ) }}
-              </span>
-
-              <span class="px-5">
-                Back
-              </span>
+              {{ svg('arrow-left', { classes: 'mr-10 -mt-1 text-blue-light' } ) }}
+              Back
             </button>
           </li>
 
@@ -86,12 +81,9 @@
                 data-toggle-partner="{{ uid }}0"
                 aria-controls="{{ uid }}"
               >
-                <span class="px-5">
-                  {{ item.title }}
-                </span>
-
-                <span class="px-5 text-blue-denim">
-                  {{ svg('dropdown', { classes: 'hidden lg:block' }) }}
+                {{ item.title }}
+                <span class="ml-10">
+                  {{ svg('dropdown', { classes: 'hidden text-blue-denim lg:block' }) }}
                   {{ svg('arrow-right', { classes: '-mr-10 text-blue-light lg:hidden' }) }}
                 </span>
               </button>

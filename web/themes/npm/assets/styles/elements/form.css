@@ -1,0 +1,100 @@
+/*! purgecss start ignore */
+input[type="text"],
+select {
+  @apply leading-tight
+    w-full;
+  height: 50px;
+}
+
+input[type="text"] {
+  @apply bg-transparent
+    border-0
+    border-b
+    border-white
+    text-white;
+
+  &::placeholder {
+    @apply italic
+      text-white;
+  }
+}
+
+select {
+  @apply bg-white
+    border-white
+    px-15
+    text-black;
+  appearance: none;
+  border-radius: 4px;
+}
+
+textarea {
+  height: 200px;
+  padding: 15px;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  display: none;
+
+  & + span {
+    @apply pl-30
+      relative;
+
+    &::before,
+    &::after {
+      @apply absolute
+        left-0;
+      content: "";
+      height: 18px;
+      top: 0.05em;
+      width: 18px;
+    }
+
+    &::before {
+      @apply bg-white;
+    }
+
+    &::after {
+      @apply bg-blue-denim
+        opacity-0
+        transition-fast;
+    }
+  }
+
+  &:checked + span::after {
+    @apply opacity-100;
+  }
+}
+
+[type="checkbox"] {
+  & + span {
+    &::before,
+    &::after {
+      border-radius: 4px;
+    }
+
+    &::after {
+      @apply bg-center
+        bg-no-repeat;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iOSIgdmlld0JveD0iMCAwIDExIDkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTAuNjUwOCAwLjI0MDc0M0MxMS4wNzAxIDAuNjAwMTY2IDExLjExODcgMS4yMzE0NyAxMC43NTkzIDEuNjUwNzlMNC43NTkyNiA4LjY1MDc5QzQuNTc3OTggOC44NjIyOCA0LjMxNjcyIDguOTg4NTcgNC4wMzgzOCA4Ljk5OTI2QzMuNzYwMDQgOS4wMDk5NSAzLjQ4OTg1IDguOTA0MDcgMy4yOTI4OSA4LjcwNzExTDAuMjkyODkzIDUuNzA3MTFDLTAuMDk3NjMxNSA1LjMxNjU4IC0wLjA5NzYzMTUgNC42ODM0MiAwLjI5Mjg5MyA0LjI5Mjg5QzAuNjgzNDE3IDMuOTAyMzcgMS4zMTY1OCAzLjkwMjM3IDEuNzA3MTEgNC4yOTI4OUwzLjk0MzUyIDYuNTI5M0w5LjI0MDc0IDAuMzQ5MjA5QzkuNjAwMTcgLTAuMDcwMTE3MiAxMC4yMzE1IC0wLjExODY3OSAxMC42NTA4IDAuMjQwNzQzWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==");
+      background-size: 12px auto;
+    }
+  }
+}
+
+[type="radio"] {
+  & + span {
+    &::before,
+    &::after {
+      @apply rounded-full;
+    }
+
+    &::after {
+      height: 10px;
+      margin: 4px 0 0 4px;
+      width: 10px;
+    }
+  }
+}
+/*! purgecss end ignore */

@@ -19,7 +19,7 @@ $context['platforms'] = [
 ];
 
 // Get current platforms from query vars
-$current_platforms = get_query_var('platform') ? explode(',', get_query_var('platform')) : [];
+$current_platforms = get_query_var('platforms') ? explode(',', get_query_var('platforms')) : [];
 $context['current_platforms'] = [
     'parents' => [],
     'children' => [],

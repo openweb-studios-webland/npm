@@ -23,7 +23,7 @@
                 {{ platform.name }}
               </a>
             {% else %}
-              <a class="flex font-bold items-center pb-15 relative text-gray-dark text-center transition-fast whitespace-no-wrap hover:text-blue-denim" href="{{ fn('add_query_arg', 'platform', platform.slug) }}">
+              <a class="flex font-bold items-center pb-15 relative text-gray-dark text-center transition-fast whitespace-no-wrap hover:text-blue-denim" href="{{ fn('add_query_arg', 'platforms', platform.slug) }}">
                 {% if image.file_loc %}
                   <span class="mr-5">
                     {{ fn('file_get_contents', image.file_loc)}}
@@ -47,12 +47,12 @@
         {% for platform in platforms.children if platform.current_item_parent %}
           <li class="px-10 lg:px-15">
             {% if platform.current and platform.current_item_parent %}
-              <a class="bg-blue-denim flex font-bold inline-block items-center px-10 py-5 rounded-full text-white whitespace-no-wrap" href="{{ fn('add_query_arg', 'platform', platform.current_item_others | join(',') ) }}">
+              <a class="bg-blue-denim flex font-bold inline-block items-center px-10 py-5 rounded-full text-white whitespace-no-wrap" href="{{ fn('add_query_arg', 'platforms', platform.current_item_others | join(',') ) }}">
                 {{ platform.name }}
                 {{ svg('clear', { classes: 'ml-5' }) }}
               </a>
             {% else %}
-              <a class="font-bold inline-block text-gray-dark transition-fast whitespace-no-wrap hover:text-blue-denim" href="{{ fn('add_query_arg', 'platform', current_platforms.children | merge([platform.slug]) | merge([platform.item_parent.slug]) | join(',') ) }}">
+              <a class="font-bold inline-block text-gray-dark transition-fast whitespace-no-wrap hover:text-blue-denim" href="{{ fn('add_query_arg', 'platforms', current_platforms.children | merge([platform.slug]) | merge([platform.item_parent.slug]) | join(',') ) }}">
                 {{ platform.name }}
               </a>
             {% endif %}

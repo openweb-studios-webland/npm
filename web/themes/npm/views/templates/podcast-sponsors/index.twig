@@ -1,0 +1,207 @@
+{% extends '_layouts/base.twig' %}
+{% set uid = random() %}
+
+{% block content %}
+  <div class="relative" data-module="podcast-sponsors">
+    <div id="{{ uid }}" class="absolute invisible -mt-100"></div>
+
+    <section class="bg-gradient py-50 text-center text-white">
+      <div class="container-md mb-30">
+        <h1 class="heading-2">
+          {{ post.title }}
+        </h1>
+
+        {% if post.text %}
+          <div class="text">
+            {{ post.text }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="container-sm">
+        <form class="text-left">
+          <label class="block mb-30">
+            <input
+              type="text"
+              value="{{ query_vars.keywords }}"
+              placeholder="Search by brand, name, or category"
+              data-podcast-sponsors-keywords-input
+            >
+          </label>
+
+          {% if podcast_sponsors | length %}
+            <label class="block mb-30">
+              <span class="sr-only">
+                Filter by podcast
+              </span>
+
+              <select data-podcast-sponsors-podcasts-input>
+                <option value=""{{ query_vars.podcast ?: ' selected' }}>
+                  Filter by podcast
+                </option>
+
+                {% for podcast_sponsor in podcast_sponsors %}
+                  <option
+                    value="{{ podcast_sponsor.slug | replace({ '-': ' ', '_': ' ' }) }}"
+                    {{ query_vars.podcasts == podcast_sponsor.slug ? 'selected' }}
+                  >
+                    {{ podcast_sponsor.title }}
+                  </option>
+                {% endfor %}
+              </select>
+            </label>
+          {% endif %}
+
+          <label class="block mb-30">
+            <input
+              type="checkbox"
+              {{ query_vars.hasOffer == true ? 'checked' }}
+              data-podcast-sponsors-has-offer-input
+            >
+            <span>
+              Show offers only
+            </span>
+          </label>
+
+          <div class="text-center">
+            <button class="button-outline button-small" data-podcast-sponsors-reset-trigger>
+              Reset Search
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="bg-gray pt-50 relative">
+      <div class="absolute bg-black-semitransparent inset-0 py-50 text-center z-10" data-podcast-sponsors-loading>
+        Loading...
+      </div>
+
+      <div class="container">
+        <div class="hidden text-center" data-podcast-sponsors-alert></div>
+
+        {% if promo_codes | length %}
+          <ul class="-mb-20">
+            {% for promo_codes in promo_codes %}
+              <li class="bg-white leading-tight mb-20 p-20 shadow-sm text-14" data-podcast-sponsors-item>
+                <div class="flex items-center -mx-15">
+                  <div class="flex-1 px-15 lg:w-3/4">
+                    <div class="flex -mx-5">
+                      {% if promo_codes[0].lead == 'yes' %}
+                        <div class="px-5">
+                          {{ svg('star', { classes: 'mt-5 text-blue-light' }) }}
+                        </div>
+                      {% endif %}
+
+                      {% if promo_codes[0].sponsorName %}
+                        <div class="px-5">
+                          <h2 class="heading-4 mb-10">
+                            {{ promo_codes[0].sponsorName }}
+                          </h2>
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+
+                  <div class="flex-shrink-0 px-15 lg:w-1/4">
+                    <button
+                      class="flex items-center ml-auto"
+                      data-module="toggle"
+                      aria-controls="{{ uid }}{{ loop.index }}"
+                    >
+                      <span data-podcast-sponsors-count>
+                        {{ promo_codes | length }}
+                        {{ promo_codes | length > 1 ? 'Codes' : 'Code' }}
+                      </span>
+                      {{ svg('podcast-sponsors', { classes: 'ml-10 text-crimson' }) }}
+                    </button>
+                  </div>
+                </div>
+
+                {% if promo_codes[0].sponsorDescription %}
+                  <div class="text lg:w-3/4">
+                    {{ promo_codes[0].sponsorDescription }}
+                  </div>
+                {% endif %}
+
+                {% if promo_codes | length %}
+                  <div
+                    id="{{ uid }}"
+                    class="border-t border-gray-border mt-20 pt-20"
+                    aria-hidden="true"
+                  >
+                    <h3 class="font-serif italic text-gray-dark">
+                      Supports
+                    </h3>
+
+                    <div class="overflow-x-hidden">
+                      <ul class="-mb-1">
+                        {% for promo_code in promo_codes %}
+                          {% set keywords = [
+                            promo_code.sponsorName ?? null,
+                            promo_code.promoCopy ?? null,
+                            promo_code.searchKeywords ?? null,
+                            promo_code.podcast ?? null
+                          ] %}
+                          {% set keywords = keywords | join(' ') | lower %}
+
+                          <li
+                            class="border-b border-gray-border py-10"
+                            data-podcast-sponsors-keywords="{{ keywords }}"
+                            data-podcast-sponsors-has-offer="{{ promo_code.hasOffer }}"
+                          >
+                            <div class="flex flex-wrap -mb-5 -mx-15 lg:flex-no-wrap">
+                              {% if promo_code.podcast %}
+                                <div class="flex-shrink-0 mb-5 px-15">
+                                  <p class="text font-bold">
+                                    {{ promo_code.podcast }}
+                                  </p>
+                                </div>
+                              {% endif %}
+
+                              {% if promo_code.promoUrl and promo_code.promoCopy %}
+                                <div class="w-full mb-5 px-15 md:flex-1">
+                                  <a href="{{ promo_code.promoUrl }}" class="text-blue-denim">
+                                    {{ promo_code.promoCopy }}
+                                  </a>
+                                </div>
+                              {% endif %}
+
+                              {% if promo_code.expiration %}
+                                <div class="mb-5 px-15 w-full md:w-1/4">
+                                  <p class="text md:text-right">
+                                    Ends {{ promo_code.expiration }}
+                                  </p>
+                                </div>
+                              {% endif %}
+                            </div>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+
+      <div class="container py-50">
+        <div class="flex justify-center -mx-10">
+          <div class="px-10">
+            <button class="button button-small" data-podcast-sponsors-load-more-trigger>
+              Load More
+            </button>
+          </div>
+
+          <div class="px-10">
+            <a class="button-outline-crimson button-small" href="#{{ uid }}">
+              Back to Top
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}

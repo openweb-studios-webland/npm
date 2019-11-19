@@ -126,7 +126,7 @@
 
                 {% if promo_codes | length %}
                   <div
-                    id="{{ uid }}"
+                    id="{{ uid }}{{ loop.index }}"
                     class="border-t border-gray-border mt-20 pt-20"
                     aria-hidden="true"
                   >

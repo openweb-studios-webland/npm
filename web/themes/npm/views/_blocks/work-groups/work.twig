@@ -25,20 +25,20 @@
     </div>
   </div>
 {% elseif work.type == 'video' %}
-  <div class="relative" aria-controls="{{ uid }}">
+  <button class="block relative" aria-controls="{{ uid }}">
     {% set image = TimberImage(work.image) %}
 
     {% if image.src %}
       <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
 
-      <button class="absolute inset-1/2 h-80 translate-1/2 w-80">
+      <span class="absolute inset-1/2 h-80 translate-1/2 w-80">
         <span class="sr-only">
           Open Video Modal
         </span>
         {{ svg('play') }}
-      </button>
+      </span>
     {% endif %}
-  </div>
+  </button>
 
   {% if work.text %}
     <div class="mt-20">
@@ -56,9 +56,9 @@
   {% set image = TimberImage(work.image) %}
 
   {% if image.src %}
-    <div aria-controls="{{ uid }}">
+    <button class="block" aria-controls="{{ uid }}">
       <img src="{{ image.src | resize(540, 301, 'center') }}" alt="{{ image.alt }}" />
-    </div>
+    </button>
   {% endif %}
 
   {% if work.text %}

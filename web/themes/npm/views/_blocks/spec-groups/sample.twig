@@ -4,16 +4,16 @@
 
   {% if sample.type == 'audio' %}
     {% if image.src %}
-      <div class="relative" aria-controls="{{ uid }}" data-video-play>
+      <button class="block relative" aria-controls="{{ uid }}">
         <img src="{{ image.src | resize(345, 219, 'center') }}" alt="{{ image.alt }}" />
 
-        <button class="absolute inset-1/2 h-80 translate-1/2 w-80">
+        <span class="absolute inset-1/2 h-80 translate-1/2 w-80">
           <span class="sr-only">
             Play Video
           </span>
           {{ svg('play') }}
-        </button>
-      </div>
+        </span>
+      </button>
     {% endif %}
 
     {% include '_partials/audio/modal.twig' ignore missing with {
@@ -22,16 +22,16 @@
     } only %}
   {% elseif sample.type == 'video' %}
     {% if image.src %}
-      <div class="relative" aria-controls="{{ uid }}" data-video-play>
+      <button class="block relative" aria-controls="{{ uid }}" data-video-play>
         <img src="{{ image.src | resize(345, 219, 'center') }}" alt="{{ image.alt }}" />
 
-        <button class="absolute inset-1/2 h-80 translate-1/2 w-80">
+        <span class="absolute inset-1/2 h-80 translate-1/2 w-80">
           <span class="sr-only">
             Play Video
           </span>
           {{ svg('play') }}
-        </button>
-      </div>
+        </span>
+      </button>
     {% endif %}
 
     {% include '_partials/video/modal.twig' ignore missing with {

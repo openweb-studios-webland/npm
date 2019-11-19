@@ -32,10 +32,8 @@
         </div>
 
         {% if audio.caption %}
-          {% set uid = random() %}
-
           <div class="flex-1 px-5 text-right">
-            <button class="text-blue-denim text-12" aria-controls="{{ uid }}">
+            <button class="text-blue-denim text-12" aria-controls="{{ uid }}0">
               Read Transcript
             </button>
           </div>
@@ -49,7 +47,7 @@
           {% include '_partials/modal.twig' ignore missing with {
             content: content,
             size: 'sm',
-            uid: uid,
+            uid: uid ~ '0',
           } only %}
         {% endif %}
       </div>

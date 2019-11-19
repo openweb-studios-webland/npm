@@ -1,4 +1,4 @@
-{% set video = video ?? null %}
+{% set video = video ? fn('npm_get_oembed', video) : null %}
 {% set uid = uid ?? null %}
 
 {% if video %}

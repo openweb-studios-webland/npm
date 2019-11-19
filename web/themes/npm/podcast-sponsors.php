@@ -13,7 +13,9 @@ $context['query_vars'] = array(
 );
 $args = array(
     'posts_per_page' => -1,
-    'post_type' => 'podcast-sponsor',
+	'post_type' => 'podcast-sponsor',
+	'order' => 'ASC',
+	'orderby' => 'title',
 );
 $context['podcast_sponsors'] = new Timber\PostQuery($args);
 $context['promo_codes'] = npm_podcast_sponsors();

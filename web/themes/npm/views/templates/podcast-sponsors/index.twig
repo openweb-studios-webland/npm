@@ -21,8 +21,13 @@
       <div class="container-sm">
         <form class="text-left">
           <label class="block mb-30">
+            <span class="sr-only">
+              Keywords
+            </span>
+
             <input
               type="text"
+              name="keywords"
               value="{{ query_vars.keywords }}"
               placeholder="Search by brand, name, or category"
               data-podcast-sponsors-keywords-input
@@ -35,7 +40,7 @@
                 Filter by podcast
               </span>
 
-              <select data-podcast-sponsors-podcasts-input>
+              <select name="podcasts" data-podcast-sponsors-podcasts-input>
                 <option value=""{{ query_vars.podcast ?: ' selected' }}>
                   Filter by podcast
                 </option>
@@ -55,6 +60,7 @@
           <label class="block mb-30">
             <input
               type="checkbox"
+              name="has-offer"
               {{ query_vars.hasOffer == true ? 'checked' }}
               data-podcast-sponsors-has-offer-input
             >
@@ -64,7 +70,11 @@
           </label>
 
           <div class="text-center">
-            <button class="button-outline button-small" data-podcast-sponsors-reset-trigger>
+            <button
+              class="button-outline button-small"
+              type="reset"
+              data-podcast-sponsors-reset-trigger
+            >
               Reset Search
             </button>
           </div>
@@ -78,7 +88,11 @@
       </div>
 
       <div class="container">
-        <div class="hidden text-center" data-podcast-sponsors-alert></div>
+        <div
+          class="hidden text-center"
+          aria-live="polite"
+          data-podcast-sponsors-alert
+        ></div>
 
         {% if promo_codes | length %}
           <ul class="-mb-20">

@@ -28,14 +28,16 @@ select {
   border-radius: 4px;
 }
 
-textarea {
-  height: 200px;
-  padding: 15px;
-}
-
 [type="checkbox"],
 [type="radio"] {
-  display: none;
+  @apply absolute
+      border-none
+      -m-1
+      overflow-hidden
+      p-0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
 
   & + span {
     @apply pl-30

@@ -12,7 +12,11 @@ export default class PodcastSponsors {
     this.alert = this.el.querySelector('[data-podcast-sponsors-alert]')
     this.loading = this.el.querySelector('[data-podcast-sponsors-loading]')
     this.filters = {}
-    this.params = ['podcasts', 'has-offer', 'keywords']
+    this.params = {
+      podcasts: 'podcasts',
+      hasOffer: 'has-offer',
+      keywords: 'keywords'
+    }
     this.page = 1
     this.itemsPerPage = 15
 
@@ -36,9 +40,9 @@ export default class PodcastSponsors {
     const value = e.target.value
 
     if (value && value !== '') {
-      this.filters[this.params[0]] = e.target.value
+      this.filters[this.params.podcasts] = e.target.value
     } else {
-      delete this.filters[this.params[0]]
+      delete this.filters[this.params.podcasts]
     }
 
     this.filterItems()
@@ -46,9 +50,9 @@ export default class PodcastSponsors {
 
   onHasOffer = e => {
     if (e.target.checked) {
-      this.filters[this.params[1]] = 1
+      this.filters[this.params.hasOffer] = 1
     } else {
-      delete this.filters[this.params[1]]
+      delete this.filters[this.params.hasOffer]
     }
 
     this.filterItems()
@@ -58,9 +62,9 @@ export default class PodcastSponsors {
     const value = e.target.value
 
     if (value && value !== '') {
-      this.filters[this.params[2]] = e.target.value
+      this.filters[this.params.keywords] = e.target.value
     } else {
-      delete this.filters[this.params[2]]
+      delete this.filters[this.params.keywords]
     }
 
     this.filterItems()
@@ -90,18 +94,18 @@ export default class PodcastSponsors {
     let querySelectors = []
 
     // Podcasts
-    if (this.filters[this.params[0]]) {
-      querySelectors.push(`[data-podcast-sponsors-keywords*="${this.filters[this.params[0]]}"]`)
+    if (this.filters[this.params.podcasts]) {
+      querySelectors.push(`[data-podcast-sponsors-keywords*="${this.filters[this.params.podcasts]}"]`)
     }
 
     // Has offers
-    if (this.filters[this.params[1]]) {
+    if (this.filters[this.params.hasOffer]) {
       querySelectors.push('[data-podcast-sponsors-has-offer="yes"]')
     }
 
     // Keywords
-    if (this.filters[this.params[2]]) {
-      querySelectors.push(`[data-podcast-sponsors-keywords*="${this.filters[this.params[2]]}"]`)
+    if (this.filters[this.params.keywords]) {
+      querySelectors.push(`[data-podcast-sponsors-keywords*="${this.filters[this.params.keywords]}"]`)
     }
 
     this.setSearchParams()
@@ -120,7 +124,7 @@ export default class PodcastSponsors {
 
       let activeItemParent = itemParent !== prevItemParent ? false : activeItemParent
 
-      if (itemsCount < this.page * this.itemsPerPage) {
+      if (this.hasMoreItems(itemsCount)) {
         item.classList.remove('hidden')
 
         // Update items count only once per item parent
@@ -141,15 +145,11 @@ export default class PodcastSponsors {
       const prevItemParent = itemParent
     }
 
-    if (itemsCount === 0) {
-      this.showAlert(true)
-    } else {
-      this.showAlert()
-    }
+    this.toggleAlert(itemsCount === 0)
 
-    itemsCount < this.page * this.itemsPerPage || this.items.length < this.page * this.itemsPerPage
-      ? this.showLoadMore()
-      : this.showLoadMore(true)
+    const showMore = this.hasMoreItems(itemsCount) || this.hasMoreItems(this.items.length)
+
+    this.toggleLoadMore(showMore)
   }
 
   filterItemsBySelectors = selectors => {
@@ -162,7 +162,7 @@ export default class PodcastSponsors {
       let activeItemParent = itemParent !== prevItemParent ? false : activeItemParent
       let visibleItemsCount = itemParent !== prevItemParent ? 0 : visibleItemsCount
 
-      if (itemsCount < this.page * this.itemsPerPage && items.indexOf(item) > -1) {
+      if (this.hasMoreItems(itemsCount) && items.indexOf(item) > -1) {
         item.classList.remove('hidden')
 
         // Update items count only once per item parent
@@ -188,13 +188,12 @@ export default class PodcastSponsors {
       const prevItemParent = itemParent
     }
 
-    if (itemsCount === 0) {
-      this.showAlert(true)
-    } else {
-      this.showAlert()
-    }
+    this.toggleAlert(itemsCount === 0)
+    this.toggleLoadMore(this.hasMoreItems(itemsCount))
+  }
 
-    itemsCount < this.page * this.itemsPerPage ? this.showLoadMore() : this.showLoadMore(true)
+  hasMoreItems = itemsCount => {
+    return itemsCount < this.page * this.itemsPerPage
   }
 
   updateItemsCount = (item, count) => {
@@ -238,11 +237,11 @@ export default class PodcastSponsors {
     history.pushState(null, null, url)
   }
 
-  showLoadMore = (loadMore = false) => {
+  toggleLoadMore = (loadMore = false) => {
     loadMore ? this.loadMoreTrigger.classList.remove('hidden') : this.loadMoreTrigger.classList.add('hidden')
   }
 
-  showAlert = (alert = false) => {
+  toggleAlert = (alert = false) => {
     if (alert) {
       this.alert.classList.remove('hidden')
       this.alert.innerHTML = "Sorry, we couldn't find any matching promo codes."

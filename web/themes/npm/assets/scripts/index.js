@@ -16,7 +16,7 @@ modules.forEach(module => {
   module.dataset.module.split(' ').forEach(moduleName => {
     import(
       /* webpackChunkName: "[request]" */
-      /* webpackMode: "eager" */
+      /* webpackMode: "lazy" */
       `./modules/${moduleName}`
     ).then(Module => {
       declaredModules[moduleName] = new Module.default(module)

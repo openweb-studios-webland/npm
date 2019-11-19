@@ -1,6 +1,7 @@
 const WaveSurfer = require('wavesurfer.js/dist/wavesurfer')
 // @TODO Update WaveSurfer once import issue is resoloved 3.1.1+
 // import WaveSurfer from 'wavesurfer.js'
+import activeMedia from '../utilities/active-media'
 
 export default class Audio {
   constructor(el) {
@@ -81,13 +82,17 @@ export default class Audio {
   }
 
   playPause = e => {
-    this.wavesurfer.playPause()
-    this.el.classList.toggle('playing')
+    if (activeMedia.check() || this.el.classList.contains('active')) {
+      this.wavesurfer.playPause()
+      this.el.classList.toggle('playing')
 
-    if (!this.el.classList.contains('active')) {
-      this.el.classList.add('active')
+      if (!this.el.classList.contains('active')) {
+        this.el.classList.add('active')
 
-      this.pushToDataLayer()
+        this.pushToDataLayer()
+      }
+
+      activeMedia.toggle()
     }
 
     e.preventDefault()

@@ -4,7 +4,7 @@
   <section class="section pb-50" data-label="hero-single-product">
     <div class="container">
       <div class="flex flex-wrap items-center -mb-30 -mx-30">
-        <div class="mb-30 px-30 w-full{{ block.type == 'no_image' ? ' lg:w-7/12' : ' lg:w-3/4' }}">
+        <div class="mb-30 px-30 w-full{{ block.type == 'no_image' ? ' lg:w-3/4' : ' lg:w-7/12' }}">
           <a class="heading-6 inline-block mb-20 text-blue-denim" href="/products/">
             Products
           </a>
@@ -48,15 +48,17 @@
                 audio: block.audio,
                 image: block.image,
               } only %}
-            {% elseif block.type == 'audio' %}
+            {% elseif block.type == 'video' %}
               {% include '_partials/video/index.twig' ignore missing with {
                 video: block.video,
                 image: block.image,
               } only %}
-            {% elseif image.src %}
+            {% elseif block.type == 'image' %}
               {% set image = TimberImage(block.image) %}
 
-              <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
+              {% if image.src %}
+                <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
+              {% endif %}
             {% endif %}
           </div>
         {% endif %}

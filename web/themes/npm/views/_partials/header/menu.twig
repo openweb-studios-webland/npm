@@ -6,12 +6,16 @@
   {% if level == 1 %}
     <div
       id="{{ uid }}"
-      class="{{ front_page ? 'bg-blue border-blue-denim ' : 'bg-white border-gray ' }}header-submenu absolute border-t min-h-full left-0 -mt-1 px-20 top-0 transition w-screen lg:min-h-0 lg:mx-0 lg:px-0 lg:shadow-xs lg:top-full"
+      class="{{ front_page ? 'bg-blue border-blue-denim ' : 'bg-white border-gray ' }}header-submenu absolute border-t min-h-full left-0 -mt-1 px-20 top-0 transition-fast w-screen lg:min-h-0 lg:mx-0 lg:px-0 lg:shadow-xs lg:top-full"
       aria-hidden="true"
     >
       <div class="container">
         <ul class="flex flex-wrap -mb-30 -mx-15 py-30 lg:flex-no-wrap lg:py-40">
-          <li id="{{ uid }}0" class="lg:hidden">
+          <li
+            class="lg:hidden"
+            data-toggle-partner="{{ uid }}0"
+            aria-controls="{{ uid }}"
+          >
             <button class="flex font-bold items-center mb-30 text-11 uppercase text-blue-denim tracking-wide">
               {{ svg('arrow-left', { classes: 'mr-10 -mt-1 text-blue-light' } ) }}
               Back
@@ -76,17 +80,23 @@
               {% set uid = random() %}
 
               <button
-                class="border-b-2 border-transparent flex items-center justify-between -mx-5 py-10 transition-fast w-full whitespace-no-wrap lg:w-auto lg:hover:border-blue-denim{{ item.current_item_ancestor ? ' lg:border-blue-denim' }}"
+                class="header-submenu-trigger border-b-2 border-transparent flex items-center justify-between py-10 transition-fast w-full whitespace-no-wrap lg:w-auto lg:hover:border-blue-denim{{ item.current_item_ancestor ? ' lg:border-blue-denim' }}"
                 data-module="toggle"
-                data-toggle-partner="{{ uid }}0"
+                data-toggle-partners="{{ uid }}0"
                 aria-controls="{{ uid }}"
               >
                 {{ item.title }}
                 <span class="ml-10">
+                  {{ svg('arrow-right', { classes: 'text-blue-light lg:hidden' }) }}
                   {{ svg('dropdown', { classes: 'hidden text-blue-denim lg:block' }) }}
-                  {{ svg('arrow-right', { classes: '-mr-10 text-blue-light lg:hidden' }) }}
                 </span>
               </button>
+
+              <div
+                class="hidden fixed inset-0 z-1 lg:block"
+                data-toggle-partner="{{ uid }}0"
+                aria-controls="{{ uid }}"
+              ></div>
 
               {% include '_partials/header/menu.twig' ignore missing with {
                 uid: uid,

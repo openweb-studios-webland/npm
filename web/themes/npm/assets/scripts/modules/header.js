@@ -6,6 +6,7 @@ export default class Header {
     this.trigger = this.el.querySelector('[data-header-trigger]')
 
     this.attachEventListeners()
+    this.checkPosition()
   }
 
   attachEventListeners = () => {

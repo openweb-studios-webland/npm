@@ -1,8 +1,11 @@
 import aria from '../utilities/aria'
+import activeMedia from '../utilities/active-media'
 
 export default class Modal {
   constructor(el) {
     this.el = el
+    this.audio = this.getAudio()
+    this.video = this.getVideo()
     this.hasTransition = false
 
     this.attachEventListeners()
@@ -15,12 +18,28 @@ export default class Modal {
     this.setFocusToFirstElements()
     this.scrollLock()
     this.attachOpenEventListeners()
+
+    if (this.audio) {
+      this.playPauseAudio()
+    }
+
+    if (this.video) {
+      this.playVideo()
+    }
   }
 
   closeModal = () => {
     aria.toggle(this.active, this.el)
     this.scrollLock(false)
     this.detachOpenEventListeners()
+
+    if (this.audio && this.audio.classList.contains('playing')) {
+      this.playPauseAudio()
+    }
+
+    if (this.video) {
+      this.stopVideo()
+    }
 
     if (this.active) {
       this.active.focus()
@@ -40,11 +59,14 @@ export default class Modal {
 
   scrollLock = (scrollLock = true) => {
     const body = document.querySelector('body')
+    const header = document.querySelector('[data-module="header"]')
 
     if (scrollLock) {
       body.classList.add('locked')
+      body.style.paddingTop = `${header.offsetHeight}px`
     } else {
       body.classList.remove('locked')
+      body.style.paddingTop = ``
     }
   }
 
@@ -138,5 +160,31 @@ export default class Modal {
     if (e.key === 'Tab' || e.keyCode === 9) {
       this.trapFocus(e)
     }
+  }
+
+  getAudio = () => {
+    return this.el.querySelector('[data-module="audio"]')
+  }
+
+  playPauseAudio = () => {
+    const playPauseTrigger = this.audio.querySelector('[data-audio-play-pause]')
+
+    playPauseTrigger.click()
+  }
+
+  getVideo = () => {
+    const video = this.el.querySelector('iframe')
+
+    return video && (video.src.includes('youtube') || this.video.src.includes('vimeo')) ? video : null
+  }
+
+  playVideo = () => {
+    this.video.src += this.video.src.includes('?') ? '&autoplay=1' : '?autoplay=1'
+    activeMedia.toggle()
+  }
+
+  stopVideo = () => {
+    this.video.src = this.video.src.replace('autoplay=1', 'autoplay=0')
+    activeMedia.toggle()
   }
 }

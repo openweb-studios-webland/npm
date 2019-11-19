@@ -1,7 +1,11 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="bg-gradient lg:bg-none" data-label="audiences">
+  <section
+    id="audiences"
+    class="bg-gradient lg:bg-none"
+    data-label="audiences"
+  >
     <div class="container-lg">
       {% if block.audiences | length %}
         {% set uid = random() %}

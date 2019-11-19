@@ -3,11 +3,11 @@
 {% if block %}
   <section class="section bg-teal pt-0 lg:pb-0" data-label="testimonials-front-page">
     {% if block.testimonials | length %}
-      <div class="relative overflow-x-hidden" data-module="carousel">
+      <div class="relative overflow-hidden" data-module="carousel">
         <div class="carousel-track flex relative" data-carousel-track>
           {% for testimonial in block.testimonials %}
             <div class="carousel-item flex-0 w-full" data-carousel-item>
-              <div class="container">
+              <div class="container h-full">
                 {% include '_blocks/testimonials-front-page/testimonial.twig' ignore missing %}
               </div>
             </div>

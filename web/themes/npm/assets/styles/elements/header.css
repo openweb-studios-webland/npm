@@ -29,6 +29,20 @@
   }
 }
 
+.header-submenu-trigger {
+  &[aria-expanded="true"] {
+    & + div {
+      @screen lg {
+        @apply block;
+      }
+    }
+  }
+
+  & + div {
+    @apply hidden;
+  }
+}
+
 /*! purgecss start ignore */
 .admin-bar .header {
   @screen lg {

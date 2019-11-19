@@ -1,10 +1,10 @@
 {% set uid = random() %}
 
-<div class="bg-white h-full relative">
+<div class="bg-white h-full relative z-20">
   <button
     class="block flex flex-col h-full text-left"
     data-module="toggle"
-    data-toggle-partner="{{ uid }}{{ loop.index }}0"
+    data-toggle-partners="{{ uid }}{{ loop.index }}0"
     aria-controls="{{ uid }}{{ loop.index }}"
   >
     {% set image = TimberImage(service.image) %}
@@ -104,9 +104,9 @@
     {% endif %}
 
      <button
-      id="{{ uid }}{{ loop.index }}0"
       class="absolute h-44 mr-5 mt-5 right-0 top-0 w-44"
-      aria-controls="{{ uid }}"
+      data-toggle-partner="{{ uid }}{{ loop.index }}0"
+      aria-controls="{{ uid }}{{ loop.index }}"
     >
       <span class="sr-only">
         Close {{ program.title }} Details

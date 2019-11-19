@@ -1,3 +1,5 @@
+import activeMedia from '../utilities/active-media'
+
 export default class Video {
   constructor(el) {
     this.el = el
@@ -10,16 +12,20 @@ export default class Video {
   }
 
   attachEventListeners = () => {
-    this.trigger.addEventListener('click', this.playPause)
+    this.trigger.addEventListener('click', this.play)
   }
 
-  playPause = e => {
-    this.iframe.src += this.iframe.src.includes('?') ? '&autoplay=1' : '?autoplay=1'
+  play = e => {
+    if (activeMedia.check()) {
+      this.iframe.src += this.iframe.src.includes('?') ? '&autoplay=1' : '?autoplay=1'
 
-    if (!this.el.classList.contains('active')) {
-      this.el.classList.add('active')
+      if (!this.el.classList.contains('active')) {
+        this.el.classList.add('active')
 
-      this.pushToDataLayer()
+        this.pushToDataLayer()
+      }
+
+      activeMedia.toggle()
     }
 
     e.preventDefault()

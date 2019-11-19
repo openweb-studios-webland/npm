@@ -1,4 +1,4 @@
-<div class="flex flex-wrap -mx-30 lg:flex-no-wrap lg:flex-row-reverse">
+<div class="flex flex-wrap h-full -mx-30 lg:flex-no-wrap lg:flex-row-reverse">
   {% set image = TimberImage(testimonial.image) %}
 
   {% if image.src %}
@@ -12,7 +12,7 @@
     </div>
   {% endif %}
 
-  <div class="px-30 w-full lg:w-1/2">
+  <div class="flex flex-col justify-center px-30 w-full lg:w-1/2">
     <div class="mt-50 text-center text-white lg:mt-0 lg:pb-150 lg:pt-100 lg:text-left">
       {% if testimonial.heading %}
         <h2 class="heading-3">

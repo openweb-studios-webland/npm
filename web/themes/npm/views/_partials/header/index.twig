@@ -1,12 +1,16 @@
 <header
-  class="{{ front_page ? 'bg-blue text-white ' : 'bg-white ' }}header relative py-10 top-0 transition w-full z-30 lg:py-20 lg:sticky"
+  class="{{ front_page ? 'bg-blue text-white ' : 'bg-white ' }}header relative py-10 top-0 transition-fast w-full z-20 lg:py-20 lg:sticky"
   data-module="header"
   data-label="header"
 >
   <div class="container-lg">
     <div class="flex justify-between items-center -mx-20">
       <div class="flex-0 px-20">
-        <a href="/" data-track-gtm="Top Navigation|Homepage">
+        <a
+          class="inline-block relative z-40"
+          href="/"
+          data-track-gtm="Top Navigation|Homepage"
+        >
           {{ svg('logo', { classes: 'logo' }) }}
         </a>
       </div>
@@ -16,7 +20,7 @@
 
         <nav
           id="{{ uid }}"
-          class="header-menu absolute flex-1 left-0 overflow-y-auto px-20 top-full transition w-screen z-40 lg:static"
+          class="header-menu absolute flex-1 left-0 overflow-y-auto px-20 top-full transition-fast w-screen z-30 lg:static"
           role="navigation"
           aria-hidden="true"
         >
@@ -28,7 +32,11 @@
       {% endif %}
 
       <div class="hidden flex-0 px-20 lg:block">
-        <a class="{{ front_page ? ' button-outline-blue ' }}button-small" href="/get-started/">
+        <a
+          class="{{ front_page ? ' button-outline-blue ' }}button-small inline-block relative z-40"
+          href="/get-started/"
+          data-track-gtm="Top Navigation|Contact Us"
+        >
           Contact Us
         </a>
       </div>

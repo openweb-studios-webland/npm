@@ -38,7 +38,3 @@
     }
   }
 }
-
-[data-label="testimonials-front-page"] .carousel-item[aria-hidden] {
-  @apply h-0;
-}

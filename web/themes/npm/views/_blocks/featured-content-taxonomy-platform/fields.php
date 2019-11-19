@@ -116,7 +116,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 				'name' => 'secondary_featured_content',
 				'type' => 'repeater',
 				'instructions' => '',
-				'required' => 1,
+				'required' => 0,
 				'conditional_logic' => 0,
 				'wrapper' => array(
 					'width' => '',
@@ -134,7 +134,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 						'label' => 'Image',
 						'name' => 'image',
 						'type' => 'image',
-						'instructions' => 'Recommended dimensions are 660 x 371.',
+						'instructions' => 'Recommended dimensions are 1080 x 607.',
 						'required' => 1,
 						'conditional_logic' => 0,
 						'wrapper' => array(
@@ -145,8 +145,8 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
 						'return_format' => 'array',
 						'preview_size' => 'thumbnail',
 						'library' => 'all',
-						'min_width' => 660,
-						'min_height' => 371,
+						'min_width' => 1080,
+						'min_height' => 607,
 						'min_size' => '',
 						'max_width' => '',
 						'max_height' => '',

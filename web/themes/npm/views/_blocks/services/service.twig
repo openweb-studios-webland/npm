@@ -21,10 +21,10 @@
           </h3>
         {% endif %}
 
-        {% if service.text %}
-          <div class="text text-14">
-            {{ service.text | length > 120 ? service.text | excerpt(30) ~ '...' : service.text }}
-          </div>
+        {% if service.short_text %}
+          <p class="text text-14">
+            {{ service.short_text }}
+          </p>
         {% endif %}
       </div>
 

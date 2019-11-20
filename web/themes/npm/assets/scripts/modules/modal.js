@@ -175,7 +175,7 @@ export default class Modal {
   getVideo = () => {
     const video = this.el.querySelector('iframe')
 
-    return video && (video.src.includes('youtube') || this.video.src.includes('vimeo')) ? video : null
+    return video && (video.src.includes('youtube') || video.src.includes('vimeo')) ? video : null
   }
 
   playVideo = () => {

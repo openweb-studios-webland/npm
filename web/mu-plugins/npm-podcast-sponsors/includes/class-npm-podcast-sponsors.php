@@ -28,7 +28,7 @@ class NpmPodcastSponsors
     {
         $this->queryParams = join('&', $this->params);
         $this->remoteSheetUrl = API_URL . '/' . REMOTE_SHEET_ID . '/values/' . RANGE . '?' . $this->queryParams;
-        $this->localSheetPath = plugin_dir_path(__DIR__) . 'public/prodcast-sponsors.json';
+        $this->localSheetPath = WP_CONTENT_DIR . '/wp-content/uploads/podcast-sponsors.json';
         $this->localSheetAge = filemtime($this->localSheetPath);
         $this->isOlderThanThreshold = time() - $this->localSheetAge >= MAX_SHEET_AGE;
         $this->forceRefresh = isset($_GET['refreshFeed']) && $_GET['refreshFeed'] == true && is_user_logged_in();

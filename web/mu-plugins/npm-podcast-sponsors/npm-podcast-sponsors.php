@@ -32,13 +32,13 @@ function npm_podcast_sponsors_create_post_type_labels($post_type_name = 'Posts',
 // Register Podcast Sponsor post type
 function npm_podcast_sponsors_register_post_types()
 {
-    register_post_type('podcast-sponsor',
+    register_post_type('podcast',
         array(
-            'labels' => npm_podcast_sponsors_create_post_type_labels('Podcast Sponsors', 'Podcast Sponsor'),
+            'labels' => npm_podcast_sponsors_create_post_type_labels('Podcasts', 'Podcast'),
             'has_archive' => false,
-            'menu_icon' => 'dashicons-tag',
-            'public' => false,
-            'show_ui' => true,
+            'menu_icon' => 'dashicons-format-audio',
+			'public' => true,
+			'rewrite' => array('slug' => 'podcast-sponsors'),
         )
     );
 }

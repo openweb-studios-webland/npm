@@ -15,7 +15,7 @@ export default class PodcastSponsors {
     this.params = {
       podcasts: 'podcasts',
       hasOffer: 'has-offer',
-      keywords: 'keywords'
+      keywords: 'keywords',
     }
     this.page = 1
     this.itemsPerPage = 15
@@ -88,7 +88,7 @@ export default class PodcastSponsors {
   }
 
   filterItems = () => {
-    this.showLoading(true)
+    this.toggleLoading(true)
 
     // Build queryable selectors
     let querySelectors = []
@@ -112,7 +112,7 @@ export default class PodcastSponsors {
 
     querySelectors.length > 0 ? this.filterItemsBySelectors(querySelectors) : this.filterItemsByLength()
 
-    this.showLoading()
+    this.toggleLoading()
   }
 
   filterItemsByLength = () => {
@@ -203,6 +203,15 @@ export default class PodcastSponsors {
   }
 
   getSearchParams = () => {
+    const pathname = location.pathname
+      .split('/')
+      .slice(2, 3)
+      .toString()
+
+    if (pathname !== '') {
+      this.filters[this.params.podcasts] = pathname.replace(/-/g, ' ')
+    }
+
     let params = location.search
 
     if (params !== '') {
@@ -219,18 +228,29 @@ export default class PodcastSponsors {
   }
 
   setSearchParams = () => {
-    let url = location.protocol + '//' + location.host + location.pathname
+    const pathname = location.pathname
+      .split('/')
+      .slice(0, 2)
+      .join('/')
+    let url = `${location.protocol}//${location.host}${pathname}/`
     const filters = Object.entries(this.filters)
 
     // If filters are selected
     if (typeof this.filters === 'object' && filters.length > 0) {
+      let params = ''
       let hasParams = false
 
       for (const [key, value] of filters) {
-        const separator = hasParams ? '&' : '?'
-        hasParams = true
-        url += `${separator}${key}=${slugify(value)}`
+        if (key === 'podcasts') {
+          url += `${slugify(value)}/`
+        } else {
+          const separator = hasParams ? '&' : '?'
+          params += `${separator}${key}=${slugify(value)}`
+          hasParams = true
+        }
       }
+
+      url += params
     }
 
     // Push to brwoser history
@@ -238,7 +258,9 @@ export default class PodcastSponsors {
   }
 
   toggleLoadMore = (loadMore = false) => {
-    loadMore ? this.loadMoreTrigger.classList.remove('hidden') : this.loadMoreTrigger.classList.add('hidden')
+    loadMore
+      ? this.loadMoreTrigger.parentNode.classList.add('hidden')
+      : this.loadMoreTrigger.parentNode.classList.remove('hidden')
   }
 
   toggleAlert = (alert = false) => {
@@ -250,7 +272,7 @@ export default class PodcastSponsors {
     }
   }
 
-  showLoading = (loading = false) => {
+  toggleLoading = (loading = false) => {
     loading ? this.loading.classList.remove('hidden') : this.loading.classList.add('hidden')
   }
 }

@@ -1,6 +1,6 @@
 {% set uid = random() %}
 
-<div class="bg-white h-full relative z-20">
+<div class="bg-white h-full relative z-10">
   <button
     class="block flex flex-col h-full text-left"
     data-module="toggle"
@@ -65,7 +65,7 @@
         Available on
       </div>
 
-      <p class="font-bold mb-20 text-14">
+      <p class="text font-bold mb-20 text-14">
         {% for platform in Term(service.platforms)  %}
           {{ loop.last ? platform.name : platform.name ~ ', ' }}
         {% endfor %}
@@ -77,7 +77,7 @@
         Related Products
       </div>
 
-      <p class="font-bold mb-20 text-14">
+      <p class="text font-bold mb-20 text-14">
         {% for product in Post(service.products) %}
             {{ loop.last ? '<a class="text-blue-denim" href="' ~ product.link ~ '">' ~ product.title ~ '</a>' : '<a class="text-blue-denim" href="' ~ product.link ~ '">' ~ product.title ~ '</a>, ' }}
           </a>
@@ -90,7 +90,7 @@
         Related Work
       </div>
 
-      <p class="font-bold mb-20 text-14">
+      <p class="text font-bold mb-20 text-14">
         {% for work in Post(service.work) %}
           {{ loop.last ? '<a class="text-blue-denim" href="' ~ work.link ~ '">' ~ work.title ~ '</a>' : '<a class="text-blue-denim" href="' ~ work.link ~ '">' ~ work.title ~ '</a>, ' }}
         {% endfor %}

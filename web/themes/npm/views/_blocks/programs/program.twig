@@ -1,6 +1,6 @@
 {% set uid = random() %}
 
-<div class="bg-white h-full relative z-20">
+<div class="bg-white h-full relative z-10">
   <button
     class="block flex flex-col h-full text-left"
     data-module="toggle"
@@ -18,7 +18,7 @@
     <div class="flex flex-col flex-grow p-20">
       <div class="flex-grow">
         {% if program.heading %}
-          <h3 class="heading-4 mb-0">
+          <h3 class="heading-4 font-normal mb-0">
             {{ program.heading }}
           </h3>
         {% endif %}
@@ -37,68 +37,67 @@
 
   <div
     id="{{ uid }}{{ loop.index }}"
-    class="absolute bg-white inset-x-0 min-h-full px-30 py-40 shadow-sm top-0"
+    class="absolute bg-white inset-x-0 min-h-full shadow-sm top-0"
     aria-hidden="true"
   >
-    <div class="mb-5 text-11 text-gray-dark">
-      {{ program.subheading | length ? program.subheading : 'NPR Podcast' }}
+    <div class="absolute flex flex-col inset-0 px-30 py-40">
+      <div class="flex-1">
+        <div class="mb-5 text-11 text-gray-dark">
+          {{ program.subheading | length ? program.subheading : 'NPR Podcast' }}
+        </div>
+
+        <h3 class="heading-4 mb-20">
+          {{ program.title }}
+        </h3>
+
+        {% if program.host %}
+          <div class="mb-5 text-11 text-gray-dark">
+            Hosted by
+          </div>
+
+          <p class="text text-14 mb-20">
+            {{ program.host }}
+          </p>
+        {% endif %}
+
+        {% if program.text %}
+          <div class="mb-5 text-11 text-gray-dark">
+            Description
+          </div>
+
+          <div class="text mb-20 text-14">
+            {{ program.text }}
+          </div>
+        {% endif %}
+
+        {% set topics = Post(program).get_terms('topic') %}
+
+        {% if topics | length %}
+          <div class="mb-5 text-11 text-gray-dark">
+            Topics
+          </div>
+
+          <p class="text mb-20 text-14">
+            {{ topics | join(', ') }}
+          </p>
+        {% endif %}
+      </div>
+
+      {% if program.button_link and program.button_text %}
+        <div>
+          <a
+            class="arrow w-full"
+            href="{{ program.button_link }}"
+            data-track-gtm="Call to Action|{{ current_url }}|{{ program.button_text }}:{{ program.button_link }}"
+          >
+            {{ program.button_text }}
+            {{ svg('arrow-right') }}
+          </a>
+        </div>
+      {% endif %}
     </div>
 
-    <h3 class="heading-4 mb-20">
-      {{ program.title }}
-    </h3>
-
-    {% if program.host %}
-      <div class="mb-5 text-11 text-gray-dark">
-        Hosted by
-      </div>
-
-      <p class="text font-bold mb-20">
-        {{ program.host }}
-      </p>
-    {% endif %}
-
-    {% if program.text %}
-      <div class="text mb-20 text-14">
-        {{ program.text }}
-      </div>
-    {% endif %}
-
-    {% if program.platforms | length %}
-      <div class="mb-5 text-11 text-gray-dark">
-        Available on
-      </div>
-
-      <p class="font-bold mb-20 text-14">
-        {% for platform in Term(program.platforms) %}
-          {{ loop.last ? platform.name : platform.name ~ ', ' }}
-        {% endfor %}
-      </p>
-    {% endif %}
-
-    {% set topics = Post(program).get_terms('topic') %}
-
-    {% if topics | length %}
-      <div class="mb-5 text-11 text-gray-dark">
-        Topics
-      </div>
-
-      <p class="mb-20 text-14">
-        {{ topics | join(', ') }}
-      </p>
-    {% endif %}
-
-    {% if program.button_link and program.button_text %}
-      <a
-        class="button w-full"
-        href="{{ program.button_link }}"
-        data-track-gtm="Call to Action|{{ current_url }}|{{ program.button_text }}:{{ program.button_link }}"
-      >
-        {{ program.button_text }}
-      </a>
-    {% endif %}
-
-     <button
+    <button
       class="absolute h-44 mr-5 mt-5 right-0 top-0 w-44"
       data-toggle-partner="{{ uid }}{{ loop.index }}0"
       aria-controls="{{ uid }}{{ loop.index }}"

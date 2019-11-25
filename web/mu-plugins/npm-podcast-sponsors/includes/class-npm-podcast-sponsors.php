@@ -49,7 +49,7 @@ class NpmPodcastSponsors
         if (isset($_GET['refreshFeed']) && $_GET['refreshFeed'] == true && !is_user_logged_in()) {
             error_log('You must be logged in to perform that action.');
             die('You must be logged in to perform that action.');
-        }
+		}
 
         return $this->rows;
     }

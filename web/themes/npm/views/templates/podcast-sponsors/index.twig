@@ -34,7 +34,7 @@
             >
           </label>
 
-          {% if podcast_sponsors | length %}
+          {% if podcasts | length %}
             <label class="block mb-30">
               <span class="sr-only">
                 Filter by podcast
@@ -45,12 +45,12 @@
                   Filter by podcast
                 </option>
 
-                {% for podcast_sponsor in podcast_sponsors %}
+                {% for podcast in podcasts %}
                   <option
-                    value="{{ podcast_sponsor.slug | replace({ '-': ' ', '_': ' ' }) }}"
-                    {{ query_vars.podcasts == podcast_sponsor.slug ? 'selected' }}
+                    value="{{ podcast.slug | replace({ '-': ' ', '_': ' ' }) }}"
+                    {{ query_vars.podcasts == podcast.slug ? 'selected' }}
                   >
-                    {{ podcast_sponsor.title }}
+                    {{ podcast.title }}
                   </option>
                 {% endfor %}
               </select>

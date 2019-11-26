@@ -1,3 +1,5 @@
+{%- import '_macros/image.twig' as macros -%}
+
 {% set block = block ?? null %}
 
 {% if block %}
@@ -34,16 +36,46 @@
           </div>
         </div>
 
-        <div class="px-30 w-full lg:w-5/12">
-          {% set image = TimberImage(block.image) %}
+{#
+        {% set small = maxWidth > 400 ? 400 : maxWidth %}
+{% set medium = maxWidth > 480 ? 480 : maxWidth %}
+{% set large = maxWidth > 640 ? 640 : maxWidth %}
+<div class=“text-center mb-8 md:text-left md:max-w-1/2 md:float-{{ imageAlign }} {{ imageAlign == ‘left’ ? ‘md:mr-12 lg:mr-16’ : ‘md:ml-12 lg:ml-16’ }}”>
+<div class=“relative inline-block”>
+  <div class=“absolute z-1 inset-0 border border-navy shift-bottom-{{ imageAlign == ‘left’ ? ‘right’ : ‘left’ }}”>
+</div>
+<img
+src=“{{ image.src | resize(small) }}”
+srcset=“{{ image.src | resize(small) }} {{ small }}w,
+{{ image.src | resize(medium) }} {{ medium }}w,
+{{ image.src | resize(large) }} {{ large }}w”
+sizes=“(max-width: 767px) 50vw, 100vw”
+alt=“{{ image.alt }}”
+class=“relative z-10”
+width=“{{ large }}”
+>
+</div> #}
+{# </div> #}
 
-          {% if image.src %}
-            <img
-              class="pin-r"
-              src="{{ image.src | resize(1080, 1080, 'center') }}"
-              alt="{{ image.alt }}"
-            />
-          {% endif %}
+
+
+        {% macro srcset(image, dimensions = [1080, 0]) %}
+          {% set width = dimensions[0] %}
+          {% set height = dimensions[1] %}
+
+          {% set small = [dimensions[0] * 0.4, dimensions[1] * 0.4]  %}
+          {% set medium = [dimensions[0] * 0.6, dimensions[1] * 0.6]  %}
+          {% set large = [dimensions[0] * 0.8, dimensions[1] * 0.8]  %}
+          {% set xlarge = [dimensions[0], dimensions[1]] %}
+
+
+        {{ small | join(', ') }}
+          {{ image.src | resize(200, null, 'center') }} {{ small[0] }}w,
+          {{ image.src | resize(xlarge | join(', '), 'center') }} {{ xlarge[0] }}w
+        {% endmacro %}
+
+        <div class="px-30 w-full lg:w-5/12">
+          {{ macros.responsive(block.image.id, 1080, 1080, 'pin-r') }}
         </div>
       </div>
     </div>

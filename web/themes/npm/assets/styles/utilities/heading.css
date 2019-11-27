@@ -14,14 +14,6 @@
 .heading-8 {
   @apply font-bold
     mb-20;
-
-  @screen md {
-    @apply mb-25;
-  }
-
-  @screen md {
-    @apply mb-30;
-  }
 }
 
 .heading-1 {
@@ -73,7 +65,8 @@
 
 .heading-6,
 .text h5 {
-  @apply text-12
+  @apply mb-25
+    text-12
     tracking-wide
     uppercase;
 }

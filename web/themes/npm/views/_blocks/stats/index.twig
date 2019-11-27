@@ -1,16 +1,18 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  {% set image = TimberImage(block.background_image) %}
-
   <section
-    class="{{ block.color_select != 'white' and block.color_select != 'gray' ? 'text-white ' }}bg-{{ block.color_select }} stats section bg-no-repeat bg-right"
-    {{ block.type == '2_column_image' ? 'style="background-image: url(' ~ image | resize(1080, 1080) ~ ');' }}
+    class="{{ block.color_select != 'white' and block.color_select != 'gray' ? 'text-white ' }}bg-{{ block.color_select }} section bg-no-repeat bg-right"
+    {{ block.type == '2_column_image' ? 'data-module="responsive-background-image"' }}
     data-label="stats"
   >
+    {% if block.type == '2_column_image' and block.background_image.id %}
+      {{ macros.responsiveImage(block.background_image.id, 1080) }}
+    {% endif %}
+
     <div class="container">
       {% if block.type == '2_column' or block.type == '2_column_image' %}
-        <div class="flex flex-wrap -mb-30 -mx-30">
+        <div class="flex flex-wrap -mx-30">
           {% if block.type == '2_column' %}
             <div class="mb-30 px-30 w-full lg:w-1/3">
               {% if block.heading %}
@@ -38,7 +40,7 @@
             </div>
           {% endif %}
 
-          <div class="mb-30 px-30 w-full lg:w-2/3">
+          <div class="mt-30 px-30 w-full lg:mt-0 lg:w-2/3">
             {% if block.type == '2_column_image' and block.heading %}
               <h2 class="heading-3">
                 {{ block.heading }}
@@ -56,7 +58,7 @@
             {% endif %}
 
             {% if block.attribution %}
-              <p class="text italic mt-30 opacity-75 text-11 md:mt-25">
+              <p class="text italic mt-25 opacity-75 text-11">
                 {{ block.attribution }}
               </p>
             {% endif %}
@@ -80,7 +82,7 @@
         {% endif %}
 
         {% if block.attribution %}
-          <p class="text italic mt-30 opacity-75 text-11 md:mt-25">
+          <p class="text italic mt-25 opacity-75">
             {{ block.attribution }}
           </p>
         {% endif %}

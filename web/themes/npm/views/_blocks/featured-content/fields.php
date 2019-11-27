@@ -6,6 +6,34 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
         'key' => 'group_5d94d3b8c912e',
         'title' => 'Featured Content',
         'fields' => array(
+			array(
+				'key' => 'field_01j7mkn6rmhs6',
+				'label' => 'Color Select',
+				'name' => 'color_select',
+				'type' => 'select',
+				'instructions' => '',
+				'required' => 1,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'choices' => array(
+					'white' => 'White',
+					'gray' => 'Gray',
+					'gradient' => 'Gradient',
+				),
+				'default_value' => array(
+					0 => 'gray',
+				),
+				'allow_null' => 0,
+				'multiple' => 0,
+				'ui' => 0,
+				'return_format' => 'value',
+				'ajax' => 0,
+				'placeholder' => '',
+			),
             array(
                 'key' => 'field_5d94f185cd204',
                 'label' => 'Heading',
@@ -68,7 +96,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                         'label' => 'Image',
                         'name' => 'image',
                         'type' => 'image',
-                        'instructions' => 'Recommended dimensions are 1080 x 607.',
+                        'instructions' => 'Recommended dimensions are 1080 x 328.',
                         'required' => 1,
                         'conditional_logic' => 0,
                         'wrapper' => array(
@@ -80,7 +108,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                         'preview_size' => 'thumbnail',
                         'library' => 'all',
                         'min_width' => 1080,
-                        'min_height' => 607,
+                        'min_height' => 328,
                         'min_size' => '',
                         'max_width' => '',
                         'max_height' => '',

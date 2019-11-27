@@ -1,11 +1,10 @@
 <div class="flex flex-wrap h-full -mx-30 lg:flex-no-wrap lg:flex-row-reverse">
-  {% set image = TimberImage(testimonial.image) %}
-
-  {% if image.src %}
+  {% if testimonial.image.id %}
     <div class="px-30 w-full lg:w-1/2">
       <div class="relative h-full">
         <div class="absolute inset-0">
-          <div class="pin-r bg-center bg-cover lg:h-full" style="background-image: url('{{ image.src | resize(1080, 1080, 'center') }}');">
+          <div class="pin-r bg-center bg-cover lg:h-full" data-module="responsive-background-image">
+            {{ macros.responsiveImage(testimonial.image.id, 1080, 1080) }}
           </div>
         </div>
       </div>
@@ -13,21 +12,21 @@
   {% endif %}
 
   <div class="flex flex-col justify-center px-30 w-full lg:w-1/2">
-    <div class="mt-50 text-center text-white lg:mt-0 lg:pb-150 lg:pt-100 lg:text-left">
+    <div class="pt-50 text-center text-white lg:pb-130 lg:text-left">
       {% if testimonial.heading %}
-        <h2 class="heading-3">
+        <h2 class="heading-3 text-30">
           {{ testimonial.heading }}
         </h2>
       {% endif %}
 
       {% if testimonial.text %}
-        <div class="text leading-tight font-serif italic text-18 md:text-20 lg:leading-normal lg:text-24">
+        <div class="text leading-tight font-serif italic text-18 lg:leading-normal lg:text-20">
           {{ testimonial.text }}
         </div>
       {% endif %}
 
       {% if testimonial.attribution %}
-        <p class="text italic mt-20 text-14 md:mt-25 lg:mt-30">
+        <p class="text italic mt-25 text-14">
           {{ testimonial.attribution }}
         </p>
       {% endif %}

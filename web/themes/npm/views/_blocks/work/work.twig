@@ -55,10 +55,8 @@
     </a>
   </div>
 {% else %}
-  {% set image = TimberImage(work.image) %}
-
-  {% if image.src %}
-    <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
+  {% if work.image %}
+    {{ macros.responsiveImage(work.image, 720, 405) }}
   {% endif %}
 
   <div class="mt-20">

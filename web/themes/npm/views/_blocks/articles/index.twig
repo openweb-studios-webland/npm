@@ -5,7 +5,7 @@
   <section class="section" data-label="articles">
     {% if block.heading %}
       <div class="container-sm text-center">
-        <h2 class="{{ block.type == 'large' ? 'heading-6 ' : 'heading-4 ' }}mb-50">
+        <h2 class="{{ block.type == 'large' ? 'heading-6 ' : 'heading-4 ' }} mb-40">
           {{ block.heading }}
         </h2>
       </div>
@@ -14,13 +14,11 @@
     {% if articles | length %}
       <div class="container">
         {% if block.type == 'large' %}
-          <div class="-mb-50">
-            {% for article in articles %}
-              <div class="{{ not loop.last ? 'border-b border-gray-border pb-50 ' }}mb-50">
-                {% include '_blocks/articles/article-large.twig' ignore missing %}
-              </div>
-            {% endfor %}
-          </div>
+          {% for article in articles %}
+            <div{{ not loop.first ? ' class="border-t border-gray-border pt-50 mt-50"' }}>
+              {% include '_blocks/articles/article-large.twig' ignore missing %}
+            </div>
+          {% endfor %}
         {% else %}
           <div class="flex flex-wrap -mb-30 -mx-10 lg:-mx-30">
             {% for article in articles %}

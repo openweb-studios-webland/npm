@@ -8,11 +8,9 @@
   </div>
 
   <div class="flex mt-20 -mx-5">
-    {% set image = TimberImage(work.program.image) %}
-
-    {% if image.src %}
+    {% if work.program.image %}
       <div class="flex-shrink-0 px-5 w-1/4">
-        <img src="{{ image.src | resize(150, 150, 'center') }}" alt="{{ image.alt }}" />
+        {{ macros.responsiveImage(work.program.image, 150, 150) }}
       </div>
     {% endif %}
 
@@ -26,10 +24,8 @@
   </div>
 {% elseif work.type == 'video' %}
   <button class="block relative" aria-controls="{{ uid }}">
-    {% set image = TimberImage(work.image) %}
-
-    {% if image.src %}
-      <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
+    {% if work.image.id %}
+      {{ macros.responsiveImage(work.image.id, 720, 405) }}
 
       <span class="absolute inset-1/2 h-80 translate-1/2 w-80">
         <span class="sr-only">
@@ -53,11 +49,9 @@
     uid: uid,
   } only %}
 {% else %}
-  {% set image = TimberImage(work.image) %}
-
-  {% if image.src %}
+  {% if work.image.id %}
     <button class="block" aria-controls="{{ uid }}">
-      <img src="{{ image.src | resize(540, 301, 'center') }}" alt="{{ image.alt }}" />
+      {{ macros.responsiveImage(work.image.id, 720, 405) }}
     </button>
   {% endif %}
 

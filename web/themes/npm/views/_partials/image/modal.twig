@@ -1,3 +1,5 @@
+{%- import '_macros/index.twig' as macros -%}
+
 {% set images = images ?? [] %}
 {% set uid = uid ?? null %}
 
@@ -13,10 +15,8 @@
       <div class="carousel-track flex items-center relative -mx-10" data-carousel-track>
         {% for image in images %}
           <div class="flex-0 px-10 w-full">
-            {% set image = TimberImage(image) %}
-
-            {% if image.src %}
-              <img src="{{ image.src | resize(1920, null, 'center') }}" alt="{{ image.alt }}" />
+            {% if image.id %}
+              {{ macros.responsiveImage(image.id, 1920) }}
             {% endif %}
 
             {% if image.caption %}

@@ -1,8 +1,8 @@
-.audio-play-pause svg:last-of-type {
+[data-audio-play-pause] svg:last-of-type {
   @apply hidden;
 }
 
-.playing .audio-play-pause svg {
+.playing [data-audio-play-pause] svg {
   &:first-of-type {
     @apply hidden;
   }

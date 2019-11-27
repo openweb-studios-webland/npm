@@ -1,5 +1,4 @@
 import aria from '../utilities/aria'
-import activeMedia from '../utilities/active-media'
 
 export default class Modal {
   constructor(el) {
@@ -180,11 +179,9 @@ export default class Modal {
 
   playVideo = () => {
     this.video.src += this.video.src.includes('?') ? '&autoplay=1' : '?autoplay=1'
-    activeMedia.toggle()
   }
 
   stopVideo = () => {
     this.video.src = this.video.src.replace('autoplay=1', 'autoplay=0')
-    activeMedia.toggle()
   }
 }

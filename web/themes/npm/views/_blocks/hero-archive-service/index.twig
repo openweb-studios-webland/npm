@@ -1,13 +1,15 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  {% set image = TimberImage(block.background_image) %}
-
   <section
-    class="section bg-center bg-cover pb-75 relative text-white md:pb-100"
-    style="background-image: url('{{ image.src | resize(1920, 700, 'center') }}');"
+    class="section relative text-white"
+    data-module="responsive-background-image"
     data-label="hero-services"
   >
+    {% if block.background_image.id %}
+      {{ macros.responsiveImage(block.background_image.id, 1920, 700) }}
+    {% endif %}
+
     <div class="absolute bg-black inset-0 opacity-90"></div>
 
     <div class="container">

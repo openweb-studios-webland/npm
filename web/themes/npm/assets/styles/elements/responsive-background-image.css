@@ -1,0 +1,8 @@
+[data-module="responsive-background-image"] {
+  @apply bg-cover
+    bg-center;
+
+  & > img {
+    @apply hidden;
+  }
+}

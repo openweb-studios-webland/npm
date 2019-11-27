@@ -1,6 +1,7 @@
 .pin-l,
 .pin-r {
   @apply max-w-screen
+    -mx-20
     w-auto;
 
   @screen lg {
@@ -13,11 +14,9 @@
 }
 
 .pin-l {
-  @apply float-left
-    -mx-20;
-
   @screen lg {
-    @apply -ml-20;
+    @apply  float-left
+      -ml-20;
   }
 
   @media (min-width: 1200px) {
@@ -26,11 +25,9 @@
 }
 
 .pin-r {
-  @apply float-right
-    -mx-20;
-
   @screen lg {
-    @apply -mr-20;
+    @apply float-right
+      -mr-20;
   }
 
   @media (min-width: 1200px) {

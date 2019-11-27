@@ -27,8 +27,8 @@
               <div class="mb-50 px-30 w-full lg:w-1/2">
                 {% set image = TimberImage(image) %}
 
-                {% if image.src %}
-                  <img src="{{ image.src | resize(1080, 960, 'center') }}" alt="{{ image.alt }}" />
+                {% if image.id %}
+                  {{ macros.responsiveImage(image.id, 1080, 960) }}
                 {% endif %}
               </div>
             {% endfor %}

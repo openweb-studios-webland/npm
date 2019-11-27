@@ -1,10 +1,10 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section pb-0 relative lg:pt-0" data-label="hero">
+  <section class="pt-30 relative lg:pt-0" data-label="hero-single-sponsorship">
     <div class="container">
       <div class="flex flex-wrap items-center -mx-30">
-        <div class="mb-50 px-30 w-full lg:py-50 lg:w-7/12">
+        <div class="px-30 w-full lg:py-50 lg:w-7/12">
           {% if block.subheading %}
             <div class="heading-8 mb-20">
               {{ block.subheading }}
@@ -34,15 +34,11 @@
           {% endif %}
         </div>
 
-        {% set image = TimberImage(block.image) %}
-
-        {% if image.src %}
-          <div class="px-30 w-full lg:-mb-50 lg:w-5/12">
-            <img
-              class="pin-r"
-              src="{{ image.src | resize(1080, 908, 'center') }}"
-              alt="{{ image.alt }}"
-            />
+        {% if block.image.id %}
+          <div class="px-30 w-full lg:-mb-25 lg:w-5/12">
+            <div class="aspect-ratio-16/9 pin-r lg:h-full lg:pb-0" data-module="responsive-background-image">
+              {{ macros.responsiveImage(block.image.id, 1080, 1080) }}
+            </div>
           </div>
         {% endif %}
       </div>

@@ -1,12 +1,12 @@
 {# Join classes #}
-{% macro classes(classes) %}
+{% macro joinClasses(classes) %}
   {%- if (classes | length) -%}
     class="{{ classes | join(' ') }}"
   {%- endif -%}
 {% endmacro %}
 
 {# Create a variable width responsive image #}
-{% macro responsive(imageId, imageWidth, imageHeight = null, classes = []) %}
+{% macro responsiveImage(imageId, imageWidth, imageHeight = null, classes = []) %}
     {# Get the asset meta data from WP #}
     {% set imageArray = function('wp_get_attachment_image_src', imageId, 'full') %}
     {% set imageSrc = imageArray[0] %}
@@ -44,6 +44,6 @@
       srcset="{{ imageSrcset | join(', ') }}"
       sizes="100vw"
       alt="{{ imageAlt }}"
-      {{ _self.classes(classes) }}
+      {{ _self.joinClasses(classes) }}
     />
 {% endmacro %}

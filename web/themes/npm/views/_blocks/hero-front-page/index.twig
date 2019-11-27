@@ -3,8 +3,8 @@
 {% if block %}
   <section class="section bg-blue pb-0 text-white lg:pb-150" data-label="hero-front-page">
     <div class="container">
-      <div class="flex flex-wrap items-center -mb-50 -mx-30">
-        <div class="mb-50 px-30 relative w-full z-10 lg:w-1/2">
+      <div class="flex flex-wrap items-center -mx-30">
+        <div class="px-30 relative w-full z-10 lg:w-1/2">
           {% if block.heading %}
             <h1 class="heading-1">
               {{ block.heading }}
@@ -29,7 +29,7 @@
         </div>
 
         {% if block.images | length %}
-          <div class="mb-50 px-30 w-full lg:w-1/2">
+          <div class="mt-40 px-30 w-full lg:mt-0 lg:w-1/2">
             <div class="pin-r lg:w-screen-7/12">
               {% if block.images | length > 1 %}
                 <div
@@ -40,20 +40,16 @@
                   <div class="carousel-track flex relative" data-carousel-track>
                     {% for image in block.images %}
                       <div class="carousel-item flex-0 w-full" data-carousel-item>
-                        {% set image = TimberImage(image) %}
-
-                        {% if image.src %}
-                          <img src="{{ image.src | resize(1440, 930, 'center') }}" alt="{{ image.alt }}" />
+                        {% if image.id %}
+                          {{ macros.responsiveImage(image.id, 1440, 930) }}
                         {% endif %}
                       </div>
                     {% endfor %}
                   </div>
                 </div>
               {% else %}
-                {% set image = TimberImage(block.images[0]) %}
-
-                {% if image.src %}
-                  <img src="{{ image.src | resize(1440, 930, 'center') }}" alt="{{ image.alt }}" />
+                {% if image.id %}
+                  {{ macros.responsiveImage(image.id, 1440, 930) }}
                 {% endif %}
               </div>
             {% endif %}

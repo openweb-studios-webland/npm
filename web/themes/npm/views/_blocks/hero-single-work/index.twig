@@ -1,82 +1,46 @@
-{%- import '_macros/image.twig' as macros -%}
+{%- import '_macros/index.twig' as macros -%}
 
 {% set block = block ?? null %}
 
 {% if block %}
-  <div class="bg-blue">
+  <div class="pt-30 bg-blue lg:pt-0">
     <div class="container">
-      <div class="flex flex-wrap items-center -mx-30">
-        <div class="px-30 w-full lg:w-7/12">
-          <div class="pt-50 text-white lg:py-50">
-            <div class="heading-6 mb-20">
-              Work
-            </div>
-
-            {% if block.heading %}
-              <h1 class="heading-3">
-                {{ block.heading }}
-              </h1>
-            {% endif %}
-
-            {% if block.text %}
-              <div class="text">
-                {{ block.text }}
-              </div>
-            {% endif %}
-
-            {% if block.button_link and block.button_text %}
-              <a
-                class="button mt-25 lg:mt-30"
-                href="{{ block.button_link }}"
-                data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{ block.button_link }}"
-              >
-                {{ block.button_text }}
-              </a>
-            {% endif %}
+      <div class="flex flex-wrap -mx-30">
+        <div class="px-30 text-white w-full lg:py-50 lg:w-7/12">
+          <div class="heading-6 mb-20">
+            Work
           </div>
+
+          {% if block.heading %}
+            <h1 class="heading-3">
+              {{ block.heading }}
+            </h1>
+          {% endif %}
+
+          {% if block.text %}
+            <div class="text">
+              {{ block.text }}
+            </div>
+          {% endif %}
+
+          {% if block.button_link and block.button_text %}
+            <a
+              class="button mt-25 lg:mt-30"
+              href="{{ block.button_link }}"
+              data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{ block.button_link }}"
+            >
+              {{ block.button_text }}
+            </a>
+          {% endif %}
         </div>
 
-{#
-        {% set small = maxWidth > 400 ? 400 : maxWidth %}
-{% set medium = maxWidth > 480 ? 480 : maxWidth %}
-{% set large = maxWidth > 640 ? 640 : maxWidth %}
-<div class=“text-center mb-8 md:text-left md:max-w-1/2 md:float-{{ imageAlign }} {{ imageAlign == ‘left’ ? ‘md:mr-12 lg:mr-16’ : ‘md:ml-12 lg:ml-16’ }}”>
-<div class=“relative inline-block”>
-  <div class=“absolute z-1 inset-0 border border-navy shift-bottom-{{ imageAlign == ‘left’ ? ‘right’ : ‘left’ }}”>
-</div>
-<img
-src=“{{ image.src | resize(small) }}”
-srcset=“{{ image.src | resize(small) }} {{ small }}w,
-{{ image.src | resize(medium) }} {{ medium }}w,
-{{ image.src | resize(large) }} {{ large }}w”
-sizes=“(max-width: 767px) 50vw, 100vw”
-alt=“{{ image.alt }}”
-class=“relative z-10”
-width=“{{ large }}”
->
-</div> #}
-{# </div> #}
-
-
-
-        {% macro srcset(image, dimensions = [1080, 0]) %}
-          {% set width = dimensions[0] %}
-          {% set height = dimensions[1] %}
-
-          {% set small = [dimensions[0] * 0.4, dimensions[1] * 0.4]  %}
-          {% set medium = [dimensions[0] * 0.6, dimensions[1] * 0.6]  %}
-          {% set large = [dimensions[0] * 0.8, dimensions[1] * 0.8]  %}
-          {% set xlarge = [dimensions[0], dimensions[1]] %}
-
-
-        {{ small | join(', ') }}
-          {{ image.src | resize(200, null, 'center') }} {{ small[0] }}w,
-          {{ image.src | resize(xlarge | join(', '), 'center') }} {{ xlarge[0] }}w
-        {% endmacro %}
-
-        <div class="px-30 w-full lg:w-5/12">
-          {{ macros.responsive(block.image.id, 1080, 1080, 'pin-r') }}
-        </div>
+        {% if block.image.id %}
+          <div class="mt-50 px-30 w-full lg:mt-0 lg:w-5/12">
+            <div class="aspect-ratio-16/9 pin-r lg:h-full lg:pb-0" data-module="responsive-background-image">
+              {{ macros.responsiveImage(block.image.id, 1080, 1080) }}
+            </div>
+          </div>
+        {% endif %}
       </div>
     </div>
   </div>

@@ -1,54 +1,54 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  {% set image = TimberImage(block.background_image) %}
+  <section
+    class="text-white relative"
+    data-module="responsive-background-image"
+    data-label="hero-single-services"
+  >
+    {% if block.background_image.id %}
+      {{ macros.responsiveImage(block.background_image.id, 1920, 700) }}
+    {% endif %}
 
-  <section class="text-white" data-label="hero-single-services">
-    <div class="bg-center bg-cover relative" style="background-image: url('{{ image.src | resize(1920, 700, 'center') }}');">
-      <div class="absolute bg-black inset-0 opacity-90"></div>
+    <div class="absolute bg-black inset-0 opacity-90"></div>
 
-      <div class="container">
-        <div class="flex flex-wrap items-center -mx-30 relative">
-          <div class="px-30 py-50 w-full lg:mb-50 lg:w-7/12">
-            <div class="heading-6 mb-20">
-              {{ post.title }}
-            </div>
-
-            {% if block.heading %}
-              <h1 class="heading-3">
-                {{ block.heading }}
-              </h1>
-            {% endif %}
-
-            {% if block.text %}
-              <div class="text text-16 lg:text-18">
-                {{ block.text }}
-              </div>
-            {% endif %}
-
-            {% if block.button_link and block.button_text %}
-              <a
-                class="button mt-25 lg:mt-30"
-                href="{{ block.button_link }}"
-                data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{ block.button_link }}"
-              >
-                {{ block.button_text }}
-              </a>
-            {% endif %}
+    <div class="container">
+      <div class="flex flex-wrap -mx-30 relative">
+        <div class="px-30 py-50 w-full lg:w-7/12">
+          <div class="heading-6 mb-20">
+            {{ post.title }}
           </div>
 
-          {% set image = TimberImage(block.image) %}
+          {% if block.heading %}
+            <h1 class="heading-3">
+              {{ block.heading }}
+            </h1>
+          {% endif %}
 
-          {% if image.src %}
-            <div class="hidden px-30 w-full lg:block lg:-mb-50 lg:w-5/12">
-              <img
-                class="pin-r"
-                src="{{ image.src | resize(1080, 908, 'center') }}"
-                alt="{{ image.alt }}"
-              />
+          {% if block.text %}
+            <div class="text text-16 lg:text-18">
+              {{ block.text }}
             </div>
           {% endif %}
+
+          {% if block.button_link and block.button_text %}
+            <a
+              class="button mt-25 lg:mt-30"
+              href="{{ block.button_link }}"
+              data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{ block.button_link }}"
+            >
+              {{ block.button_text }}
+            </a>
+          {% endif %}
         </div>
+
+        {% if block.image.id %}
+          <div class="px-30 w-full lg:-mb-25 lg:w-5/12">
+            <div class="aspect-ratio-16/9 pin-r lg:h-full lg:pb-0" data-module="responsive-background-image">
+              {{ macros.responsiveImage(block.image.id, 1080, 908) }}
+            </div>
+          </div>
+        {% endif %}
       </div>
     </div>
   </section>

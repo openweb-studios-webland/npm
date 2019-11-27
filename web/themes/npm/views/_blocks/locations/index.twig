@@ -3,18 +3,16 @@
 {% if block %}
   <section class="bg-gradient text-white" data-label="locations">
     <div class="container">
-      <div class="flex flex-wrap items-center -mx-30">
-        <div class="hidden px-30 w-full lg:block lg:-mt-50 lg:w-1/4">
-          {% set image = TimberImage(block.image) %}
-
-          {% if image.src %}
-            <div class="pin-l">
-              <img src="{{ image.src | resize(900, 1100, 'center') }}" alt="{{ image.alt }}" />
+      <div class="flex flex-wrap -mx-30">
+        {% if block.image.id %}
+          <div class="hidden px-30 w-full lg:block lg:-mt-25 lg:w-1/4">
+            <div class="pin-l h-full" data-module="responsive-background-image">
+              {{ macros.responsiveImage(block.image.id, 675, 1100) }}
             </div>
-          {% endif %}
-        </div>
+          </div>
+        {% endif %}
 
-        <div class="section px-30 w-full lg:py-50 lg:w-3/4">
+        <div class="section px-30 w-full lg:w-3/4">
           <h2 class="heading-6">
             Our Offices
           </h2>

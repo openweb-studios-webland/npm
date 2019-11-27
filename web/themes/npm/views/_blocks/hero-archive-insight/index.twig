@@ -3,12 +3,12 @@
 {% if block %}
   {% set article_report = Post(block.featured_article_report) %}
 
-  <section class="section relative{{ article_report.type != 'video' ? ' pb-0 lg:pb-100' }}" data-label="hero-archive-insight">
+  <section class="section relative{{ article_report.type != 'video' ? ' pb-0 lg:pb-50' }}" data-label="hero-archive-insight">
     {{ svg('pattern', { classes: 'absolute bottom-0 hidden h-auto inset-x-0 w-full lg:block' }) }}
 
     <div class="container">
-      <div class="flex flex-wrap items-center -mb-50 -mx-30 relative">
-        <div class="mb-50 px-30 w-full lg:w-1/2">
+      <div class="flex flex-wrap items-center -mx-30 relative">
+        <div class="px-30 w-full lg:w-1/2">
           <div class="heading-6 mb-20">
             {{ article_report.post_type | title }}
           </div>
@@ -35,7 +35,7 @@
           </a>
         </div>
 
-        <div class="mb-50 px-30 w-full lg:w-1/2">
+        <div class="mt-40 px-30 w-full lg:mt-0 lg:w-1/2">
           {% if article_report.type == 'video' %}
             {% set video = article_report.get_field('video') ?? null %}
 
@@ -44,14 +44,8 @@
               image: article_report.image,
             } only %}
           {% else %}
-            {% set image = TimberImage(article_report.featured_image) %}
-
-            {% if image.src %}
-              <img
-                class="pin-r"
-                src="{{ image.src | resize(1080, 810, 'center') }}"
-                alt="{{ image.alt }}"
-              />
+            {% if article_report.featured_image %}
+              {{ macros.responsiveImage(article_report.featured_image, 1080, 810, ['pin-r']) }}
             {% endif %}
           {% endif %}
         </div>

@@ -21,11 +21,10 @@
                   {% for program in category.programs %}
                     <div class="mb-20 px-10 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
                       {% set uid = random() %}
-                      {% set image = TimberImage(program.image) %}
 
-                      {% if image.src %}
+                      {% if program.image %}
                         <button aria-controls="{{ uid }}" >
-                          <img src="{{ image.src | resize(300, 300, 'center') }}" alt="{{ image.alt }}" />
+                          {{ macros.responsiveImage(program.image, 300, 300) }}
                         </button>
                       {% endif %}
 

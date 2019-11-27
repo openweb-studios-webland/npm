@@ -1,43 +1,37 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section bg-gradient clearfix pt-0" data-label="featured-content-platform">
-    <div class="float-left -mt-30 w-full lg:-mt-50">
+  <section class="section bg-gradient" data-label="featured-content-taxonomy-platform">
+    <div class="container-lg">
       {% if block.featured_content | length %}
-        <div class="container-lg">
-          <div class="flex flex-wrap justify-center -mb-20 -mx-10 md:mx-0">
-            {% for featured_content in block.featured_content %}
-              <div class="mb-20 w-full md:w-1/2 lg:w-1/3">
-                {% include '_blocks/featured-content/featured-content.twig' ignore missing %}
-              </div>
-            {% endfor %}
-          </div>
+        <div class="flex flex-wrap justify-center -mb-20 -mx-10 md:mx-0">
+          {% for featured_content in block.featured_content %}
+            <div class="mb-20 w-full md:w-1/2{{ block.featured_content | length > 2 ? ' lg:w-1/3' }}">
+              {% include '_blocks/featured-content/featured-content.twig' ignore missing %}
+            </div>
+          {% endfor %}
         </div>
       {% endif %}
 
       {% if block.secondary_featured_content | length %}
-        <div class="container-lg pt-50">
-          <div class="flex flex-wrap justify-center -mb-20 -mx-10 md:mx-0">
-            {% for featured_content in block.secondary_featured_content %}
-              <div class="mb-20 w-full md:w-1/2 lg:w-1/3">
-                {% include '_blocks/featured-content/featured-content.twig' ignore missing %}
-              </div>
-            {% endfor %}
-          </div>
+        <div class="flex flex-wrap justify-center -mb-20 mt-40 -mx-10 md:mx-0 lg:mt-50">
+          {% for featured_content in block.secondary_featured_content %}
+            <div class="mb-20 w-full md:w-1/2{{ block.secondary_featured_content | length > 2 ? ' lg:w-1/3' }}">
+              {% include '_blocks/featured-content/featured-content.twig' ignore missing %}
+            </div>
+          {% endfor %}
         </div>
       {% endif %}
 
       {% if block.button_link and block.button_text %}
-        <div class="container-sm text-center">
-          <span class="inline-block">
-            <a
-              class="button-outline-white mt-50"
-              href="{{ block.button_link }}"
-              data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{ block.button_link }}"
-            >
-              {{ block.button_text }}
-            </a>
-          </span>
+        <div class="mt-40 text-center lg:mt-50">
+          <a
+            class="button-outline-white inline-block"
+            href="{{ block.button_link }}"
+            data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{ block.button_link }}"
+          >
+            {{ block.button_text }}
+          </a>
         </div>
       {% endif %}
     </div>

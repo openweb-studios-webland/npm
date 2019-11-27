@@ -1,9 +1,7 @@
-{% set image = TimberImage(article.image) %}
-
 <div class="flex flex-wrap items-center -mb-30 -mx-30">
-  {% if image.src %}
+  {% if article.image %}
     <div class="mb-30 px-30 w-full lg:w-5/12">
-      <img src="{{ image.src | resize(720, 540, 'center') }}" alt="{{ image.alt }}" />
+      {{ macros.responsiveImage(article.image, 720, 540) }}
     </div>
   {% endif %}
 

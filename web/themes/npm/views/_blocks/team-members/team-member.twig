@@ -1,11 +1,7 @@
-{% set image = TimberImage(team_member.image) %}
-
-{% if image.src %}
-  <img
-    class="max-w-200 mb-30 mx-auto rounded-full"
-    src="{{ image.src | resize(720, 720, 'center') }}"
-    alt="{{ image.alt }}"
-  />
+{% if team_member.image.id %}
+  <div class="max-w-200 mb-30 mx-auto overflow-hidden rounded-full">
+    {{ macros.responsiveImage(team_member.image.id , 400, 400) }}
+  </div>
 {% endif %}
 
 {% if team_member.name %}

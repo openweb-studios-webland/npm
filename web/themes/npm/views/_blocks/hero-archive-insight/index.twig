@@ -27,7 +27,7 @@
           {% set button_text = article_report.button_text | length ? article_report.button_text : 'Read more' %}
 
           <a
-            class="button mt-25 lg:mt-30"
+            class="button mt-25"
             href="{{ button_link }}"
             data-track-gtm="Call to Action|{{ current_url }}|{{ button_text }}:{{ button_link }}"
           >

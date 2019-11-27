@@ -1,13 +1,11 @@
 <div class="bg-white flex flex-col h-full shadow-sm">
-  {% set image = TimberImage(featured_content.image) %}
-
-  {% if image.src %}
-    <div>
-      <img src="{{ image.src | resize(1080, 675, 'center') }}" alt="{{ image.alt }}" />
+  {% if featured_content.image.id %}
+    <div class="aspect-ratio-10/33" data-module="responsive-background-image">
+      {{ macros.responsiveImage(featured_content.image.id, 1080, 328) }}
     </div>
   {% endif %}
 
-  <div class="flex-grow my-20 px-20 lg:my-30 lg:px-30">
+  <div class="flex-grow my-20 px-20">
     {% if featured_content.heading %}
       <h3 class="heading-4">
         {{ featured_content.heading }}
@@ -22,7 +20,7 @@
   </div>
 
   {% if featured_content.button_link and featured_content.button_text %}
-    <div class="mb-20 px-20 lg:mb-30 lg:px-30">
+    <div class="mb-20 px-20">
       <a
         class="arrow"
         href="{{ featured_content.button_link }}"

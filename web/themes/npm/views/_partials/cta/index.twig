@@ -1,5 +1,7 @@
+{%- import '_macros/index.twig' as macros -%}
+
 {% set color_select = color_select ?? 'blue' %}
-{% set image = image ? TimberImage(image) : null %}
+{% set image = image ?? null %}
 {% set heading = heading ?? null %}
 {% set text = text ?? null %}
 {% set button_link = button_link ?? null %}
@@ -10,9 +12,11 @@
     <div class="lg:pt-50 lg:text-left">
       <div class="container">
         <div class="flex flex-wrap items-end -mx-30">
-          <div class="px-30 hidden w-full lg:block lg:w-5/12">
-            <img src="{{ image.src | resize(960, 960, 'center') }}" alt="{{ image.alt }}" />
-          </div>
+          {% if image %}
+            <div class="px-30 hidden w-full lg:block lg:w-5/12">
+              {{ macros.responsiveImage(block.image.id, 960, 960) }}
+            </div>
+          {% endif %}
 
           <div class="px-30 py-50 w-full lg:py-100 lg:w-7/12">
             {% include '_partials/cta/cta.twig' ignore missing %}

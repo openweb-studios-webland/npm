@@ -4,7 +4,7 @@
 {% if block %}
   <section class="section" data-label="videos">
     {% if block.heading or block.text %}
-      <div class="container-sm">
+      <div class="container-sm mb-40 lg:mb-50">
         {% if block.heading %}
           <h2 class="heading-4 text-center">
             {{ block.heading }}
@@ -21,7 +21,7 @@
 
     {% if block.videos | length %}
       {% if block.videos | length > 1 %}
-        <div class="container mt-50">
+        <div class="container">
           <div class="flex flex-wrap justify-center -mb-50 -mx-30">
             {% for video in block.videos %}
               <div class="mb-50 px-30 w-full lg:w-1/2">

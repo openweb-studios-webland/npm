@@ -1,11 +1,10 @@
 <div class="border border-gray-border">
-  {% set image = TimberImage(sample.image) %}
   {% set uid = random() %}
 
   {% if sample.type == 'audio' %}
-    {% if image.src %}
+    {% if sample.image.id %}
       <button class="block relative" aria-controls="{{ uid }}">
-        <img src="{{ image.src | resize(345, 219, 'center') }}" alt="{{ image.alt }}" />
+        {{ macros.responsiveImage(sample.image.id, 345, 219) }}
 
         <span class="absolute inset-1/2 h-80 translate-1/2 w-80">
           <span class="sr-only">
@@ -21,9 +20,9 @@
       uid: uid,
     } only %}
   {% elseif sample.type == 'video' %}
-    {% if image.src %}
+    {% if sample.image.id %}
       <button class="block relative" aria-controls="{{ uid }}" data-video-play>
-        <img src="{{ image.src | resize(345, 219, 'center') }}" alt="{{ image.alt }}" />
+        {{ macros.responsiveImage(sample.image.id, 345, 219) }}
 
         <span class="absolute inset-1/2 h-80 translate-1/2 w-80">
           <span class="sr-only">
@@ -39,8 +38,8 @@
       uid: uid,
     } only %}
   {% else %}
-    {% if image.src %}
-      <img src="{{ image.src | resize(345, 219, 'center') }}" alt="{{ image.alt }}" />
+    {% if sample.image %}
+      {{ macros.responsiveImage(sample.image.id, 345, 219) }}
     {% endif %}
   {% endif %}
 </div>

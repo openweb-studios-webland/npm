@@ -4,7 +4,7 @@
 {% if block %}
   <section class="section" data-label="images">
     {% if block.heading or block.text %}
-      <div class="container-sm">
+      <div class="container-sm mb-40 lg:mb-50">
         {% if block.heading %}
           <h2 class="heading-4 text-center">
             {{ block.heading }}
@@ -21,25 +21,21 @@
 
     {% if block.images | length %}
       {% if block.images | length > 1 %}
-        <div class="container mt-50">
+        <div class="container">
           <div class="flex flex-wrap justify-center -mb-50 -mx-30">
             {% for image in block.images %}
               <div class="mb-50 px-30 w-full lg:w-1/2">
-                {% set image = TimberImage(image) %}
-
                 {% if image.id %}
-                  {{ macros.responsiveImage(image.id, 1080, 960) }}
+                  {{ macros.responsiveImage(image.id, 1080) }}
                 {% endif %}
               </div>
             {% endfor %}
           </div>
         </div>
       {% else %}
-        <div class="container-md mt-50">
-          {% set image = TimberImage(block.images[0]) %}
-
-          {% if image.src %}
-            <img src="{{ image.src | resize(1080, 960, 'center') }}" alt="{{ image.alt }}" />
+        <div class="container-md">
+          {% if block.images[0].id %}
+            {{ macros.responsiveImage(block.images[0].id, 1080) }}
           {% endif %}
         </div>
       {% endif %}

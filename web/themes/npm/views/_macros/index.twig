@@ -14,29 +14,17 @@
     {% set imageMetaData = function('wp_get_attachment_metadata', imageId) %}
     {% set imageNativeWidth = imageMetaData.width %}
     {% set imageNativeHeight = imageMetaData.height %}
-    {% set imageAspectRatio = imageNativeHeight / imageNativeWidth %}
+    {% set imageAspectRatio =  imageHeight ? imageHeight / imageWidth : imageNativeHeight / imageNativeWidth %}
 
-    {% set srcsetWidths = [
-      imageWidth * 0.4,
-      imageWidth * 0.6,
-      imageWidth * 0.8,
-      imageWidth
-    ] %}
-
-    {% set imageHeight = imageHeight ?: imageWidth * imageAspectRatio %}
-
-    {% set srcsetHeights = [
-      imageHeight * 0.4,
-      imageHeight * 0.6,
-      imageHeight * 0.8,
-      imageHeight
-    ] %}
+    {% set srcsetWidths = [640, 1024, 1600] %}
 
     {# Create the srcset array #}
     {% set imageSrcset = [] %}
 
     {% for srcsetWidth in srcsetWidths %}
-      {% set imageSrcset = imageSrcset | merge([imageSrc | resize(srcsetWidth, srcsetHeights[loop.index0], 'center') ~ ' ' ~ srcsetWidth ~ 'w']) %}
+      {% if srcsetWidth <= imageWidth %}
+        {% set imageSrcset = imageSrcset | merge([imageSrc | resize(srcsetWidth, srcsetWidth * imageAspectRatio, 'center') ~ ' ' ~ srcsetWidth ~ 'w']) %}
+      {% endif %}
     {% endfor %}
 
     <img

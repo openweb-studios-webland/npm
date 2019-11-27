@@ -3,10 +3,10 @@
 {% if block %}
   {% set report = Post(block.featured_report) %}
 
-  <section class="section bg-blue pb-0 text-white lg:pb-100" data-label="featured-report">
+  <section class="section bg-blue text-white" data-label="featured-report">
     <div class="container">
-      <div class="flex flex-wrap items-center -mb-50 -mx-30 lg:flex-no-wrap lg:flex-row-reverse">
-        <div class="mb-50 px-30 w-full lg:w-1/2">
+      <div class="flex flex-wrap items-center -mx-30 lg:flex-no-wrap lg:flex-row-reverse">
+        <div class="px-30 w-full lg:w-1/2">
           <h2 class="heading-3">
             {{ report.title }}
           </h2>
@@ -21,7 +21,7 @@
           {% set button_text =  report.button_text | length ? report.button_text : 'Read more' %}
 
           <a
-            class="button-outline-white mt-25 lg:mt-30"
+            class="button-outline-white mt-25"
             href="{{ button_link }}"
             data-track-gtm="Call to Action|{{ current_url }}|{{ button_text }}:{{ button_link }}"
           >
@@ -29,7 +29,7 @@
           </a>
         </div>
 
-        <div class="mb-50 px-30 w-full lg:w-1/2">
+        <div class="mt-40 px-30 w-full lg:mt-0 lg:w-1/2">
           {% if report.type == 'video' %}
             {% set video = report.get_field('video') ?? null %}
 
@@ -38,14 +38,8 @@
               image: report.image,
             } only %}
           {% else %}
-            {% set image = TimberImage(report.featured_image) %}
-
-            {% if image.src %}
-              <img
-                class="lg:shadow"
-                src="{{ image.src | resize(1080, 810, 'center') }}"
-                alt="{{ image.alt }}"
-              />
+            {% if report.featured_image %}
+              {{ macros.responsiveImage(report.featured_image, 1080, 810, 'lg:shadow' ) }}
             {% endif %}
           {% endif %}
         </div>

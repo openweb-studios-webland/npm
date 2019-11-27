@@ -7,11 +7,9 @@
     data-toggle-partners="{{ uid }}{{ loop.index }}0"
     aria-controls="{{ uid }}{{ loop.index }}"
   >
-    {% set image = TimberImage(program.image) %}
-
-    {% if image.src %}
+    {% if program.image %}
       <div>
-        <img src="{{ image.src | resize(450, 450, 'center') }}" alt="{{ image.alt }}" />
+        {{ macros.responsiveImage(program.image , 450, 450) }}
       </div>
     {% endif %}
 

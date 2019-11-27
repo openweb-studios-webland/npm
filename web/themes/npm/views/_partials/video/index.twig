@@ -1,5 +1,7 @@
+{%- import '_macros/index.twig' as macros -%}
+
 {% set video = video ? fn('npm_get_oembed', video) : null %}
-{% set image = image ? TimberImage(image) : null %}
+{% set image = image is iterable ? image.id : image %}
 
 {% if video %}
   <div data-module="video" data-video-title="{{ video.title }}">

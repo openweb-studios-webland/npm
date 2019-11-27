@@ -1,5 +1,7 @@
+{%- import '_macros/index.twig' as macros -%}
+
 {% set audio = audio ?? null %}
-{% set image = image ? TimberImage(image) : null %}
+{% set image = image is iterable ? image.id : image %}
 {% set uid = random() %}
 
 <div
@@ -14,7 +16,7 @@
 
     <div class="flex items-center mt-10 -mx-5">
       <div class="px-5">
-        <button class="audio-play-pause inline-block bg-blue-denim h-24 relative rounded-full text-white w-24" data-audio-play-pause>
+        <button class="inline-block bg-blue-denim h-24 relative rounded-full text-white w-24" data-audio-play-pause>
           <span class="sr-only">
             Play Audio
           </span>
@@ -58,9 +60,10 @@
     </div>
   </div>
 
-  {% if image.src %}
+  {{ image }}
+  {% if image %}
     <div class="overlay absolute h-full inset-1/2 transition translate-1/2 w-full z-10" data-audio-play-pause>
-      <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
+      {{ macros.responsiveImage(image, 720, 405) }}
 
       <button class="absolute inset-1/2 h-80 translate-1/2 w-80">
         <span class="sr-only">

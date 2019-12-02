@@ -17,11 +17,11 @@
 }
 
 .heading-1 {
-  @apply leading-none
+  @apply leading-tighter
     text-42;
 
   @screen lg {
-    @apply text-88;
+    @apply text-48;
   }
 }
 
@@ -55,7 +55,8 @@
 
 .heading-4,
 .text h3 {
-  @apply text-24;
+  @apply font-normal
+    text-24;
 }
 
 .heading-5,

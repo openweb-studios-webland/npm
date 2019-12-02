@@ -23,7 +23,7 @@ select {
   @apply border-white
     px-15
     text-black;
-  background: theme(colors.white.default) url('../images/select.svg') right 15px center/ no-repeat;
+  background: theme(colors.white.default) url('../images/select.svg') right 15px center/12px auto no-repeat;
   appearance: none;
   border-radius: 4px;
 }

@@ -141,14 +141,10 @@
   & hr {
     @apply border-b
       border-gray-border
-      my-50;
-
-    @screen md {
-      @apply my-75;
-    }
+      my-30;
 
     @screen lg {
-      @apply my-100;
+      @apply my-50;
     }
   }
 }

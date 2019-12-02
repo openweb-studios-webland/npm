@@ -1,60 +1,19 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section bg-blue pb-0 text-white lg:pb-150" data-label="hero-front-page">
-    <div class="container">
-      <div class="flex flex-wrap items-center -mx-30">
-        <div class="px-30 relative w-full z-10 lg:w-1/2">
-          {% if block.heading %}
-            <h1 class="heading-1">
-              {{ block.heading }}
-            </h1>
-          {% endif %}
-
-          {% if block.text %}
-            <div class="text text-16 md:text-20 lg:text-24">
-              {{ block.text }}
-            </div>
-          {% endif %}
-
-          {% if block.button_link and block.button_text %}
-            <a
-              class="button mt-25"
-              href="{{ block.button_link }}"
-              data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{ block.button_link }}"
-            >
-              {{ block.button_text }}
-            </a>
-          {% endif %}
-        </div>
-
-        {% if block.images | length %}
-          <div class="mt-40 px-30 w-full lg:mt-0 lg:w-1/2">
-            <div class="pin-r lg:w-screen-7/12">
-              {% if block.images | length > 1 %}
-                <div
-                  class="overflow-x-hidden"
-                  data-module="carousel"
-                  data-carousel-autoplay="true"
-                >
-                  <div class="carousel-track flex relative" data-carousel-track>
-                    {% for image in block.images %}
-                      <div class="carousel-item flex-0 w-full" data-carousel-item>
-                        {% if image.id %}
-                          {{ macros.responsiveImage(image.id, 1440, 930) }}
-                        {% endif %}
-                      </div>
-                    {% endfor %}
-                  </div>
-                </div>
-              {% else %}
-                {% if image.id %}
-                  {{ macros.responsiveImage(image.id, 1440, 930) }}
-                {% endif %}
-              </div>
-            {% endif %}
+  <section class="bg-blue py-30 text-white" data-label="hero-front-page">
+    <div
+      class="overflow-hidden"
+      data-module="carousel"
+      data-carousel-autoplay="true"
+    >
+      <div class="carousel-track flex relative" data-carousel-track>
+        {% for item in block.items %}
+          <div class="carousel-item flex-0 w-full" data-carousel-item>
+            {% include '_blocks/hero-front-page/item.twig' ignore missing %}
           </div>
-        {% endif %}
+        {% endfor %}
       </div>
+    </div>
   </section>
 {% endif %}

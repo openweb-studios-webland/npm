@@ -1,5 +1,11 @@
-.carousel-track > [aria-hidden] {
+[data-carousel-track] > [aria-hidden] {
   @apply block;
+}
+
+[data-carousel-fade="true"] [data-carousel-track] > [aria-hidden] {
+  @apply opacity-0
+    pointer-events-none
+    invisible;
 }
 
 /*! purgecss start ignore */

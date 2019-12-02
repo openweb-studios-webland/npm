@@ -630,6 +630,28 @@
         ]
     },
     {
+        "name": "wpackagist-plugin/autoptimize",
+        "version": "2.5.1",
+        "version_normalized": "2.5.1.0",
+        "source": {
+            "type": "svn",
+            "url": "https://plugins.svn.wordpress.org/autoptimize/",
+            "reference": "tags/2.5.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://downloads.wordpress.org/plugin/autoptimize.2.5.1.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "https://wordpress.org/plugins/autoptimize/"
+    },
+    {
         "name": "wpackagist-plugin/duracelltomi-google-tag-manager",
         "version": "1.11.1",
         "version_normalized": "1.11.1.0",

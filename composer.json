@@ -37,7 +37,8 @@
     "johnpbloch/wordpress": "^5.2",
     "manuelodelain/svg-twig-extension": "^0.1.0",
     "wpackagist-plugin/intuitive-custom-post-order": "^3.1",
-    "wpackagist-plugin/redirection": "^4.4"
+    "wpackagist-plugin/redirection": "^4.4",
+    "wpackagist-plugin/autoptimize": "^2.5"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.0.2"
@@ -52,7 +53,8 @@
         "wpackagist-plugin/timber-library",
         "wpackagist-plugin/wordpress-seo",
         "wpackagist-plugin/intuitive-custom-post-order",
-        "wpackagist-plugin/redirection"
+        "wpackagist-plugin/redirection",
+        "wpackagist-plugin/autoptimize"
       ],
       "web/plugins/{$name}/": [
         "type:wordpress-plugin"

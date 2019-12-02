@@ -9,15 +9,19 @@
       <div class="video">
         {{ video.html }}
 
-        {% if image.src %}
+        {% if image %}
           <button class="overlay absolute group h-full inset-1/2 translate-1/2 w-full z-10" data-video-play>
-            <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
+            {{ macros.responsiveImage(image, 720, 405) }}
 
-            <span class="absolute inset-1/2 h-80 translate-1/2 w-80">
+            <span class="absolute inset-1/2 invisible h-100 opacity-0 transition-fast translate-1/2 w-100 group-hover:opacity-100 group-hover:visible">
               <span class="sr-only">
                 Play Video
               </span>
-              {{ svg('play', { classes: 'hidden group-hover:block' } ) }}
+              <img
+                class="mt-10"
+                src="{{ fn('get_stylesheet_directory_uri') }}/assets/images/play.png"
+                alt=""
+              >
             </span>
           </button>
         {% endif %}

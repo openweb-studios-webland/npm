@@ -60,17 +60,20 @@
     </div>
   </div>
 
-  {{ image }}
   {% if image %}
-    <div class="overlay absolute h-full inset-1/2 transition translate-1/2 w-full z-10" data-audio-play-pause>
+    <button class="overlay absolute group h-full inset-1/2 transition translate-1/2 w-full z-10" data-audio-play-pause>
       {{ macros.responsiveImage(image, 720, 405) }}
 
-      <button class="absolute inset-1/2 h-80 translate-1/2 w-80">
+      <span class="absolute inset-1/2 invisible h-100 opacity-0 transition-fast translate-1/2 w-100 group-hover:opacity-100 group-hover:visible">
         <span class="sr-only">
           Play Audio
         </span>
-        {{ svg('play') }}
-      </button>
-    </div>
+        <img
+          class="mt-10"
+          src="{{ fn('get_stylesheet_directory_uri') }}/assets/images/play.png"
+          alt=""
+        >
+      </span>
+    </button>
   {% endif %}
 </div>

@@ -3,14 +3,18 @@
 
   {% if sample.type == 'audio' %}
     {% if sample.image.id %}
-      <button class="block relative" aria-controls="{{ uid }}">
+      <button class="block group relative" aria-controls="{{ uid }}">
         {{ macros.responsiveImage(sample.image.id, 345, 219) }}
 
-        <span class="absolute inset-1/2 h-80 translate-1/2 w-80">
+        <span class="absolute inset-1/2 invisible h-100 opacity-0 transition-fast translate-1/2 w-100 group-hover:opacity-100 group-hover:visible">
           <span class="sr-only">
-            Play Video
+            Play Audio
           </span>
-          {{ svg('play') }}
+          <img
+            class="mt-10"
+            src="{{ fn('get_stylesheet_directory_uri') }}/assets/images/play.png"
+            alt=""
+          >
         </span>
       </button>
     {% endif %}
@@ -21,14 +25,18 @@
     } only %}
   {% elseif sample.type == 'video' %}
     {% if sample.image.id %}
-      <button class="block relative" aria-controls="{{ uid }}" data-video-play>
+      <button class="block group relative" aria-controls="{{ uid }}" data-video-play>
         {{ macros.responsiveImage(sample.image.id, 345, 219) }}
 
-        <span class="absolute inset-1/2 h-80 translate-1/2 w-80">
+        <span class="absolute inset-1/2 invisible h-100 opacity-0 transition-fast translate-1/2 w-100 group-hover:opacity-100 group-hover:visible">
           <span class="sr-only">
             Play Video
           </span>
-          {{ svg('play') }}
+          <img
+            class="mt-10"
+            src="{{ fn('get_stylesheet_directory_uri') }}/assets/images/play.png"
+            alt=""
+          >
         </span>
       </button>
     {% endif %}

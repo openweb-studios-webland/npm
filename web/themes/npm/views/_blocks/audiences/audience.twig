@@ -1,5 +1,11 @@
 <div class="section flex flex-col h-full lg:pl-60">
   <div class="flex-1">
+    {% if audience.heading %}
+      <h2 class="heading-3 hidden lg:block">
+        {{ audience.heading }}
+      </h2>
+    {% endif %}
+
     {% if audience.text %}
       <div class="text">
         {{ audience.text }}

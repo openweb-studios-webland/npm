@@ -5,6 +5,7 @@ export default class Carousel {
     this.el = el
     this.track = this.el.querySelector('[data-carousel-track]')
     this.items = [...this.track.children]
+    this.autoplayPause = this.el.querySelector('[data-carousel-autoplay-pause]')
     this.itemsCount = this.items.length - 1
     this.itemsOffset = 1
     this.index = 0
@@ -196,6 +197,12 @@ export default class Carousel {
         this.init()
       }, 50)
     )
+
+    if (this.config.autoplay && this.autoplayPause) {
+      this.autoplayPause.addEventListener('click', () => {
+        this.autoplay()
+      })
+    }
   }
 
   onClick = e => {

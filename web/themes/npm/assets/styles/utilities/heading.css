@@ -18,7 +18,11 @@
 
 .heading-1 {
   @apply leading-tighter
-    text-42;
+    text-36;
+
+  @screen md {
+    @apply text-42;
+  }
 
   @screen lg {
     @apply text-48;
@@ -41,7 +45,11 @@
 
 .heading-2,
 .text h1 {
-  @apply text-42;
+  @apply text-36;
+
+  @screen md {
+    @apply text-42;
+  }
 
   @screen lg {
     @apply text-48;
@@ -50,18 +58,30 @@
 
 .heading-3,
 .text h2 {
-  @apply text-36;
+  @apply text-30;
+
+  @screen lg {
+    @apply text-36;
+  }
 }
 
 .heading-4,
 .text h3 {
   @apply font-normal
-    text-24;
+    text-20;
+
+  @screen lg {
+    @apply text-24;
+  }
 }
 
 .heading-5,
 .text h4 {
-  @apply text-22;
+  @apply text-20;
+
+  @screen lg {
+    @apply text-22;
+  }
 }
 
 .heading-6,

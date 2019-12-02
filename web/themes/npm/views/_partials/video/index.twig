@@ -10,16 +10,16 @@
         {{ video.html }}
 
         {% if image.src %}
-          <div class="overlay absolute h-full inset-1/2 translate-1/2 w-full z-10" data-video-play>
+          <button class="overlay absolute group h-full inset-1/2 translate-1/2 w-full z-10" data-video-play>
             <img src="{{ image.src | resize(720, 405, 'center') }}" alt="{{ image.alt }}" />
 
-            <button class="absolute inset-1/2 h-80 translate-1/2 w-80">
+            <span class="absolute inset-1/2 h-80 translate-1/2 w-80">
               <span class="sr-only">
                 Play Video
               </span>
-              {{ svg('play') }}
-            </button>
-          </div>
+              {{ svg('play', { classes: 'hidden group-hover:block' } ) }}
+            </span>
+          </button>
         {% endif %}
       </div>
     {% endif %}

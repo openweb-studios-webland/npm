@@ -8,17 +8,17 @@
 {% set button_text = button_text ?? null %}
 
 <section class="{{ color_select != 'white' and all_to_action.color_select != 'gray' ? 'text-white ' }}bg-{{ color_select }} text-center" data-label="call-to-action">
-  {% if image.src %}
-    <div class="lg:pt-50 lg:text-left">
+  {% if image %}
+    <div class="lg:pt-50">
       <div class="container">
-        <div class="flex flex-wrap items-end -mx-30">
+        <div class="flex flex-wrap items-center -mx-30">
           {% if image %}
-            <div class="px-30 hidden w-full lg:block lg:w-5/12">
-              {{ macros.responsiveImage(block.image.id, 960, 960) }}
+            <div class="px-30 hidden w-full lg:block lg:w-1/3">
+              {{ macros.responsiveImage(image, 960, 960) }}
             </div>
           {% endif %}
 
-          <div class="px-30 py-50 w-full lg:py-100 lg:w-7/12">
+          <div class="section px-30 w-full lg:w-2/3">
             {% include '_partials/cta/cta.twig' ignore missing %}
           </div>
         </div>

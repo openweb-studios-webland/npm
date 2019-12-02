@@ -25,7 +25,7 @@
     } only %}
   {% elseif sample.type == 'video' %}
     {% if sample.image.id %}
-      <button class="block group relative" aria-controls="{{ uid }}" data-video-play>
+      <button class="block group relative" aria-controls="{{ uid }}">
         {{ macros.responsiveImage(sample.image.id, 345, 219) }}
 
         <span class="absolute inset-1/2 invisible h-100 opacity-0 transition-fast translate-1/2 w-100 group-hover:opacity-100 group-hover:visible">
@@ -47,7 +47,14 @@
     } only %}
   {% else %}
     {% if sample.image %}
-      {{ macros.responsiveImage(sample.image.id, 345, 219) }}
+      <button class="block" aria-controls="{{ uid }}">
+        {{ macros.responsiveImage(sample.image.id, 345, 219) }}
+      </button>
+
+      {% include '_partials/image/modal.twig' ignore missing with {
+        images: [sample.image],
+        uid: uid,
+      } only %}
     {% endif %}
   {% endif %}
 </div>

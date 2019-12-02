@@ -4,50 +4,62 @@
 {% set uid = uid ?? null %}
 
 {% if images | length %}
+  {% if images | length > 1 %}
+    {% set content %}
+      <div
+        class="overflow-hidden"
+        data-module="carousel"
+        data-carousel-loop="false"
+        tabindex="0"
+      >
+        <div class="carousel-track flex items-center relative -mx-10" data-carousel-track>
+          {% for image in images %}
+            <div class="flex-0 px-10 w-full">
+              {% if image.id %}
+                {{ macros.responsiveImage(image.id, 1920) }}
+              {% endif %}
 
-  {% set content %}
-    <div
-      class="carousel overflow-x-hidden"
-      data-module="carousel"
-      data-carousel-loop="false"
-      tabindex="0"
-    >
-      <div class="carousel-track flex items-center relative -mx-10" data-carousel-track>
-        {% for image in images %}
-          <div class="flex-0 px-10 w-full">
-            {% if image.id %}
-              {{ macros.responsiveImage(image.id, 1920) }}
-            {% endif %}
+              {% if image.caption %}
+                <p class="text mt-20 text-14">
+                  {{ image.caption }}
+                </p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
 
-            {% if image.caption %}
-              <p class="text mt-20 text-14">
-                {{ image.caption }}
-              </p>
-            {% endif %}
+        <div class="flex mt-30 -mx-5">
+          <div class="px-5">
+            {% include '_partials/carousel/button-prev.twig' ignore missing with {
+              classes: 'text-blue transition-fast hover:text-blue-light',
+            } only %}
           </div>
-        {% endfor %}
-      </div>
 
-      <div class="flex mt-30 -mx-5">
-        <div class="px-5">
-          {% include '_partials/carousel/button-prev.twig' ignore missing with {
-            classes: 'text-blue transition-fast hover:text-blue-light',
-          } only %}
-        </div>
-
-        <div class="px-5">
-          {% include '_partials/carousel/button-next.twig' ignore missing with {
-            classes: 'text-blue transition-fast hover:text-blue-light',
-          } only %}
+          <div class="px-5">
+            {% include '_partials/carousel/button-next.twig' ignore missing with {
+              classes: 'text-blue transition-fast hover:text-blue-light',
+            } only %}
+          </div>
         </div>
       </div>
-    </div>
-  {% endset %}
+    {% endset %}
+  {% else %}
+    {% set content %}
+      {% if images[0].id %}
+        {{ macros.responsiveImage(images[0].id, 1920) }}
+      {% endif %}
+
+      {% if images[0].caption %}
+        <p class="text mt-20 text-14">
+          {{ images[0].caption }}
+        </p>
+      {% endif %}
+    {% endset %}
+  {% endif %}
 
   {% include '_partials/modal.twig' ignore missing with {
     content: content,
     classes: 'bg-gray',
-    size: '',
     uid: uid,
   } only %}
 {% endif %}

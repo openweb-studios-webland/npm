@@ -12,13 +12,11 @@
           <div class="border-b border-gray-border mb-15 overflow-hidden">
             <ul class="flex -mx-15 overflow-x-auto -mb-20 pb-20">
               {% for spec_group in block.spec_groups %}
-                {% set uid = random() %}
-
                 <li class="px-15">
                   <button
                     class="tabs-trigger font-bold -mb-1 pb-15 relative text-blue-denim whitespace-no-wrap"
                     data-tabs-trigger
-                    aria-controls="{{ uid }}"
+                    aria-controls="spec-group-{{ loop.index }}"
                   >
                     {{ spec_group.heading }}
                   </button>
@@ -29,7 +27,7 @@
 
           {% for spec_group in block.spec_groups %}
             <div
-              id="{{ uid }}"
+              id="spec-group-{{ loop.index }}"
               class="tabs-target"
               data-tabs-target
             >

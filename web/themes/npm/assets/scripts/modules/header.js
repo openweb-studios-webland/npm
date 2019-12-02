@@ -1,4 +1,4 @@
-import debounce from '../utilities/debounce'
+import throttle from '../utilities/throttle'
 
 export default class Header {
   constructor(el) {
@@ -18,15 +18,16 @@ export default class Header {
 
     window.addEventListener(
       'scroll',
-      debounce(() => {
+      throttle(() => {
         this.checkPosition()
-      }, 50)
+      }, 10)
     )
   }
 
   checkPosition = () => {
     const position = Math.floor((window.pageYOffset || document.scrollTop) - (document.clientTop || 0))
+    const buffer = document.querySelector('.admin-bar') ? 52 : 20
 
-    position && position > 32 ? this.el.classList.add('stuck') : this.el.classList.remove('stuck')
+    position && position > buffer ? this.el.classList.add('stuck') : this.el.classList.remove('stuck')
   }
 }

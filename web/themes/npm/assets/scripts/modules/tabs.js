@@ -23,6 +23,7 @@ export default class Tabs {
     aria.toggle(this.triggers[this.index], this.targets[this.index])
 
     this.attachEventListeners()
+    this.clickTriggerOnHash()
   }
 
   convertToAccordion = () => {
@@ -45,6 +46,20 @@ export default class Tabs {
     this.targets.forEach(target => {
       this.container.appendChild(target)
     })
+  }
+
+  clickTriggerOnHash = () => {
+    let hash = location.hash
+
+    if (hash !== '') {
+      hash = hash.split('#')[1]
+      const el = this.el.querySelector(`[aria-controls="${hash}"]`)
+
+      // Clicked trigger is hash exists
+      if (el) {
+        el.click()
+      }
+    }
   }
 
   attachEventListeners = () => {

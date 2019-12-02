@@ -1,6 +1,7 @@
 .header.stuck {
   @screen lg {
-    @apply py-10
+    @apply mb-20
+      py-10
       shadow-xs;
   }
 }

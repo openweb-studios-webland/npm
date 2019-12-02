@@ -3,7 +3,7 @@ export default (callback, wait, immediate = false) => {
 
   return function() {
     const now = immediate && !timeout
-    result = () => callback.apply(this, arguments)
+    const result = () => callback.apply(this, arguments)
 
     clearTimeout(timeout)
     timeout = setTimeout(result, wait)

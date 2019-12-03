@@ -1,7 +1,7 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="bg-gradient" data-label="services">
+  <section class="bg-gradient pt-30 lg:pt-0" data-label="services">
     <div class="flex flex-wrap items-center -mx-30 relative">
       <div class="px-50 w-full lg:px-30 lg:w-1/4">
         <div class="text-white lg:pl-60">
@@ -31,7 +31,7 @@
       </div>
 
       {% if block.services | length %}
-        <div class="mt-40 px-30 w-full lg:mt-0 lg:w-3/4">
+        <div class="mt-10 px-30 w-full lg:mt-0 lg:w-3/4">
           <div class="overflow-hidden px-40 relative lg:pl-20 lg:pr-100">
             <div data-module="carousel" data-carousel-loop="false">
               <div class="carousel-track flex relative -mx-10 pt-30 pb-100 lg:pt-50" data-carousel-track>

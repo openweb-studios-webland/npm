@@ -1,3 +1,7 @@
 [data-label="stats"] {
   background-size: auto 100%;
+
+  @media (max-width: 1023px) {
+    background-image: none !important;
+  }
 }

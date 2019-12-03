@@ -1,3 +1,4 @@
+import activeMedia from '../utilities/active-media'
 const WaveSurfer = require('wavesurfer.js/dist/wavesurfer')
 // @TODO Update WaveSurfer once import issue is resoloved 3.1.1+
 // import WaveSurfer from 'wavesurfer.js'
@@ -9,6 +10,7 @@ export default class Audio {
     this.progress = this.el.querySelector('[data-audio-progress]')
     this.playPauseTriggers = this.el.querySelectorAll('[data-audio-play-pause]')
     this.skipBackwardTrigger = this.el.querySelector('[data-audio-skip-backward]')
+    this.active = false
 
     this.config = {
       audioSource: this.player.dataset.audioSource || null,
@@ -27,7 +29,7 @@ export default class Audio {
 
   init = () => {
     // Create Wavesurfer object
-    this.wavesurfer = WaveSurfer.create({
+    this.waveSurfer = WaveSurfer.create({
       barGap: this.config.barGap,
       barWidth: this.config.barWidth,
       barHeight: this.config.barHeight,
@@ -40,10 +42,10 @@ export default class Audio {
     })
 
     if (this.config.audioSource) {
-      this.wavesurfer.load(this.config.audioSource)
+      this.waveSurfer.load(this.config.audioSource)
 
-      this.wavesurfer.on('ready', () => {
-        this.duration = this.formatTimestamp(this.wavesurfer.getDuration())
+      this.waveSurfer.on('ready', () => {
+        this.duration = this.formatTimestamp(this.waveSurfer.getDuration())
         this.progress.innerHTML = `00:00 / ${this.duration}`
 
         this.attachEventListeners()
@@ -68,33 +70,49 @@ export default class Audio {
   attachEventListeners = () => {
     if (this.playPauseTriggers.length > 0) {
       this.playPauseTriggers.forEach(playPauseTrigger => {
-        playPauseTrigger.addEventListener('click', this.playPause)
+        playPauseTrigger.addEventListener('click', this.onPlayPause)
       })
     }
 
-    this.skipBackwardTrigger.addEventListener('click', this.skipBackward)
-    this.wavesurfer.on('audioprocess', this.audioProgress)
+    this.skipBackwardTrigger.addEventListener('click', this.onSkipBackward)
+    this.waveSurfer.on('audioprocess', this.onAudioProgress)
+    this.waveSurfer.on('play', this.onPlay)
+    this.waveSurfer.on('pause', this.onPause)
   }
 
-  audioProgress = seconds => {
+  onAudioProgress = seconds => {
     this.progress.innerHTML = `${this.formatTimestamp(seconds)} / ${this.duration}`
   }
 
-  playPause = e => {
-    this.wavesurfer.playPause()
-    this.el.classList.toggle('playing')
+  onPlayPause = () => {
+    const windowActiveMedia = activeMedia.get()
 
-    if (!this.el.classList.contains('active')) {
-      this.el.classList.add('active')
-
-      this.pushToDataLayer()
+    if (typeof windowActiveMedia !== 'undefined') {
+      if (windowActiveMedia.el === this.waveSurfer) {
+        this.waveSurfer.playPause()
+      } else {
+        activeMedia.stop()
+        this.waveSurfer.play()
+      }
+    } else {
+      this.waveSurfer.play()
     }
-
-    e.preventDefault()
   }
 
-  skipBackward = e => {
-    this.wavesurfer.skipBackward()
+  onPlay = () => {
+    this.el.classList.add('active')
+    this.el.classList.add('playing')
+
+    activeMedia.set('audio', this.waveSurfer)
+    this.pushToDataLayer()
+  }
+
+  onPause = () => {
+    this.el.classList.remove('playing')
+  }
+
+  onSkipBackward = e => {
+    this.waveSurfer.skipBackward()
 
     e.preventDefault()
   }

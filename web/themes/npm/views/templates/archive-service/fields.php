@@ -20,7 +20,6 @@ if (function_exists('acf_add_local_field_group')):
                     'id' => '',
                 ),
                 'layouts' => array(
-					acf_dynamic_clones_get_local_field_group('Featured Content', 'featured-content-archive-service'), // @TODO: Remove after moving data
 					acf_dynamic_clones_get_local_field_group('Featured Content', 'featured-content'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero-archive-service'),
                     acf_dynamic_clones_get_local_field_group('Related Work', 'work-archive-service'),

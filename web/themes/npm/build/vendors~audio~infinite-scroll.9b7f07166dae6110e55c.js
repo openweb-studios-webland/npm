@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{326:function(e,t,r){
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{327:function(e,t,r){
 /*!
  * wavesurfer.js 3.2.0 (2019-10-25)
  * https://github.com/katspaugh/wavesurfer.js

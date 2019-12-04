@@ -175,7 +175,11 @@
 
                               {% if promo_code.promoUrl and promo_code.promoCopy %}
                                 <div class="w-full mb-5 px-15 md:flex-1">
-                                  <a href="{{ promo_code.promoUrl }}" class="text-blue-denim">
+                                  <a
+                                    class="text-blue-denim"
+                                    href="{{ promo_code.promoUrl }}"
+                                    target="_blank"
+                                  >
                                     {{ promo_code.promoCopy }}
                                   </a>
                                 </div>

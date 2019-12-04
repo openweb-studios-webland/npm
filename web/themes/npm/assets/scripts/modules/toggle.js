@@ -4,7 +4,9 @@ export default class Toggle {
   constructor(el) {
     this.el = el
     this.target = document.getElementById(this.el.getAttribute('aria-controls'))
-    this.partners = this.el.dataset.togglePartners ? document.querySelectorAll(`[data-toggle-partner="${this.el.dataset.togglePartners}"]`) : null
+    this.partners = this.el.dataset.togglePartners
+      ? document.querySelectorAll(`[data-toggle-partner="${this.el.dataset.togglePartners}"]`)
+      : null
 
     this.attachEventListeners()
   }
@@ -20,7 +22,6 @@ export default class Toggle {
   }
 
   onClick = e => {
-    console.log(this.target)
     aria.toggle(this.el, this.target)
 
     e.preventDefault()

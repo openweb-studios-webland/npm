@@ -16,7 +16,7 @@
                   <button
                     class="tabs-trigger font-bold -mb-1 pb-15 relative text-blue-denim whitespace-no-wrap"
                     data-tabs-trigger
-                    aria-controls="spec-group-{{ loop.index }}"
+                    aria-controls="{{ spec_group.heading | replace({ ' ': '-' }) | lower }}"
                   >
                     {{ spec_group.heading }}
                   </button>
@@ -27,7 +27,7 @@
 
           {% for spec_group in block.spec_groups %}
             <div
-              id="spec-group-{{ loop.index }}"
+              id="{{ spec_group.heading | replace({ ' ': '-' }) | lower }}"
               class="tabs-target"
               data-tabs-target
             >

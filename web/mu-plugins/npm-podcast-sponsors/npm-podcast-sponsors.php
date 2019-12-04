@@ -52,7 +52,7 @@ function npm_podcast_sponsors()
 {
     require_once plugin_dir_path(__FILE__) . 'includes/class-npm-podcast-sponsors.php';
 
-    $npmPodcastSponsors = new NpmPodcastSponsors();
+	$npmPodcastSponsors = new NpmPodcastSponsors();
 
     return $npmPodcastSponsors->getData();
 }

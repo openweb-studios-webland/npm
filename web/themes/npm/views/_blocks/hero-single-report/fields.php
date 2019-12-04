@@ -48,7 +48,28 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                 'toolbar' => 'basic',
                 'media_upload' => 0,
                 'delay' => 0,
-            ),
+			),
+			array(
+				'key' => 'field_fuxngwl430qdy',
+				'label' => 'Button',
+				'name' => 'button',
+				'type' => 'clone',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'clone' => array(
+					0 => 'group_5d8b9a14327c5',
+				),
+				'display' => 'seamless',
+				'layout' => '',
+				'prefix_label' => 1,
+				'prefix_name' => 1,
+			),
         ),
     ));
 

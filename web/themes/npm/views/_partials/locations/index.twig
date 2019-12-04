@@ -1,0 +1,19 @@
+{%- import '_macros/index.twig' as macros -%}
+
+{% set locations = locations ?? [] %}
+
+ <aside class="bg-gray p-30" data-label="locations">
+  <h2 class="heading-6">
+    Our Offices
+  </h2>
+
+  {% if locations | length %}
+    <ul class="-mb-30">
+      {% for location in locations %}
+        <li class="text mb-30">
+          {{ location.text }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</aside>

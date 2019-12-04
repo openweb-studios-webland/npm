@@ -43,8 +43,8 @@ class NpmPodcastSponsors
         // Update the local feed on disk from remote if local file is older than MAX_SHEET_AGE or if refreshFeed is true
         ($this->isOlderThanThreshold || $this->forceRefresh) ? $this->getRemoteData() : $this->getLocalData();
 
-        $this->rows = $this->removeIncompleteSponsors($this->rows);
-        $this->rows = $this->sortByLeadSponsors($this->rows);
+		$this->rows = $this->cleanRows($this->rows);
+		$this->rows = $this->sortByLeadSponsors($this->rows);
 
         if (isset($_GET['refreshFeed']) && $_GET['refreshFeed'] == true && !is_user_logged_in()) {
             error_log('You must be logged in to perform that action.');
@@ -67,7 +67,7 @@ class NpmPodcastSponsors
         curl_close($curlHandle);
         $remoteJsonFeed = json_decode($remoteSheetData);
 
-        $this->rows = $this->addHeaderRowsToKeys($remoteJsonFeed->{'values'});
+        $this->rows = $this->addHeaderRows($remoteJsonFeed->{'values'});
         $this->rows = $this->sortBySponsorNames($this->rows);
         $this->rows = (array) $this->rows;
 
@@ -106,7 +106,7 @@ class NpmPodcastSponsors
      * Replace numeric keys with header rows
      * @param array $rows
      */
-    private function addHeaderRowsToKeys($rows)
+    private function addHeaderRows($rows)
     {
         // Remove header rows
         $headerRows = $rows[0];
@@ -124,7 +124,7 @@ class NpmPodcastSponsors
      * @param array $rows
      * @return array
      */
-    private function removeIncompleteSponsors($rows)
+    private function cleanRows($rows)
     {
         $completeRows = [];
 
@@ -137,6 +137,8 @@ class NpmPodcastSponsors
                 $value['start'],
                 $value['expiration'])
             ) {
+				$value = $this->addSchemeToUrls($value);
+
                 if (!array_key_exists($sponsorName, $completeRows)) {
                     $completeRows[$sponsorName] = [];
                 }
@@ -146,7 +148,20 @@ class NpmPodcastSponsors
         }
 
         return $completeRows;
-    }
+	}
+
+	/**
+     * Add scheme to URLs
+     * @param array $value
+     * @return array
+     */
+	private function addSchemeToUrls($value) {
+		$value['sponsorWebsite'] = NpmPodcastSponsorsUtilities::addScheme($value['sponsorWebsite']);
+		$value['podcastUrl'] = NpmPodcastSponsorsUtilities::addScheme($value['podcastUrl']);
+		$value['promoUrl'] = NpmPodcastSponsorsUtilities::addScheme($value['promoUrl']);
+
+		return $value;
+	}
 
     /**
      * Sort alphabetically by sponsorMame

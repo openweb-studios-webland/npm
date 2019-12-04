@@ -3,7 +3,7 @@
 class NpmPodcastSponsorsUtilities
 {
     /**
-     * @param sting $value
+     * @param string $value
      * @return string
      */
     public static function cleanValue($value)
@@ -40,5 +40,15 @@ class NpmPodcastSponsorsUtilities
         }
 
         return $newArray;
-    }
+	}
+
+	/**
+     * @param string $url
+	 * @param string $scheme
+     * @return string
+     */
+	public static function addScheme($url, $scheme = 'http://')
+	{
+		return parse_url($url, PHP_URL_SCHEME) === null ? $scheme . $url : $url;
+	}
 }

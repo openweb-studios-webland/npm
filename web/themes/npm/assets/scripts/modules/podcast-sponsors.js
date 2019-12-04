@@ -40,7 +40,7 @@ export default class PodcastSponsors {
     const value = e.target.value
 
     if (value && value !== '') {
-      this.filters[this.params.podcasts] = e.target.value
+      this.filters[this.params.podcasts] = value.toLowerCase()
     } else {
       delete this.filters[this.params.podcasts]
     }
@@ -62,7 +62,7 @@ export default class PodcastSponsors {
     const value = e.target.value
 
     if (value && value !== '') {
-      this.filters[this.params.keywords] = e.target.value
+      this.filters[this.params.keywords] = value.toLowerCase()
     } else {
       delete this.filters[this.params.keywords]
     }
@@ -73,6 +73,11 @@ export default class PodcastSponsors {
   onReset = e => {
     this.filters = {}
     this.page = 1
+
+    // Reset field values
+    this.podcastsInput.selectedIndex = 0
+    this.hasOfferInput.checked = false
+    this.keywordsInput.value = ''
 
     this.filterItems()
 

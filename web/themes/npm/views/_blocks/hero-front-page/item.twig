@@ -1,35 +1,33 @@
-<div class="container">
-  <div class="flex flex-wrap items-center -mx-30">
-    <div class="px-30 w-full lg:w-5/12">
-      {% if item.heading %}
-        <h1 class="heading-1">
-          {{ item.heading }}
-        </h1>
-      {% endif %}
+<div class="flex flex-wrap items-center -mx-30">
+  <div class="px-30 w-full lg:w-5/12">
+    {% if item.heading %}
+      <h1 class="heading-1">
+        {{ item.heading }}
+      </h1>
+    {% endif %}
 
-      {% if item.text %}
-        <div class="text text-16 lg:text-18">
-          {{ item.text }}
-        </div>
-      {% endif %}
-
-      {% if item.button_link and item.button_text %}
-        <a
-          class="button mt-25"
-          href="{{ item.button_link }}"
-          data-track-gtm="Call to Action|{{ current_url }}|{{ item.button_text }}:{{ item.button_link }}"
-        >
-          {{ item.button_text }}
-        </a>
-      {% endif %}
-    </div>
-
-    {% if item.image.id %}
-      <div class="mb-50 mt-40 px-30 w-full lg:mt-0 lg:w-7/12">
-        {% if item.image.id %}
-          {{ macros.responsiveImage(item.image.id, 1440, 1080, ['pin-r', 'lg:shadow']) }}
-        {% endif %}
+    {% if item.text %}
+      <div class="text text-16 lg:text-18">
+        {{ item.text }}
       </div>
     {% endif %}
+
+    {% if item.button_link and item.button_text %}
+      <a
+        class="button mt-25"
+        href="{{ item.button_link }}"
+        data-track-gtm="Call to Action|{{ current_url }}|{{ item.button_text }}:{{ item.button_link }}"
+      >
+        {{ item.button_text }}
+      </a>
+    {% endif %}
   </div>
+
+  {% if item.image.id %}
+    <div class="mb-50 mt-40 px-30 w-full lg:mt-0 lg:w-7/12">
+      {% if item.image.id %}
+        {{ macros.responsiveImage(item.image.id, 1440, 810, ['lg:shadow']) }}
+      {% endif %}
+    </div>
+  {% endif %}
 </div>

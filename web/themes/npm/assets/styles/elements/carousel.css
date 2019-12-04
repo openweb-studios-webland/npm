@@ -1,8 +1,27 @@
-[data-carousel-track] > [aria-hidden] {
+[data-module="carousel"] {
+  &.playing {
+    & .carousel-play-pause svg {
+      display: none;
+      &:first-of-type {
+        @apply hidden;
+      }
+
+      &:last-of-type {
+        @apply block;
+      }
+    }
+  }
+
+  & .carousel-play-pause svg:last-of-type {
+    @apply hidden;
+  }
+}
+
+.carousel-track > [aria-hidden] {
   @apply block;
 }
 
-[data-carousel-fade="true"] [data-carousel-track] > [aria-hidden] {
+[data-carousel-fade="true"] .carousel-track > [aria-hidden] {
   @apply opacity-0
     pointer-events-none
     invisible;
@@ -26,7 +45,7 @@
     }
   }
 
-  & .carousel-item {
+  & [data-carousel-item] {
     & > div {
       @apply transition;
 
@@ -37,7 +56,7 @@
     }
 
     &:not([aria-hidden]),
-    &:not([aria-hidden]) + .carousel-item {
+    &:not([aria-hidden]) + [data-carousel-item] {
       & > div {
         @apply shadow-sm;
       }

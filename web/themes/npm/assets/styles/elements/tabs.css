@@ -10,8 +10,11 @@
       }
     }
 
+    &:hover::before,
+    &:focus::before,
     &::before {
-      @apply block;
+      @apply opacity-100
+        visible;
     }
 
     &::after {
@@ -21,6 +24,16 @@
     & svg:last-of-type {
       @screen lg {
         @apply block;
+      }
+    }
+  }
+
+  &:hover,
+  &:focus {
+    &::before {
+      @screen lg {
+        @apply opacity-10
+          visible;
       }
     }
   }
@@ -38,8 +51,9 @@
   }
 
   &::before {
-    @apply hidden
-      h-full
+    @apply h-full
+      invisible
+      opacity-0
       top-0;
   }
 

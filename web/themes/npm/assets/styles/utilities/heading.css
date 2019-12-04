@@ -18,10 +18,10 @@
 
 .heading-1 {
   @apply leading-tighter
-    text-36;
+    text-30;
 
   @screen md {
-    @apply text-42;
+    @apply text-36;
   }
 
   @screen lg {

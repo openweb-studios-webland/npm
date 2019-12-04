@@ -1,26 +1,35 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="bg-blue py-30 text-white" data-label="hero-front-page">
-    <div
-      class="overflow-hidden"
-      data-module="carousel"
-      data-carousel-autoplay="true"
-    >
-      <div class="carousel-track flex relative" data-carousel-track>
-        {% for item in block.items %}
-          <div class="carousel-item flex-0 w-full" data-carousel-item>
-            {% include '_blocks/hero-front-page/item.twig' ignore missing %}
-          </div>
-        {% endfor %}
-      </div>
+  <section class="bg-blue pb-30 text-white lg:pb-50" data-label="hero-front-page">
+    <div class="relative pt-40 lg:pt-30">
+      <div
+        class="overflow-hidden"
+        data-module="carousel"
+        data-carousel-autoplay="true"
+      >
+        <div class="carousel-track flex relative" data-carousel-track>
+          {% for item in block.items %}
+            <div class="carousel-item flex-0 w-full" data-carousel-item>
+              <div class="container">
+                {% include '_blocks/hero-front-page/item.twig' ignore missing %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
 
-      <div class="mb-20 -mt-20 relative text-right z-10">
-        <button class="leading-tighter mr-20 text-blue-light" data-carousel-autoplay-pause>
-          {{ svg('pause', { classes: 'float-left mr-5 mt-1' }) }}
-          Pause
-        </button>
+        <div class="absolute inset-x-0 top-0 lg:bottom-0 lg:top-auto">
+          <div class="container text-right">
+            <button class="carousel-play-pause leading-tight relative text-blue-light transition-fast text-14 hover:text-white" data-carousel-play-pause>
+              {{ svg('carousel-play', { classes: 'float-left mr-5 mt-1' }) }}
+              {{ svg('carousel-pause', { classes: 'float-left mr-5 mt-1' }) }}
+              <span>
+                Pause
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    <div>
   </section>
 {% endif %}

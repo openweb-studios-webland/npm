@@ -1,9 +1,9 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section bg-{{ block.color_select }}{{ block.color_select == 'gradient' ? ' text-white' }}" data-label="featured-content">
+  <section class="section bg-{{ block.color_select }}" data-label="featured-content">
     {% if block.heading or block.text %}
-      <div class="container-sm text-center">
+      <div class="{{ block.color_select == 'gradient' ? 'text-white ' }}container-sm text-center">
         {% if block.heading %}
           <h2 class="heading-3">
             {{ block.heading }}

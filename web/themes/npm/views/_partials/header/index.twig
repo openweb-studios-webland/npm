@@ -1,5 +1,5 @@
 <header
-  class="{{ front_page ? 'bg-blue text-white ' : 'bg-white ' }}header relative py-10 top-0 transition-fast w-full z-20 lg:py-20 lg:sticky"
+  class="{{ front_page ? 'bg-blue text-white ' : 'bg-white ' }}header relative top-0 transition-fast w-full z-20 md:py-10 lg:py-20 lg:sticky"
   data-module="header"
   data-label="header"
 >
@@ -7,7 +7,7 @@
     <div class="flex justify-between items-center -mx-20">
       <div class="flex-0 px-20">
         <a
-          class="inline-block relative z-40"
+          class="block relative z-40"
           href="/"
           data-track-gtm="Top Navigation|Homepage"
         >
@@ -41,7 +41,7 @@
         </a>
       </div>
 
-      <div class="px-20 lg:hidden">
+      <div class="flex flex-col justify-center px-20 lg:hidden">
         <button
           class="header-trigger h-44 relative -mr-10 w-44"
           data-header-trigger

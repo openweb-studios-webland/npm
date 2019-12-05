@@ -14,7 +14,7 @@
 
     <div class="container">
       <div class="flex flex-wrap -mx-30 relative">
-        <div class="px-30 py-50 w-full lg:w-7/12">
+        <div class="flex flex-col justify-center px-30 py-50 w-full lg:w-7/12">
           <div class="heading-6 mb-20">
             {{ post.title }}
           </div>
@@ -32,20 +32,23 @@
           {% endif %}
 
           {% if block.button_link and block.button_text %}
-            <a
-              class="button mt-25"
-              href="{{ block.button_link }}"
-              data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{ block.button_link }}"
-            >
-              {{ block.button_text }}
-            </a>
+            <div>
+              <a
+                class="button mt-25"
+                href="{{ block.button_link }}"
+                data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{ block.button_link }}"
+              >
+                {{ block.button_text }}
+              </a>
+            </div>
           {% endif %}
         </div>
 
         {% if block.image.id %}
           <div class="px-30 w-full lg:-mb-25 lg:w-5/12">
-            <div class="aspect-ratio-16/9 pin-r lg:h-full lg:pb-0" data-module="responsive-background-image">
+            <div class="pin-r lg:h-full lg:pb-0" data-module="responsive-background-image">
               {{ macros.responsiveImage(block.image.id, 1080, 908) }}
+              <div class="aspect-ratio-16/9 lg:aspect-ratio-square"></div>
             </div>
           </div>
         {% endif %}

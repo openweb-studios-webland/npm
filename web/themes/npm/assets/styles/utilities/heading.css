@@ -67,8 +67,7 @@
 
 .heading-4,
 .text h3 {
-  @apply font-normal
-    text-20;
+  @apply text-22;
 
   @screen lg {
     @apply text-24;

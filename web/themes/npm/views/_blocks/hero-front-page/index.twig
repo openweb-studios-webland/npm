@@ -1,35 +1,57 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="bg-blue pb-30 text-white lg:pb-50" data-label="hero-front-page">
-    <div class="relative pt-40 lg:pt-30">
-      <div
-        class="overflow-hidden"
-        data-module="carousel"
-        data-carousel-autoplay="true"
-      >
-        <div class="carousel-track flex relative" data-carousel-track>
-          {% for item in block.items %}
-            <div class="carousel-item flex-0 w-full" data-carousel-item>
-              <div class="container">
-                {% include '_blocks/hero-front-page/item.twig' ignore missing %}
-              </div>
+  <section class="bg-blue text-white lg:pb-50" data-label="hero-front-page">
+    <div class="container pt-40 lg:pt-30">
+      <div class="flex flex-wrap items-center -mx-30">
+        <div class="px-30 w-full lg:w-1/2">
+          {% if block.heading %}
+            <h1 class="heading-1">
+              {{ block.heading }}
+            </h1>
+          {% endif %}
+
+          {% if block.text %}
+            <div class="text text-16 md:text-20 lg:text-24">
+              {{ block.text }}
             </div>
-          {% endfor %}
+          {% endif %}
+
+          {% if block.button_link and block.button_text %}
+            <a
+              class="button mt-25 lg:mt-30"
+              href="{{ block.button_link }}"
+              data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{ block.button_link }}"
+            >
+              {{ block.button_text }}
+            </a>
+          {% endif %}
         </div>
 
-        <div class="absolute inset-x-0 top-0 lg:bottom-0 lg:top-auto">
-          <div class="container text-right">
-            <button class="carousel-play-pause leading-tight relative text-blue-light transition-fast text-14 hover:text-white" data-carousel-play-pause>
-              {{ svg('carousel-play', { classes: 'float-left mr-5 mt-1' }) }}
-              {{ svg('carousel-pause', { classes: 'float-left mr-5 mt-1' }) }}
-              <span>
-                Pause
-              </span>
-            </button>
+        <div class="mt-40 px-30 w-full lg:mt-0 lg:w-1/2">
+          <div class="pin-r">
+            {% if block.images | length > 1 %}
+              <div
+                class="overflow-hidden"
+                data-module="carousel"
+                data-carousel-autoplay="true"
+              >
+                <div class="carousel-track flex relative" data-carousel-track>
+                  {% for image in block.images %}
+                    <div class="carousel-item flex-0 w-full" data-carousel-item>
+                      {{ macros.responsiveImage(image.id, 1440, 1008, ['lg:shadow']) }}
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% else %}
+              {% if block.images[0].id %}
+                {{ macros.responsiveImage(block.images[0].id, 1440, 1008, ['lg:shadow']) }}
+              {% endif %}
+            {% endif %}
           </div>
         </div>
       </div>
-    <div>
+    </div>
   </section>
 {% endif %}

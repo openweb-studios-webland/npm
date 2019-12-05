@@ -96,7 +96,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                         'label' => 'Image',
                         'name' => 'image',
                         'type' => 'image',
-                        'instructions' => 'Recommended dimensions are 1080 x 328.',
+                        'instructions' => 'Recommended dimensions are 1080 x 608.',
                         'required' => 1,
                         'conditional_logic' => 0,
                         'wrapper' => array(
@@ -108,7 +108,7 @@ if (function_exists('acf_dynamic_clones_add_local_field_group')):
                         'preview_size' => 'thumbnail',
                         'library' => 'all',
                         'min_width' => 1080,
-                        'min_height' => 328,
+                        'min_height' => 608,
                         'min_size' => '',
                         'max_width' => '',
                         'max_height' => '',

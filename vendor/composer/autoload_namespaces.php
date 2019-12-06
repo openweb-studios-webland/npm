@@ -7,6 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'johnpbloch\\Composer\\' => array($vendorDir . '/johnpbloch/wordpress-core-installer/src'),
-    'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src'),
     'Env' => array($vendorDir . '/oscarotero/env/src'),
 );

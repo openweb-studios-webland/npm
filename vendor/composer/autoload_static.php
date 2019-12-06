@@ -19,6 +19,10 @@ class ComposerStaticInit5714cf7dbe6c47d3a79f0de15ac8a442
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
         ),
+        'P' => 
+        array (
+            'PhpOption\\' => 10,
+        ),
         'F' => 
         array (
             'FFraenz\\PrivateComposerInstaller\\' => 33,
@@ -42,6 +46,10 @@ class ComposerStaticInit5714cf7dbe6c47d3a79f0de15ac8a442
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'PhpOption\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
         'FFraenz\\PrivateComposerInstaller\\' => 
         array (
             0 => __DIR__ . '/..' . '/ffraenz/private-composer-installer/src/PrivateComposerInstaller',
@@ -62,13 +70,6 @@ class ComposerStaticInit5714cf7dbe6c47d3a79f0de15ac8a442
             'johnpbloch\\Composer\\' => 
             array (
                 0 => __DIR__ . '/..' . '/johnpbloch/wordpress-core-installer/src',
-            ),
-        ),
-        'P' => 
-        array (
-            'PhpOption\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/phpoption/phpoption/src',
             ),
         ),
         'E' => 

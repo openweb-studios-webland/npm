@@ -7,7 +7,7 @@
             {{ macros.responsiveImage(testimonial.image.id, 1080, 1080) }}
 
             {% include '_partials/credit.twig' ignore missing with {
-              credit: block.image.description,
+              credit: testimonial.image.description,
             } only %}
           </div>
         </div>

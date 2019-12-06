@@ -26,7 +26,13 @@
             {% for image in block.images %}
               <div class="mb-50 px-30 w-full lg:w-1/2">
                 {% if image.id %}
-                  {{ macros.responsiveImage(image.id, 1080) }}
+                  <div class="relative">
+                    {{ macros.responsiveImage(image.id, 1080) }}
+
+                    {% include '_partials/credit.twig' ignore missing with {
+                      credit: image.description,
+                    } only %}
+                  </div>
                 {% endif %}
 
                 {% if image.caption %}
@@ -41,7 +47,13 @@
       {% else %}
         <div class="container-md">
           {% if block.images[0].id %}
-            {{ macros.responsiveImage(block.images[0].id, 1080) }}
+            <div class="relative">
+              {{ macros.responsiveImage(block.images[0].id, 1080) }}
+
+              {% include '_partials/credit.twig' ignore missing with {
+                credit: block.images[0].image.description,
+              } only %}
+            </div>
           {% endif %}
 
           {% if image.caption %}

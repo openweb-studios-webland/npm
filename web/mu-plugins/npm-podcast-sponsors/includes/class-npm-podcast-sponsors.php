@@ -138,6 +138,7 @@ class NpmPodcastSponsors
                 $value['expiration'])
             ) {
 				$value = $this->addSchemeToUrls($value);
+				$value = $this->escapeSpeciaCharacters($value);
 
                 if (!array_key_exists($sponsorName, $completeRows)) {
                     $completeRows[$sponsorName] = [];
@@ -148,6 +149,20 @@ class NpmPodcastSponsors
         }
 
         return $completeRows;
+	}
+
+	/**
+	 * Some fields may contain characters that will break the HTML if added
+	 * to the DOM without having been espaced
+	 * @param array $value
+	 * @return array
+	 */
+	private function escapeSpeciaCharacters($value)
+	{
+		$value['promoCopy'] = NpmPodcastSponsorsUtilities::cleanValue($value['promoCopy']);
+		$value['searchKeywords'] = NpmPodcastSponsorsUtilities::cleanValue($value['searchKeywords']);
+
+		return $value;
 	}
 
 	/**

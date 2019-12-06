@@ -28,6 +28,12 @@
                 {% if image.id %}
                   {{ macros.responsiveImage(image.id, 1080) }}
                 {% endif %}
+
+                {% if image.caption %}
+                  <div class="text mt-20 text-center text-12">
+                    {{ image.caption }}
+                  </div>
+                {% endif %}
               </div>
             {% endfor %}
           </div>
@@ -36,6 +42,12 @@
         <div class="container-md">
           {% if block.images[0].id %}
             {{ macros.responsiveImage(block.images[0].id, 1080) }}
+          {% endif %}
+
+          {% if image.caption %}
+            <div class="text mt-20 text-center text-12">
+              {{ image.caption }}
+            </div>
           {% endif %}
         </div>
       {% endif %}

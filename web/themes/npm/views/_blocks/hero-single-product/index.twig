@@ -42,7 +42,7 @@
         </div>
 
         {% if block.type != 'no_image' %}
-          <div class="mt-40 px-30 w-full lg:mt-0 lg:w-5/12">
+          <div class="mt-40 px-30 relative w-full lg:mt-0 lg:w-5/12">
             {% if block.type == 'audio' %}
               {% include '_partials/audio/index.twig' ignore missing with {
                 audio: block.audio,
@@ -56,6 +56,10 @@
             {% elseif block.type == 'image' %}
               {% if block.image.id %}
                 {{ macros.responsiveImage(block.image.id, 720, 405) }}
+
+                {% include '_partials/credit.twig' ignore missing with {
+                  credit: block.image.description,
+                } only %}
               {% endif %}
             {% endif %}
           </div>

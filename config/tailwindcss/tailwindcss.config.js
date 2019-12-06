@@ -129,6 +129,7 @@ module.exports = {
       serif: ['Georgia', 'Times', 'Times New Roman', 'serif'],
     },
     fontSize: {
+      '10': '0.625rem',
       '11': '0.6875rem',
       '12': '0.75rem',
       '14': '0.875rem',
@@ -198,6 +199,7 @@ module.exports = {
     },
     minHeight: {
       '0': '0',
+      '40': '40px',
       full: '100%',
       screen: '100vh',
     },
@@ -343,6 +345,7 @@ module.exports = {
         '9/4': [9, 4],
         '10/33': [33, 10],
         '10/7': [7, 10],
+        '25/21': [25, 21],
       },
       variants: ['responsive'],
     }),

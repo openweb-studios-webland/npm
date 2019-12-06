@@ -32,7 +32,7 @@ function npm_register_taxonomies()
             'hierarchical' => true,
             'labels' => npm_create_taxonomy_labels('Platforms', 'Platform'),
             'public' => true,
-            'rewrite' => array('slug' => 'formats'),
+            'rewrite' => array('slug' => 'platforms'),
             'show_admin_column' => true,
         )
     );

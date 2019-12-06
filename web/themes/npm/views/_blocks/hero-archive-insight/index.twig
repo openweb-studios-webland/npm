@@ -35,7 +35,7 @@
           </a>
         </div>
 
-        <div class="mt-40 px-30 w-full lg:mt-0 lg:w-1/2">
+        <div class="mt-40 px-30 relative w-full lg:mt-0 lg:w-1/2">
           {% if article_report.type == 'video' %}
             {% set video = article_report.get_field('video') ?? null %}
 
@@ -46,6 +46,10 @@
           {% else %}
             {% if article_report.featured_image %}
               {{ macros.responsiveImage(article_report.featured_image, 1080, 810, ['pin-r']) }}
+
+              {% include '_partials/credit.twig' ignore missing with {
+                credit: article_report.featured_image.description,
+              } only %}
             {% endif %}
           {% endif %}
         </div>

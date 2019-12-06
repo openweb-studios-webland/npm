@@ -23,8 +23,12 @@
 
       <div class="flex flex-wrap items-center -mx-30">
         {% if block.image.id %}
-          <div class="mt-40 px-30 w-full lg:mt-50 lg:w-1/2">
+          <div class="mt-40 px-30 relative w-full lg:mt-50 lg:w-1/2">
             {{ macros.responsiveImage(block.image.id, 1080, 607) }}
+
+            {% include '_partials/credit.twig' ignore missing with {
+              credit: block.image.description,
+            } only %}
           </div>
         {% endif %}
 

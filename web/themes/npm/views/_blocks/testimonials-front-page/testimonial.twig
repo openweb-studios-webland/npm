@@ -3,8 +3,12 @@
     <div class="px-30 w-full lg:w-1/2">
       <div class="relative h-full">
         <div class="absolute inset-0">
-          <div class="pin-r bg-center bg-cover lg:h-full" data-module="responsive-background-image">
+          <div class="pin-r bg-center bg-cover relative lg:h-full" data-module="responsive-background-image">
             {{ macros.responsiveImage(testimonial.image.id, 1080, 1080) }}
+
+            {% include '_partials/credit.twig' ignore missing with {
+              credit: block.image.description,
+            } only %}
           </div>
         </div>
       </div>

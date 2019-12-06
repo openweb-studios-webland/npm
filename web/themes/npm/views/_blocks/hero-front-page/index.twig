@@ -38,15 +38,25 @@
               >
                 <div class="carousel-track flex relative" data-carousel-track>
                   {% for image in block.images %}
-                    <div class="carousel-item flex-0 w-full" data-carousel-item>
+                    <div class="carousel-item flex-0 relative w-full" data-carousel-item>
                       {{ macros.responsiveImage(image.id, 1440, 1008, ['lg:shadow']) }}
+
+                      {% include '_partials/credit.twig' ignore missing with {
+                        credit: image.description,
+                      } only %}
                     </div>
                   {% endfor %}
                 </div>
               </div>
             {% else %}
               {% if block.images[0].id %}
-                {{ macros.responsiveImage(block.images[0].id, 1440, 1008, ['lg:shadow']) }}
+                <div class="relative">
+                  {{ macros.responsiveImage(block.images[0].id, 1440, 1008, ['lg:shadow']) }}
+
+                  {% include '_partials/credit.twig' ignore missing with {
+                    credit: block.images[0].description,
+                  } only %}
+                </div>
               {% endif %}
             {% endif %}
           </div>

@@ -7,7 +7,13 @@
     data-label="hero-single-services"
   >
     {% if block.background_image.id %}
-      {{ macros.responsiveImage(block.background_image.id, 1920, 700) }}
+      <div class="relative w-full">
+        {{ macros.responsiveImage(block.background_image.id, 1920, 700) }}
+
+        {% include '_partials/credit.twig' ignore missing with {
+          credit: block.image.description,
+        } only %}
+      </div>
     {% endif %}
 
     <div class="absolute bg-black inset-0 opacity-90"></div>
@@ -48,7 +54,7 @@
           <div class="px-30 w-full lg:-mb-25 lg:w-5/12">
             <div class="pin-r lg:h-full lg:pb-0" data-module="responsive-background-image">
               {{ macros.responsiveImage(block.image.id, 1080, 908) }}
-              <div class="aspect-ratio-16/9 lg:aspect-ratio-square"></div>
+              <div class="aspect-ratio-16/9 lg:aspect-ratio-25/21"></div>
             </div>
           </div>
         {% endif %}

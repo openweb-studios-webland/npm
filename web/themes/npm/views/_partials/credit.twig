@@ -1,0 +1,7 @@
+{% set credit = credit ?? null %}
+
+{% if credit %}
+  <div class="credit absolute bottom-0 left-0 flex flex-col justify-end min-h-40 p-10 text-white text-10 w-full">
+    {{ credit }}
+  </div>
+{% endif %}

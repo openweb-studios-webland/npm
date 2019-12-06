@@ -31,8 +31,8 @@
                       {% set content %}
                         <div class="flex flex-wrap -mb-30 -mx-20">
                           <div class="mb-30 px-20 w-full md:w-5/12">
-                            {% if image.src %}
-                              <img src="{{ image.src | resize(450, 450, 'center') }}" alt="{{ image.alt }}" />
+                            {% if program.image %}
+                              {{ macros.responsiveImage(program.image, 450, 450) }}
                             {% endif %}
                           </div>
 

@@ -23,8 +23,12 @@
     </div>
 
     {% if block.image.id %}
-      <div class="container-lg mt-40 lg:mt-50">
+      <div class="container-lg mt-40 relative lg:mt-50">
         {{ macros.responsiveImage(block.image.id, 1920, 800) }}
+
+        {% include '_partials/credit.twig' ignore missing with {
+          credit: block.image.description,
+        } only %}
       </div>
     {% endif %}
   </section>

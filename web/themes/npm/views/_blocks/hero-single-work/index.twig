@@ -6,7 +6,7 @@
   <div class="pt-30 bg-blue lg:pt-0">
     <div class="container">
       <div class="flex flex-wrap items-center -mx-30">
-        <div class="px-30 text-white w-full lg:py-50 lg:w-7/12">
+        <div class="flex flex-col justify-center px-30 text-white w-full lg:py-50 lg:w-7/12">
           <div class="heading-6 mb-20">
             Work
           </div>
@@ -24,22 +24,28 @@
           {% endif %}
 
           {% if block.button_link and block.button_text %}
-            <a
-              class="button mt-25"
-              href="{{ block.button_link }}"
-              data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{ block.button_link }}"
-            >
-              {{ block.button_text }}
-            </a>
+            <div>
+              <a
+                class="button mt-25"
+                href="{{ block.button_link }}"
+                data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{ block.button_link }}"
+              >
+                {{ block.button_text }}
+              </a>
+            </div>
           {% endif %}
         </div>
 
         {% if block.image.id %}
           <div class="mt-50 px-30 w-full lg:mt-0 lg:w-5/12">
-            <div class="pin-r">
-              <div class="aspect-ratio-16/9 lg:aspect-ratio-square" data-module="responsive-background-image">
-                {{ macros.responsiveImage(block.image.id, 1080, 1080) }}
-              </div>
+            <div class="pin-r lg:h-full lg:pb-0" data-module="responsive-background-image">
+              {{ macros.responsiveImage(block.image.id, 1080, 1080) }}
+
+              <div class="aspect-ratio-16/9 lg:aspect-ratio-square"></div>
+
+              {% include '_partials/credit.twig' ignore missing with {
+                credit: block.image.description,
+              } only %}
             </div>
           </div>
         {% endif %}

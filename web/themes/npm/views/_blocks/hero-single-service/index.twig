@@ -6,16 +6,6 @@
     data-module="responsive-background-image"
     data-label="hero-single-services"
   >
-    {% if block.background_image.id %}
-      <div class="relative w-full">
-        {{ macros.responsiveImage(block.background_image.id, 1920, 700) }}
-
-        {% include '_partials/credit.twig' ignore missing with {
-          credit: block.image.description,
-        } only %}
-      </div>
-    {% endif %}
-
     <div class="absolute bg-black inset-0 opacity-90"></div>
 
     <div class="container">

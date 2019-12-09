@@ -38,7 +38,7 @@ function npm_podcast_sponsors_register_post_types()
             'has_archive' => false,
             'menu_icon' => 'dashicons-format-audio',
 			'public' => true,
-			'rewrite' => array('slug' => 'podcast-sponsors'),
+			'rewrite' => array('slug' => 'podcastsponsors'),
         )
     );
 }

@@ -86,7 +86,6 @@ export default class PodcastSponsors {
     this.keywordsInput.value = ''
 
     this.filterItems()
-
     e.preventDefault()
   }
 
@@ -94,7 +93,6 @@ export default class PodcastSponsors {
     this.page++
 
     this.filterItems()
-
     e.preventDefault()
   }
 
@@ -141,7 +139,6 @@ export default class PodcastSponsors {
   }
 
   filterItemsBySelectors = selectors => {
-    const items = []
     let itemsCount = 0
 
     for (let i = 0; i < this.items.length; i++) {

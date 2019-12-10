@@ -150,8 +150,8 @@ export default class PodcastSponsors {
       if (
         this.hasMoreItems(itemsCount) &&
         this.itemHasOffer(item) &&
-        this.itemMatchesRegex(item, this.podcastsInput.value) &&
-        this.itemMatchesRegex(item, this.keywordsInput.value)
+        this.itemMatchesRegExp(item, this.podcastsInput.value) &&
+        this.itemMatchesRegExp(item, this.keywordsInput.value)
       ) {
         item.classList.remove('hidden')
 
@@ -186,13 +186,13 @@ export default class PodcastSponsors {
     return itemsCount < this.page * this.itemsPerPage
   }
 
-  itemMatchesRegex = (item, value = '') => {
-    const regexp = new RegExp('\\b\\w*' + this.escapeRegexp(value) + '\\w*\\b', 'i')
+  itemMatchesRegExp = (item, value = '') => {
+    const regExp = new RegExp('\\b\\w*' + this.escapeRegExp(value) + '\\w*\\b', 'i')
 
-    return regexp.test(item.dataset.podcastSponsorsKeywords)
+    return regExp.test(item.dataset.podcastSponsorsKeywords)
   }
 
-  escapeRegexp = string => {
+  escapeRegExp = string => {
     return string.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')
   }
 

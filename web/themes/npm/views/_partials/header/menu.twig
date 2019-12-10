@@ -23,6 +23,8 @@
           </li>
 
           {% for item in items %}
+            {% set level1ItemTitle = item.title %}
+
             <li class="{{ item.classes | join(' ') | trim }} {{ not loop.last ? 'border-b border-gray ' }}flex-1 leading-normal mb-20 pb-20 pl-30 px-15 relative w-full lg:border-b-0 lg:mb-0 lg:pb-30 lg:w-auto">
               {% set image = TimberImage(item.image) %}
 
@@ -35,7 +37,7 @@
               <a
                 class="inline-block transition-fast whitespace-no-wrap hover:underline"
                 href="{{ item.link }}"
-                data-track-gtm="Top Navigation|{{ fn('get_the_title', item.menu_item_parent) }}|{{ item.title }}"
+                data-track-gtm="Top Navigation|{{ level0ItemTitle }}|{{ item.title }}"
               >
                 {{ item.title }}
               </a>
@@ -64,7 +66,7 @@
           <a
             class="{{ not front_page ? 'text-blue-denim ' }}font-bold inline-block text-14 transition-fast whitespace-no-wrap hover:underline"
             href="{{ item.link }}"
-            data-track-gtm="Top Navigation|{{ fn('get_the_title', item.menu_item_parent) }}|{{ item.title }}"
+            data-track-gtm="Top Navigation|{{ level1ItemTitle }}|{{ item.title }}"
           >
             {{ item.title }}
           </a>
@@ -75,6 +77,8 @@
     <div class="{{ front_page ? 'bg-blue border-blue-denim ' : 'bg-white border-gray ' }}border-t lg:border-t-0">
       <ul class="flex flex-wrap lg:-mx-15">
         {% for item in items %}
+          {% set level0ItemTitle = item.title %}
+
           <li class="{{ item.classes | join(' ') | trim }} border-b border-gray-border leading-none py-10 w-full lg:border-b-0 lg:px-15 lg:w-auto">
             {% if item.children | length %}
               {% set uid = random() %}

@@ -30,7 +30,7 @@ export default class Video {
     dataLayer.push({
       event: 'dataLayer push event',
       event_category: 'Video',
-      event_action: this.player.dataset.videoTitle || 'Video Title',
+      event_action: this.el.dataset.videoTitle || 'Unknown Title',
       event_label: 'Play',
     })
   }

@@ -122,7 +122,7 @@ export default class Audio {
     dataLayer.push({
       event: 'dataLayer push event',
       event_category: 'Audio',
-      event_action: this.player.dataset.audioTitle || 'Audio Title',
+      event_action: this.el.dataset.audioTitle || 'Unknown Title',
       event_label: 'Play',
     })
   }

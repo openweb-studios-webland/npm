@@ -4,76 +4,78 @@
 {% set image = image is iterable ? image.id : image %}
 {% set uid = random() %}
 
-<div
-  class="aspect-ratio-16/9 overflow-hidden relative"
-  data-module="audio"
-  data-audio-title="{{ audio.title }}"
->
-  <div class="absolute flex flex-col justify-center inset-0 p-10">
-    {% if audio.url %}
-      <div data-audio-player data-audio-source="{{ audio.url }}"></div>
-    {% endif %}
+{% if audio %}
+  <div
+    class="aspect-ratio-16/9 overflow-hidden relative"
+    data-module="audio"
+    data-audio-title="{{ audio.title }}"
+  >
+    <div class="absolute flex flex-col justify-center inset-0 p-10">
+      {% if audio.url %}
+        <div data-audio-player data-audio-source="{{ audio.url }}"></div>
+      {% endif %}
 
-    <div class="flex items-center mt-10 -mx-5">
-      <div class="px-5">
-        <button class="audio-play-pause block bg-blue-denim h-24 relative rounded-full text-white w-24" data-audio-play-pause>
-          <span class="sr-only">
-            Play Audio
-          </span>
-          {{ svg('audio-play', { classes: 'absolute inset-1/2 ml-1 translate-1/2' }) }}
-          {{ svg('audio-pause', { classes: 'absolute inset-1/2 translate-1/2' }) }}
-        </button>
-      </div>
-
-      <div class="px-5">
-        <button class="block bg-gray-border h-24 relative rounded-full text-white w-24" data-audio-skip-backward>
-          <span class="sr-only">
-            Skip Audio Backward
-          </span>
-          {{ svg('audio-backward', { classes: 'absolute inset-1/2 translate-1/2' }) }}
-        </button>
-      </div>
-
-      <div class="px-5">
-        <time class="text-gray-dark text-12" data-audio-progress></time>
-      </div>
-
-      {% if audio.caption %}
-        <div class="flex-1 px-5 text-right">
-          <button class="text-blue-denim text-12" aria-controls="{{ uid }}">
-            Read Transcript
+      <div class="flex items-center mt-10 -mx-5">
+        <div class="px-5">
+          <button class="audio-play-pause block bg-blue-denim h-24 relative rounded-full text-white w-24" data-audio-play-pause>
+            <span class="sr-only">
+              Play Audio
+            </span>
+            {{ svg('audio-play', { classes: 'absolute inset-1/2 ml-1 translate-1/2' }) }}
+            {{ svg('audio-pause', { classes: 'absolute inset-1/2 translate-1/2' }) }}
           </button>
         </div>
 
-        {% set content %}
-          <div class="text">
-            {{ audio.caption }}
+        <div class="px-5">
+          <button class="block bg-gray-border h-24 relative rounded-full text-white w-24" data-audio-skip-backward>
+            <span class="sr-only">
+              Skip Audio Backward
+            </span>
+            {{ svg('audio-backward', { classes: 'absolute inset-1/2 translate-1/2' }) }}
+          </button>
+        </div>
+
+        <div class="px-5">
+          <time class="text-gray-dark text-12" data-audio-progress></time>
+        </div>
+
+        {% if audio.caption %}
+          <div class="flex-1 px-5 text-right">
+            <button class="text-blue-denim text-12" aria-controls="{{ uid }}">
+              Read Transcript
+            </button>
           </div>
-        {% endset %}
 
-        {% include '_partials/modal.twig' ignore missing with {
-          content: content,
-          size: 'sm',
-          uid: uid,
-        } only %}
-      {% endif %}
+          {% set content %}
+            <div class="text">
+              {{ audio.caption }}
+            </div>
+          {% endset %}
+
+          {% include '_partials/modal.twig' ignore missing with {
+            content: content,
+            size: 'sm',
+            uid: uid,
+          } only %}
+        {% endif %}
+      </div>
     </div>
-  </div>
 
-  {% if image %}
-    <button class="overlay absolute group h-full inset-1/2 transition translate-1/2 w-full z-10" data-audio-play-pause>
-      {{ macros.responsiveImage(image, 720, 405) }}
+    {% if image %}
+      <button class="overlay absolute group h-full inset-1/2 transition translate-1/2 w-full z-10" data-audio-play-pause>
+        {{ macros.responsiveImage(image, 720, 405) }}
 
-      <span class="absolute inset-1/2 invisible h-100 opacity-0 transition-fast translate-1/2 w-100 group-hover:opacity-100 group-hover:visible">
-        <span class="sr-only">
-          Play Audio
+        <span class="absolute inset-1/2 invisible h-100 opacity-0 transition-fast translate-1/2 w-100 group-hover:opacity-100 group-hover:visible">
+          <span class="sr-only">
+            Play Audio
+          </span>
+          <img
+            class="mt-10"
+            src="{{ fn('get_stylesheet_directory_uri') }}/assets/images/play.png"
+            alt=""
+          >
         </span>
-        <img
-          class="mt-10"
-          src="{{ fn('get_stylesheet_directory_uri') }}/assets/images/play.png"
-          alt=""
-        >
-      </span>
-    </button>
-  {% endif %}
-</div>
+      </button>
+    {% endif %}
+  </div>
+{% endif %}

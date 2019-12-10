@@ -13,3 +13,10 @@ require_once get_template_directory() . '/app/image-sizes.php';
 require_once get_template_directory() . '/app/options-pages.php';
 require_once get_template_directory() . '/app/menus.php';
 require_once get_template_directory() . '/app/menu-items.php';
+
+
+
+
+
+
+remove_filter('the_title', 'wptexturize');

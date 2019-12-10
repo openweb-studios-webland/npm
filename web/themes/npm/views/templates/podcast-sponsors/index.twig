@@ -47,7 +47,7 @@
 
                 {% for podcast in podcasts %}
                   <option
-                    value="{{ podcast.slug | replace({ '-': ' ', '_': ' ' }) }}"
+                    value="{{ podcast.title }}"
                     {{ query_vars.podcasts == podcast.slug ? 'selected' }}
                   >
                     {{ podcast.title }}

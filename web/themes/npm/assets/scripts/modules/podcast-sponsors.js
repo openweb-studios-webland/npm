@@ -1,3 +1,4 @@
+import debounce from '../utilities/debounce'
 import slugify from '../utilities/slugify'
 
 export default class PodcastSponsors {
@@ -29,11 +30,16 @@ export default class PodcastSponsors {
   }
 
   attachEventListeners = () => {
-    this.podcastsInput.addEventListener('change', this.onPodcasts)
-    this.hasOfferInput.addEventListener('change', this.onHasOffer)
-    this.keywordsInput.addEventListener('keyup', this.onKeywords)
     this.resetTrigger.addEventListener('click', this.onReset)
     this.loadMoreTrigger.addEventListener('click', this.onLoadMore)
+    this.podcastsInput.addEventListener('change', this.onPodcasts)
+    this.hasOfferInput.addEventListener('change', this.onHasOffer)
+    this.keywordsInput.addEventListener(
+      'keyup',
+      debounce(e => {
+        this.onKeywords(e)
+      }, 300)
+    )
   }
 
   onPodcasts = e => {
@@ -94,29 +100,8 @@ export default class PodcastSponsors {
 
   filterItems = () => {
     this.toggleLoading(true)
-
-    // Build queryable selectors
-    let querySelectors = []
-
-    // Podcasts
-    if (this.filters[this.params.podcasts]) {
-      querySelectors.push(`[data-podcast-sponsors-keywords*="${this.filters[this.params.podcasts]}"]`)
-    }
-
-    // Has offers
-    if (this.filters[this.params.hasOffer]) {
-      querySelectors.push('[data-podcast-sponsors-has-offer="yes"]')
-    }
-
-    // Keywords
-    if (this.filters[this.params.keywords]) {
-      querySelectors.push(`[data-podcast-sponsors-keywords*="${this.filters[this.params.keywords]}"]`)
-    }
-
     this.setSearchParams()
-
-    querySelectors.length > 0 ? this.filterItemsBySelectors(querySelectors) : this.filterItemsByLength()
-
+    Object.entries(this.filters).length > 0 ? this.filterItemsBySelectors() : this.filterItemsByLength()
     this.toggleLoading()
   }
 
@@ -151,14 +136,12 @@ export default class PodcastSponsors {
     }
 
     this.toggleAlert(itemsCount === 0)
-
     const showMore = this.hasMoreItems(itemsCount) || this.hasMoreItems(this.items.length)
-
     this.toggleLoadMore(showMore)
   }
 
   filterItemsBySelectors = selectors => {
-    const items = [...this.el.querySelectorAll(`${selectors.join('')}`)]
+    const items = []
     let itemsCount = 0
 
     for (let i = 0; i < this.items.length; i++) {
@@ -167,7 +150,12 @@ export default class PodcastSponsors {
       let activeItemParent = itemParent !== prevItemParent ? false : activeItemParent
       let visibleItemsCount = itemParent !== prevItemParent ? 0 : visibleItemsCount
 
-      if (this.hasMoreItems(itemsCount) && items.indexOf(item) > -1) {
+      if (
+        this.hasMoreItems(itemsCount) &&
+        this.itemHasOffer(item) &&
+        this.itemMatchesRegex(item, this.podcastsInput.value) &&
+        this.itemMatchesRegex(item, this.keywordsInput.value)
+      ) {
         item.classList.remove('hidden')
 
         // Update items count only once per item parent
@@ -199,6 +187,20 @@ export default class PodcastSponsors {
 
   hasMoreItems = itemsCount => {
     return itemsCount < this.page * this.itemsPerPage
+  }
+
+  itemMatchesRegex = (item, value = '') => {
+    const regexp = new RegExp('\\b\\w*' + this.escapeRegexp(value) + '\\w*\\b', 'i')
+
+    return regexp.test(item.dataset.podcastSponsorsKeywords)
+  }
+
+  escapeRegexp = string => {
+    return string.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')
+  }
+
+  itemHasOffer = item => {
+    return this.hasOfferInput.checked ? item.dataset.podcastSponsorsHasOffer === 'yes' : true
   }
 
   updateItemsCount = (item, count) => {
@@ -250,7 +252,7 @@ export default class PodcastSponsors {
           url += `${slugify(value)}/`
         } else {
           const separator = hasParams ? '&' : '?'
-          params += `${separator}${key}=${slugify(value)}`
+          params += `${separator}${key}=${encodeURI(value)}`
           hasParams = true
         }
       }

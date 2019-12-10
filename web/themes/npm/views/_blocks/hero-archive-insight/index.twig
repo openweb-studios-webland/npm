@@ -4,7 +4,7 @@
   {% set article_report = Post(block.featured_article_report) %}
 
   <section class="section relative{{ article_report.type != 'video' ? ' pb-0 lg:pb-50' }}" data-label="hero-archive-insight">
-    {{ svg('pattern', { classes: 'absolute bottom-0 hidden h-auto inset-x-0 w-full lg:block' }) }}
+    <img src="{{ fn('get_stylesheet_directory_uri') }}/assets/images/pattern.svg" class="absolute bottom-0 hidden h-auto inset-x-0 w-full lg:block">
 
     <div class="container">
       <div class="flex flex-wrap items-center -mx-30 relative">

@@ -1,14 +1,11 @@
 {% set uid = random() %}
 
 <div class="bg-white h-full relative z-10">
-  <button
-    class="block flex flex-col h-full text-left"
-    data-module="toggle"
-    data-toggle-partners="{{ uid }}{{ loop.index }}0"
-    aria-controls="{{ uid }}{{ loop.index }}"
-  >
+  <div class="flex flex-col h-full text-left relative">
     {% if program.image %}
-      {{ macros.responsiveImage(program.image, 560, 560) }}
+      <div class="flex-shrink-0">
+        {{ macros.responsiveImage(program.image, 560, 560) }}
+      </div>
     {% endif %}
 
     <div class="flex flex-col flex-grow p-20">
@@ -21,15 +18,22 @@
       </div>
 
       <div>
-        <span class="font-bold inline-block mt-20 text-14 text-blue-denim">
+        <span
+          class="font-bold inline-block mt-20 text-14 text-blue-denim"
+          aria-hidden="true">
           See Details
-          <span class="sr-only">
-            for {{ program.heading }}
-          </span>
         </span>
       </div>
     </div>
-  </button>
+
+    <button
+      class="absolute top-0 left-0 w-full h-full"
+      data-module="toggle"
+      data-toggle-partners="{{ uid }}{{ loop.index }}0"
+      aria-controls="{{ uid }}{{ loop.index }}">
+      <span class="sr-only">See Details for {{ program.heading }}</span>
+    </button>
+  </div>
 
   <div
     id="{{ uid }}{{ loop.index }}"

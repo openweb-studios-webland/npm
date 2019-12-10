@@ -60,15 +60,23 @@ export default class Modal {
 
   scrollLock = (scrollLock = true) => {
     const body = document.querySelector('body')
-    const header = document.querySelector('[data-module="header"]')
 
     if (scrollLock) {
       body.classList.add('locked')
-      body.style.paddingTop = `${header.offsetHeight}px`
+      body.style.paddingTop = `${this.getHeight(document.querySelector('[data-module="header"]'))}px`
     } else {
       body.classList.remove('locked')
       body.style.paddingTop = ``
     }
+  }
+
+  getHeight = el => {
+    let height = el.offsetHeight
+    const style = getComputedStyle(el)
+
+    height += parseInt(style.marginTop) + parseInt(style.marginBottom)
+
+    return height
   }
 
   trapFocus = e => {

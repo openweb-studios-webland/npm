@@ -4,6 +4,7 @@ export default class Header {
   constructor(el) {
     this.el = el
     this.trigger = this.el.querySelector('[data-header-trigger]')
+    this.body = document.body
 
     this.attachEventListeners()
     this.checkPosition()
@@ -11,9 +12,7 @@ export default class Header {
 
   attachEventListeners = () => {
     this.trigger.addEventListener('click', () => {
-      const body = document.querySelector('body')
-
-      body.classList.toggle('locked')
+      this.body.classList.toggle('locked')
     })
 
     window.addEventListener(

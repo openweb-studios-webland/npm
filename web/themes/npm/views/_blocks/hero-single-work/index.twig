@@ -38,7 +38,7 @@
 
         {% if block.image.id %}
           <div class="mt-50 px-30 w-full lg:mt-0 lg:w-5/12">
-            <div class="pin-r lg:h-full lg:pb-0" data-module="responsive-background-image">
+            <div class="pin-r relative lg:h-full lg:pb-0" data-module="responsive-background-image">
               {{ macros.responsiveImage(block.image.id, 1080, 1080) }}
 
               <div class="aspect-ratio-16/9 lg:aspect-ratio-square"></div>

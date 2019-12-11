@@ -1,4 +1,5 @@
 ---
-api_version: 1
-php_version: 7.3
-web_docroot: true
+api_version:   1
+php_version:   7.3
+web_docroot:   true
+enforce_https: transitional+subdomains

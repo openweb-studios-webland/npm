@@ -41,7 +41,7 @@
               </span>
 
               <select name="podcasts" data-podcast-sponsors-podcasts-input>
-                <option value=""{{ query_vars.podcast ?: ' selected' }}>
+                <option value=""{{ query_vars.podcast ?: ' selected' }} data-podcast-sponsors-slug="">
                   Filter by podcast
                 </option>
 
@@ -49,6 +49,7 @@
                   <option
                     value="{{ podcast.title }}"
                     {{ query_vars.podcasts == podcast.slug ? 'selected' }}
+                    data-podcast-sponsors-slug="{{ podcast.slug }}"
                   >
                     {{ podcast.title }}
                   </option>

@@ -30,6 +30,8 @@ export default class Audio {
   init = () => {
     // Create Wavesurfer object
     this.waveSurfer = WaveSurfer.create({
+      audioContext: {}, // IE11 fix
+      backend: 'MediaElement',
       barGap: this.config.barGap,
       barWidth: this.config.barWidth,
       barHeight: this.config.barHeight,

@@ -43,10 +43,13 @@ export default class PodcastSponsors {
   }
 
   onPodcasts = e => {
+    this.page = 1
     const value = e.target.value
 
     if (value && value !== '') {
-      this.filters[this.params.podcasts] = value.toLowerCase()
+      const selectedOption = e.target.querySelector('option:checked')
+
+      this.filters[this.params.podcasts] = selectedOption.dataset.podcastSponsorsSlug || value.toLowerCase()
     } else {
       delete this.filters[this.params.podcasts]
     }
@@ -68,7 +71,7 @@ export default class PodcastSponsors {
     const value = e.target.value
 
     if (value && value !== '') {
-      this.filters[this.params.keywords] = value.toLowerCase()
+      this.filters[this.params.keywords] = value
     } else {
       delete this.filters[this.params.keywords]
     }
@@ -138,7 +141,7 @@ export default class PodcastSponsors {
     this.toggleLoadMore(showMore)
   }
 
-  filterItemsBySelectors = selectors => {
+  filterItemsBySelectors = () => {
     let itemsCount = 0
 
     for (let i = 0; i < this.items.length; i++) {
@@ -187,13 +190,18 @@ export default class PodcastSponsors {
   }
 
   itemMatchesRegExp = (item, value = '') => {
+    value = String(value).toLowerCase()
     const regExp = new RegExp('\\b\\w*' + this.escapeRegExp(value) + '\\w*\\b', 'i')
 
     return regExp.test(item.dataset.podcastSponsorsKeywords)
   }
 
   escapeRegExp = string => {
-    return string.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')
+    string = string.replace(/\./g, '')
+    string = string.replace(/!/g, '')
+    string = string.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
+
+    return string
   }
 
   itemHasOffer = item => {
@@ -236,7 +244,7 @@ export default class PodcastSponsors {
       .split('/')
       .slice(0, 2)
       .join('/')
-    let url = `${location.protocol}//${location.host}${pathname}/`
+    let url = `${location.protocol}//${location.host}${pathname}/` // MAYBE REMOVE?
     const filters = Object.entries(this.filters)
 
     // If filters are selected

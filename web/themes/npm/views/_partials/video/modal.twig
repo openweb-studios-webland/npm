@@ -4,7 +4,7 @@
 {% if video %}
   {% set content %}
     {% if video.html %}
-      <div class="video">
+      <div class="video" data-video-title="{{ video.title }}">
         {{ video.html }}
       </div>
     {% endif %}

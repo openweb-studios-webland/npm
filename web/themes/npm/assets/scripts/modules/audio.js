@@ -1,4 +1,5 @@
 import activeMedia from '../utilities/active-media'
+import dataLayer from '../utilities/data-layer'
 const WaveSurfer = require('wavesurfer.js/dist/wavesurfer')
 // @TODO Update WaveSurfer once import issue is resoloved 3.1.1+
 // import WaveSurfer from 'wavesurfer.js'
@@ -45,7 +46,6 @@ export default class Audio {
 
     if (this.config.audioSource) {
       this.waveSurfer.load(this.config.audioSource)
-
       this.waveSurfer.on('ready', () => {
         this.duration = this.formatTimestamp(this.waveSurfer.getDuration())
         this.progress.innerHTML = `00:00 / ${this.duration}`
@@ -104,9 +104,8 @@ export default class Audio {
   onPlay = () => {
     this.el.classList.add('active')
     this.el.classList.add('playing')
-
     activeMedia.set('audio', this.waveSurfer)
-    this.pushToDataLayer()
+    dataLayer.push('Audio', this.el.dataset.audioTitle)
   }
 
   onPause = () => {
@@ -117,15 +116,5 @@ export default class Audio {
     this.waveSurfer.skipBackward()
 
     e.preventDefault()
-  }
-
-  pushToDataLayer = () => {
-    window.dataLayer = window.dataLayer || []
-    dataLayer.push({
-      event: 'dataLayer push event',
-      event_category: 'Audio',
-      event_action: this.el.dataset.audioTitle || 'Unknown Title',
-      event_label: 'Play',
-    })
   }
 }

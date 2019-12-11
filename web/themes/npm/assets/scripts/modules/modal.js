@@ -1,5 +1,6 @@
 import activeMedia from '../utilities/active-media'
 import aria from '../utilities/aria'
+import dataLayer from '../utilities/data-layer'
 
 export default class Modal {
   constructor(el) {
@@ -30,6 +31,7 @@ export default class Modal {
     if (this.videoPlayer) {
       activeMedia.set('video', this.videoPlayer)
       activeMedia.play()
+      dataLayer.push('Video', this.videoPlayer.parentNode.dataset.videoTitle)
     }
   }
 
@@ -73,7 +75,6 @@ export default class Modal {
   getHeight = el => {
     let height = el.offsetHeight
     const style = getComputedStyle(el)
-
     height += parseInt(style.marginTop) + parseInt(style.marginBottom)
 
     return height

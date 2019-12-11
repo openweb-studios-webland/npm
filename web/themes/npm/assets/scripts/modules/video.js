@@ -18,6 +18,7 @@ export default class Video {
   onPlay = e => {
     if (!this.el.classList.contains('active')) {
       this.el.classList.add('active')
+      this.pushToDataLayer()
     }
 
     activeMedia.stop()
@@ -25,5 +26,15 @@ export default class Video {
     activeMedia.play()
 
     e.preventDefault()
+  }
+
+  pushToDataLayer = () => {
+    window.dataLayer = window.dataLayer || []
+    dataLayer.push({
+      event: 'dataLayer push event',
+      event_category: 'Video',
+      event_action: this.el.dataset.videoTitle || 'Video Title',
+      event_label: 'Play',
+    })
   }
 }

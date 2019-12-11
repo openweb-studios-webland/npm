@@ -215,10 +215,9 @@ export default class PodcastSponsors {
   }
 
   getSearchParams = () => {
-    const pathname = location.pathname
-      .split('/')
-      .slice(2, 3)
-      .toString()
+    let pathname = location.pathname.split('/')
+    pathname = pathname.slice(2, 3)
+    pathname = pathname.toString()
 
     if (pathname !== '') {
       this.filters[this.params.podcasts] = pathname.replace(/-/g, ' ')
@@ -240,10 +239,9 @@ export default class PodcastSponsors {
   }
 
   setSearchParams = () => {
-    const pathname = location.pathname
-      .split('/')
-      .slice(0, 2)
-      .join('/')
+    let pathname = location.pathname.split('/')
+    pathname = pathname.slice(0, 2)
+    pathname = pathname.join('/')
     let url = `${location.protocol}//${location.host}${pathname}/` // MAYBE REMOVE?
     const filters = Object.entries(this.filters)
 

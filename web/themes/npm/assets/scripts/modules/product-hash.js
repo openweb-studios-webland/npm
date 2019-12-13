@@ -9,10 +9,13 @@ export default class ProductHash {
     const hash = location.hash.substring(1)
 
     if (hash !== '') {
-      const el = document.getElementById(hash)
-      const siblings = this.getSiblings(el)
+      const el = this.el.querySelector(`[data-product-hash="${hash}"]`)
 
-      this.removeSiblings(siblings)
+      if (el) {
+        const siblings = this.getSiblings(el)
+
+        this.removeSiblings(siblings)
+      }
     }
   }
 

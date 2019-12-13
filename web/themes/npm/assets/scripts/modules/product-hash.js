@@ -8,14 +8,16 @@ export default class ProductHash {
   init = () => {
     const hash = location.hash.substring(1)
 
-    if (hash !== '') {
-      const el = this.el.querySelector(`[data-product-hash="${hash}"]`)
+    if (hash === '') {
+      return
+    }
 
-      if (el) {
-        const siblings = this.getSiblings(el)
+    const el = this.el.querySelector(`[data-product-hash="${hash}"]`)
 
-        this.removeSiblings(siblings)
-      }
+    if (el) {
+      const siblings = this.getSiblings(el)
+
+      this.removeSiblings(siblings)
     }
   }
 

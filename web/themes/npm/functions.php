@@ -14,3 +14,4 @@ require_once get_template_directory() . '/app/options-pages.php';
 require_once get_template_directory() . '/app/menus.php';
 require_once get_template_directory() . '/app/menu-items.php';
 require_once get_template_directory() . '/app/smart-quotes.php';
+require_once get_template_directory() . '/app/title-tag.php';

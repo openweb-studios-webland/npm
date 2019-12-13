@@ -10,7 +10,7 @@
       aria-hidden="true"
     >
       <div class="container">
-        <ul class="flex flex-wrap -mb-30 -mx-15 py-30 lg:flex-no-wrap">
+        <ul class="flex flex-wrap -mb-30 py-30 lg:flex-no-wrap lg:-mx-30">
           <li
             class="lg:hidden"
             data-toggle-partner="{{ uid }}0"
@@ -25,11 +25,11 @@
           {% for item in items %}
             {% set level1ItemTitle = item.title %}
 
-            <li class="{{ item.classes | join(' ') | trim }} {{ not loop.last ? 'border-b border-gray ' }}flex-1 leading-normal mb-20 pb-20 pl-30 px-15 relative w-full lg:border-b-0 lg:mb-0 lg:pb-30 lg:w-auto">
+            <li class="{{ item.classes | join(' ') | trim }} {{ not loop.last ? 'border-b border-gray ' }}flex-grow leading-normal mb-20 pb-20 pl-30 relative w-full lg:border-b-0 lg:flex-basis-0 lg:mb-0 lg:pb-30 lg:pl-60 lg:pr-30 lg:w-auto">
               {% set image = TimberImage(item.image) %}
 
               {% if image.file_loc %}
-                <span class="absolute left-0 mt-5 text-blue-light top-0">
+                <span class="absolute left-0 mt-5 text-blue-light top-0 lg:ml-30">
                   {{ fn('file_get_contents', image.file_loc)}}
                 </span>
               {% endif %}

@@ -6,14 +6,14 @@
     text: post.text,
   } only %}
 
-  <div class="bg-gray py-50">
+  <div class="bg-gray py-50" data-module="product-hash">
     <div class="container-lg">
       {% include 'templates/archive-product/platforms.twig' ignore missing %}
 
       {% if products | length %}
         <div class="flex flex-wrap -mb-20 -mx-20 pt-30 sm:-mx-10">
           {% for product in products %}
-            <div class="mb-20 px-10 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+            <div id="{{ product.hash }}" class="mb-20 px-10 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
               {% include '_blocks/products/product.twig' ignore missing %}
             </div>
           {% endfor %}

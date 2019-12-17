@@ -6,15 +6,10 @@
 {% if images | length %}
   {% if images | length > 1 %}
     {% set content %}
-      <div
-        class="overflow-hidden"
-        data-module="carousel"
-        data-carousel-loop="false"
-        tabindex="0"
-      >
-        <div class="carousel-track flex items-center relative -mx-10" data-carousel-track>
-          {% for image in images %}
-            <div class="flex-0 px-10 w-full">
+      <div data-module="slick" data-slick=''>
+        {% for image in images %}
+          <div class="h-full">
+            <div class="flex flex-col h-full justify-center">
               {% if image.id %}
                 {{ macros.responsiveImage(image.id, 1920) }}
               {% endif %}
@@ -25,21 +20,21 @@
                 </p>
               {% endif %}
             </div>
-          {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="flex mt-30 -mx-5">
+        <div class="px-5">
+          {% include '_partials/carousel/button-prev.twig' ignore missing with {
+            classes: 'text-blue transition-fast hover:text-blue-light',
+          } only %}
         </div>
 
-        <div class="flex mt-30 -mx-5">
-          <div class="px-5">
-            {% include '_partials/carousel/button-prev.twig' ignore missing with {
-              classes: 'text-blue transition-fast hover:text-blue-light',
-            } only %}
-          </div>
-
-          <div class="px-5">
-            {% include '_partials/carousel/button-next.twig' ignore missing with {
-              classes: 'text-blue transition-fast hover:text-blue-light',
-            } only %}
-          </div>
+        <div class="px-5">
+          {% include '_partials/carousel/button-next.twig' ignore missing with {
+            classes: 'text-blue transition-fast hover:text-blue-light',
+          } only %}
         </div>
       </div>
     {% endset %}

@@ -32,17 +32,20 @@
 
       {% if block.services | length %}
         <div class="mt-10 px-30 w-full lg:mt-0 lg:w-3/4">
-          <div class="overflow-hidden px-40 relative lg:pl-20 lg:pr-100">
-            <div data-module="carousel" data-carousel-loop="false">
-              <div class="carousel-track flex relative -mx-10 pt-30 pb-100 lg:pt-50" data-carousel-track>
-                {% for service in block.services %}
-                  <div class="carousel-item flex-0 px-10 w-full sm:w-1/2 md:w-1/3" data-carousel-item>
-                    {% include '_blocks/services/service.twig' ignore missing %}
-                  </div>
-                {% endfor %}
-              </div>
+          <div class="overflow-hidden px-40 relative lg:pl-0 lg:pr-100">
+            <div
+              class="section pb-30"
+              data-module="slick"
+              data-slick='{ "infinite": false, "slidesToShow": 3, "responsive": [{ "breakpoint": 1024,"settings": { "slidesToShow": 2 }}, { "breakpoint": 640,"settings": { "slidesToShow": 1 }}]}'
+            >
+              {% for service in block.services %}
+                <div class="block h-full px-10 transition">
+                  {% include '_blocks/services/service.twig' ignore missing %}
+                </div>
+              {% endfor %}
+            </div>
 
-              <div class="flex justify-center mb-30 -mt-60 -mx-5 relative z-10 lg:justify-end lg:mb-50 lg:-mt-50">
+            <div class="flex justify-center opacity-50 mb-30 -mx-5 relative z-10 lg:justify-end lg:mb-50 lg:opacity-100">
                 <div class="px-5">
                   {% include '_partials/carousel/button-prev.twig' ignore missing with {
                     classes: 'opacity-50 text-white transition-fast hover:opacity-100',
@@ -55,7 +58,6 @@
                   } only %}
                 </div>
               </div>
-            </div>
           </div>
         </div>
       {% endif %}

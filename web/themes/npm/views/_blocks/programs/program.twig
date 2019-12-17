@@ -30,8 +30,11 @@
       class="absolute top-0 left-0 w-full h-full"
       data-module="toggle"
       data-toggle-partners="{{ uid }}{{ loop.index }}0"
-      aria-controls="{{ uid }}{{ loop.index }}">
-      <span class="sr-only">See Details for {{ program.heading }}</span>
+      aria-controls="{{ uid }}{{ loop.index }}"
+    >
+      <span class="sr-only">
+        See Details for {{ program.heading }}
+      </span>
     </button>
   </div>
 

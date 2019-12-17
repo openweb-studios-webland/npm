@@ -1,12 +1,12 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="section bg-teal pt-0 lg:pb-0" data-label="testimonials-front-page">
+  <section class="section bg-teal pt-0 relative lg:pb-0" data-label="testimonials-front-page">
     {% if block.testimonials | length %}
-      <div class="relative overflow-hidden" data-module="carousel">
-        <div class="carousel-track flex relative" data-carousel-track>
+      {% if block.testimonials | length > 1 %}
+        <div data-module="slick">
           {% for testimonial in block.testimonials %}
-            <div class="carousel-item flex-0 w-full" data-carousel-item>
+            <div class="h-full">
               <div class="container h-full">
                 {% include '_blocks/testimonials-front-page/testimonial.twig' ignore missing %}
               </div>
@@ -14,26 +14,28 @@
           {% endfor %}
         </div>
 
-        {% if block.testimonials | length > 1 %}
-          <div class="lg:absolute lg:bottom-0 lg:left-0 lg:mb-50 lg:w-full">
-            <div class="container">
-              <div class="flex justify-center mt-30 -mx-5 lg:justify-start lg:mt-0">
-                <div class="px-5">
-                  {% include '_partials/carousel/button-prev.twig' ignore missing with {
-                    classes: 'opacity-50 text-white transition-fast hover:opacity-100',
-                  } only %}
-                </div>
+        <div class="lg:absolute lg:bottom-0 lg:left-0 lg:mb-50 lg:w-full">
+          <div class="container">
+            <div class="flex justify-center mt-30 -mx-5 lg:justify-start lg:mt-0">
+              <div class="px-5">
+                {% include '_partials/carousel/button-prev.twig' ignore missing with {
+                  classes: 'opacity-50 text-white transition-fast hover:opacity-100',
+                } only %}
+              </div>
 
-                <div class="px-5">
-                  {% include '_partials/carousel/button-next.twig' ignore missing with {
-                    classes: 'opacity-50 text-white transition-fast hover:opacity-100',
-                  } only %}
-                </div>
+              <div class="px-5">
+                {% include '_partials/carousel/button-next.twig' ignore missing with {
+                  classes: 'opacity-50 text-white transition-fast hover:opacity-100',
+                } only %}
               </div>
             </div>
           </div>
-        {% endif %}
-      </div>
+        </div>
+      {% else %}
+        <div class="container h-full">
+          {% include '_blocks/testimonials-front-page/testimonial.twig' ignore missing %}
+        </div>
+      {% endif %}
     {% endif %}
   </section>
 {% endif %}

@@ -31,27 +31,21 @@
         <div class="mt-40 px-30 w-full lg:mt-0 lg:w-1/2">
           <div class="pin-r">
             {% if block.images | length > 1 %}
-              <div
-                class="overflow-hidden"
-                data-module="carousel"
-                data-carousel-autoplay="true"
-              >
-                <div class="carousel-track flex relative" data-carousel-track>
-                  {% for image in block.images %}
-                    <div class="carousel-item flex-0 relative w-full" data-carousel-item>
-                      {{ macros.responsiveImage(image.id, 1440, 1008, ['lg:shadow']) }}
+              <div data-module="slick" data-slick='{ "arrows": false, "autoplay": true, "fade": true }'>
+                {% for image in block.images %}
+                  <div class="relative">
+                    {{ macros.responsiveImage(image.id, 1440, 1008) }}
 
-                      {% include '_partials/credit.twig' ignore missing with {
-                        credit: image.description,
-                      } only %}
-                    </div>
-                  {% endfor %}
-                </div>
+                    {% include '_partials/credit.twig' ignore missing with {
+                      credit: image.description,
+                    } only %}
+                  </div>
+                {% endfor %}
               </div>
             {% else %}
               {% if block.images[0].id %}
                 <div class="relative">
-                  {{ macros.responsiveImage(block.images[0].id, 1440, 1008, ['lg:shadow']) }}
+                  {{ macros.responsiveImage(block.images[0].id, 1440, 1008) }}
 
                   {% include '_partials/credit.twig' ignore missing with {
                     credit: block.images[0].description,

@@ -1,0 +1,49 @@
+/*! purgecss start ignore */
+@import "slick-carousel/slick/slick.scss";
+
+.slick-slide[aria-hidden] {
+  @apply block;
+}
+
+[data-label="programs"],
+[data-label="services"],
+[data-label="testimonials"],
+[data-label="testimonials-front-page"] {
+  & .slick-track {
+    @apply flex;
+  }
+
+  & .slick-slide {
+    @apply h-auto;
+
+    & > div,
+    & > div > div {
+      @apply h-full;
+    }
+  }
+}
+
+[data-label="programs"],
+[data-label="services"] {
+  & .slick-list {
+    @apply overflow-visible;
+  }
+
+  & .slick-slide {
+    &:hover,
+    &:focus {
+      & > div > div {
+        transform: scale(1.05);
+      }
+    }
+
+    &.slick-active  > div > div > div {
+      @apply shadow-sm;
+    }
+
+    & > div > div {
+      @apply block !important; /* Slick inline override */
+    }
+  }
+}
+/*! purgecss end ignore */

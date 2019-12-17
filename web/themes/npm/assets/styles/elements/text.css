@@ -10,11 +10,18 @@
   & p,
   & dl,
   & ol,
-  & ul,
+  & ul {
+    @apply mb-20;
+
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+
   & blockquote,
   & img,
   & .wp-caption {
-    @apply mb-20;
+    @apply mb-30;
 
     &:last-child {
       @apply mb-0;

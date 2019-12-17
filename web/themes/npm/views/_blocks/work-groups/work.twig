@@ -1,7 +1,7 @@
 {% set uid = random() %}
 
 {% if work.type == 'audio' %}
-  <div class="border border-gray-border">
+  <div class="md:border md:border-gray-border">
     {% include '_partials/audio/index.twig' ignore missing with {
       audio: work.audio,
     } only %}

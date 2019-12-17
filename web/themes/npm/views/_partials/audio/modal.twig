@@ -9,12 +9,12 @@
       data-audio-title="{{ audio.title }}"
     >
       {% if audio.url %}
-        <div data-audio-player data-audio-source="{{ audio.url }}"></div>
+        <div class="border border-gray-border p-10" data-audio-player data-audio-source="{{ audio.url }}"></div>
       {% endif %}
 
       <div class="flex items-center mt-10 -mx-5">
         <div class="px-5">
-          <button class="audio-play-pause block bg-blue-denim h-24 relative rounded-full text-white w-24" data-audio-play-pause>
+          <button class="audio-play-pause block bg-blue-denim h-32 relative rounded-full text-white w-32 lg:h-24 lg:w-24" data-audio-play-pause>
             <span class="sr-only">
               Play Audio
             </span>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="px-5">
-          <button class="block bg-gray-border h-24 relative rounded-full text-white w-24" data-audio-skip-backward>
+          <button class="block bg-gray-border h-32 relative rounded-full text-white w-32 lg:h-24 lg:w-24" data-audio-skip-backward>
             <span class="sr-only">
               Skip Audio Backward
             </span>

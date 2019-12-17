@@ -6,13 +6,13 @@
 
 {% if audio %}
   <div
-    class="aspect-ratio-16/9 overflow-hidden relative"
+    class="overflow-hidden md:aspect-ratio-16/9 lg:relative"
     data-module="audio"
     data-audio-title="{{ audio.title }}"
   >
-    <div class="absolute flex flex-col justify-center inset-0 p-10">
+    <div class="flex flex-col justify-center inset-0 md:absolute md:p-10">
       {% if audio.url %}
-        <div data-audio-player data-audio-source="{{ audio.url }}"></div>
+        <div class="border border-gray-border p-10 md:border-0 md:p-0" data-audio-player data-audio-source="{{ audio.url }}"></div>
       {% endif %}
 
       <div class="flex items-center mt-10 -mx-5">

@@ -28,6 +28,7 @@
       <a
         class="arrow"
         href="{{ featured_content.button_link }}"
+        {{ fn('get_image_target', featured_content.button_link) }}
         data-track-gtm="Call to Action|{{ current_url }}|{{ featured_content.button_text }}:{{ featured_content.button_link }}"
       >
         {{ featured_content.button_text }}

@@ -20,6 +20,7 @@
       <a
         class="button mt-25"
         href="{{ button_link }}"
+        {{ fn('get_image_target', button_link) }}
         data-track-gtm="Call to Action|{{ current_url }}|{{ button_text }}:{{ button_link }}"
       >
         {{ button_text }}

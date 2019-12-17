@@ -31,6 +31,7 @@
                 <a
                   class="arrow mt-20 text-link-blue"
                   href="{{ block.button_link }}"
+                  {{ fn('get_image_target', block.button_link) }}
                   data-track-gtm="Call to Action|{{ current_url }}|{{ block.button_text }}:{{ block.button_link }}"
                 >
                   {{ block.button_text }}

@@ -3,11 +3,9 @@
 {% block content %}
   {% if fields.blocks %}
     {% for block in fields.block %}
-
       {% include '_blocks/_' ~ block.acf_fc_layout ~ '/index.twig' ignore missing with {
         block: block
       } only %}
-
     {% endfor %}
   {% endif %}
 {% endblock %}

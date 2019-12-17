@@ -15,6 +15,7 @@
     <a
       class="button"
       href="{{ button_link }}"
+      {{ fn('get_image_target', button_link) }}
       data-track-gtm="Call to Action|{{ current_url }}|{{ button_text }}:{{ button_link }}"
     >
       {{ button_text }}
@@ -23,6 +24,7 @@
     <a
       class="button-white"
       href="{{ button_link }}"
+      {{ fn('get_image_target', button_link) }}
       data-track-gtm="Call to Action|{{ current_url }}|{{ button_text }}:{{ button_link }}"
     >
       {{ button_text }}
@@ -31,6 +33,7 @@
     <a
       class="button-outline"
       href="{{ button_link }}"
+      {{ fn('get_image_target', button_link) }}
       data-track-gtm="Call to Action|{{ current_url }}|{{ button_text }}:{{ button_link }}"
     >
       {{ button_text }}

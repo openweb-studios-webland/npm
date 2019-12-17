@@ -20,6 +20,7 @@
     <a
       class="arrow mt-20 text-14"
       href="{{ work.link }}"
+      {{ fn('get_image_target', work.link) }}
       data-track-gtm="Call to Action|{{ current_url }}|View the work:{{ work.link }}"
     >
       View the work
@@ -48,6 +49,7 @@
     <a
       class="arrow mt-20 text-14"
       href="{{ work.link }}"
+      {{ fn('get_image_target', work.link) }}
       data-track-gtm="Call to Action|{{ current_url }}|View the work:{{ work.link }}"
     >
       View the work
@@ -73,6 +75,7 @@
     <a
       class="arrow mt-20 text-14"
       href="{{ work.link }}"
+      {{ fn('get_image_target', work.link) }}
       data-track-gtm="Call to Action|{{ current_url }}|View the work:{{ work.link }}"
     >
       View the work

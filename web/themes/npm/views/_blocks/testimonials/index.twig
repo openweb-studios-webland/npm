@@ -1,7 +1,7 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="bg-teal pt-30 lg:pt-50" data-label="testimonials">
+  <section class="section bg-teal lg:pb-0" data-label="testimonials">
     {% if block.testimonials | length %}
       {% if block.testimonials | length > 1 %}
         <div class="relative lg:px-60">
@@ -9,7 +9,7 @@
             {% for testimonial in block.testimonials %}
               <div class="h-full">
                 <div class="flex flex-col h-full justify-center">
-                  <div class="container">
+                  <div class="container lg:-mb-10">
                     {% include '_blocks/testimonials/testimonial.twig' ignore missing %}
                   </div>
                 </div>
@@ -17,9 +17,9 @@
             {% endfor %}
           </div>
 
-          <div class="lg:absolute lg:inset-x-0 lg:-mt-25 lg:top-1/2 lg:translate-y-1/2">
+          <div class="-mt-30 lg:absolute lg:inset-x-0 lg:-mt-25 lg:top-1/2 lg:translate-y-1/2">
             <div class="container-lg">
-              <div class="flex justify-center mt-30 -mx-5 lg:justify-between lg:mt-0">
+              <div class="flex justify-center -mx-5 lg:justify-between">
                 <div class="px-5">
                   {% include '_partials/carousel/button-prev.twig' ignore missing with {
                     classes: 'opacity-50 text-white transition-fast hover:opacity-100',
@@ -38,7 +38,7 @@
       {% else %}
         {% set testimonial = block.testimonial[0] %}
 
-        <div class="container">
+        <div class="container lg:-mb-10">
           {% include '_blocks/testimonials/testimonial.twig' ignore missing %}
         </div>
       {% endif %}

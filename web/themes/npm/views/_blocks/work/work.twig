@@ -56,7 +56,9 @@
   </div>
 {% else %}
   {% if work.image %}
-    {{ macros.responsiveImage(work.image, 720, 405) }}
+    <a class="block" href="{{ work.link }}">
+      {{ macros.responsiveImage(work.image, 720, 405) }}
+    </a>
   {% endif %}
 
   <div class="mt-20">

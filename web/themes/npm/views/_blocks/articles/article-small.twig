@@ -1,8 +1,11 @@
 <div class="flex flex-col h-full">
+  {% set button_link = article.button_link | length ? article.button_link : article.link %}
+  {% set button_text = article.button_text | length ? article.button_text : 'Read more' %}
+
   {% if article.image %}
-    <div class="mb-20 flex-shrink-0">
+    <a class="block mb-20 flex-shrink-0" href="{{ button_link }}">
       {{ macros.responsiveImage(article.image, 720, 540) }}
-    </div>
+    </a>
   {% endif %}
 
   <div class="flex-grow">
@@ -26,9 +29,6 @@
       </p>
     {% endif %}
   </div>
-
-  {% set button_link = article.button_link | length ? article.button_link : article.link %}
-  {% set button_text = article.button_text | length ? article.button_text : 'Read more' %}
 
   <div>
     <a

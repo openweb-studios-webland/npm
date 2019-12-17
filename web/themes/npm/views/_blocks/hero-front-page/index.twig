@@ -1,10 +1,10 @@
 {% set block = block ?? null %}
 
 {% if block %}
-  <section class="bg-blue text-white lg:pb-50" data-label="hero-front-page">
+  <section class="bg-blue text-white pb-30 md:pb-50" data-label="hero-front-page">
     <div class="container">
       <div class="flex flex-wrap items-center -mx-30">
-        <div class="pt-20 px-30 w-full lg:w-1/2">
+        <div class="pt-20 md:pt-0 px-30 md:pl-50 w-full md:w-1/2">
           {% if block.heading %}
             <h1 class="heading-1">
               {{ block.heading }}
@@ -28,7 +28,7 @@
           {% endif %}
         </div>
 
-        <div class="mt-40 px-30 w-full lg:mt-0 lg:w-1/2">
+        <div class="mt-30 md:mt-0 px-50 md:px-30 w-full md:w-1/2">
           <div class="pin-r">
             {% if block.images | length > 1 %}
               <div data-module="slick" data-slick='{ "arrows": false, "autoplay": true, "fade": true }'>

@@ -38,7 +38,8 @@
     "manuelodelain/svg-twig-extension": "^0.1.0",
     "wpackagist-plugin/intuitive-custom-post-order": "^3.1",
     "wpackagist-plugin/redirection": "^4.4",
-    "wpackagist-plugin/enable-media-replace": "^3.3.7"
+    "wpackagist-plugin/enable-media-replace": "^3.3.7",
+    "wpackagist-plugin/open-external-links-in-a-new-window": "^1.4"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.0.2"
@@ -54,7 +55,8 @@
         "wpackagist-plugin/wordpress-seo",
         "wpackagist-plugin/intuitive-custom-post-order",
         "wpackagist-plugin/redirection",
-        "wpackagist-plugin/enable-media-replace"
+        "wpackagist-plugin/enable-media-replace",
+        "wpackagist-plugin/open-external-links-in-a-new-window"
       ],
       "web/plugins/{$name}/": [
         "type:wordpress-plugin"

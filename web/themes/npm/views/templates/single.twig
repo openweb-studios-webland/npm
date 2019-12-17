@@ -1,7 +1,9 @@
 {% extends '_layouts/base.twig' %}
 
 {% block content %}
-  <div class="container">
-    {{ post.content }}
+  <div data-label="single">
+    <div class="container">
+      {{ post.title }}
+    </div>
   </div>
 {% endblock %}

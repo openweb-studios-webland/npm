@@ -1,3 +1,4 @@
+/*! purgecss start ignore */
 .heading-1,
 .heading-2,
 .text h1,
@@ -38,8 +39,7 @@
 .heading-5,
 .text h4,
 .heading-6,
-.text h5
-.heading-8 {
+.text h5 .heading-8 {
   @apply leading-tighter;
 }
 
@@ -86,7 +86,7 @@
 .heading-6,
 .text h5 {
   @apply mb-25
-    text-12
+    text-16
     tracking-wide
     uppercase;
 }
@@ -100,3 +100,4 @@
 .heading-8 {
   @apply text-12;
 }
+/*! purgecss end ignore */

@@ -114,9 +114,7 @@
   }
 
   & blockquote {
-    @apply mb-0
-      mt-0
-      mx-0
+    @apply mx-0
       pb-30
       relative;
     left: 50%;

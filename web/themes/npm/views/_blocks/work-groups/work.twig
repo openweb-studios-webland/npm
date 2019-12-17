@@ -23,15 +23,19 @@
     </div>
   </div>
 {% elseif work.type == 'video' %}
-  <button class="block relative" aria-controls="{{ uid }}">
+  <button class="block group relative" aria-controls="{{ uid }}">
     {% if work.image.id %}
       {{ macros.responsiveImage(work.image.id, 720, 405) }}
 
-      <span class="absolute inset-1/2 h-80 translate-1/2 w-80">
+      <span class="absolute inset-1/2 invisible h-100 opacity-0 transition-fast translate-1/2 w-100 group-hover:opacity-100 group-hover:visible">
         <span class="sr-only">
           Open Video Modal
         </span>
-        {{ svg('play') }}
+        <img
+          class="mt-10"
+          src="{{ fn('get_stylesheet_directory_uri') }}/assets/images/play.png"
+          alt=""
+        >
       </span>
     {% endif %}
   </button>

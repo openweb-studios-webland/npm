@@ -20,10 +20,12 @@ if (function_exists('acf_add_local_field_group')):
                     'id' => '',
                 ),
                 'layouts' => array(
+                    acf_dynamic_clones_get_local_field_group('Featured Content', 'featured-content'),
                     acf_dynamic_clones_get_local_field_group('Featured Work', 'featured-work'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero-single-service'),
                     acf_dynamic_clones_get_local_field_group('Images', 'images'),
                     acf_dynamic_clones_get_local_field_group('Related Articles', 'articles'),
+                    acf_dynamic_clones_get_local_field_group('Related Products', 'products'),
                     acf_dynamic_clones_get_local_field_group('Related Services', 'services'),
                     acf_dynamic_clones_get_local_field_group('Related Work', 'work'),
                     acf_dynamic_clones_get_local_field_group('Stats', 'stats'),

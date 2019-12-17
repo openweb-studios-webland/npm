@@ -14,7 +14,7 @@
   & blockquote,
   & img,
   & .wp-caption {
-    @apply mb-30;
+    @apply mb-20;
 
     &:last-child {
       @apply mb-0;

@@ -39,7 +39,9 @@
             } only %}
           {% else %}
             {% if report.featured_image %}
-              {{ macros.responsiveImage(report.featured_image, 1080, 810, 'lg:shadow' ) }}
+              <a class="block lg:shadow" href="{{ button_link }}">
+                {{ macros.responsiveImage(report.featured_image, 1080, 810 ) }}
+              </a>
             {% endif %}
           {% endif %}
         </div>

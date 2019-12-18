@@ -9,7 +9,9 @@
         <div class="flex flex-wrap items-center -mx-20">
           {% if work.featured_image %}
             <div class="px-20 w-full lg:w-2/3">
-              {{ macros.responsiveImage(work.featured_image, 1080, 679) }}
+              <a class="block" href="{{ work.link }}">
+                {{ macros.responsiveImage(work.featured_image, 1080, 679) }}
+              </a>
             </div>
           {% endif %}
 

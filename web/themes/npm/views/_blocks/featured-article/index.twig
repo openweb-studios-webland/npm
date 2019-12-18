@@ -38,7 +38,9 @@
 
         {% if article.featured_image %}
           <div class="mt-40 px-30 w-full lg:mt-0 lg:w-1/2">
-            {{ macros.responsiveImage(article.featured_image, 1080, 810) }}
+            <a class="block" href="{{ button_link }}">
+              {{ macros.responsiveImage(article.featured_image, 1080, 810) }}
+            </a>
           </div>
         {% endif %}
       </div>

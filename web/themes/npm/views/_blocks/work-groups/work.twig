@@ -31,11 +31,7 @@
         <span class="sr-only">
           Open Video Modal
         </span>
-        <img
-          class="mt-10"
-          src="{{ fn('get_stylesheet_directory_uri') }}/assets/images/play.png"
-          alt=""
-        >
+        {{ svg('play', { classes: 'ml-10 mt-10' }) }}
       </span>
     {% endif %}
   </button>

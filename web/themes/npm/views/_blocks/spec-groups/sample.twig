@@ -10,11 +10,7 @@
           <span class="sr-only">
             Play Audio
           </span>
-          <img
-            class="mt-10"
-            src="{{ fn('get_stylesheet_directory_uri') }}/assets/images/play.png"
-            alt=""
-          >
+          {{ svg('play', { classes: 'ml-10 mt-10' }) }}
         </span>
       </button>
     {% endif %}
@@ -32,11 +28,7 @@
           <span class="sr-only">
             Play Video
           </span>
-          <img
-            class="mt-10"
-            src="{{ fn('get_stylesheet_directory_uri') }}/assets/images/play.png"
-            alt=""
-          >
+          {{ svg('play', { classes: 'ml-10 mt-10' }) }}
         </span>
       </button>
     {% endif %}

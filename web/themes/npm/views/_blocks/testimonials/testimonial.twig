@@ -1,13 +1,15 @@
-<div class="bg-white mb-60 p-30 shadow text-center md:p-50 lg:text-left">
-  {% if testimonial.text %}
-    <div class="text font-serif italic leading-tight text-20 lg:text-24">
-      {{ testimonial.text }}
-    </div>
-  {% endif %}
+<div class="pb-60">
+  <div class="bg-white p-30 shadow text-center md:p-50 lg:text-left">
+    {% if testimonial.text %}
+      <div class="text font-serif italic leading-tight text-20 lg:text-24">
+        {{ testimonial.text }}
+      </div>
+    {% endif %}
 
-  {% if testimonial.attribution %}
-    <p class="text italic mt-25 text-14">
-      {{ testimonial.attribution }}
-    </p>
-  {% endif %}
+    {% if testimonial.attribution %}
+      <p class="text italic mt-25 text-14">
+        {{ testimonial.attribution }}
+      </p>
+    {% endif %}
+  </div>
 </div>

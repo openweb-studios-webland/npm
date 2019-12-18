@@ -32,6 +32,8 @@
           </div>
         </div>
       {% else %}
+        {% set testimonial = block.testimonials[0] %}
+
         <div class="container h-full">
           {% include '_blocks/testimonials-front-page/testimonial.twig' ignore missing %}
         </div>

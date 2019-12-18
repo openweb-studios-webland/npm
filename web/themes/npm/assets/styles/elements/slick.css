@@ -1,14 +1,24 @@
 /*! purgecss start ignore */
 @import "slick-carousel/slick/slick.scss";
 
-.slick-slide[aria-hidden] {
-  @apply block;
+.slick-slide {
+  @apply opacity-0
+    transition;
+
+  &[aria-hidden] {
+    @apply block;
+  }
+
+  &.slick-active {
+    @apply opacity-100;
+  }
 }
 
 [data-label="programs"],
 [data-label="services"],
 [data-label="testimonials"],
-[data-label="testimonials-front-page"] {
+[data-label="testimonials-front-page"],
+[data-label="images-gallery"] {
   & .slick-track {
     @apply flex;
   }
@@ -30,6 +40,8 @@
   }
 
   & .slick-slide {
+    @apply opacity-100;
+
     &:hover,
     &:focus {
       & > div > div {

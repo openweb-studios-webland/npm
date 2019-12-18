@@ -3,8 +3,8 @@
 {% if block %}
   <section class="section bg-teal lg:pb-0" data-label="testimonials">
     {% if block.testimonials | length %}
-      {% if block.testimonials | length > 1 %}
-        <div class="relative lg:px-60">
+      <div class="relative lg:px-60">
+        {% if block.testimonials | length > 1 %}
           <div data-module="slick">
             {% for testimonial in block.testimonials %}
               <div class="h-full">
@@ -34,14 +34,14 @@
               </div>
             </div>
           </div>
-        </div>
-      {% else %}
-        {% set testimonial = block.testimonials[0] %}
+        {% else %}
+          {% set testimonial = block.testimonials[0] %}
 
-        <div class="container lg:-mb-10">
-          {% include '_blocks/testimonials/testimonial.twig' ignore missing %}
-        </div>
-      {% endif %}
+          <div class="container lg:-mb-10">
+            {% include '_blocks/testimonials/testimonial.twig' ignore missing %}
+          </div>
+        {% endif %}
+      </div>
     {% endif %}
   </section>
 {% endif %}

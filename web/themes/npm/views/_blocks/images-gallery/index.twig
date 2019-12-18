@@ -1,0 +1,74 @@
+
+{% set block = block ?? null %}
+
+{% if block %}
+  <section class="section" data-label="images-gallery">
+    {% if block.images | length %}
+      {% if block.images | length > 1 %}
+        <div class="container-lg">
+          <div class="relative lg:px-60">
+            <div data-module="slick">
+              {% for image in block.images %}
+                <div class="h-full">
+                  <div class="flex flex-col h-full justify-center">
+                    {% if image.id %}
+                      <div class="relative">
+                        {{ macros.responsiveImage(image.id, 1800) }}
+
+                        {% include '_partials/credit.twig' ignore missing with {
+                          credit: image.description,
+                        } only %}
+                      </div>
+                    {% endif %}
+
+                    {% if image.caption %}
+                      <div class="text mt-20 text-center text-12">
+                        {{ image.caption }}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+
+            <div class="mt-30 lg:absolute lg:inset-x-0 lg:mt-0 lg:top-1/2 lg:translate-y-1/2">
+              <div class="flex justify-center -mx-5 lg:justify-between">
+                <div class="px-5">
+                  {% include '_partials/carousel/button-prev.twig' ignore missing with {
+                    classes: 'text-blue transition-fast hover:text-blue-light',
+                  } only %}
+                </div>
+
+                <div class="px-5">
+                  {% include '_partials/carousel/button-next.twig' ignore missing with {
+                    classes: 'text-blue transition-fast hover:text-blue-light',
+                  } only %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <div class="container">
+          {% set image = block.images[0] %}
+
+          {% if image.id %}
+            <div class="relative">
+              {{ macros.responsiveImage(image.id, 1800) }}
+
+              {% include '_partials/credit.twig' ignore missing with {
+                credit: image.description,
+              } only %}
+            </div>
+          {% endif %}
+
+          {% if image.caption %}
+            <div class="text mt-20 text-center text-12">
+              {{ image.caption }}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endif %}
+  </section>
+{% endif %}

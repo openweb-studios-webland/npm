@@ -1,12 +1,15 @@
 <div class="bg-white flex flex-col h-full shadow-sm">
   {% if featured_content.image.id %}
-    <div class="aspect-ratio-16/9 relative" data-module="responsive-background-image">
+    <a
+      class="aspect-ratio-16/9 block relative"
+      data-module="responsive-background-image"
+    >
       {{ macros.responsiveImage(featured_content.image.id, 1080, 607) }}
 
       {% include '_partials/credit.twig' ignore missing with {
         credit: featured_content.image.description,
       } only %}
-    </div>
+    </a>
   {% endif %}
 
   <div class="flex-grow my-20 px-20">

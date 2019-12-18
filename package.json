@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "tailwindcss": "^1.1.2",
+    "tailwindcss-transforms": "^2.2.0",
     "what-input": "^5.2.6"
   }
 }

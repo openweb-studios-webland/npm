@@ -235,6 +235,9 @@ module.exports = {
       none: '0',
     },
     padding: theme => theme('spacing'),
+    rotate: {
+      '180': ['180deg']
+    },
     stroke: {
       current: 'currentColor',
     },
@@ -324,6 +327,7 @@ module.exports = {
     pointerEvents: [],
     position: ['responsive'],
     resize: false,
+    rotate: ['parent-expanded'],
     stroke: false,
     tableLayout: false,
     textAlign: ['responsive'],
@@ -353,6 +357,7 @@ module.exports = {
       },
       variants: ['responsive'],
     }),
+    require('./plugins/parent-expanded')(),
     require('./plugins/transition')({
       transitions: {
         slow: 'all 0.4s ease',
@@ -360,5 +365,6 @@ module.exports = {
         default: 'all 0.3s ease',
       },
     }),
+    require('tailwindcss-transforms')(),
   ],
 }

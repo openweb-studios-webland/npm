@@ -85,10 +85,7 @@
 
 .heading-6,
 .text h5 {
-  @apply mb-25
-    text-16
-    tracking-wide
-    uppercase;
+  @apply text-12;
 }
 
 .heading-7,

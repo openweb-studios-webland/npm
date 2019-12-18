@@ -1,7 +1,9 @@
 @charset "UTF-8";
 
 /* Tailwind base and components */
+/*! purgecss start ignore */
 @import "tailwindcss/base";
+/*! purgecss end ignore */
 @import "tailwindcss/components";
 
 /* Elements */

@@ -58,7 +58,7 @@
             </label>
           {% endif %}
 
-          <label class="block mb-30">
+          <label class="flex mb-30 text-14">
             <input
               type="checkbox"
               name="has-offer"
@@ -120,7 +120,7 @@
 
                   <div class="flex-shrink-0 px-15 lg:w-1/4">
                     <button
-                      class="flex items-center ml-auto"
+                      class="flex items-center ml-auto text-12"
                       data-module="toggle"
                       aria-controls="{{ uid }}{{ loop.index }}"
                     >
@@ -187,8 +187,8 @@
                               {% endif %}
 
                               {% if promo_code.expiration %}
-                                <div class="mb-5 px-15 w-full md:w-1/4">
-                                  <p class="text md:text-right">
+                                <div class="mb-5 px-15 w-full lg:w-1/4">
+                                  <p class="text lg:text-right">
                                     Ends {{ promo_code.expiration }}
                                   </p>
                                 </div>

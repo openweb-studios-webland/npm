@@ -23,6 +23,7 @@ if (function_exists('acf_add_local_field_group')):
                     acf_dynamic_clones_get_local_field_group('Featured Article', 'featured-article'),
                     acf_dynamic_clones_get_local_field_group('Featured Report', 'featured-report'),
                     acf_dynamic_clones_get_local_field_group('Hero', 'hero-archive-insight'),
+                    acf_dynamic_clones_get_local_field_group('Images Gallery', 'images-gallery'),
                 ),
                 'button_label' => 'Add Block',
                 'min' => '',

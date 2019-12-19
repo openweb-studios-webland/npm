@@ -9,6 +9,7 @@
             data-track-gtm="Footer Navigation|Homepage"
           >
             {{ svg('logo', { classes: 'logo' }) }}
+            <span class="sr-only">{{ site.name }}</span>
           </a>
 
           {% if menu.footer.items | length %}

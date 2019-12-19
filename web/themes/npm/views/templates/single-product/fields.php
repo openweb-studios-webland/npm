@@ -65,12 +65,12 @@ if (function_exists('acf_add_local_field_group')):
         'key' => 'group_5dae2574343b1',
         'title' => 'Product Archive',
         'fields' => array(
-			array(
+            array(
                 'key' => 'field_jnhsc7i0n4ywz',
                 'label' => 'Hash',
                 'name' => 'hash',
                 'type' => 'text',
-                'instructions' => 'Exclude hash, e.g. "15preroll".',
+                'instructions' => 'If multiple hashes redirect to the same page use a comma seperated list, e.g. "15midroll, 30midroll".',
                 'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(

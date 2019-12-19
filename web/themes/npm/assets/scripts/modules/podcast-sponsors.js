@@ -242,7 +242,7 @@ export default class PodcastSponsors {
     let pathname = location.pathname.split('/')
     pathname = pathname.slice(0, 2)
     pathname = pathname.join('/')
-    let url = `${location.protocol}//${location.host}${pathname}/` // MAYBE REMOVE?
+    let url = `${location.protocol}//${location.host}${pathname}/`
     const filters = Object.entries(this.filters)
 
     // If filters are selected

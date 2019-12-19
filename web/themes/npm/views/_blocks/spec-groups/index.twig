@@ -26,11 +26,9 @@
           </div>
 
           {% for spec_group in block.spec_groups %}
-            <div
-              id="{{ spec_group.heading | replace({ ' ': '-' }) | lower }}"
-              class="tabs-target"
-              data-tabs-target
-            >
+            <div class="tabs-target relative" data-tabs-target>
+              <div id="{{ spec_group.heading | replace({ ' ': '-' }) | lower }}" class="absolute invisible -mt-100"></div>
+
               <div class="flex flex-wrap -mx-30">
                 <div class="px-30 w-full lg:w-7/12">
                   {% if spec_group.specs | length %}

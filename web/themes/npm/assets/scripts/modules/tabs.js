@@ -77,6 +77,7 @@ export default class Tabs {
 
   onClick = e => {
     const index = this.triggers.indexOf(e.currentTarget)
+    let url = `${location.protocol}//${location.host}${location.pathname}`
 
     if (index !== this.index) {
       if (this.triggers[this.index].getAttribute('aria-expanded') === 'true') {
@@ -85,8 +86,16 @@ export default class Tabs {
 
       this.index = index
       aria.toggle(this.triggers[this.index], this.targets[this.index])
+
+      // Append ID and push to brwoser history
+      const id = this.triggers[this.index].getAttribute('aria-controls')
+      url += `#${id}`
+      history.pushState(null, null, url)
     } else if (this.config.tabsToAccordion && !this.mq.matches) {
       aria.toggle(this.triggers[this.index], this.targets[this.index])
+
+      // Push to brwoser history
+      history.pushState(null, null, url)
     }
 
     e.preventDefault()

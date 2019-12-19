@@ -38,11 +38,9 @@
                       {{ svg('tabs', { classes: 'absolute hidden h-full inset-y-0 right-0 text-white translate-l-full w-auto' }) }}
                     </button>
 
-                    <div
-                      id="{{ audience.heading | replace({ ' ': '-' }) | lower }}"
-                      class="tabs-target border-b border-white-semitransparent h-full lg:border-b-0"
-                      data-tabs-target
-                    >
+                    <div class="tabs-target border-b border-white-semitransparent h-full relative lg:border-b-0" data-tabs-target>
+                      <div id="{{ audience.heading | replace({ ' ': '-' }) | lower }}" class="absolute invisible -mt-100"></div>
+
                       {% include '_blocks/audiences/audience.twig' ignore missing %}
                     </div>
                   </li>

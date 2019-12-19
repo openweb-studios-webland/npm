@@ -67,6 +67,11 @@ select {
   &:checked + span::after {
     @apply opacity-100;
   }
+
+  &:focus + span {
+    outline: theme(colors.blue.light) auto 5px;
+    outline: -webkit-focus-ring-color auto 5px;
+  }
 }
 
 [type="checkbox"] {

@@ -1,0 +1,16 @@
+.skip-link {
+  @apply fixed
+    bg-crimson
+    m-5
+    px-15
+    py-10
+    text-white
+    transition-fast
+    z-50;
+
+  transform: translateY(calc(-100% - theme('spacing.20')));
+
+  &:focus {
+    transform: translateY(0);
+  }
+}

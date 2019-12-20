@@ -71,7 +71,7 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'hash',
                 'type' => 'text',
                 'instructions' => 'If multiple hashes redirect to the same page use a comma seperated list, e.g. "15midroll, 30midroll".',
-                'required' => 1,
+                'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',

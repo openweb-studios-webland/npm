@@ -38,13 +38,13 @@
       uid: uid,
     } only %}
   {% else %}
-    {% if sample.image and sample.large_image %}
+    {% if sample.image %}
       <button class="block" aria-controls="{{ uid }}">
         {{ macros.responsiveImage(sample.image.id, 345, 219) }}
       </button>
 
       {% include '_partials/image/modal.twig' ignore missing with {
-        images: [sample.large_image],
+        images: [sample.image],
         uid: uid,
       } only %}
     {% endif %}

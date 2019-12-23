@@ -9,8 +9,7 @@
     top-0
     transition-fast
     z-50;
-
-  transform: translateY(calc(-100% - theme('spacing.20')));
+  transform: translateY(-100%) translateY(-20px);
 
   &:focus {
     transform: translateY(0);
